@@ -12,7 +12,7 @@ never hosts or executes plugin code. There is **no build step**: the JSON you se
 | Path | Purpose |
 | --- | --- |
 | `registry/community-typepacks.json` | Index of Type Packs (the PR target to list one) |
-| `registry/community-plugins.json` | Index of Plugin Packs |
+| `registry/community-pluginpacks.json` | Index of Plugin Packs |
 | `schemas/*.schema.json` | JSON Schemas for packs and registry entries |
 | `scripts/validate.py` | Validates the index entries against the schemas (runs in CI) |
 
@@ -20,7 +20,7 @@ never hosts or executes plugin code. There is **no build step**: the JSON you se
 
 ```
 GET https://registry.vineyard.run/registry/community-typepacks.json
-GET https://registry.vineyard.run/registry/community-plugins.json
+GET https://registry.vineyard.run/registry/community-pluginpacks.json
 ```
 
 Each entry carries the card-level summary (name, author, counts, scopes summary) **plus** a
