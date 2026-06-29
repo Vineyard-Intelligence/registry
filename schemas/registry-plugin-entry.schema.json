@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://vineyard.run/schemas/registry/plugin-entry/1.0.0.json",
   "title": "Vineyard registry plugin entry",
-  "description": "One row in community-plugins.json. LEAN catalog projection (Obsidian model): the full manifest lives in the author repo at repo@ref/path; derived fields let the browse page render without fetching every manifest.",
+  "description": "One row in community-pluginpacks.json. LEAN catalog projection (Obsidian model): the full manifest lives in the author repo at repo@ref/path; derived fields let the browse page render without fetching every manifest.",
   "type": "object",
   "additionalProperties": false,
   "required": ["identifier", "content_type", "name", "author", "description", "repo", "ref", "path"],

@@ -22,7 +22,7 @@ import urllib.request
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 
-CATALOGS = ["registry/community-typepacks.json", "registry/community-plugins.json"]
+CATALOGS = ["registry/community-typepacks.json", "registry/community-pluginpacks.json"]
 HEX = set("0123456789abcdef")
 
 

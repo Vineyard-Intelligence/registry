@@ -20,7 +20,7 @@ def load(*parts):
 
 CHECKS = [
     ("registry/community-typepacks.json", "schemas/registry-typepack-entry.schema.json"),
-    ("registry/community-plugins.json", "schemas/registry-plugin-entry.schema.json"),
+    ("registry/community-pluginpacks.json", "schemas/registry-plugin-entry.schema.json"),
 ]
 
 
