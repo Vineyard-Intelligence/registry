@@ -1,0 +1,104 @@
+[
+  {
+    "identifier": "run.vineyard.typepacks.infrastructure",
+    "content_type": "vineyard:typepack",
+    "name": "Infrastructure",
+    "author": "vineyard-run",
+    "description": "Network-infrastructure OSINT entities (IP addresses, domains, URLs, hosts, autonomous systems, netblocks, DNS and WHOIS records, TLS certificates) and the relationships between them.",
+    "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "v1.0.0",
+    "path": "typepacks/infrastructure.json",
+    "version": "1.1.0",
+    "categories": [
+      "infrastructure"
+    ],
+    "type_count": 9,
+    "edge_count": 10,
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.typepacks.threat",
+    "content_type": "vineyard:typepack",
+    "name": "Threat",
+    "author": "vineyard-run",
+    "description": "Threat-intelligence entities (malware, campaigns, vulnerabilities, threat actors, indicators, attack patterns, tools, detection signatures) and their relationships, aligned with STIX 2.1.",
+    "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "v1.0.0",
+    "path": "typepacks/threat.json",
+    "version": "1.1.0",
+    "categories": [
+      "threat"
+    ],
+    "type_count": 8,
+    "edge_count": 9,
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.typepacks.identity",
+    "content_type": "vineyard:typepack",
+    "name": "Identity",
+    "author": "vineyard-run",
+    "description": "People, organizations, and the online identities linking them — personas, email addresses, phone numbers, and social accounts — for OSINT persona and attribution work.",
+    "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "v1.0.0",
+    "path": "typepacks/identity.json",
+    "version": "1.0.0",
+    "categories": [
+      "identity"
+    ],
+    "type_count": 5,
+    "edge_count": 5,
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.typepacks.financial",
+    "content_type": "vineyard:typepack",
+    "name": "Financial",
+    "author": "vineyard-run",
+    "description": "Follow-the-money entities: cryptocurrency addresses and transactions, exchanges, and bank accounts. Public identifiers only — no keys, PANs, or credentials.",
+    "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "v1.0.0",
+    "path": "typepacks/financial.json",
+    "version": "1.0.0",
+    "categories": [
+      "financial"
+    ],
+    "type_count": 4,
+    "edge_count": 5,
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.typepacks.endpoint",
+    "content_type": "vineyard:typepack",
+    "name": "Endpoint",
+    "author": "vineyard-run",
+    "description": "Host and endpoint forensic artifacts (files, processes, registry keys, services, mutexes, scheduled tasks) for DFIR and malware-behavior mapping.",
+    "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "v1.0.0",
+    "path": "typepacks/endpoint.json",
+    "version": "1.0.0",
+    "categories": [
+      "endpoint"
+    ],
+    "type_count": 6,
+    "edge_count": 7,
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.typepacks.geo",
+    "content_type": "vineyard:typepack",
+    "name": "Geospatial",
+    "author": "vineyard-run",
+    "description": "Places and physical context — locations with coordinates, postal addresses, and facilities — to anchor the 'where' of an investigation.",
+    "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "v1.0.0",
+    "path": "typepacks/geo.json",
+    "version": "1.0.0",
+    "categories": [
+      "geo"
+    ],
+    "type_count": 3,
+    "edge_count": 3,
+    "verified": true
+  }
+]

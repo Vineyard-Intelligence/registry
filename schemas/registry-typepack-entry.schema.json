@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vineyard.run/schemas/registry/typepack-entry/1.0.0.json",
+  "title": "Vineyard registry typepack entry",
+  "description": "One row in community-typepacks.json. Symmetric with the plugin entry. Typepacks carry no scopes (no code executes); 'categories' drives the facet filter.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identifier", "content_type", "name", "author", "description", "repo", "ref", "path"],
+  "properties": {
+    "identifier": { "type": "string", "pattern": "^run\\.vineyard\\.typepacks\\.[a-z0-9]+(?:[._-][a-z0-9]+)*$", "description": "Reverse-DNS PK; equals typepack.identifier." },
+    "content_type": { "const": "vineyard:typepack" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "author": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1, "maxLength": 250 },
+    "repo": { "type": "string", "pattern": "^[^/]+/[^/]+$" },
+    "ref": { "type": "string", "description": "IMMUTABLE: commit SHA or annotated tag = typepack.version." },
+    "path": { "type": "string", "description": "Path to the typepack JSON within repo@ref (= distribution.path)." },
+    "version": { "type": "string", "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$" },
+    "categories": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+      "description": "DERIVED: distinct types[].category values; drives the category facet."
+    },
+    "type_count": { "type": "integer", "minimum": 1, "description": "DERIVED: types[].length." },
+    "edge_count": { "type": "integer", "minimum": 0, "description": "DERIVED: edge_types[].length." },
+    "thumbnail_url": { "type": "string", "format": "uri" },
+    "verified": { "type": "boolean", "default": false }
+  }
+}

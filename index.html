@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vineyard registry</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+         background: #0f0b1a; color: #ece9f3; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 4rem 1.5rem; }
+  h1 { font-size: 1.6rem; margin: 0 0 .25rem; }
+  .sub { color: #b3a9cc; margin: 0 0 2rem; }
+  a { color: #c4b5fd; }
+  .card { border: 1px solid #2c2342; border-radius: 12px; padding: 1rem 1.25rem; margin: .75rem 0; }
+  code { background: #1c1530; padding: .15rem .4rem; border-radius: 6px; font-size: .85em; }
+  .ep { display: block; margin: .35rem 0; word-break: break-all; }
+  footer { color: #8c82a6; font-size: .85rem; margin-top: 2.5rem; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Vineyard registry</h1>
+    <p class="sub">The catalog index for Vineyard Type Packs and Plugin Packs.</p>
+
+    <div class="card">
+      <strong>Published endpoints</strong>
+      <code class="ep">GET /registry/registry.json</code>
+      <code class="ep">GET /registry/community-typepacks.json</code>
+      <code class="ep">GET /registry/community-plugins.json</code>
+    </div>
+
+    <div class="card">
+      <strong>Add a pack</strong>
+      <p>Open a pull request adding an entry to <code>registry/community-typepacks.json</code> or
+      <code>registry/community-plugins.json</code> pointing at your content repo and release tag.
+      Pack files themselves live in their own repositories.</p>
+    </div>
+
+    <p>Documentation: <a href="https://docs.vineyard.run/">docs.vineyard.run</a> &middot;
+       Source: <a href="https://github.com/Vineyard-Intelligence/registry">github.com/Vineyard-Intelligence/registry</a></p>
+
+    <footer>The documentation site and the in-app marketplace render this catalog over XHR.
+    This registry stores metadata only — it never hosts or executes plugin code.</footer>
+  </div>
+</body>
+</html>
