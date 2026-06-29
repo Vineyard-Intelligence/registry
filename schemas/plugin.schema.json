@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vineyard.run/schemas/plugin.json",
+  "title": "VINEYARD Plugin Manifest",
+  "description": "A vineyard:plugin document. Same naming family as vineyard:typepack. Source of truth for the plugin (the legacy Plugin table is removed).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identifier", "content_type", "name", "version", "description", "platforms", "io", "scopes", "lifecycle", "distribution"],
+  "properties": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^run\\.vineyard\\.plugins\\.[a-z0-9_]+$",
+      "description": "Reverse-DNS unique id."
+    },
+    "content_type": { "const": "vineyard:plugin" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+].+)?$", "description": "SemVer string (not the legacy float)." },
+    "description": { "type": "string", "minLength": 1, "maxLength": 1024 },
+    "author": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "contact": { "type": "string" }
+      }
+    },
+    "license": { "type": "string", "description": "SPDX id." },
+    "icon": { "type": "string", "description": "Icon shown in the node right-click menu." },
+    "thumbnail_url": { "type": "string", "format": "uri" },
+    "marketing_url": { "type": "string", "format": "uri" },
+    "latest_url": { "type": "string", "format": "uri", "description": "Per-author fallback pointer to the always-newest manifest (update check)." },
+
+    "platforms": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "description": "Per-platform execution flags. At least one of web/desktop. 'primary' is preferred.",
+      "properties": {
+        "primary": { "enum": ["web", "desktop"] },
+        "web": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["runtime", "entry"],
+          "properties": {
+            "runtime": { "enum": ["sandbox-js", "web-proxy"], "description": "sandbox-js = author JS in the browser worker; web-proxy = thin client calling ONE author endpoint." },
+            "entry": { "type": "string" },
+            "proxy_endpoint": { "type": "string", "format": "uri", "description": "REQUIRED when runtime=web-proxy. The ONE endpoint; MUST equal the single scopes.network entry." },
+            "fallback": { "enum": ["desktop", "none"], "default": "none" }
+          }
+        },
+        "desktop": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["runtime", "entry"],
+          "properties": {
+            "runtime": { "enum": ["sandbox-js", "native", "subprocess"] },
+            "entry": { "type": "string" },
+            "min_app_version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+            "fallback": { "enum": ["web", "none"], "default": "none" }
+          }
+        }
+      }
+    },
+
+    "io": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["consumes", "produces"],
+      "description": "Entity types referenced from typepacks. Empty consumes => whole-graph plugin (global launch).",
+      "properties": {
+        "consumes": { "type": "array", "items": { "$ref": "#/$defs/typeRef" } },
+        "produces": { "type": "array", "items": { "$ref": "#/$defs/typeRef" } }
+      }
+    },
+
+    "params": {
+      "type": "object",
+      "description": "JSON-Schema (draft 2020-12) for the pre-run form. Becomes Task.input. MUST NOT contain secrets (use scopes.config secret:true).",
+      "properties": {
+        "type": { "const": "object" },
+        "properties": { "type": "object" },
+        "required": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "scopes": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "The plugin's authority surface. ctx members are absent unless granted. Enforced by the sandbox + a one-time scoped run-token.",
+      "properties": {
+        "graph": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "enum": ["node:read", "node:create", "node:update", "node:delete", "edge:read", "edge:create", "edge:update", "edge:delete"] },
+          "description": "Fine-grained node/edge verbs. Backed by the project graph_edit tier."
+        },
+        "publish": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "enum": ["message:post"] },
+          "description": "Post into the project chat/message stream. Backed by the chat_send tier."
+        },
+        "network": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/networkScope" },
+          "description": "External XHR targets. WEB: exactly ONE entry == platforms.web.proxy_endpoint (no fan-out). Desktop: more allowed, user's responsibility."
+        },
+        "config": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/configValue" },
+          "description": "Install-time values injected at runtime only. secret:true = keychain/desktop, never returned to the browser, never recorded."
+        }
+      }
+    },
+
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "long_running": { "type": "boolean", "default": false, "description": "If true, the runtime continuously manages the task (status/pause/resume/cancel/retry/progress)." },
+        "controls": { "type": "array", "uniqueItems": true, "items": { "enum": ["pause", "resume", "cancel", "retry", "progress"] } },
+        "progress": { "enum": ["none", "determinate", "indeterminate"], "default": "none" },
+        "persistence": { "enum": ["ephemeral", "opt-in", "always"], "default": "ephemeral", "description": "ephemeral = no Task DB row, current browser only." },
+        "states": {
+          "type": "array",
+          "items": { "enum": ["queued", "running", "waiting", "paused", "cancelled", "succeeded", "failed"] },
+          "default": ["queued", "running", "waiting", "paused", "cancelled", "succeeded", "failed"],
+          "description": "Canonical 7-state machine. Retry mints a NEW task (not a state)."
+        }
+      }
+    },
+
+    "distribution": { "$ref": "#/$defs/distribution" }
+  },
+
+  "$defs": {
+    "typeRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["typepack", "category", "name"],
+      "description": "Reference to a typepack node type. Node.type at runtime = '<category>.<name>'.",
+      "properties": {
+        "typepack": { "type": "string", "pattern": "^run\\.vineyard\\.typepacks\\.[a-z0-9]+(?:[._-][a-z0-9]+)*$" },
+        "category": { "type": "string" },
+        "name": { "type": "string" },
+        "as": { "type": "string", "description": "Optional binding alias; the consumed node's value is pre-bound into params under this key." }
+      }
+    },
+    "networkScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["endpoint", "methods"],
+      "properties": {
+        "endpoint": { "type": "string", "format": "uri", "description": "Exact origin/path prefix; no cross-host wildcards." },
+        "methods": { "type": "array", "uniqueItems": true, "items": { "enum": ["GET", "POST", "PUT", "PATCH", "DELETE"] } },
+        "purpose": { "type": "string", "description": "Shown at install time." }
+      }
+    },
+    "configValue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "type"],
+      "properties": {
+        "key": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "label": { "type": "string" },
+        "type": { "enum": ["string", "number", "boolean", "url", "enum"] },
+        "enum": { "type": "array", "items": { "type": "string" } },
+        "secret": { "type": "boolean", "default": false, "description": "BYOK-style. Web: discouraged -> guide to desktop. Never written to any record." },
+        "scope": { "enum": ["plugin", "project", "user"], "default": "user" },
+        "optional": { "type": "boolean", "default": false }
+      }
+    },
+    "distribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind"],
+      "description": "Shared distribution block (plugin + typepack). No server-side copy; the client caches the fetched bundle locally.",
+      "properties": {
+        "kind": { "enum": ["git", "zip", "inline"] },
+        "repository": { "type": "string", "format": "uri", "pattern": "^https://github\\.com/[^/]+/[^/]+$" },
+        "ref": { "type": "string", "description": "IMMUTABLE: 40-char commit SHA or annotated tag. Branches rejected by registry CI." },
+        "path": { "type": "string", "description": "Path to manifest.json within repo@ref (git kind)." },
+        "integrity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["algo", "hash"],
+          "description": "OPTIONAL. Light supply-chain hygiene only (detect a force-push at install). Not evidentiary.",
+          "properties": {
+            "algo": { "enum": ["sha256", "sha512"] },
+            "hash": { "type": "string", "pattern": "^[a-f0-9]{64,128}$" }
+          }
+        },
+        "archive": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["url", "sha256"],
+          "properties": {
+            "url": { "type": "string", "format": "uri", "pattern": "^https://.*\\.zip$" },
+            "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+          }
+        }
+      }
+    }
+  }
+}

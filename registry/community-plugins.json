@@ -1,0 +1,27 @@
+[
+  {
+    "identifier": "run.vineyard.plugins.chaos",
+    "content_type": "vineyard:plugin",
+    "name": "Chaos Reference Pack",
+    "author": "vineyard-run",
+    "description": "A bundle of 6 graph-manipulation plugins for demo/validation: Korean Roulette, Russian Roulette, Thanos Snap, Black Hole, Dumb AI Optimizer, Schrödinger's Node. Installing once adds all 6 together.",
+    "repo": "Vineyard-Intelligence/pluginpack-chaos",
+    "ref": "v1.0.0",
+    "path": "plugins/chaos-pack.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "web"
+    ],
+    "scopes_summary": {
+      "network": false,
+      "graph_write": true,
+      "publish": false,
+      "secret_config": false
+    },
+    "plugin_count": 6,
+    "compat": {
+      "min_app_version": "1.0.0"
+    },
+    "verified": true
+  }
+]

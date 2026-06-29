@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vineyard.run/schemas/typepack.json",
+  "title": "VINEYARD Typepack",
+  "description": "Meta-schema for a vineyard:typepack document. OSINT tool: integrity is light supply-chain hygiene only, not evidentiary.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identifier", "name", "content_type", "version", "distribution", "types"],
+  "properties": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^run\\.vineyard\\.typepacks\\.[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+      "description": "Reverse-DNS id, e.g. run.vineyard.typepacks.infrastructure"
+    },
+    "content_type": { "const": "vineyard:typepack" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$",
+      "description": "SemVer of the pack content. MAJOR = breaking type change requiring node migration."
+    },
+    "description": { "type": "string", "maxLength": 1024 },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string" },
+          "email": { "type": "string", "format": "email" },
+          "url": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "license": { "type": "string", "description": "SPDX expression, e.g. MIT, Apache-2.0, CC-BY-4.0." },
+    "distribution": { "$ref": "#/$defs/distribution" },
+    "marketing_url": { "type": "string", "format": "uri" },
+    "thumbnail_url": { "type": "string", "format": "uri" },
+    "types": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/entityType" },
+      "description": "Node entity type definitions."
+    },
+    "edge_types": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/edgeType" },
+      "description": "Optional relationship/edge type definitions. Absent => the pack contributes node types only."
+    }
+  },
+  "$defs": {
+    "identifierSegment": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "maxLength": 31,
+      "description": "snake_case token (category / name / property key)."
+    },
+    "distribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind"],
+      "description": "Shared distribution block (plugin + typepack). git: repository+ref+path. zip: archive. inline: embedded.",
+      "properties": {
+        "kind": { "enum": ["git", "zip", "inline"] },
+        "repository": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://github\\.com/[^/]+/[^/]+$",
+          "description": "HTTPS repo URL, no trailing .git or slash."
+        },
+        "ref": {
+          "type": "string",
+          "description": "IMMUTABLE ref: 40-char commit SHA or annotated tag. Branches are rejected by registry CI."
+        },
+        "path": { "type": "string", "description": "Path to the document within repo@ref, e.g. typepacks/infrastructure.json." },
+        "integrity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["algo", "hash"],
+          "description": "OPTIONAL. Light supply-chain hygiene (detect a force-push at install). NOT evidentiary integrity.",
+          "properties": {
+            "algo": { "enum": ["sha256", "sha512"] },
+            "hash": { "type": "string", "pattern": "^[a-f0-9]{64,128}$" }
+          }
+        },
+        "archive": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["url", "sha256"],
+          "description": "Optional verifiable zip mirror (kind=zip).",
+          "properties": {
+            "url": { "type": "string", "format": "uri", "pattern": "^https://.*\\.zip$" },
+            "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+          }
+        }
+      }
+    },
+    "entityType": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["category", "name", "label_property", "properties"],
+      "properties": {
+        "category": { "$ref": "#/$defs/identifierSegment" },
+        "name": { "$ref": "#/$defs/identifierSegment" },
+        "display_name": { "type": "string" },
+        "description": { "type": "string" },
+        "label_property": {
+          "type": "string",
+          "description": "Key in 'properties' used as the node's display label. MUST exist and be non-optional."
+        },
+        "icon": {
+          "type": "string",
+          "description": "Polymorphic, resolved in order: a 'data:'/'http(s):' image URI; else a kebab-case lucide icon name (e.g. 'shield-alert'); else a literal glyph/emoji. Optional — when absent the node renders with 'color' only."
+        },
+        "color": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "description": "Node color (#rrggbb). Optional — when absent a stable color is derived from 'category.name'."
+        },
+        "properties": {
+          "type": "object",
+          "minProperties": 1,
+          "description": "property key -> property schema. MUST be non-empty.",
+          "propertyNames": { "$ref": "#/$defs/identifierSegment" },
+          "additionalProperties": { "$ref": "#/$defs/property" }
+        }
+      }
+    },
+    "edgeType": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["category", "name", "label", "from", "to"],
+      "description": "Directed relationship type. 'label' is stored verbatim in Edge.label (<=64). from/to constrain endpoint node types.",
+      "properties": {
+        "category": { "$ref": "#/$defs/identifierSegment" },
+        "name": { "$ref": "#/$defs/identifierSegment" },
+        "label": { "type": "string", "maxLength": 64 },
+        "display_name": { "type": "string" },
+        "description": { "type": "string" },
+        "directed": { "type": "boolean", "default": true },
+        "from": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Allowed source node-type refs '<category>.<name>'. '*' = any."
+        },
+        "to": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Allowed target node-type refs. '*' = any."
+        },
+        "properties": {
+          "type": "object",
+          "description": "Optional edge property schema (stored in Edge.data). Same grammar as node properties.",
+          "propertyNames": { "$ref": "#/$defs/identifierSegment" },
+          "additionalProperties": { "$ref": "#/$defs/property" }
+        }
+      }
+    },
+    "property": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "description": "Every property MUST declare an explicit type. NOTE: 'secret'/'credential' types are intentionally absent.",
+      "properties": {
+        "type": {
+          "enum": ["string", "text", "number", "integer", "boolean", "date", "datetime", "enum", "url", "ip", "hash", "email", "reference", "array", "object"],
+          "description": "Logical property type. 'reference' links to another node type."
+        },
+        "description": { "type": "string" },
+        "optional": { "type": "boolean", "default": false, "description": "false (default) = required key in Node.data." },
+        "default": { "description": "Default applied when the key is absent; type must match 'type'." },
+        "validator": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Structured validation (replaces the raw-regex-string precedent).",
+          "properties": {
+            "regex": { "type": "string", "description": "ECMAScript regex the string form must fully match." },
+            "min": { "type": "number" },
+            "max": { "type": "number" },
+            "min_length": { "type": "integer", "minimum": 0 },
+            "max_length": { "type": "integer", "minimum": 0 },
+            "format": { "type": "string", "description": "Named format hint, e.g. ipv4, sha256, iso8601." }
+          }
+        },
+        "enum": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": ["string", "number", "boolean"] },
+          "description": "Required when type='enum'."
+        },
+        "reference": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Required when type='reference'.",
+          "properties": {
+            "target": { "type": "string", "description": "Qualified '<category>.<name>' of the referenced node type, or '*'." }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vineyard.run/schemas/registry/plugin-entry/1.0.0.json",
+  "title": "Vineyard registry plugin entry",
+  "description": "One row in community-plugins.json. LEAN catalog projection (Obsidian model): the full manifest lives in the author repo at repo@ref/path; derived fields let the browse page render without fetching every manifest.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identifier", "content_type", "name", "author", "description", "repo", "ref", "path"],
+  "properties": {
+    "identifier": { "type": "string", "pattern": "^run\\.vineyard\\.plugins\\.[a-z0-9_]+$", "description": "Reverse-DNS PK; equals manifest.identifier. Unique across the whole registry." },
+    "content_type": { "const": "vineyard:plugin" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "author": { "type": "string", "minLength": 1, "description": "Author handle; matched against verified-authors.json." },
+    "description": { "type": "string", "minLength": 1, "maxLength": 250, "description": "<=250 chars, sentence case, ends with a period, no emoji." },
+    "repo": { "type": "string", "pattern": "^[^/]+/[^/]+$", "description": "owner/name GitHub path; the only pointer to code." },
+    "ref": { "type": "string", "description": "IMMUTABLE: 40-char commit SHA or annotated tag = manifest.version. Branches rejected." },
+    "path": { "type": "string", "description": "Path to manifest.json within repo@ref." },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+].+)?$", "description": "SemVer mirror of manifest.version at this ref." },
+    "platforms": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "enum": ["web", "web-proxy", "desktop"] },
+      "description": "DERIVED badge set from platforms.{web,desktop} + web.runtime."
+    },
+    "scopes_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "DERIVED neutral facets for filtering (NOT warnings). No special 'destructive' treatment by product decision.",
+      "properties": {
+        "network": { "type": "boolean", "description": "true if scopes.network is non-empty." },
+        "graph_write": { "type": "boolean", "description": "true if any node:/edge: create/update/delete verb is present." },
+        "publish": { "type": "boolean", "description": "true if scopes.publish is non-empty." },
+        "secret_config": { "type": "boolean", "description": "true if any scopes.config has secret:true (=> desktop-only key)." }
+      }
+    },
+    "compat": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": { "min_app_version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" } },
+      "description": "Oldest Vineyard runtime this entry's ref supports (versions.json analog)."
+    },
+    "plugin_count": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "DERIVED: number of plugins bundled when the identifier names a PACK (one file → many plugins, §3.4). Omitted (or 1) for a single-plugin entry. The marketplace shows the pack as one card and installs all contained plugins together."
+    },
+    "thumbnail_url": { "type": "string", "format": "uri" },
+    "verified": { "type": "boolean", "default": false, "description": "Mirror of verified-authors.json membership; set by CI, not self-asserted." }
+  }
+}
