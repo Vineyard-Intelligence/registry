@@ -13,7 +13,7 @@
     "author": { "type": "string", "minLength": 1 },
     "description": { "type": "string", "minLength": 1, "maxLength": 250 },
     "repo": { "type": "string", "pattern": "^[^/]+/[^/]+$" },
-    "ref": { "type": "string", "description": "IMMUTABLE: commit SHA or annotated tag = typepack.version." },
+    "ref": { "type": "string", "pattern": "^([0-9a-f]{40}|[0-9a-f]{64})$", "description": "IMMUTABLE commit SHA (40-hex SHA-1 or 64-hex SHA-256) of the content repo, captured at PR time. Tags/branches are mutable and REJECTED - pin the exact reviewed commit. Human-readable release is in `version`." },
     "path": { "type": "string", "description": "Path to the typepack JSON within repo@ref (= distribution.path)." },
     "version": { "type": "string", "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$" },
     "categories": {
