@@ -13,7 +13,7 @@
     "author": { "type": "string", "minLength": 1, "description": "Author handle; matched against verified-authors.json." },
     "description": { "type": "string", "minLength": 1, "maxLength": 250, "description": "<=250 chars, sentence case, ends with a period, no emoji." },
     "repo": { "type": "string", "pattern": "^[^/]+/[^/]+$", "description": "owner/name GitHub path; the only pointer to code." },
-    "ref": { "type": "string", "description": "IMMUTABLE: 40-char commit SHA or annotated tag = manifest.version. Branches rejected." },
+    "ref": { "type": "string", "pattern": "^([0-9a-f]{40}|[0-9a-f]{64})$", "description": "IMMUTABLE commit SHA (40-hex SHA-1 or 64-hex SHA-256) of the content repo, captured at PR time. Tags/branches are mutable (re-pointable to other code) and are REJECTED - pin the exact reviewed commit so the catalog can never serve different code. Human-readable release is in `version`." },
     "path": { "type": "string", "description": "Path to manifest.json within repo@ref." },
     "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+].+)?$", "description": "SemVer mirror of manifest.version at this ref." },
     "platforms": {
