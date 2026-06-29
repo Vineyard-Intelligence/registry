@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vineyard.run/schemas/pluginpack.json",
+  "title": "VINEYARD Plugin Pack Manifest",
+  "description": "A vineyard:pluginpack document: ONE file / bundle that ships MANY plugins (like a vineyard:typepack ships many types). The pack carries the reverse-DNS identity and distribution; each contained plugin is a vineyard:plugin addressed by its own run.vineyard.plugins.<name> id. Use plugin.schema.json for a standalone single plugin.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identifier", "content_type", "name", "version", "description", "plugins"],
+  "properties": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^run\\.vineyard\\.pluginpacks\\.[a-z0-9_]+$",
+      "description": "Reverse-DNS pack id. Distinct namespace from the contained plugins (run.vineyard.plugins.*), since a pack and a plugin are different kinds."
+    },
+    "content_type": { "const": "vineyard:pluginpack" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+].+)?$", "description": "SemVer of the pack as a whole." },
+    "description": { "type": "string", "minLength": 1, "maxLength": 1024 },
+    "author": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "contact": { "type": "string" }
+      }
+    },
+    "license": { "type": "string", "description": "SPDX id." },
+    "icon": { "type": "string", "description": "Card / browse icon for the pack." },
+    "thumbnail_url": { "type": "string", "format": "uri" },
+    "marketing_url": { "type": "string", "format": "uri" },
+    "platforms": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "description": "How the pack BUNDLE is loaded (the single artifact that contains every member's code, e.g. dist/<pack>.js). Members run 'inline' from this bundle.",
+      "properties": {
+        "primary": { "enum": ["web", "desktop"] },
+        "web": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["runtime", "entry"],
+          "properties": {
+            "runtime": { "enum": ["sandbox-js", "web-proxy"] },
+            "entry": { "type": "string", "description": "Path to the pack bundle (NOT 'inline'; members are 'inline' within it)." },
+            "proxy_endpoint": { "type": "string", "format": "uri" },
+            "fallback": { "enum": ["desktop", "none"], "default": "none" }
+          }
+        },
+        "desktop": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["runtime", "entry"],
+          "properties": {
+            "runtime": { "enum": ["sandbox-js", "native", "subprocess"] },
+            "entry": { "type": "string" },
+            "min_app_version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+            "fallback": { "enum": ["web", "none"], "default": "none" }
+          }
+        }
+      }
+    },
+    "distribution": { "$ref": "https://vineyard.run/schemas/plugin.json#/$defs/distribution" },
+    "plugins": {
+      "type": "array",
+      "minItems": 1,
+      "description": "The contained plugins. Each is a vineyard:plugin with its own global run.vineyard.plugins.<name> id; members ship 'inline' inside the pack bundle and so omit their own distribution block.",
+      "items": { "$ref": "#/$defs/member" }
+    }
+  },
+  "$defs": {
+    "member": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["identifier", "content_type", "name", "version", "description", "platforms", "io", "scopes"],
+      "description": "A plugin bundled in a pack. Same as a standalone vineyard:plugin but WITHOUT its own distribution (it inherits the pack's); entry is typically 'inline'.",
+      "properties": {
+        "identifier": { "type": "string", "pattern": "^run\\.vineyard\\.plugins\\.[a-z0-9_]+$", "description": "Reverse-DNS plugin id; globally unique, independent of the pack." },
+        "content_type": { "const": "vineyard:plugin" },
+        "name": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+].+)?$" },
+        "description": { "type": "string", "minLength": 1, "maxLength": 1024 },
+        "icon": { "type": "string" },
+        "platforms": {
+          "type": "object",
+          "minProperties": 1,
+          "description": "Per-platform execution. entry may be 'inline' (code lives in the pack bundle)."
+        },
+        "io": { "$ref": "https://vineyard.run/schemas/plugin.json#/properties/io" },
+        "params": { "type": "object" },
+        "scopes": { "$ref": "https://vineyard.run/schemas/plugin.json#/properties/scopes" },
+        "lifecycle": { "$ref": "https://vineyard.run/schemas/plugin.json#/properties/lifecycle" }
+      }
+    }
+  }
+}
