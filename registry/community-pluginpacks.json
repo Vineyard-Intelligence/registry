@@ -73,5 +73,105 @@
       "min_app_version": "1.0.0"
     },
     "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.domain_recon",
+    "content_type": "vineyard:pluginpack",
+    "name": "Domain Recon",
+    "author": "vineyard-run",
+    "description": "Passive, keyless domain enrichment: DNS records over DoH, RDAP registration data, and Certificate Transparency subdomain discovery. Runs entirely in the browser — no API keys, no server.",
+    "repo": "Vineyard-Intelligence/pluginpack-domain-recon",
+    "ref": "f9fe74048d4a12497f25d45170d1251f6c88fb99",
+    "path": "plugins/domain-recon.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "publish": false,
+      "secret_config": false
+    },
+    "plugin_count": 3,
+    "compat": {
+      "min_app_version": "1.0.0"
+    },
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.ip_recon",
+    "content_type": "vineyard:pluginpack",
+    "name": "IP Recon",
+    "author": "vineyard-run",
+    "description": "Passive, keyless IP enrichment: RDAP allocation/ownership, Shodan InternetDB exposure (open ports, CVEs, hostnames), and approximate geolocation. Runs entirely in the browser — no API keys, no server.",
+    "repo": "Vineyard-Intelligence/pluginpack-ip-recon",
+    "ref": "01483174ebca4ef496cc774f7d27c290555cc0e0",
+    "path": "plugins/ip-recon.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "publish": false,
+      "secret_config": false
+    },
+    "plugin_count": 3,
+    "compat": {
+      "min_app_version": "1.0.0"
+    },
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.image_osint",
+    "content_type": "vineyard:pluginpack",
+    "name": "Image OSINT",
+    "author": "vineyard-run",
+    "description": "Browser-only image tools: reverse-image-search lead generation (Google Lens / Yandex / Bing / TinEye) and local EXIF/GPS extraction. No API keys, no server, and images never leave your machine.",
+    "repo": "Vineyard-Intelligence/pluginpack-image-osint",
+    "ref": "7af360d64f338fdc9404b387ca103de2ea2d5238",
+    "path": "plugins/image-osint.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "web"
+    ],
+    "scopes_summary": {
+      "network": false,
+      "graph_write": true,
+      "publish": false,
+      "secret_config": false
+    },
+    "plugin_count": 2,
+    "compat": {
+      "min_app_version": "1.0.0"
+    },
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.cti_pivot",
+    "content_type": "vineyard:pluginpack",
+    "name": "CTI Pivot",
+    "author": "vineyard-run",
+    "description": "Infrastructure attribution for CTI: cluster nodes by shared registrar / nameserver / ASN / TLS certificate and link them, revealing which entities likely belong to the same operator. Pure graph analysis — no network, no keys.",
+    "repo": "Vineyard-Intelligence/pluginpack-cti-pivot",
+    "ref": "1e5bd53866231c7c8d1bb49ab98a79d3d07fe63f",
+    "path": "plugins/cti-pivot.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "web"
+    ],
+    "scopes_summary": {
+      "network": false,
+      "graph_write": true,
+      "publish": false,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "compat": {
+      "min_app_version": "1.0.0"
+    },
+    "verified": true
   }
 ]
