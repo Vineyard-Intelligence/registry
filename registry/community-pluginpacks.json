@@ -173,5 +173,30 @@
       "min_app_version": "1.0.0"
     },
     "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.whatsmyname",
+    "content_type": "vineyard:pluginpack",
+    "name": "WhatsMyName",
+    "author": "vineyard-run",
+    "description": "Checks whether a username exists across roughly 700 sites using the WhatsMyName dataset and adds the discovered accounts to the graph. Desktop only: a browser cannot read the cross-origin responses these checks depend on.",
+    "repo": "Vineyard-Intelligence/pluginpack-whatsmyname",
+    "ref": "d9207ddae6fccd45ee1553c909a491933d67aa6d",
+    "path": "plugins/whatsmyname.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "desktop"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "publish": false,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "verified": true
   }
 ]
