@@ -13,6 +13,7 @@ never hosts or executes plugin code. There is **no build step**: the JSON you se
 | --- | --- |
 | `registry/community-typepacks.json` | Index of Type Packs (the PR target to list one) |
 | `registry/community-pluginpacks.json` | Index of Plugin Packs |
+| `registry/community-skillpacks.json` | Index of Skill Packs |
 | `schemas/*.schema.json` | JSON Schemas for packs and registry entries |
 | `scripts/validate.py` | Validates the index entries against the schemas (runs in CI) |
 
@@ -21,6 +22,7 @@ never hosts or executes plugin code. There is **no build step**: the JSON you se
 ```
 GET https://registry.vineyard.run/registry/community-typepacks.json
 GET https://registry.vineyard.run/registry/community-pluginpacks.json
+GET https://registry.vineyard.run/registry/community-skillpacks.json
 ```
 
 Each entry carries the card-level summary (name, author, counts, scopes summary) **plus** a
@@ -32,7 +34,8 @@ jsDelivr CDN, e.g. `https://cdn.jsdelivr.net/gh/{repo}@{ref}/{path}`. Nothing is
 
 - **Update a pack's content** → PR to the content repo
   ([`typepack-basic`](https://github.com/Vineyard-Intelligence/typepack-basic),
-  [`pluginpack-chaos`](https://github.com/Vineyard-Intelligence/pluginpack-chaos), …).
+  [`pluginpack-chaos`](https://github.com/Vineyard-Intelligence/pluginpack-chaos),
+  [`skillpack-account-identity-pivoting`](https://github.com/Vineyard-Intelligence/skillpack-account-identity-pivoting), …).
 - **Add a pack to the catalog** → PR here, adding one entry to the relevant `community-*.json`
   that points at the content repo (`repo`), the **immutable commit SHA** (`ref`) of the release
   you are submitting, and the in-repo `path`. Resolve the SHA with

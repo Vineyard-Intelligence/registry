@@ -21,18 +21,20 @@
 <body>
   <div class="wrap">
     <h1>Vineyard registry</h1>
-    <p class="sub">The catalog index for Vineyard Type Packs and Plugin Packs.</p>
+    <p class="sub">The catalog index for Vineyard Type Packs, Plugin Packs, and Skill Packs.</p>
 
     <div class="card">
       <strong>Published endpoints</strong>
       <code class="ep">GET /registry/community-typepacks.json</code>
       <code class="ep">GET /registry/community-pluginpacks.json</code>
+      <code class="ep">GET /registry/community-skillpacks.json</code>
     </div>
 
     <div class="card">
       <strong>Add a pack</strong>
-      <p>Open a pull request adding an entry to <code>registry/community-typepacks.json</code> or
-      <code>registry/community-pluginpacks.json</code> pointing at your content repo and the
+      <p>Open a pull request adding an entry to <code>registry/community-typepacks.json</code>,
+      <code>registry/community-pluginpacks.json</code>, or <code>registry/community-skillpacks.json</code>
+      pointing at your content repo and the
       <strong>immutable commit SHA</strong> (not a tag &mdash; tags are mutable). Pack files
       themselves live in their own repositories.</p>
     </div>
