@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vineyard.run/schemas/registry/skillpack-entry/1.0.0.json",
+  "title": "Vineyard registry skillpack entry",
+  "description": "One row in community-skillpacks.json. LEAN catalog projection (Obsidian model): the full playbook (overview + sections) lives in the author repo at repo@ref/path; derived fields let the browse page render without fetching every manifest. A skillpack is TEXT (an investigation playbook the agent may consult) — it runs no code and requests no permissions of its own; its only dependency surface is the pluginpacks its steps call, declared in `requires`.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identifier", "content_type", "name", "author", "description", "repo", "ref", "path"],
+  "properties": {
+    "identifier": { "type": "string", "pattern": "^run\\.vineyard\\.skillpacks\\.[a-z0-9_]+$", "description": "Reverse-DNS PK; equals the skill manifest.identifier. Unique across the whole registry." },
+    "content_type": { "enum": ["vineyard:skillpack"] },
+    "name": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "author": { "type": "string", "minLength": 1, "description": "Author handle; matched against verified-authors.json." },
+    "description": { "type": "string", "minLength": 1, "maxLength": 250, "description": "<=250 chars, sentence case, ends with a period, no emoji." },
+    "repo": { "type": "string", "pattern": "^[^/]+/[^/]+$", "description": "owner/name GitHub path hosting the skill document." },
+    "ref": { "type": "string", "pattern": "^([0-9a-f]{40}|[0-9a-f]{64})$", "description": "IMMUTABLE commit SHA of the content repo, captured at PR time. Tags/branches are mutable and REJECTED — pin the exact reviewed commit so the catalog can never serve different playbook text." },
+    "path": { "type": "string", "description": "Path to the skill JSON within repo@ref." },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+].+)?$", "description": "SemVer mirror of the skill's version at this ref." },
+    "applies_to": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 },
+      "description": "DERIVED: node types (category.name) the playbook is about — its subject, shown on the card."
+    },
+    "section_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "DERIVED: number of sections the playbook holds (progressive-disclosure leaves)."
+    },
+    "requires": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^run\\.vineyard\\.(?:plugins|pluginpacks)\\.[a-z0-9_]+$" },
+      "description": "Pluginpack identifiers the playbook's steps call. The marketplace offers these for co-install and gates availability on them; an empty/absent list means the skill leans on built-in tools only."
+    },
+    "thumbnail_url": { "type": "string", "format": "uri" },
+    "verified": { "type": "boolean", "default": false, "description": "Mirror of verified-authors.json membership; set by CI, not self-asserted." }
+  }
+}
