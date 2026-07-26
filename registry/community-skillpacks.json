@@ -6,11 +6,12 @@
     "author": "vineyard-run",
     "description": "Turn one account or handle into the person's other accounts, and know when a shared username is NOT the same person.",
     "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
-    "ref": "dc9f0be760f42ef464421a033890ae7ddc137a09",
+    "ref": "93086867ff938f26221165fbe28b55dbe70701f8",
     "path": "skillpacks/account-pivot.skill.json",
     "version": "1.0.0",
     "applies_to": [
-      "identity.username",
+      "identity.handle",
+      "identity.user_account",
       "identity.email_address",
       "identity.person"
     ],
