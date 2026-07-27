@@ -179,11 +179,11 @@
     "content_type": "vineyard:pluginpack",
     "name": "WhatsMyName",
     "author": "vineyard-run",
-    "description": "Checks whether a username exists across roughly 700 sites using the WhatsMyName dataset and adds the discovered accounts to the graph. Desktop only: a browser cannot read the cross-origin responses these checks depend on.",
+    "description": "Checks whether a handle or username exists across roughly 700 sites using the WhatsMyName dataset, adding a Handle node plus one User Account per site found. Desktop only: a browser cannot read the cross-origin responses these checks need.",
     "repo": "Vineyard-Intelligence/pluginpack-whatsmyname",
-    "ref": "fd09e260ae3033be303a8d8e85962bcfa74d414d",
+    "ref": "08dee111cf796ca33c293772b24890eeaadb789d",
     "path": "plugins/whatsmyname.manifest.json",
-    "version": "1.0.0",
+    "version": "1.2.0",
     "platforms": [
       "desktop"
     ],
