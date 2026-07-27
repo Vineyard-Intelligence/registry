@@ -6,9 +6,9 @@
     "author": "vineyard-run",
     "description": "Turn one account or handle into the person's other accounts, and know when a shared username is NOT the same person.",
     "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
-    "ref": "93086867ff938f26221165fbe28b55dbe70701f8",
+    "ref": "cea38c67e34ebcea10f9e0dbfb4c9a08d2efe323",
     "path": "skillpacks/account-pivot.skill.json",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "applies_to": [
       "identity.handle",
       "identity.user_account",
@@ -27,9 +27,9 @@
     "author": "vineyard-run",
     "description": "Expand one infrastructure indicator (IP/domain/cert) into its connected footprint, one hop at a time.",
     "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
-    "ref": "d97dc8946a99dcb225335a7fcf75448bafbbe684",
+    "ref": "e66ca21d0bd102f126aed798c8ea1433a06c7bc0",
     "path": "skillpacks/infra-pivot.skill.json",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "applies_to": [
       "infrastructure.ip_address",
       "infrastructure.domain",
