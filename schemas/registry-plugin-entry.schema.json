@@ -29,7 +29,6 @@
       "properties": {
         "network": { "type": "boolean", "description": "true if scopes.network is non-empty." },
         "graph_write": { "type": "boolean", "description": "true if any node:/edge: create/update/delete verb is present." },
-        "publish": { "type": "boolean", "description": "true if scopes.publish is non-empty." },
         "secret_config": { "type": "boolean", "description": "true if any scopes.config has secret:true (=> desktop-only key)." }
       }
     },

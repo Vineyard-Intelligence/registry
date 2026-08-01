@@ -87,19 +87,13 @@
     "scopes": {
       "type": "object",
       "additionalProperties": false,
-      "description": "The plugin's authority surface. ctx members are absent unless granted. Enforced by the sandbox + a one-time scoped run-token.",
+      "description": "The plugin's authority surface. ctx members are absent unless granted. Enforced by the sandbox; graph writes are additionally held for the analyst's review before they are applied.",
       "properties": {
         "graph": {
           "type": "array",
           "uniqueItems": true,
           "items": { "enum": ["node:read", "node:create", "node:update", "node:delete", "edge:read", "edge:create", "edge:update", "edge:delete"] },
           "description": "Fine-grained node/edge verbs. Backed by the project graph_edit tier."
-        },
-        "publish": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": { "enum": ["message:post"] },
-          "description": "Post into the project chat/message stream. Backed by the chat_send tier."
         },
         "network": {
           "type": "array",
