@@ -15,7 +15,6 @@
     "scopes_summary": {
       "network": false,
       "graph_write": true,
-      "publish": false,
       "secret_config": false
     },
     "plugin_count": 6,
@@ -40,7 +39,6 @@
     "scopes_summary": {
       "network": true,
       "graph_write": true,
-      "publish": false,
       "secret_config": false
     },
     "plugin_count": 2,
@@ -65,7 +63,6 @@
     "scopes_summary": {
       "network": true,
       "graph_write": true,
-      "publish": false,
       "secret_config": false
     },
     "plugin_count": 2,
@@ -90,7 +87,6 @@
     "scopes_summary": {
       "network": true,
       "graph_write": true,
-      "publish": false,
       "secret_config": false
     },
     "plugin_count": 9,
@@ -115,7 +111,6 @@
     "scopes_summary": {
       "network": true,
       "graph_write": true,
-      "publish": false,
       "secret_config": false
     },
     "plugin_count": 3,
@@ -140,7 +135,6 @@
     "scopes_summary": {
       "network": false,
       "graph_write": true,
-      "publish": false,
       "secret_config": false
     },
     "plugin_count": 2,
@@ -165,7 +159,6 @@
     "scopes_summary": {
       "network": false,
       "graph_write": true,
-      "publish": false,
       "secret_config": false
     },
     "plugin_count": 1,
@@ -190,7 +183,6 @@
     "scopes_summary": {
       "network": true,
       "graph_write": true,
-      "publish": false,
       "secret_config": false
     },
     "plugin_count": 1,
@@ -215,7 +207,6 @@
     "scopes_summary": {
       "network": true,
       "graph_write": true,
-      "publish": false,
       "secret_config": false
     },
     "plugin_count": 1,
