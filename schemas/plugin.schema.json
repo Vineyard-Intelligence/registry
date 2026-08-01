@@ -95,6 +95,12 @@
           "items": { "enum": ["node:read", "node:create", "node:update", "node:delete", "edge:read", "edge:create", "edge:update", "edge:delete"] },
           "description": "Fine-grained node/edge verbs. Backed by the project graph_edit tier."
         },
+        "web_probe": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": { "purpose": { "type": "string", "maxLength": 512, "description": "Shown at the install gate." } },
+          "description": "DESKTOP ONLY. An anonymous request to an arbitrary public host, performed by the shell's main process (no cookies, no Origin, no redirects, private/loopback addresses refused). Backs ctx.net.probe. In the web build the capability is declared but has no backing, so ctx.net.probe stays absent and the plugin must fall back."
+        },
         "network": {
           "type": "array",
           "items": { "$ref": "#/$defs/networkScope" },
