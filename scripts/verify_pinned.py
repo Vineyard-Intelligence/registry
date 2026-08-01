@@ -7,7 +7,16 @@ document at the pinned ref via the jsDelivr CDN and asserts:
   - the ref is a commit SHA (40-hex SHA-1 or 64-hex SHA-256) - never a tag/branch,
   - the document is reachable (HTTP 200) and valid JSON,
   - its `identifier` equals the entry's identifier,
-  - its `content_type` equals the entry's content_type.
+  - its `content_type` equals the entry's content_type,
+  - its `version` equals the entry's version, and — for typepacks — its type/edge
+    counts equal the entry's `type_count`/`edge_count`.
+
+The version/count comparison is the reason this file exists in its current form. It
+used to check only identifier and content_type, and still printed "document matches",
+which is how the catalog came to advertise the Infrastructure and Threat packs at
+v1.2.0 while the pinned SHA served v1.1.0: someone bumped the entry metadata and did
+not re-pin the ref, and the check said ok. A pin whose CLAIMS drift from its BYTES is
+worse than no pin, because the marketplace shows one thing and installs another.
 
 Fails closed: any mismatch or fetch error is an error. Because the ref is a commit
 SHA (also enforced by the entry schema), the bytes a consumer runs can never change
@@ -47,6 +56,25 @@ def fetch(url):
         return json.loads(resp.read().decode("utf-8"))
 
 
+def claim_mismatch(doc, entry):
+    """The first way the fetched document contradicts what the entry advertises, or None.
+
+    Only fields the entry actually asserts are compared: an entry that omits a count is
+    not making a claim about it, and inventing one here would fail packs that are simply
+    described more loosely.
+    """
+    if doc.get("version") != entry.get("version"):
+        return f"pinned doc version '{doc.get('version')}' != entry version '{entry.get('version')}'"
+    for field, key in (("type_count", "types"), ("edge_count", "edge_types")):
+        claimed = entry.get(field)
+        if claimed is None:
+            continue
+        actual = len(doc.get(key) or [])
+        if actual != claimed:
+            return f"pinned doc has {actual} {key} but entry claims {field}={claimed}"
+    return None
+
+
 def main():
     bad = 0
     ok = 0
@@ -70,6 +98,9 @@ def main():
                 bad += 1
             elif doc.get("content_type") != entry.get("content_type"):
                 print(f"::error file={cat}::{ident}: pinned doc content_type '{doc.get('content_type')}' != entry '{entry.get('content_type')}'")
+                bad += 1
+            elif claim_mismatch(doc, entry):
+                print(f"::error file={cat}::{ident}: {claim_mismatch(doc, entry)} — re-pin `ref` to a commit holding what the entry advertises")
                 bad += 1
             else:
                 ok += 1
