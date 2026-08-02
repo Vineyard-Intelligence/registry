@@ -240,7 +240,7 @@
         "from",
         "to"
       ],
-      "description": "Directed relationship type. 'label' is stored verbatim in Edge.label (<=64). from/to constrain endpoint node types.",
+      "description": "Directed relationship type. 'label' is stored verbatim in Edge.label (<=1024). from/to constrain endpoint node types.",
       "properties": {
         "category": {
           "$ref": "#/$defs/identifierSegment"
@@ -250,7 +250,7 @@
         },
         "label": {
           "type": "string",
-          "maxLength": 64
+          "maxLength": 1024
         },
         "display_name": {
           "type": "string"
