@@ -4,13 +4,14 @@
     "content_type": "vineyard:typepack",
     "name": "Infrastructure",
     "author": "vineyard-run",
-    "description": "Network-infrastructure OSINT entities (IP addresses, domains, URLs, hosts, autonomous systems, netblocks, DNS and WHOIS records, TLS certificates, technologies) and the relationships between them.",
+    "description": "Network-infrastructure OSINT entities (IP addresses, domains, hosts, ASNs, netblocks, DNS/WHOIS records, TLS certs, technologies) plus a web-resource entity (URL, in its own web category) and the relationships between them.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "e1e48d0cb8c86ab763934e98fccf882f253c14a2",
+    "ref": "0c4eb4c070e534130dbb1ac756cae64c824a2601",
     "path": "typepacks/infrastructure.json",
-    "version": "1.2.0",
+    "version": "2.0.0",
     "categories": [
-      "infrastructure"
+      "infrastructure",
+      "web"
     ],
     "type_count": 10,
     "edge_count": 11,

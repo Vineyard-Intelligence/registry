@@ -126,9 +126,9 @@
     "author": "vineyard-run",
     "description": "Browser-only image tools: reverse-image-search lead generation (Google Lens / Yandex / Bing / TinEye) and local EXIF/GPS extraction. No API keys, no server, and images never leave your machine.",
     "repo": "Vineyard-Intelligence/pluginpack-image-osint",
-    "ref": "75448eb47d00f5e5ae82c383027596cb8c868451",
+    "ref": "9c1772d5f991a93910c0d327bffaefada3702178",
     "path": "plugins/image-osint.manifest.json",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "platforms": [
       "web"
     ],
@@ -198,9 +198,9 @@
     "author": "vineyard-run",
     "description": "Reads the public metadata of link-shared Google Drive documents: owner name, email, account id, timestamps and sharing role. A GPL-3.0 port of xeuledoc by Malfrats Industries. Desktop only \u2014 the request must carry no Origin header.",
     "repo": "Vineyard-Intelligence/pluginpack-xeuledoc",
-    "ref": "19491b84d3bcf46902d24af923319b34b5b5fce2",
+    "ref": "8b7349f02e93ca350df7836f2543c6aa79dd52c9",
     "path": "plugins/xeuledoc.manifest.json",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "platforms": [
       "desktop"
     ],
