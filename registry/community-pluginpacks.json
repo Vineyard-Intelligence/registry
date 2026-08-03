@@ -214,5 +214,29 @@
       "min_app_version": "0.1.0"
     },
     "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.wayback_machine",
+    "content_type": "vineyard:pluginpack",
+    "name": "Wayback Machine",
+    "author": "vineyard-run",
+    "description": "Queries the Internet Archive Wayback Machine for the selected domain or URL: capture history via the CDX API, and a closest-snapshot check via the Availability API. Desktop only — the archive sends no CORS headers.",
+    "repo": "Vineyard-Intelligence/pluginpack-wayback-machine",
+    "ref": "a3e60a0fad94001fe7250e014d836ff78349434d",
+    "path": "plugins/wayback-machine.manifest.json",
+    "version": "1.1.0",
+    "platforms": [
+      "desktop"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 2,
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "verified": true
   }
 ]
