@@ -222,7 +222,7 @@
     "author": "vineyard-run",
     "description": "Queries the Internet Archive Wayback Machine for the selected domain or URL: capture history via the CDX API, and a closest-snapshot check via the Availability API. Desktop only — the archive sends no CORS headers.",
     "repo": "Vineyard-Intelligence/pluginpack-wayback-machine",
-    "ref": "a3e60a0fad94001fe7250e014d836ff78349434d",
+    "ref": "8bc95bf3f50768bfd973a8850332db747b4a5a20",
     "path": "plugins/wayback-machine.manifest.json",
     "version": "1.1.0",
     "platforms": [
