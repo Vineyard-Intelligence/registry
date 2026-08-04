@@ -4,7 +4,7 @@
     "content_type": "vineyard:pluginpack",
     "name": "Chaos Reference Pack",
     "author": "vineyard-run",
-    "description": "A bundle of 6 graph-manipulation plugins for demo/validation: Korean Roulette, Russian Roulette, Thanos Snap, Black Hole, Dumb AI Optimizer, Schr\u00f6dinger's Node. Installing once adds all 6 together.",
+    "description": "A bundle of 6 graph-manipulation plugins for demo/validation: Korean Roulette, Russian Roulette, Thanos Snap, Black Hole, Dumb AI Optimizer, Schrödinger's Node. Installing once adds all 6 together.",
     "repo": "Vineyard-Intelligence/pluginpack-chaos",
     "ref": "7261823f654395204d9c79f7d597448d97d135f1",
     "path": "plugins/chaos-pack.manifest.json",
@@ -100,7 +100,7 @@
     "content_type": "vineyard:pluginpack",
     "name": "IP Recon",
     "author": "vineyard-run",
-    "description": "Passive, keyless IP enrichment: RDAP allocation/ownership, Shodan InternetDB exposure (open ports, CVEs, hostnames), and approximate geolocation. Runs entirely in the browser \u2014 no API keys, no server.",
+    "description": "Passive, keyless IP enrichment: RDAP allocation/ownership, Shodan InternetDB exposure (open ports, CVEs, hostnames), and approximate geolocation. Runs entirely in the browser — no API keys, no server.",
     "repo": "Vineyard-Intelligence/pluginpack-ip-recon",
     "ref": "d05f92462351a3cb6d0212ff36f2a28f888c826e",
     "path": "plugins/ip-recon.manifest.json",
@@ -148,7 +148,7 @@
     "content_type": "vineyard:pluginpack",
     "name": "CTI Pivot",
     "author": "vineyard-run",
-    "description": "Infrastructure attribution for CTI: cluster nodes by shared registrar / nameserver / ASN / TLS certificate and link them, revealing which entities likely belong to the same operator. Pure graph analysis \u2014 no network, no keys.",
+    "description": "Infrastructure attribution for CTI: cluster nodes by shared registrar / nameserver / ASN / TLS certificate and link them, revealing which entities likely belong to the same operator. Pure graph analysis — no network, no keys.",
     "repo": "Vineyard-Intelligence/pluginpack-cti-pivot",
     "ref": "89668b3455a760a43990946ab9f43c0228d5d495",
     "path": "plugins/cti-pivot.manifest.json",
@@ -196,7 +196,7 @@
     "content_type": "vineyard:pluginpack",
     "name": "Xeuledoc",
     "author": "vineyard-run",
-    "description": "Reads the public metadata of link-shared Google Drive documents: owner name, email, account id, timestamps and sharing role. A GPL-3.0 port of xeuledoc by Malfrats Industries. Desktop only \u2014 the request must carry no Origin header.",
+    "description": "Reads the public metadata of link-shared Google Drive documents: owner name, email, account id, timestamps and sharing role. A GPL-3.0 port of xeuledoc by Malfrats Industries. Desktop only — the request must carry no Origin header.",
     "repo": "Vineyard-Intelligence/pluginpack-xeuledoc",
     "ref": "8b7349f02e93ca350df7836f2543c6aa79dd52c9",
     "path": "plugins/xeuledoc.manifest.json",
@@ -238,5 +238,30 @@
       "min_app_version": "0.1.0"
     },
     "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.disposable_email",
+    "content_type": "vineyard:pluginpack",
+    "name": "Disposable Email",
+    "author": "vineyard-run",
+    "description": "Checks whether the selected email address belongs to a known disposable-email domain (74k+ domain blocklist, subdomain-aware), and sets the node's is_disposable flag to true or false.",
+    "repo": "Vineyard-Intelligence/pluginpack-disposable-email",
+    "ref": "6658af7397b3d99e714943b82d644d52d6114743",
+    "path": "plugins/disposable-email.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "web",
+      "desktop"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": false,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "verified": false
   }
 ]
