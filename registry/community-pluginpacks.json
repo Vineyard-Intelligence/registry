@@ -246,7 +246,7 @@
     "author": "vineyard-run",
     "description": "Checks whether the selected email address belongs to a known disposable-email domain (74k+ domain blocklist, subdomain-aware), and sets the node's is_disposable flag to true or false.",
     "repo": "Vineyard-Intelligence/pluginpack-disposable-email",
-    "ref": "6658af7397b3d99e714943b82d644d52d6114743",
+    "ref": "59bc8c2dfbb35a37a5e049e22d8a60026ea41e7d",
     "path": "plugins/disposable-email.manifest.json",
     "version": "1.0.0",
     "platforms": [
