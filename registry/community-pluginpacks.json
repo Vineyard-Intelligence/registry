@@ -21,7 +21,8 @@
     "compat": {
       "min_app_version": "1.0.0"
     },
-    "verified": true
+    "verified": true,
+    "typepacks": []
   },
   {
     "identifier": "run.vineyard.pluginpacks.iptoasn_cymru_doh",
@@ -45,7 +46,10 @@
     "compat": {
       "min_app_version": "1.0.0"
     },
-    "verified": true
+    "verified": true,
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure"
+    ]
   },
   {
     "identifier": "run.vineyard.pluginpacks.cdn_detect",
@@ -69,7 +73,10 @@
     "compat": {
       "min_app_version": "1.0.0"
     },
-    "verified": true
+    "verified": true,
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure"
+    ]
   },
   {
     "identifier": "run.vineyard.pluginpacks.domain_recon",
@@ -93,7 +100,10 @@
     "compat": {
       "min_app_version": "1.0.0"
     },
-    "verified": true
+    "verified": true,
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure"
+    ]
   },
   {
     "identifier": "run.vineyard.pluginpacks.ip_recon",
@@ -117,7 +127,12 @@
     "compat": {
       "min_app_version": "1.0.0"
     },
-    "verified": true
+    "verified": true,
+    "typepacks": [
+      "run.vineyard.typepacks.geo",
+      "run.vineyard.typepacks.infrastructure",
+      "run.vineyard.typepacks.threat"
+    ]
   },
   {
     "identifier": "run.vineyard.pluginpacks.image_osint",
@@ -141,7 +156,12 @@
     "compat": {
       "min_app_version": "1.0.0"
     },
-    "verified": true
+    "verified": true,
+    "typepacks": [
+      "run.vineyard.typepacks.endpoint",
+      "run.vineyard.typepacks.geo",
+      "run.vineyard.typepacks.infrastructure"
+    ]
   },
   {
     "identifier": "run.vineyard.pluginpacks.cti_pivot",
@@ -165,7 +185,8 @@
     "compat": {
       "min_app_version": "1.0.0"
     },
-    "verified": true
+    "verified": true,
+    "typepacks": []
   },
   {
     "identifier": "run.vineyard.pluginpacks.whatsmyname",
@@ -189,7 +210,10 @@
     "compat": {
       "min_app_version": "0.1.0"
     },
-    "verified": true
+    "verified": true,
+    "typepacks": [
+      "run.vineyard.typepacks.identity"
+    ]
   },
   {
     "identifier": "run.vineyard.pluginpacks.xeuledoc",
@@ -213,7 +237,11 @@
     "compat": {
       "min_app_version": "0.1.0"
     },
-    "verified": true
+    "verified": true,
+    "typepacks": [
+      "run.vineyard.typepacks.identity",
+      "run.vineyard.typepacks.infrastructure"
+    ]
   },
   {
     "identifier": "run.vineyard.pluginpacks.wayback_machine",
@@ -237,7 +265,10 @@
     "compat": {
       "min_app_version": "0.1.0"
     },
-    "verified": true
+    "verified": true,
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure"
+    ]
   },
   {
     "identifier": "run.vineyard.pluginpacks.disposable_email",
@@ -262,7 +293,10 @@
     "compat": {
       "min_app_version": "0.1.0"
     },
-    "verified": false
+    "verified": false,
+    "typepacks": [
+      "run.vineyard.typepacks.identity"
+    ]
   },
   {
     "identifier": "run.vineyard.pluginpacks.web_recon",
@@ -286,6 +320,9 @@
     "compat": {
       "min_app_version": "0.1.0"
     },
-    "verified": false
+    "verified": false,
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure"
+    ]
   }
 ]
