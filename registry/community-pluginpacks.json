@@ -330,11 +330,11 @@
     "content_type": "vineyard:pluginpack",
     "name": "X (Twitter)",
     "author": "vineyard-run",
-    "description": "Anonymous X (Twitter) profile and timeline collection over the guest-token path - no API key, no login. Desktop only: X sends no CORS headers, so the shell must allowlist api.twitter.com and twitter.com.",
+    "description": "Anonymous X (Twitter) collection over the guest-token path - no API key, no login. Two plugins: X Profile identifies an account in two requests; X Posts collects its timeline. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-x",
-    "ref": "3c8ac1cdf070e4eb58f95d44b006dcb6e7c22f33",
+    "ref": "83e9b8e9f497230f461ece50daa81ce6839c9330",
     "path": "plugins/x.manifest.json",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "platforms": [
       "desktop",
       "web"
@@ -344,7 +344,7 @@
       "graph_write": true,
       "secret_config": false
     },
-    "plugin_count": 1,
+    "plugin_count": 2,
     "compat": {
       "min_app_version": "0.1.0"
     },
@@ -387,11 +387,11 @@
     "content_type": "vineyard:pluginpack",
     "name": "Telegram",
     "author": "vineyard-run",
-    "description": "Telegram read-only reconnaissance through the tgpeek gateway, without joining: keyword search, handle resolution, invite-link analysis, and granular post or participant collection.",
+    "description": "Telegram read-only reconnaissance through the tgpeek gateway, without joining: keyword search, handle resolution, invite-link analysis, and granular post or participant collection. Needs tgpeek 0.2.0+.",
     "repo": "Vineyard-Intelligence/pluginpack-telegram",
-    "ref": "356002ecba17989c353622955a8bc230ce12a0b0",
+    "ref": "68bb6666b9f5dce58d0649cbdb07a11e176837b7",
     "path": "plugins/telegram.manifest.json",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "platforms": [
       "web"
     ],
