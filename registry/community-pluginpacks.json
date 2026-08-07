@@ -141,9 +141,9 @@
     "author": "vineyard-run",
     "description": "Browser-only image tools: reverse-image-search lead generation (Google Lens / Yandex / Bing / TinEye) and local EXIF/GPS extraction. No API keys, no server, and images never leave your machine.",
     "repo": "Vineyard-Intelligence/pluginpack-image-osint",
-    "ref": "9c1772d5f991a93910c0d327bffaefada3702178",
+    "ref": "92cea10e48af60058b146fc0219febcbe49feb08",
     "path": "plugins/image-osint.manifest.json",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "platforms": [
       "web"
     ],
