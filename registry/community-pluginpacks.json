@@ -324,5 +324,87 @@
     "typepacks": [
       "run.vineyard.typepacks.infrastructure"
     ]
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.x",
+    "content_type": "vineyard:pluginpack",
+    "name": "X (Twitter)",
+    "author": "vineyard-run",
+    "description": "Anonymous X (Twitter) profile and timeline collection over the guest-token path - no API key, no login. Desktop only: X sends no CORS headers, so the shell must allowlist api.twitter.com and twitter.com.",
+    "repo": "Vineyard-Intelligence/pluginpack-x",
+    "ref": "3c8ac1cdf070e4eb58f95d44b006dcb6e7c22f33",
+    "path": "plugins/x.manifest.json",
+    "version": "0.1.0",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "verified": true,
+    "typepacks": [
+      "run.vineyard.typepacks.identity",
+      "run.vineyard.typepacks.social"
+    ]
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.pgp_lookup",
+    "content_type": "vineyard:pluginpack",
+    "name": "PGP Key Lookup",
+    "author": "vineyard-run",
+    "description": "Looks up OpenPGP public keys published for each selected email address across four public key directories and adds PGP Key nodes linked back to the address. Exact by-email lookups only, never enumeration.",
+    "repo": "Vineyard-Intelligence/pluginpack-pgp-lookup",
+    "ref": "14fac46028fa6078787f3f058f57a4697897a506",
+    "path": "plugins/pgp-lookup.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "verified": true,
+    "typepacks": [
+      "run.vineyard.typepacks.identity"
+    ]
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.telegram",
+    "content_type": "vineyard:pluginpack",
+    "name": "Telegram",
+    "author": "vineyard-run",
+    "description": "Telegram read-only reconnaissance through the tgpeek gateway, without joining: keyword search, handle resolution, invite-link analysis, and granular post or participant collection.",
+    "repo": "Vineyard-Intelligence/pluginpack-telegram",
+    "ref": "356002ecba17989c353622955a8bc230ce12a0b0",
+    "path": "plugins/telegram.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": true
+    },
+    "plugin_count": 5,
+    "verified": true,
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure",
+      "run.vineyard.typepacks.telegram"
+    ]
   }
 ]

@@ -41,14 +41,14 @@
     "author": "vineyard-run",
     "description": "People, organizations, and the online identities linking them — personas, email addresses, phone numbers, and social accounts — for OSINT persona and attribution work.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "e1e48d0cb8c86ab763934e98fccf882f253c14a2",
+    "ref": "240d7ddf27e387aad728f24e870456d7485e3c5d",
     "path": "typepacks/identity.json",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "categories": [
       "identity"
     ],
-    "type_count": 6,
-    "edge_count": 6,
+    "type_count": 7,
+    "edge_count": 7,
     "verified": true
   },
   {
@@ -100,6 +100,40 @@
     ],
     "type_count": 3,
     "edge_count": 3,
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.typepacks.social",
+    "content_type": "vineyard:typepack",
+    "name": "Social Media",
+    "author": "vineyard-run",
+    "description": "Platform-agnostic social media entities - accounts, posts, hashtags, groups, and media - with a platform discriminator on every entity. Attribution to a person or organization stays in the Identity pack.",
+    "repo": "Vineyard-Intelligence/typepack-social",
+    "ref": "22033ebc4c95fbc7f3980b03e955cbd19ada0286",
+    "path": "typepacks/social.json",
+    "version": "1.0.0",
+    "categories": [
+      "social"
+    ],
+    "type_count": 5,
+    "edge_count": 10,
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.typepacks.telegram",
+    "content_type": "vineyard:typepack",
+    "name": "Telegram",
+    "author": "vineyard-run",
+    "description": "Telegram entities collected without joining: accounts (people and bots), broadcast channels, supergroups, and their posts. Pairs with the Telegram plugin pack and its tgpeek gateway.",
+    "repo": "Vineyard-Intelligence/typepack-telegram",
+    "ref": "0840b76df9c572ccbbe42856e343836510f83a94",
+    "path": "typepacks/telegram.json",
+    "version": "1.0.0",
+    "categories": [
+      "telegram"
+    ],
+    "type_count": 4,
+    "edge_count": 7,
     "verified": true
   }
 ]
