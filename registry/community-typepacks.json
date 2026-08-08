@@ -6,9 +6,9 @@
     "author": "vineyard-run",
     "description": "Network-infrastructure and web OSINT entities (IP addresses, domains, URLs, hosts, ASNs, netblocks, DNS/WHOIS records, TLS certificates, technologies, and web fingerprints: header, favicon, DOM hashes) and their relationships.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "20cbf6a0423c8685d469706db46b3883d8ee3219",
+    "ref": "a78c53defbec417eeb8b9f50029c376926cb8c6d",
     "path": "typepacks/infrastructure.json",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "categories": [
       "infrastructure",
       "web"
@@ -41,9 +41,9 @@
     "author": "vineyard-run",
     "description": "People, organizations, and the identities that connect them - personas, email addresses, phone numbers, PGP keys, and the accounts they hold on websites.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "8f192c2df64f44c6baaee1cca1e8073e67002860",
+    "ref": "a78c53defbec417eeb8b9f50029c376926cb8c6d",
     "path": "typepacks/identity.json",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "categories": [
       "identity"
     ],
@@ -109,9 +109,9 @@
     "author": "vineyard-run",
     "description": "Platform-agnostic social media entities - accounts, posts, hashtags, groups, and media - with a platform discriminator on every entity. Attribution to a person or organization stays in the Identity pack.",
     "repo": "Vineyard-Intelligence/typepack-social",
-    "ref": "22033ebc4c95fbc7f3980b03e955cbd19ada0286",
+    "ref": "f7b9780fd80469b6adb67ba86972543a1748b303",
     "path": "typepacks/social.json",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "categories": [
       "social"
     ],

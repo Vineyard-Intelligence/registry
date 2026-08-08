@@ -324,6 +324,11 @@
           "default": false,
           "description": "false (default) = required key in Node.data."
         },
+        "case_insensitive": {
+          "type": "boolean",
+          "default": false,
+          "description": "Fold case when this property is used for DE-DUPLICATION. Display and storage keep whatever was written; only the identity key is folded. Opt-in, because getting it wrong in the two directions is not symmetric: a missing flag produces a duplicate node, which is visible and mergeable, while a wrong one merges two entities into one and destroys the distinction. Right for handles, domains, hostnames, emails and hex digests, where case carries no meaning. WRONG for Base58/EIP-55 crypto addresses, URL paths, and case-sensitive filesystem paths."
+        },
         "default": {
           "description": "Default applied when the key is absent; type must match 'type'."
         },
