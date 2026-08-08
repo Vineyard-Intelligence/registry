@@ -39,11 +39,11 @@
     "content_type": "vineyard:typepack",
     "name": "Identity",
     "author": "vineyard-run",
-    "description": "People, organizations, and the online identities linking them — personas, email addresses, phone numbers, and social accounts — for OSINT persona and attribution work.",
+    "description": "People, organizations, and the identities that connect them - personas, email addresses, phone numbers, PGP keys, and the accounts they hold on websites.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "240d7ddf27e387aad728f24e870456d7485e3c5d",
+    "ref": "8f192c2df64f44c6baaee1cca1e8073e67002860",
     "path": "typepacks/identity.json",
-    "version": "1.2.0",
+    "version": "2.0.0",
     "categories": [
       "identity"
     ],
@@ -126,9 +126,9 @@
     "author": "vineyard-run",
     "description": "Telegram entities collected without joining: accounts (people and bots), broadcast channels, supergroups, and their posts. Pairs with the Telegram plugin pack and its tgpeek gateway.",
     "repo": "Vineyard-Intelligence/typepack-telegram",
-    "ref": "0840b76df9c572ccbbe42856e343836510f83a94",
+    "ref": "6e6864e63a80fa4d23a6a1da9a1e7b36b4325517",
     "path": "typepacks/telegram.json",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "categories": [
       "telegram"
     ],
