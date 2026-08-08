@@ -335,9 +335,9 @@
     "author": "vineyard-run",
     "description": "Anonymous X (Twitter) collection over the guest-token path - no API key, no login. Two plugins: X Profile identifies an account in two requests; X Posts collects its timeline. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-x",
-    "ref": "fff7c5fbbca4790a13578aa5418d6b7f9c346d16",
+    "ref": "ba818fc168b9a4b01eea60cfdb38200d3f65d172",
     "path": "plugins/x.manifest.json",
-    "version": "0.4.1",
+    "version": "0.5.0",
     "platforms": [
       "desktop",
       "web"
