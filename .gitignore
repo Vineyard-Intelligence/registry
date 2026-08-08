@@ -1,2 +1,11 @@
 __pycache__/
 *.pyc
+
+# The ecosystem spec, kept beside the schemas it describes but NOT published.
+#
+# It is a working contract, not author documentation: parts of it describe design that is
+# deliberately "deferred — not built yet" (see the notes at §5 and the web-proxy origin), and
+# registry/ is a GitHub Pages site, so committing it would serve unbuilt features to pack authors
+# as though they existed. The author-facing version of this material is documentation/docs/develop/.
+SPEC.md
+.DS_Store
