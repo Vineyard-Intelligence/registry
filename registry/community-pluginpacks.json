@@ -195,9 +195,9 @@
     "author": "vineyard-run",
     "description": "Checks whether a handle, username, social account, or email local part exists across roughly 700 sites using the WhatsMyName dataset, adding a Handle node plus one User Account per site found. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-whatsmyname",
-    "ref": "8557f0fc1a010d43f7c25f0f06ef0ddc8d7c9ada",
+    "ref": "6049decb51122b9a14092a1e67988241d4e7998a",
     "path": "plugins/whatsmyname.manifest.json",
-    "version": "1.4.0",
+    "version": "2.0.0",
     "platforms": [
       "desktop",
       "web"
@@ -224,14 +224,15 @@
     "author": "vineyard-run",
     "description": "Reads the public metadata of link-shared Google Drive documents: owner name, email, account id, timestamps and sharing role. A GPL-3.0 port of xeuledoc by Malfrats Industries. Desktop only — the request must carry no Origin header.",
     "repo": "Vineyard-Intelligence/pluginpack-xeuledoc",
-    "ref": "8b7349f02e93ca350df7836f2543c6aa79dd52c9",
+    "ref": "8e8f5339b0988605135c2f845eafd60d3a2f604b",
     "path": "plugins/xeuledoc.manifest.json",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "platforms": [
-      "desktop"
+      "desktop",
+      "web"
     ],
     "scopes_summary": {
-      "network": true,
+      "network": false,
       "graph_write": true,
       "secret_config": false
     },
@@ -334,9 +335,9 @@
     "author": "vineyard-run",
     "description": "Anonymous X (Twitter) collection over the guest-token path - no API key, no login. Two plugins: X Profile identifies an account in two requests; X Posts collects its timeline. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-x",
-    "ref": "83e9b8e9f497230f461ece50daa81ce6839c9330",
+    "ref": "2769ed86e7e47357f5e2386d81218cb2d08c3044",
     "path": "plugins/x.manifest.json",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "platforms": [
       "desktop",
       "web"
