@@ -274,11 +274,11 @@
     "content_type": "vineyard:pluginpack",
     "name": "Vineyard IP RDAP",
     "author": "vineyard-run",
-    "description": "IP allocation lookup through Vineyard's cached, normalized RDAP service: one shape across every RIR, KRNIC/JPNIC whois fallback where RDAP is not served, and a cache shared between analysts.",
+    "description": "IP allocation lookup through Vineyard's cached RDAP service. For Korean and Japanese addresses it uses KRNIC/JPNIC's own answer, which is more specific than the APNIC mirror and names the assignee rather than a role contact.",
     "repo": "Vineyard-Intelligence/pluginpack-vineyard-rdap",
-    "ref": "177f0e05a105f145a8c013a04866d90d3470e9bf",
+    "ref": "52f78b18d84530bf9c0efc8f1e037dffbc014a80",
     "path": "plugins/vineyard-rdap.manifest.json",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "platforms": [
       "web"
     ],
