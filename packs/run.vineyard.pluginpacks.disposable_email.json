@@ -14,7 +14,7 @@
   ],
   "scopes_summary": {
     "network": true,
-    "graph_write": false,
+    "graph_write": true,
     "secret_config": false
   },
   "plugin_count": 1,

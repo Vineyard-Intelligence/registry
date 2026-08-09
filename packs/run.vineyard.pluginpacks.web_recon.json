@@ -9,10 +9,11 @@
   "path": "plugins/web-recon.manifest.json",
   "version": "1.0.0",
   "platforms": [
-    "desktop"
+    "desktop",
+    "web"
   ],
   "scopes_summary": {
-    "network": false,
+    "network": true,
     "graph_write": true,
     "secret_config": false
   },

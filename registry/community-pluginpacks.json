@@ -92,7 +92,7 @@
     ],
     "scopes_summary": {
       "network": true,
-      "graph_write": false,
+      "graph_write": true,
       "secret_config": false
     },
     "plugin_count": 1,
@@ -280,7 +280,8 @@
     "path": "plugins/wayback-machine.manifest.json",
     "version": "1.1.0",
     "platforms": [
-      "desktop"
+      "desktop",
+      "web"
     ],
     "scopes_summary": {
       "network": true,
@@ -307,10 +308,11 @@
     "path": "plugins/web-recon.manifest.json",
     "version": "1.0.0",
     "platforms": [
-      "desktop"
+      "desktop",
+      "web"
     ],
     "scopes_summary": {
-      "network": false,
+      "network": true,
       "graph_write": true,
       "secret_config": false
     },
@@ -396,7 +398,7 @@
       "web"
     ],
     "scopes_summary": {
-      "network": false,
+      "network": true,
       "graph_write": true,
       "secret_config": false
     },

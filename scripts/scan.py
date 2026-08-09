@@ -194,16 +194,46 @@ def report(entry_file, ident, rule, text, hits):
 
 
 def bundle_paths(doc):
-    """Every `platforms.web.entry` in a pack document — the pack's own and each member's.
+    """Every JS bundle a pack document ships — web AND desktop, the pack's own and each member's.
+
+    Desktop used to be skipped, which meant a pack could ship an unscanned bundle simply by
+    declaring only `platforms.desktop`, or by pointing desktop at a different file from web.
+    Neither is exotic: desktop is where `web_probe` works, so the packs that reach arbitrary
+    hosts are exactly the ones that declare it. (Measured when this was widened: all 11 desktop
+    entries in the catalog were the same file as their web entry, so nothing new was fetched —
+    the hole was open, just unused.)
 
     A member may declare its own entry or inherit the pack's; `inline` means "inside the pack
-    bundle", which is not a path to fetch.
+    bundle", which is not a path to fetch. Deduplicated, so the common web==desktop case is
+    fetched once.
     """
     out = []
     for m in [doc] + list(doc.get("plugins") or []):
-        entry = ((m.get("platforms") or {}).get("web") or {}).get("entry")
-        if entry and entry != "inline" and entry not in out:
-            out.append(entry)
+        for platform in ("web", "desktop"):
+            block = (m.get("platforms") or {}).get(platform) or {}
+            entry = block.get("entry")
+            # `native` and `subprocess` do not ship JavaScript, so these rules would be noise on
+            # them. They are also code this scanner cannot read at all — see unreadable_runtimes().
+            if block.get("runtime") not in (None, "sandbox-js"):
+                continue
+            if entry and entry != "inline" and entry not in out:
+                out.append(entry)
+    return out
+
+
+def unreadable_runtimes(doc):
+    """Members declaring a desktop runtime whose code this scanner cannot inspect.
+
+    `native` and `subprocess` run outside the JS sandbox entirely. Reporting "no findings" on one
+    would be the scanner's worst failure mode — a clean bill of health for the only artifact it
+    never opened — so they are surfaced instead of silently skipped. Nothing in the catalog
+    declares one today; both remain deferred in the SPEC.
+    """
+    out = []
+    for m in [doc] + list(doc.get("plugins") or []):
+        runtime = ((m.get("platforms") or {}).get("desktop") or {}).get("runtime")
+        if runtime in ("native", "subprocess"):
+            out.append((m.get("identifier", "<no id>"), runtime))
     return out
 
 
@@ -218,9 +248,16 @@ def scan_pluginpacks():
             print(f"::error file=packs/{ident}.json::{ident}: cannot fetch manifest: {e}")
             bad += 1
             continue
+        for member, runtime in unreadable_runtimes(doc):
+            print(
+                f"::error file=packs/{ident}.json::{ident}: {member} declares desktop runtime "
+                f"'{runtime}', which runs outside the JS sandbox — this scanner cannot read it, "
+                f"so it cannot be published without a human reading the code instead"
+            )
+            bad += 1
         paths = bundle_paths(doc)
         if not paths:
-            print(f"  --  {ident}: no web bundle to scan")
+            print(f"  --  {ident}: no JS bundle to scan")
             continue
         for rel in paths:
             url = cdn(repo, ref, rel)

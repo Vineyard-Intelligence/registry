@@ -49,9 +49,12 @@ Every entry, of every kind, carries these:
 | `ref` | **Immutable commit SHA** (40-hex or 64-hex) of the release being listed. |
 | `path` | Path to the pack document within `repo` at `ref`. |
 | `version` | Human-readable mirror of the pinned document's `version`. |
+| `verified` | Operator-set. Backed by `verified-authors.json`; a submission that asserts it is rejected. |
 
 The remaining fields are **derived projections** of the full document, present so the browse page
-can render without fetching every manifest — `platforms` / `scopes_summary` / `plugin_count` for
+can render without fetching every manifest. CI recomputes each of them from the pinned document
+and rejects any that disagrees — the permission summary on a card is a statement of fact, not a
+description. The fields are — `platforms` / `scopes_summary` / `plugin_count` for
 plugin packs, `categories` / `type_count` / `edge_count` for type packs, `applies_to` /
 `section_count` / `requires` for skill packs. The normative field list is the JSON Schema:
 
@@ -111,10 +114,13 @@ All blocking — a pull request cannot merge until every one passes.
 |---|---|
 | Filename equals `identifier`; `content_type` is known | `build_registry.py` |
 | Entry validates against its registry-entry schema | `validate.py` |
+| A namespace is used only by the author who owns it, an author name is worn only inside its own namespaces, and `verified` is backed by `verified-authors.json` | `validate.py` |
 | Identifier patterns still reject malformed shapes | `check_identifiers.py` |
 | `ref` is an immutable commit SHA | `verify_pinned.py` |
-| Pinned document is reachable, and its `identifier` / `content_type` / `version` / type counts match what the entry claims | `verify_pinned.py` |
-| Plugin bundles contain no `eval`, computed `import()`, `importScripts`, credential-store access, or egress outside `ctx.net` | `scan.py` |
+| Pinned document is reachable, and its `identifier` / `content_type` / `version` match the entry | `verify_pinned.py` |
+| Every summary field the entry carries — `scopes_summary`, `platforms`, `plugin_count`, `section_count`, `type_count`, `edge_count` — equals what the pinned document implies | `verify_pinned.py` |
+| Plugin bundles (web **and** desktop) contain no `eval`, computed `import()`, `importScripts`, credential-store access, or egress outside `ctx.net` | `scan.py` |
+| No member declares a `native`/`subprocess` desktop runtime, which ships code the scanner cannot read | `scan.py` |
 | Skill pack text does not try to override the agent's instructions or route around analyst review | `scan.py` |
 
 `scan.py --self-test` proves the rules still fire on known-bad samples before they are trusted on

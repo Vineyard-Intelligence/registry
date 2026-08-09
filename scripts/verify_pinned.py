@@ -8,8 +8,10 @@ document at the pinned ref via the jsDelivr CDN and asserts:
   - the document is reachable (HTTP 200) and valid JSON,
   - its `identifier` equals the entry's identifier,
   - its `content_type` equals the entry's content_type,
-  - its `version` equals the entry's version, and — for typepacks — its type/edge
-    counts equal the entry's `type_count`/`edge_count`.
+  - its `version` equals the entry's version, and
+  - every SUMMARY field the entry carries is what the document actually implies:
+    `scopes_summary`, `platforms`, `plugin_count`, `section_count`, `type_count`,
+    `edge_count`. See derived() for the definition and for what it caught.
 
 The version/count comparison is the reason this file exists in its current form. It
 used to check only identifier and content_type, and still printed "document matches",
@@ -56,22 +58,86 @@ def fetch(url):
         return json.loads(resp.read().decode("utf-8"))
 
 
+WRITE_VERBS = (":create", ":update", ":delete")
+
+
+def members(doc):
+    """The plugins a pack document ships. A lone plugin document is a pack of one."""
+    return doc.get("plugins") or [doc]
+
+
+def derived(doc, content_type):
+    """What the entry's summary fields MUST equal, computed from the pinned document.
+
+    These are the fields the browse card renders before anyone opens a pack, and until this
+    existed nothing checked a single one of them - `claim_mismatch` compared version and the two
+    typepack counts, so `scopes_summary`, `platforms`, `plugin_count` and `section_count` were
+    whatever the submitter typed. Measured across the catalog when this was added: five entries
+    disagreed with their own manifests, and three of those understated what the pack does -
+    `disposable_email` advertised no graph write while declaring `node:update`, `web_recon` and
+    `xeuledoc` advertised no network while declaring `web_probe`. A permission summary nobody
+    verifies is worse than none, because the card looks like a statement of fact.
+
+    The derivation is written down HERE and nowhere else, because the drift came from there being
+    no definition at all: three packs computed `scopes_summary.network` three different ways.
+
+    `web_probe` counts as network. It is a SECOND egress shape - an anonymous cross-origin probe
+    from the desktop main process - and it is broader than `network`, not narrower: `network`
+    pins declared endpoints, `web_probe` reaches an arbitrary host. A pack holding it and showing
+    no network badge is the exact inversion of what the badge is for.
+
+    `platforms` is the union of DECLARED platform keys, which is what 13 of 15 packs already
+    meant. Whether a pack is desktop-ONLY is a different question, answered by
+    `platforms.primary` and enforced in the app (`isDesktopOnly` / `blockedReason`); folding that
+    into this list would make two different facts share one field.
+    """
+    if content_type.endswith(("plugin", "pluginpack")):
+        ms = members(doc)
+        scopes = [m.get("scopes") or {} for m in ms]
+        return {
+            "scopes_summary": {
+                "network": any(s.get("network") or s.get("web_probe") for s in scopes),
+                "graph_write": any(
+                    any(v.endswith(WRITE_VERBS) for v in (s.get("graph") or [])) for s in scopes
+                ),
+                "secret_config": any(
+                    c.get("secret") for s in scopes for c in (s.get("config") or [])
+                ),
+            },
+            "platforms": sorted({k for m in ms for k in (m.get("platforms") or {}) if k != "primary"}),
+            "plugin_count": len(ms),
+        }
+    if content_type.endswith("skillpack"):
+        return {"section_count": len(doc.get("sections") or [])}
+    if content_type.endswith("typepack"):
+        return {"type_count": len(doc.get("types") or []), "edge_count": len(doc.get("edge_types") or [])}
+    return {}
+
+
 def claim_mismatch(doc, entry):
     """The first way the fetched document contradicts what the entry advertises, or None.
 
-    Only fields the entry actually asserts are compared: an entry that omits a count is
-    not making a claim about it, and inventing one here would fail packs that are simply
-    described more loosely.
+    A field the entry OMITS is not a claim, and is skipped - inventing one here would fail packs
+    that are simply described more loosely. A field the entry DOES carry must be right.
     """
     if doc.get("version") != entry.get("version"):
         return f"pinned doc version '{doc.get('version')}' != entry version '{entry.get('version')}'"
-    for field, key in (("type_count", "types"), ("edge_count", "edge_types")):
+    for field, want in derived(doc, entry.get("content_type", "")).items():
         claimed = entry.get(field)
         if claimed is None:
             continue
-        actual = len(doc.get(key) or [])
-        if actual != claimed:
-            return f"pinned doc has {actual} {key} but entry claims {field}={claimed}"
+        if field == "scopes_summary":
+            for key, value in want.items():
+                if bool(claimed.get(key)) != value:
+                    return (
+                        f"scopes_summary.{key}={claimed.get(key)} but the pinned manifest says "
+                        f"{value} - the browse card shows this before anyone opens the pack"
+                    )
+            continue
+        if field == "platforms":
+            claimed = sorted(claimed)
+        if claimed != want:
+            return f"entry claims {field}={claimed} but the pinned document has {want}"
     return None
 
 
@@ -101,7 +167,13 @@ def main():
                 print(f"::error file={src}::{ident}: pinned doc content_type '{doc.get('content_type')}' != entry '{entry.get('content_type')}'")
                 bad += 1
             elif claim_mismatch(doc, entry):
-                print(f"::error file={src}::{ident}: {claim_mismatch(doc, entry)} — re-pin `ref` to a commit holding what the entry advertises")
+                # Two different fixes, so do not prescribe one: a version/count mismatch usually
+                # means the ref was not re-pinned, while a summary mismatch means the entry says
+                # something the manifest does not. Naming both beats confidently naming the wrong one.
+                print(
+                    f"::error file={src}::{ident}: {claim_mismatch(doc, entry)}"
+                    " — correct the entry, or re-pin `ref` to a commit that matches it"
+                )
                 bad += 1
             else:
                 ok += 1
