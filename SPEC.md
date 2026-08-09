@@ -119,6 +119,7 @@ All blocking — a pull request cannot merge until every one passes.
 | `ref` is an immutable commit SHA | `verify_pinned.py` |
 | Pinned document is reachable, and its `identifier` / `content_type` / `version` match the entry | `verify_pinned.py` |
 | Every summary field the entry carries — `scopes_summary`, `platforms`, `plugin_count`, `section_count`, `type_count`, `edge_count` — equals what the pinned document implies | `verify_pinned.py` |
+| Every `io` type reference resolves to a type a **published** Type Pack defines, names its real owner, and that Type Pack is listed in the entry's `typepacks` | `check_typerefs.py` |
 | Plugin bundles (web **and** desktop) contain no `eval`, computed `import()`, `importScripts`, credential-store access, or egress outside `ctx.net` | `scan.py` |
 | No member declares a `native`/`subprocess` desktop runtime, which ships code the scanner cannot read | `scan.py` |
 | Skill pack text does not try to override the agent's instructions or route around analyst review | `scan.py` |

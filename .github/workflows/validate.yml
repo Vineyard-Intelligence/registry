@@ -27,6 +27,12 @@ jobs:
         run: python scripts/check_identifiers.py
       - name: Verify pinned commits (immutable SHA + document match)
         run: python scripts/verify_pinned.py
+      # After the pins are proven, because this fetches the same documents and would otherwise
+      # blame a typeRef for what is really a bad ref. Blocking, because the failure it prevents is
+      # invisible: a plugin whose `consumes` names an undefined type matches no node and vanishes
+      # from the run dialog with no error at all.
+      - name: Type references resolve to published Type Packs
+        run: python scripts/check_typerefs.py
       # The rules first, then the catalog. A scanner whose rules have silently stopped matching
       # reports "no findings" on a malicious pack exactly as it does on a clean one, so the rules
       # are proven against known-bad and known-good samples before they are trusted on real packs.
