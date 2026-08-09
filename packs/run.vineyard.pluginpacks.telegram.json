@@ -5,9 +5,9 @@
   "author": "vineyard-run",
   "description": "Telegram read-only reconnaissance through Vineyard's tgpeek service, without joining: keyword search, handle resolution, invite-link analysis, granular post or participant collection, and phone-number lookup.",
   "repo": "Vineyard-Intelligence/pluginpack-telegram",
-  "ref": "304511c3d4c857d696af4a59d79d9302f0a0598c",
+  "ref": "46135cb28d38081e2d868e767b9d88e293e752a9",
   "path": "plugins/telegram.manifest.json",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "platforms": [
     "web"
   ],
