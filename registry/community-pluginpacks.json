@@ -249,24 +249,28 @@
     "content_type": "vineyard:pluginpack",
     "name": "Telegram",
     "author": "vineyard-run",
-    "description": "Telegram read-only reconnaissance through the tgpeek gateway, without joining: keyword search, handle resolution, invite-link analysis, and granular post or participant collection. Needs tgpeek 0.2.0+.",
+    "description": "Telegram read-only reconnaissance through Vineyard's tgpeek service, without joining: keyword search, handle resolution, invite-link analysis, granular post or participant collection, and phone-number lookup.",
     "repo": "Vineyard-Intelligence/pluginpack-telegram",
-    "ref": "68bb6666b9f5dce58d0649cbdb07a11e176837b7",
+    "ref": "b187b98b003afe94a7b49b6bfd5fcefa4c0656aa",
     "path": "plugins/telegram.manifest.json",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "platforms": [
       "web"
     ],
     "scopes_summary": {
-      "network": true,
+      "network": false,
       "graph_write": true,
-      "secret_config": true
+      "secret_config": false
     },
-    "plugin_count": 5,
+    "plugin_count": 6,
     "verified": true,
     "typepacks": [
+      "run.vineyard.typepacks.identity",
       "run.vineyard.typepacks.infrastructure",
       "run.vineyard.typepacks.telegram"
+    ],
+    "services": [
+      "telegram"
     ]
   },
   {
