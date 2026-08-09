@@ -121,17 +121,24 @@ All blocking — a pull request cannot merge until every one passes.
 | Pinned document is reachable, and its `identifier` / `content_type` / `version` match the entry | `verify_pinned.py` |
 | Every summary field the entry carries — `scopes_summary`, `platforms`, `plugin_count`, `section_count`, `type_count`, `edge_count` — equals what the pinned document implies | `verify_pinned.py` |
 | Every `io` type reference resolves to a type a **published** Type Pack defines, names its real owner, and that Type Pack is listed in the entry's `typepacks` | `check_typerefs.py` |
-| Plugin bundles (web **and** desktop) contain no `eval`, computed `import()`, `importScripts`, credential-store access, or egress outside `ctx.net` | `scan.py` |
-| No member declares a `native`/`subprocess` desktop runtime, which ships code the scanner cannot read | `scan.py` |
-| Skill pack text does not try to override the agent's instructions or route around analyst review | `scan.py` |
 
-`scan.py --self-test` proves the rules still fire on known-bad samples before they are trusted on
-real packs.
+Every check above is an EQUALITY or a RESOLUTION: what the entry says must equal what the pinned
+document holds, and every identifier it names must resolve inside the catalog. None of them is a
+heuristic, which is why they are safe to publish — knowing the rule gives no way around it, because
+the only way to change the answer is to change the pack.
 
-Review beyond this is human. Scope breadth, `node:delete` usage, and minified-only bundles are
-things a reviewer weighs; none of them are automatic rejections. **Namespace ownership is one of
-them** — no pattern can tell whether you control `com.acme`, so a submission under a namespace
-you do not own is refused at review.
+**There is deliberately no static analysis of pack code.** A pattern-matching scanner is a lint
+with the authority of a gate: it is evaded by writing the same thing differently, while publishing
+its rules hands over the list of shapes that pass. The boundaries that actually hold are structural
+— the sandbox worker has no storage and no ambient credentials, `ctx.net` enforces the manifest's
+endpoint allowlist by parsed origin and path segment, and every graph write is staged for the
+analyst to review under their own token.
+
+What is left to a reviewer, and is not automated: reading the bundle, judging scope breadth against
+what the pack plausibly needs, `node:delete` usage, minified-only bundles, secret-looking `params`
+keys, an unbuildable `native`/`subprocess` runtime, and namespace ownership — no pattern can tell
+whether you control `com.acme`, so a submission under a namespace you do not own is refused at
+review.
 
 ## 7. Not in scope
 

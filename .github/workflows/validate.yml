@@ -33,13 +33,6 @@ jobs:
       # from the run dialog with no error at all.
       - name: Type references resolve to published Type Packs
         run: python scripts/check_typerefs.py
-      # The rules first, then the catalog. A scanner whose rules have silently stopped matching
-      # reports "no findings" on a malicious pack exactly as it does on a clean one, so the rules
-      # are proven against known-bad and known-good samples before they are trusted on real packs.
-      - name: Scan rules self-test
-        run: python scripts/scan.py --self-test
-      - name: Scan pinned bundles and skill packs
-        run: python scripts/scan.py
 
   # Regenerate the published catalogs on main and commit them back.
   #

@@ -49,7 +49,8 @@ jsDelivr CDN, e.g. `https://cdn.jsdelivr.net/gh/{repo}@{ref}/{path}`. Nothing is
   what was reviewed at that commit.
   CI (`.github/workflows/validate.yml`) validates each entry against `schemas/registry-*-entry.schema.json`,
   re-fetches the pinned commit (`scripts/verify_pinned.py`) to confirm the document there matches
-  the entry's identity, and scans the bytes the pack actually ships (`scripts/scan.py`).
+  the entry's identity, and resolves every type reference and declared dependency against the
+  catalog (`scripts/check_typerefs.py`).
 
 > **Do not edit `registry/community-*.json`.** They are built from `packs/` by
 > `scripts/build_registry.py` and rebuilt on merge, so a hand edit is overwritten. One file per
