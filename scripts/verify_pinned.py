@@ -105,6 +105,10 @@ def derived(doc, content_type):
                 ),
             },
             "platforms": sorted({k for m in ms for k in (m.get("platforms") or {}) if k != "primary"}),
+            # Deliberately NOT folded into scopes_summary.network. A service call is egress, but to
+            # a destination the host fixes and with the analyst's identity attached — a card reading
+            # only "Network" would understate one half and overstate the other.
+            "services": sorted({name for s in scopes for name in (s.get("services") or [])}),
             "plugin_count": len(ms),
         }
     if content_type.endswith("skillpack"):
@@ -134,7 +138,7 @@ def claim_mismatch(doc, entry):
                         f"{value} - the browse card shows this before anyone opens the pack"
                     )
             continue
-        if field == "platforms":
+        if field in ("platforms", "services"):
             claimed = sorted(claimed)
         if claimed != want:
             return f"entry claims {field}={claimed} but the pinned document has {want}"
