@@ -215,7 +215,7 @@ def scan_pluginpacks():
         try:
             doc = json.loads(fetch_text(cdn(repo, ref, path)))
         except (urllib.error.URLError, urllib.error.HTTPError, ValueError, TimeoutError) as e:
-            print(f"::error file={PLUGINPACKS}::{ident}: cannot fetch manifest: {e}")
+            print(f"::error file=packs/{ident}.json::{ident}: cannot fetch manifest: {e}")
             bad += 1
             continue
         paths = bundle_paths(doc)
@@ -227,7 +227,7 @@ def scan_pluginpacks():
             try:
                 js = fetch_text(url)
             except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as e:
-                print(f"::error file={PLUGINPACKS}::{ident}: cannot fetch bundle {rel}: {e}")
+                print(f"::error file=packs/{ident}.json::{ident}: cannot fetch bundle {rel}: {e}")
                 bad += 1
                 continue
             scanned += 1
@@ -236,7 +236,7 @@ def scan_pluginpacks():
             for rule in JS_RULES:
                 hits = rule.hits(code)
                 if hits:
-                    report(PLUGINPACKS, f"{ident} ({rel})", rule, js, hits)
+                    report(f"packs/{ident}.json", f"{ident} ({rel})", rule, js, hits)
                     found = True
             if found:
                 bad += 1
@@ -253,7 +253,7 @@ def scan_skillpacks():
         try:
             raw = fetch_text(url)
         except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as e:
-            print(f"::error file={SKILLPACKS}::{ident}: cannot fetch document: {e}")
+            print(f"::error file=packs/{ident}.json::{ident}: cannot fetch document: {e}")
             bad += 1
             continue
         scanned += 1
@@ -261,7 +261,7 @@ def scan_skillpacks():
         for rule in TEXT_RULES:
             hits = rule.hits(raw)
             if hits:
-                report(SKILLPACKS, ident, rule, raw, hits)
+                report(f"packs/{ident}.json", ident, rule, raw, hits)
                 found = True
         if found:
             bad += 1

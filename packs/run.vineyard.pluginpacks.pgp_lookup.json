@@ -1,0 +1,28 @@
+{
+  "identifier": "run.vineyard.pluginpacks.pgp_lookup",
+  "content_type": "vineyard:pluginpack",
+  "name": "PGP Key Lookup",
+  "author": "vineyard-run",
+  "description": "Looks up OpenPGP public keys published for each selected email address across four public key directories and adds PGP Key nodes linked back to the address. Exact by-email lookups only, never enumeration.",
+  "repo": "Vineyard-Intelligence/pluginpack-pgp-lookup",
+  "ref": "14fac46028fa6078787f3f058f57a4697897a506",
+  "path": "plugins/pgp-lookup.manifest.json",
+  "version": "1.0.0",
+  "platforms": [
+    "desktop",
+    "web"
+  ],
+  "scopes_summary": {
+    "network": true,
+    "graph_write": true,
+    "secret_config": false
+  },
+  "plugin_count": 1,
+  "compat": {
+    "min_app_version": "0.1.0"
+  },
+  "verified": true,
+  "typepacks": [
+    "run.vineyard.typepacks.identity"
+  ]
+}

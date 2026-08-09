@@ -7,7 +7,7 @@
   "additionalProperties": false,
   "required": ["identifier", "content_type", "name", "author", "description", "repo", "ref", "path"],
   "properties": {
-    "identifier": { "type": "string", "pattern": "^run\\.vineyard\\.typepacks\\.[a-z0-9]+(?:[._-][a-z0-9]+)*$", "description": "Reverse-DNS PK; equals typepack.identifier." },
+    "identifier": { "type": "string", "pattern": "^(?:[a-z0-9]+(?:-[a-z0-9]+)*\\.){2,}typepacks\\.[a-z0-9]+(?:[._-][a-z0-9]+)*$", "description": "Reverse-DNS PK; equals typepack.identifier. The namespace is the AUTHOR'S OWN reverse-DNS prefix, two labels or more: `run.vineyard.*` is first-party, a third party publishes under its own (`com.acme.*`, `io.github.someone.*`). Claiming a namespace you do not control is a review question, not a schema one." },
     "content_type": { "const": "vineyard:typepack" },
     "name": { "type": "string", "minLength": 1, "maxLength": 128 },
     "author": { "type": "string", "minLength": 1 },

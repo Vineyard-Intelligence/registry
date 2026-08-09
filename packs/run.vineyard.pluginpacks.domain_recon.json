@@ -1,0 +1,27 @@
+{
+  "identifier": "run.vineyard.pluginpacks.domain_recon",
+  "content_type": "vineyard:pluginpack",
+  "name": "Domain Recon",
+  "author": "vineyard-run",
+  "description": "Passive, keyless domain enrichment: per-record DNS lookups over DoH (A, AAAA, CNAME, MX, NS, TXT, CAA), RDAP registration data, and Certificate Transparency subdomain discovery. No API keys, no server.",
+  "repo": "Vineyard-Intelligence/pluginpack-domain-recon",
+  "ref": "78eec33688342be5da8a33e6c98240fe397b0d04",
+  "path": "plugins/domain-recon.manifest.json",
+  "version": "2.0.0",
+  "platforms": [
+    "web"
+  ],
+  "scopes_summary": {
+    "network": true,
+    "graph_write": true,
+    "secret_config": false
+  },
+  "plugin_count": 9,
+  "compat": {
+    "min_app_version": "1.0.0"
+  },
+  "verified": true,
+  "typepacks": [
+    "run.vineyard.typepacks.infrastructure"
+  ]
+}

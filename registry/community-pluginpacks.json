@@ -1,57 +1,5 @@
 [
   {
-    "identifier": "run.vineyard.pluginpacks.chaos",
-    "content_type": "vineyard:pluginpack",
-    "name": "Chaos Reference Pack",
-    "author": "vineyard-run",
-    "description": "A bundle of 6 graph-manipulation plugins for demo/validation: Korean Roulette, Russian Roulette, Thanos Snap, Black Hole, Dumb AI Optimizer, Schrödinger's Node. Installing once adds all 6 together.",
-    "repo": "Vineyard-Intelligence/pluginpack-chaos",
-    "ref": "7261823f654395204d9c79f7d597448d97d135f1",
-    "path": "plugins/chaos-pack.manifest.json",
-    "version": "1.0.0",
-    "platforms": [
-      "web"
-    ],
-    "scopes_summary": {
-      "network": false,
-      "graph_write": true,
-      "secret_config": false
-    },
-    "plugin_count": 6,
-    "compat": {
-      "min_app_version": "1.0.0"
-    },
-    "verified": true,
-    "typepacks": []
-  },
-  {
-    "identifier": "run.vineyard.pluginpacks.iptoasn_cymru_doh",
-    "content_type": "vineyard:pluginpack",
-    "name": "IP to ASN (Team Cymru - DoH Based)",
-    "author": "vineyard-run",
-    "description": "Enriches IP Address nodes with their announcing AS (number + name) and country, via Team Cymru over DNS-over-HTTPS. No server required.",
-    "repo": "Vineyard-Intelligence/pluginpack-iptoasn-cymru-doh",
-    "ref": "2bb9d070d8001fcb4ca044e9df237299c6e9fc6a",
-    "path": "plugins/iptoasn-cymru-doh.manifest.json",
-    "version": "1.0.0",
-    "platforms": [
-      "web"
-    ],
-    "scopes_summary": {
-      "network": true,
-      "graph_write": true,
-      "secret_config": false
-    },
-    "plugin_count": 2,
-    "compat": {
-      "min_app_version": "1.0.0"
-    },
-    "verified": true,
-    "typepacks": [
-      "run.vineyard.typepacks.infrastructure"
-    ]
-  },
-  {
     "identifier": "run.vineyard.pluginpacks.cdn_detect",
     "content_type": "vineyard:pluginpack",
     "name": "CDN / WAF Detection (cdncheck)",
@@ -79,6 +27,84 @@
     ]
   },
   {
+    "identifier": "run.vineyard.pluginpacks.chaos",
+    "content_type": "vineyard:pluginpack",
+    "name": "Chaos Reference Pack",
+    "author": "vineyard-run",
+    "description": "A bundle of 6 graph-manipulation plugins for demo/validation: Korean Roulette, Russian Roulette, Thanos Snap, Black Hole, Dumb AI Optimizer, Schrödinger's Node. Installing once adds all 6 together.",
+    "repo": "Vineyard-Intelligence/pluginpack-chaos",
+    "ref": "7261823f654395204d9c79f7d597448d97d135f1",
+    "path": "plugins/chaos-pack.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "web"
+    ],
+    "scopes_summary": {
+      "network": false,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 6,
+    "compat": {
+      "min_app_version": "1.0.0"
+    },
+    "verified": true,
+    "typepacks": []
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.cti_pivot",
+    "content_type": "vineyard:pluginpack",
+    "name": "CTI Pivot",
+    "author": "vineyard-run",
+    "description": "Infrastructure attribution for CTI: cluster nodes by shared registrar / nameserver / ASN / TLS certificate and link them, revealing which entities likely belong to the same operator. Pure graph analysis — no network, no keys.",
+    "repo": "Vineyard-Intelligence/pluginpack-cti-pivot",
+    "ref": "89668b3455a760a43990946ab9f43c0228d5d495",
+    "path": "plugins/cti-pivot.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "web"
+    ],
+    "scopes_summary": {
+      "network": false,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "compat": {
+      "min_app_version": "1.0.0"
+    },
+    "verified": true,
+    "typepacks": []
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.disposable_email",
+    "content_type": "vineyard:pluginpack",
+    "name": "Disposable Email",
+    "author": "vineyard-run",
+    "description": "Checks whether the selected email address belongs to a known disposable-email domain (74k+ domain blocklist, subdomain-aware), and sets the node's is_disposable flag to true or false.",
+    "repo": "Vineyard-Intelligence/pluginpack-disposable-email",
+    "ref": "59bc8c2dfbb35a37a5e049e22d8a60026ea41e7d",
+    "path": "plugins/disposable-email.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "web",
+      "desktop"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": false,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "verified": false,
+    "typepacks": [
+      "run.vineyard.typepacks.identity"
+    ]
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.domain_recon",
     "content_type": "vineyard:pluginpack",
     "name": "Domain Recon",
@@ -102,6 +128,35 @@
     },
     "verified": true,
     "typepacks": [
+      "run.vineyard.typepacks.infrastructure"
+    ]
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.image_osint",
+    "content_type": "vineyard:pluginpack",
+    "name": "Image OSINT",
+    "author": "vineyard-run",
+    "description": "Browser-only image tools: reverse-image-search lead generation (Google Lens / Yandex / Bing / TinEye) and local EXIF/GPS extraction. No API keys, no server, and images never leave your machine.",
+    "repo": "Vineyard-Intelligence/pluginpack-image-osint",
+    "ref": "1232618140df50920c0083a59c5c80ea5c4dbf79",
+    "path": "plugins/image-osint.manifest.json",
+    "version": "1.3.0",
+    "platforms": [
+      "web"
+    ],
+    "scopes_summary": {
+      "network": false,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 2,
+    "compat": {
+      "min_app_version": "1.0.0"
+    },
+    "verified": true,
+    "typepacks": [
+      "run.vineyard.typepacks.endpoint",
+      "run.vineyard.typepacks.geo",
       "run.vineyard.typepacks.infrastructure"
     ]
   },
@@ -135,20 +190,20 @@
     ]
   },
   {
-    "identifier": "run.vineyard.pluginpacks.image_osint",
+    "identifier": "run.vineyard.pluginpacks.iptoasn_cymru_doh",
     "content_type": "vineyard:pluginpack",
-    "name": "Image OSINT",
+    "name": "IP to ASN (Team Cymru - DoH Based)",
     "author": "vineyard-run",
-    "description": "Browser-only image tools: reverse-image-search lead generation (Google Lens / Yandex / Bing / TinEye) and local EXIF/GPS extraction. No API keys, no server, and images never leave your machine.",
-    "repo": "Vineyard-Intelligence/pluginpack-image-osint",
-    "ref": "1232618140df50920c0083a59c5c80ea5c4dbf79",
-    "path": "plugins/image-osint.manifest.json",
-    "version": "1.3.0",
+    "description": "Enriches IP Address nodes with their announcing AS (number + name) and country, via Team Cymru over DNS-over-HTTPS. No server required.",
+    "repo": "Vineyard-Intelligence/pluginpack-iptoasn-cymru-doh",
+    "ref": "2bb9d070d8001fcb4ca044e9df237299c6e9fc6a",
+    "path": "plugins/iptoasn-cymru-doh.manifest.json",
+    "version": "1.0.0",
     "platforms": [
       "web"
     ],
     "scopes_summary": {
-      "network": false,
+      "network": true,
       "graph_write": true,
       "secret_config": false
     },
@@ -158,203 +213,7 @@
     },
     "verified": true,
     "typepacks": [
-      "run.vineyard.typepacks.endpoint",
-      "run.vineyard.typepacks.geo",
       "run.vineyard.typepacks.infrastructure"
-    ]
-  },
-  {
-    "identifier": "run.vineyard.pluginpacks.cti_pivot",
-    "content_type": "vineyard:pluginpack",
-    "name": "CTI Pivot",
-    "author": "vineyard-run",
-    "description": "Infrastructure attribution for CTI: cluster nodes by shared registrar / nameserver / ASN / TLS certificate and link them, revealing which entities likely belong to the same operator. Pure graph analysis — no network, no keys.",
-    "repo": "Vineyard-Intelligence/pluginpack-cti-pivot",
-    "ref": "89668b3455a760a43990946ab9f43c0228d5d495",
-    "path": "plugins/cti-pivot.manifest.json",
-    "version": "1.0.0",
-    "platforms": [
-      "web"
-    ],
-    "scopes_summary": {
-      "network": false,
-      "graph_write": true,
-      "secret_config": false
-    },
-    "plugin_count": 1,
-    "compat": {
-      "min_app_version": "1.0.0"
-    },
-    "verified": true,
-    "typepacks": []
-  },
-  {
-    "identifier": "run.vineyard.pluginpacks.whatsmyname",
-    "content_type": "vineyard:pluginpack",
-    "name": "WhatsMyName",
-    "author": "vineyard-run",
-    "description": "Checks whether a handle, username, social account, or email local part exists across roughly 700 sites using the WhatsMyName dataset, adding a Handle node plus one User Account per site found. Desktop only.",
-    "repo": "Vineyard-Intelligence/pluginpack-whatsmyname",
-    "ref": "6049decb51122b9a14092a1e67988241d4e7998a",
-    "path": "plugins/whatsmyname.manifest.json",
-    "version": "2.0.0",
-    "platforms": [
-      "desktop",
-      "web"
-    ],
-    "scopes_summary": {
-      "network": true,
-      "graph_write": true,
-      "secret_config": false
-    },
-    "plugin_count": 1,
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
-    "verified": true,
-    "typepacks": [
-      "run.vineyard.typepacks.identity",
-      "run.vineyard.typepacks.social"
-    ]
-  },
-  {
-    "identifier": "run.vineyard.pluginpacks.xeuledoc",
-    "content_type": "vineyard:pluginpack",
-    "name": "Xeuledoc",
-    "author": "vineyard-run",
-    "description": "Reads the public metadata of link-shared Google Drive documents: owner name, email, account id, timestamps and sharing role. A GPL-3.0 port of xeuledoc by Malfrats Industries. Desktop only — the request must carry no Origin header.",
-    "repo": "Vineyard-Intelligence/pluginpack-xeuledoc",
-    "ref": "8e8f5339b0988605135c2f845eafd60d3a2f604b",
-    "path": "plugins/xeuledoc.manifest.json",
-    "version": "2.0.0",
-    "platforms": [
-      "desktop",
-      "web"
-    ],
-    "scopes_summary": {
-      "network": false,
-      "graph_write": true,
-      "secret_config": false
-    },
-    "plugin_count": 1,
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
-    "verified": true,
-    "typepacks": [
-      "run.vineyard.typepacks.identity",
-      "run.vineyard.typepacks.infrastructure"
-    ]
-  },
-  {
-    "identifier": "run.vineyard.pluginpacks.wayback_machine",
-    "content_type": "vineyard:pluginpack",
-    "name": "Wayback Machine",
-    "author": "vineyard-run",
-    "description": "Queries the Internet Archive Wayback Machine for the selected domain or URL: capture history via the CDX API, and a closest-snapshot check via the Availability API. Desktop only — the archive sends no CORS headers.",
-    "repo": "Vineyard-Intelligence/pluginpack-wayback-machine",
-    "ref": "8bc95bf3f50768bfd973a8850332db747b4a5a20",
-    "path": "plugins/wayback-machine.manifest.json",
-    "version": "1.1.0",
-    "platforms": [
-      "desktop"
-    ],
-    "scopes_summary": {
-      "network": true,
-      "graph_write": true,
-      "secret_config": false
-    },
-    "plugin_count": 2,
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
-    "verified": true,
-    "typepacks": [
-      "run.vineyard.typepacks.infrastructure"
-    ]
-  },
-  {
-    "identifier": "run.vineyard.pluginpacks.disposable_email",
-    "content_type": "vineyard:pluginpack",
-    "name": "Disposable Email",
-    "author": "vineyard-run",
-    "description": "Checks whether the selected email address belongs to a known disposable-email domain (74k+ domain blocklist, subdomain-aware), and sets the node's is_disposable flag to true or false.",
-    "repo": "Vineyard-Intelligence/pluginpack-disposable-email",
-    "ref": "59bc8c2dfbb35a37a5e049e22d8a60026ea41e7d",
-    "path": "plugins/disposable-email.manifest.json",
-    "version": "1.0.0",
-    "platforms": [
-      "web",
-      "desktop"
-    ],
-    "scopes_summary": {
-      "network": true,
-      "graph_write": false,
-      "secret_config": false
-    },
-    "plugin_count": 1,
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
-    "verified": false,
-    "typepacks": [
-      "run.vineyard.typepacks.identity"
-    ]
-  },
-  {
-    "identifier": "run.vineyard.pluginpacks.web_recon",
-    "content_type": "vineyard:pluginpack",
-    "name": "Web Recon",
-    "author": "vineyard-run",
-    "description": "Web page fingerprinting for Vineyard: favicon hash (MMH3), HTTP header hash (HHHash), and DOM structure hash (dom-hash) — reusable pivot primitives for clustering related infrastructure. Desktop only.",
-    "repo": "Vineyard-Intelligence/pluginpack-web-recon",
-    "ref": "c67fff3cc39726b383bebf3645c41994d359a7bf",
-    "path": "plugins/web-recon.manifest.json",
-    "version": "1.0.0",
-    "platforms": [
-      "desktop"
-    ],
-    "scopes_summary": {
-      "network": false,
-      "graph_write": true,
-      "secret_config": false
-    },
-    "plugin_count": 3,
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
-    "verified": false,
-    "typepacks": [
-      "run.vineyard.typepacks.infrastructure"
-    ]
-  },
-  {
-    "identifier": "run.vineyard.pluginpacks.x",
-    "content_type": "vineyard:pluginpack",
-    "name": "X (Twitter)",
-    "author": "vineyard-run",
-    "description": "Anonymous X (Twitter) collection - no API key, no login. X Profile identifies an account and is reliable; X Posts collects its timeline but returns nothing for some accounts, for reasons X does not document. Desktop only.",
-    "repo": "Vineyard-Intelligence/pluginpack-x",
-    "ref": "d7d56adbb804553905bda910a049cf5799d7063b",
-    "path": "plugins/x.manifest.json",
-    "version": "0.5.2",
-    "platforms": [
-      "desktop",
-      "web"
-    ],
-    "scopes_summary": {
-      "network": true,
-      "graph_write": true,
-      "secret_config": false
-    },
-    "plugin_count": 2,
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
-    "verified": true,
-    "typepacks": [
-      "run.vineyard.typepacks.identity",
-      "run.vineyard.typepacks.social"
     ]
   },
   {
@@ -408,6 +267,147 @@
     "typepacks": [
       "run.vineyard.typepacks.infrastructure",
       "run.vineyard.typepacks.telegram"
+    ]
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.wayback_machine",
+    "content_type": "vineyard:pluginpack",
+    "name": "Wayback Machine",
+    "author": "vineyard-run",
+    "description": "Queries the Internet Archive Wayback Machine for the selected domain or URL: capture history via the CDX API, and a closest-snapshot check via the Availability API. Desktop only — the archive sends no CORS headers.",
+    "repo": "Vineyard-Intelligence/pluginpack-wayback-machine",
+    "ref": "8bc95bf3f50768bfd973a8850332db747b4a5a20",
+    "path": "plugins/wayback-machine.manifest.json",
+    "version": "1.1.0",
+    "platforms": [
+      "desktop"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 2,
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "verified": true,
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure"
+    ]
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.web_recon",
+    "content_type": "vineyard:pluginpack",
+    "name": "Web Recon",
+    "author": "vineyard-run",
+    "description": "Web page fingerprinting for Vineyard: favicon hash (MMH3), HTTP header hash (HHHash), and DOM structure hash (dom-hash) — reusable pivot primitives for clustering related infrastructure. Desktop only.",
+    "repo": "Vineyard-Intelligence/pluginpack-web-recon",
+    "ref": "c67fff3cc39726b383bebf3645c41994d359a7bf",
+    "path": "plugins/web-recon.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "desktop"
+    ],
+    "scopes_summary": {
+      "network": false,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 3,
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "verified": false,
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure"
+    ]
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.whatsmyname",
+    "content_type": "vineyard:pluginpack",
+    "name": "WhatsMyName",
+    "author": "vineyard-run",
+    "description": "Checks whether a handle, username, social account, or email local part exists across roughly 700 sites using the WhatsMyName dataset, adding a Handle node plus one User Account per site found. Desktop only.",
+    "repo": "Vineyard-Intelligence/pluginpack-whatsmyname",
+    "ref": "6049decb51122b9a14092a1e67988241d4e7998a",
+    "path": "plugins/whatsmyname.manifest.json",
+    "version": "2.0.0",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "verified": true,
+    "typepacks": [
+      "run.vineyard.typepacks.identity",
+      "run.vineyard.typepacks.social"
+    ]
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.x",
+    "content_type": "vineyard:pluginpack",
+    "name": "X (Twitter)",
+    "author": "vineyard-run",
+    "description": "Anonymous X (Twitter) collection - no API key, no login. X Profile identifies an account and is reliable; X Posts collects its timeline but returns nothing for some accounts, for reasons X does not document. Desktop only.",
+    "repo": "Vineyard-Intelligence/pluginpack-x",
+    "ref": "d7d56adbb804553905bda910a049cf5799d7063b",
+    "path": "plugins/x.manifest.json",
+    "version": "0.5.2",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 2,
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "verified": true,
+    "typepacks": [
+      "run.vineyard.typepacks.identity",
+      "run.vineyard.typepacks.social"
+    ]
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.xeuledoc",
+    "content_type": "vineyard:pluginpack",
+    "name": "Xeuledoc",
+    "author": "vineyard-run",
+    "description": "Reads the public metadata of link-shared Google Drive documents: owner name, email, account id, timestamps and sharing role. A GPL-3.0 port of xeuledoc by Malfrats Industries. Desktop only — the request must carry no Origin header.",
+    "repo": "Vineyard-Intelligence/pluginpack-xeuledoc",
+    "ref": "8e8f5339b0988605135c2f845eafd60d3a2f604b",
+    "path": "plugins/xeuledoc.manifest.json",
+    "version": "2.0.0",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": false,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "verified": true,
+    "typepacks": [
+      "run.vineyard.typepacks.identity",
+      "run.vineyard.typepacks.infrastructure"
     ]
   }
 ]

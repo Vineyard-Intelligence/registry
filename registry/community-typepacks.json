@@ -1,53 +1,18 @@
 [
   {
-    "identifier": "run.vineyard.typepacks.infrastructure",
+    "identifier": "run.vineyard.typepacks.endpoint",
     "content_type": "vineyard:typepack",
-    "name": "Infrastructure",
+    "name": "Endpoint",
     "author": "vineyard-run",
-    "description": "Network-infrastructure and web OSINT entities (IP addresses, domains, URLs, hosts, ASNs, netblocks, DNS/WHOIS records, TLS certificates, technologies, and web fingerprints: header, favicon, DOM hashes) and their relationships.",
-    "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "a78c53defbec417eeb8b9f50029c376926cb8c6d",
-    "path": "typepacks/infrastructure.json",
-    "version": "2.2.0",
-    "categories": [
-      "infrastructure",
-      "web"
-    ],
-    "type_count": 13,
-    "edge_count": 11,
-    "verified": true
-  },
-  {
-    "identifier": "run.vineyard.typepacks.threat",
-    "content_type": "vineyard:typepack",
-    "name": "Threat",
-    "author": "vineyard-run",
-    "description": "Threat-intelligence entities (malware, campaigns, operations, vulnerabilities, threat actors, indicators, attack patterns, tools, detection signatures) and their relationships, aligned with STIX 2.1.",
+    "description": "Host and endpoint forensic artifacts (files, processes, registry keys, services, mutexes, scheduled tasks) for DFIR and malware-behavior mapping.",
     "repo": "Vineyard-Intelligence/typepack-basic",
     "ref": "e1e48d0cb8c86ab763934e98fccf882f253c14a2",
-    "path": "typepacks/threat.json",
-    "version": "1.2.0",
+    "path": "typepacks/endpoint.json",
+    "version": "1.0.0",
     "categories": [
-      "threat"
+      "endpoint"
     ],
-    "type_count": 9,
-    "edge_count": 10,
-    "verified": true
-  },
-  {
-    "identifier": "run.vineyard.typepacks.identity",
-    "content_type": "vineyard:typepack",
-    "name": "Identity",
-    "author": "vineyard-run",
-    "description": "People, organizations, and the identities that connect them - personas, email addresses, phone numbers, PGP keys, and the accounts they hold on websites.",
-    "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "a78c53defbec417eeb8b9f50029c376926cb8c6d",
-    "path": "typepacks/identity.json",
-    "version": "2.1.0",
-    "categories": [
-      "identity"
-    ],
-    "type_count": 7,
+    "type_count": 6,
     "edge_count": 7,
     "verified": true
   },
@@ -69,23 +34,6 @@
     "verified": true
   },
   {
-    "identifier": "run.vineyard.typepacks.endpoint",
-    "content_type": "vineyard:typepack",
-    "name": "Endpoint",
-    "author": "vineyard-run",
-    "description": "Host and endpoint forensic artifacts (files, processes, registry keys, services, mutexes, scheduled tasks) for DFIR and malware-behavior mapping.",
-    "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "e1e48d0cb8c86ab763934e98fccf882f253c14a2",
-    "path": "typepacks/endpoint.json",
-    "version": "1.0.0",
-    "categories": [
-      "endpoint"
-    ],
-    "type_count": 6,
-    "edge_count": 7,
-    "verified": true
-  },
-  {
     "identifier": "run.vineyard.typepacks.geo",
     "content_type": "vineyard:typepack",
     "name": "Geospatial",
@@ -100,6 +48,41 @@
     ],
     "type_count": 3,
     "edge_count": 3,
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.typepacks.identity",
+    "content_type": "vineyard:typepack",
+    "name": "Identity",
+    "author": "vineyard-run",
+    "description": "People, organizations, and the identities that connect them - personas, email addresses, phone numbers, PGP keys, and the accounts they hold on websites.",
+    "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "a78c53defbec417eeb8b9f50029c376926cb8c6d",
+    "path": "typepacks/identity.json",
+    "version": "2.1.0",
+    "categories": [
+      "identity"
+    ],
+    "type_count": 7,
+    "edge_count": 7,
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.typepacks.infrastructure",
+    "content_type": "vineyard:typepack",
+    "name": "Infrastructure",
+    "author": "vineyard-run",
+    "description": "Network-infrastructure and web OSINT entities (IP addresses, domains, URLs, hosts, ASNs, netblocks, DNS/WHOIS records, TLS certificates, technologies, and web fingerprints: header, favicon, DOM hashes) and their relationships.",
+    "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "a78c53defbec417eeb8b9f50029c376926cb8c6d",
+    "path": "typepacks/infrastructure.json",
+    "version": "2.2.0",
+    "categories": [
+      "infrastructure",
+      "web"
+    ],
+    "type_count": 13,
+    "edge_count": 11,
     "verified": true
   },
   {
@@ -134,6 +117,23 @@
     ],
     "type_count": 4,
     "edge_count": 7,
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.typepacks.threat",
+    "content_type": "vineyard:typepack",
+    "name": "Threat",
+    "author": "vineyard-run",
+    "description": "Threat-intelligence entities (malware, campaigns, operations, vulnerabilities, threat actors, indicators, attack patterns, tools, detection signatures) and their relationships, aligned with STIX 2.1.",
+    "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "e1e48d0cb8c86ab763934e98fccf882f253c14a2",
+    "path": "typepacks/threat.json",
+    "version": "1.2.0",
+    "categories": [
+      "threat"
+    ],
+    "type_count": 9,
+    "edge_count": 10,
     "verified": true
   }
 ]

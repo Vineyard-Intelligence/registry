@@ -1,0 +1,17 @@
+{
+  "identifier": "run.vineyard.typepacks.endpoint",
+  "content_type": "vineyard:typepack",
+  "name": "Endpoint",
+  "author": "vineyard-run",
+  "description": "Host and endpoint forensic artifacts (files, processes, registry keys, services, mutexes, scheduled tasks) for DFIR and malware-behavior mapping.",
+  "repo": "Vineyard-Intelligence/typepack-basic",
+  "ref": "e1e48d0cb8c86ab763934e98fccf882f253c14a2",
+  "path": "typepacks/endpoint.json",
+  "version": "1.0.0",
+  "categories": [
+    "endpoint"
+  ],
+  "type_count": 6,
+  "edge_count": 7,
+  "verified": true
+}

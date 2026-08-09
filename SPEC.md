@@ -23,9 +23,9 @@ GET https://registry.vineyard.run/registry/community-pluginpacks.json
 GET https://registry.vineyard.run/registry/community-skillpacks.json
 ```
 
-Each is a JSON array of entries, served with no build step and no authentication. Consumers (the
-in-app marketplace and the documentation site's browser) fetch one file per kind and render
-entirely client-side.
+Each is a JSON array of entries, sorted by `identifier`, served with no build step and no
+authentication. Consumers (the in-app marketplace and the documentation site's browser) fetch
+one file per kind and render entirely client-side.
 
 ## 2. Content kinds
 
@@ -42,7 +42,7 @@ Every entry, of every kind, carries these:
 
 | Field | Meaning |
 |---|---|
-| `identifier` | Reverse-DNS id, globally unique across all three catalogs. Must equal the `identifier` in the pack document itself. |
+| `identifier` | `<namespace>.<kind>.<name>` — the namespace is the author's OWN reverse-DNS prefix, two labels or more (`com.acme`, `io.github.someone`); `run.vineyard.*` is first-party. Globally unique across all three catalogs, and must equal the `identifier` in the pack document itself. |
 | `content_type` | One of the four above. |
 | `name`, `author`, `description` | What the card shows. |
 | `repo` | `owner/name` of the content repository holding the pack. |
@@ -79,14 +79,29 @@ python scripts/resolve_ref.py owner/repo v1.2.0
 
 ## 5. Submitting a pack
 
+**Add one file. Do not edit the catalogs.**
+
+```
+packs/<identifier>.json
+```
+
+One entry per file, named for its `identifier`; `content_type` decides which catalog it joins.
+The three `registry/community-*.json` files are **generated** from `packs/` by
+`scripts/build_registry.py` and rebuilt on merge — a hand edit to them is overwritten.
+
 1. Fork this repository.
 2. Pin an immutable `ref` (§4).
-3. Append **one** entry to the catalog matching your `content_type` — and nothing else in the file.
+3. Add `packs/<identifier>.json` with your entry.
 4. Open a pull request. CI validates it (§6).
 5. After green CI and a human merge, the entry is live on the next registry fetch. There is no
    coupled app release.
 
-To publish a new version of an existing pack, update that entry's `ref` and `version` in place.
+To publish a new version of an existing pack, edit that pack's file in place with the new `ref`
+and `version`.
+
+Why one file rather than an append to a shared array: two open submissions never touch the same
+path, a diff that adds a file cannot alter another author's pinned `ref`, and a duplicate
+identifier becomes a path collision rather than a check somebody has to remember to run.
 
 ## 6. What CI enforces
 
@@ -94,7 +109,9 @@ All blocking — a pull request cannot merge until every one passes.
 
 | Check | Script |
 |---|---|
+| Filename equals `identifier`; `content_type` is known | `build_registry.py` |
 | Entry validates against its registry-entry schema | `validate.py` |
+| Identifier patterns still reject malformed shapes | `check_identifiers.py` |
 | `ref` is an immutable commit SHA | `verify_pinned.py` |
 | Pinned document is reachable, and its `identifier` / `content_type` / `version` / type counts match what the entry claims | `verify_pinned.py` |
 | Plugin bundles contain no `eval`, computed `import()`, `importScripts`, credential-store access, or egress outside `ctx.net` | `scan.py` |
@@ -103,8 +120,10 @@ All blocking — a pull request cannot merge until every one passes.
 `scan.py --self-test` proves the rules still fire on known-bad samples before they are trusted on
 real packs.
 
-Review beyond this is human. Scope breadth, `node:delete` usage, secret-looking `params` keys, and
-minified-only bundles are things a reviewer weighs; none of them are automatic rejections.
+Review beyond this is human. Scope breadth, `node:delete` usage, and minified-only bundles are
+things a reviewer weighs; none of them are automatic rejections. **Namespace ownership is one of
+them** — no pattern can tell whether you control `com.acme`, so a submission under a namespace
+you do not own is refused at review.
 
 ## 7. Not in scope
 

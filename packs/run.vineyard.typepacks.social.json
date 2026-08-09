@@ -1,0 +1,17 @@
+{
+  "identifier": "run.vineyard.typepacks.social",
+  "content_type": "vineyard:typepack",
+  "name": "Social Media",
+  "author": "vineyard-run",
+  "description": "Platform-agnostic social media entities - accounts, posts, hashtags, groups, and media - with a platform discriminator on every entity. Attribution to a person or organization stays in the Identity pack.",
+  "repo": "Vineyard-Intelligence/typepack-social",
+  "ref": "f7b9780fd80469b6adb67ba86972543a1748b303",
+  "path": "typepacks/social.json",
+  "version": "1.1.0",
+  "categories": [
+    "social"
+  ],
+  "type_count": 5,
+  "edge_count": 10,
+  "verified": true
+}

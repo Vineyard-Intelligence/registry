@@ -7,7 +7,7 @@
   "additionalProperties": false,
   "required": ["identifier", "content_type", "name", "author", "description", "repo", "ref", "path"],
   "properties": {
-    "identifier": { "type": "string", "pattern": "^run\\.vineyard\\.skillpacks\\.[a-z0-9_]+$", "description": "Reverse-DNS PK; equals the skill manifest.identifier. Unique across the whole registry." },
+    "identifier": { "type": "string", "pattern": "^(?:[a-z0-9]+(?:-[a-z0-9]+)*\\.){2,}skillpacks\\.[a-z0-9_]+$", "description": "Reverse-DNS PK; equals the skill manifest.identifier. Unique across the whole registry. The namespace is the AUTHOR'S OWN reverse-DNS prefix, two labels or more: `run.vineyard.*` is first-party, a third party publishes under its own (`com.acme.*`, `io.github.someone.*`). Claiming a namespace you do not control is a review question, not a schema one." },
     "content_type": { "enum": ["vineyard:skillpack"] },
     "name": { "type": "string", "minLength": 1, "maxLength": 128 },
     "author": { "type": "string", "minLength": 1, "description": "Author handle; matched against verified-authors.json." },
@@ -30,7 +30,7 @@
     "requires": {
       "type": "array",
       "uniqueItems": true,
-      "items": { "type": "string", "pattern": "^run\\.vineyard\\.(?:plugins|pluginpacks)\\.[a-z0-9_]+$" },
+      "items": { "type": "string", "pattern": "^(?:[a-z0-9]+(?:-[a-z0-9]+)*\\.){2,}(?:plugins|pluginpacks)\\.[a-z0-9_]+$" },
       "description": "Pluginpack identifiers the playbook's steps call. The marketplace offers these for co-install and gates availability on them; an empty/absent list means the skill leans on built-in tools only."
     },
     "thumbnail_url": { "type": "string", "format": "uri" },

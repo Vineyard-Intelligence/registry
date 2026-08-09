@@ -1,0 +1,17 @@
+{
+  "identifier": "run.vineyard.typepacks.identity",
+  "content_type": "vineyard:typepack",
+  "name": "Identity",
+  "author": "vineyard-run",
+  "description": "People, organizations, and the identities that connect them - personas, email addresses, phone numbers, PGP keys, and the accounts they hold on websites.",
+  "repo": "Vineyard-Intelligence/typepack-basic",
+  "ref": "a78c53defbec417eeb8b9f50029c376926cb8c6d",
+  "path": "typepacks/identity.json",
+  "version": "2.1.0",
+  "categories": [
+    "identity"
+  ],
+  "type_count": 7,
+  "edge_count": 7,
+  "verified": true
+}

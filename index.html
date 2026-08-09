@@ -32,11 +32,12 @@
 
     <div class="card">
       <strong>Add a pack</strong>
-      <p>Open a pull request adding an entry to <code>registry/community-typepacks.json</code>,
-      <code>registry/community-pluginpacks.json</code>, or <code>registry/community-skillpacks.json</code>
+      <p>Open a pull request adding <em>one file</em>, <code>packs/&lt;identifier&gt;.json</code>,
       pointing at your content repo and the
-      <strong>immutable commit SHA</strong> (not a tag &mdash; tags are mutable). Pack files
-      themselves live in their own repositories.</p>
+      <strong>immutable commit SHA</strong> (not a tag &mdash; tags are mutable). The published
+      endpoints above are generated from <code>packs/</code> on merge &mdash; do not edit them
+      directly. Pack files themselves live in their own repositories.</p>
+      <p>Full contract: <a href="https://github.com/Vineyard-Intelligence/registry/blob/main/SPEC.md">SPEC.md</a></p>
     </div>
 
     <p>Documentation: <a href="https://docs.vineyard.run/">docs.vineyard.run</a> &middot;
