@@ -19,7 +19,7 @@ there is nothing for a client to build or resolve: the JSON you see is what ship
 | `schemas/*.schema.json` | JSON Schemas for packs and registry entries |
 | `verified-authors.json` | Who may show the verified badge, and the namespaces each owns. **Operator-owned** — never edited by a submission |
 | `scripts/build_registry.py` | Builds the three catalogs from `packs/` |
-| `scripts/validate.py` | Validates each submission against the schemas (runs in CI) |
+| `scripts/validate.py` | Validates each submission against the schemas, its authorship, its dependencies and its delisting (runs in CI) |
 | [`SPEC.md`](SPEC.md) | The registry contract — entry format, pinning rule, what CI enforces |
 
 ## Endpoints
@@ -51,6 +51,12 @@ jsDelivr CDN, e.g. `https://cdn.jsdelivr.net/gh/{repo}@{ref}/{path}`. Nothing is
   re-fetches the pinned commit (`scripts/verify_pinned.py`) to confirm the document there matches
   the entry's identity, and resolves every type reference and declared dependency against the
   catalog (`scripts/check_typerefs.py`).
+
+- **Take a pack down** → PR here, adding a `status` block to its `packs/` file. The row **stays**:
+  an installed client holds an absolute pinned CDN url and never asks the catalog again, so deleting
+  the entry hides the pack from browse and changes nothing for the projects that already run it.
+  `deprecated` keeps loading and tells the analyst; `withdrawn` stops loading everywhere. See
+  [`SPEC.md` §7](SPEC.md).
 
 > **Do not edit `registry/community-*.json`.** They are built from `packs/` by
 > `scripts/build_registry.py` and rebuilt on merge, so a hand edit is overwritten. One file per

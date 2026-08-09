@@ -144,10 +144,19 @@ def claim_mismatch(doc, entry):
 def main():
     bad = 0
     ok = 0
+    skipped = 0
     for cat in CATALOGS:
         for entry in load(cat):
             ident = entry.get("identifier", "<no id>")
             src = f"packs/{ident}.json"  # annotate what the author wrote, not the build output
+            # A WITHDRAWN pack is not verified, because a common reason to withdraw one is that its
+            # content is gone — repo deleted, taken down, made private. Keeping the fetch would mean
+            # the registry goes red and STAYS red at exactly the moment the delisting has to merge.
+            # A deprecated pack still loads for its users, so it is still held to the pin.
+            if (entry.get("status") or {}).get("state") == "withdrawn":
+                skipped += 1
+                print(f"  skip {ident} (withdrawn — pinned content is no longer required to exist)")
+                continue
             ref, repo, path = entry.get("ref", ""), entry.get("repo", ""), entry.get("path", "")
             if not is_sha(ref):
                 print(f"::error file={src}::{ident}: ref '{ref}' is not an immutable commit SHA (tags/branches are mutable)")
@@ -181,7 +190,8 @@ def main():
     if bad:
         print(f"\n{bad} pin verification failure(s)")
         sys.exit(1)
-    print(f"\nall {ok} pinned entries verified (immutable commit SHA + document matches)")
+    tail = f", {skipped} withdrawn and skipped" if skipped else ""
+    print(f"\nall {ok} pinned entries verified (immutable commit SHA + document matches){tail}")
 
 
 if __name__ == "__main__":

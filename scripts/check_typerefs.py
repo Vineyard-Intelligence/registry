@@ -116,15 +116,23 @@ def check_member(member, entry, palette, errors):
     return checked
 
 
+def live(entries):
+    """Entries a client would still load. A WITHDRAWN pack is excluded from both sides of this
+    check: its content is not required to exist any more (so fetching it would fail CI), and it
+    defines nothing a live plugin is allowed to reference — `validate.py` blocks that edge first,
+    with an error that names the delisting rather than an unresolved type."""
+    return [e for e in entries if (e.get("status") or {}).get("state") != "withdrawn"]
+
+
 def main():
     grouped = load_packs()
     errors = []
-    typepack_entries = grouped.get(TYPEPACKS, [])
+    typepack_entries = live(grouped.get(TYPEPACKS, []))
     palette = build_palette(typepack_entries, errors)
 
     refs = 0
     plugins = 0
-    for entry in grouped.get(PLUGINPACKS, []):
+    for entry in live(grouped.get(PLUGINPACKS, [])):
         try:
             doc = fetch(cdn(entry))
         except (urllib.error.URLError, urllib.error.HTTPError, ValueError, TimeoutError) as e:
