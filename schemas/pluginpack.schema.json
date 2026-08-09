@@ -9,7 +9,7 @@
   "properties": {
     "identifier": {
       "type": "string",
-      "pattern": "^run\\.vineyard\\.pluginpacks\\.[a-z0-9_]+$",
+      "pattern": "^(?:[a-z0-9]+(?:-[a-z0-9]+)*\\.){2,}pluginpacks\\.[a-z0-9_]+$",
       "description": "Reverse-DNS pack id. Distinct namespace from the contained plugins (run.vineyard.plugins.*), since a pack and a plugin are different kinds."
     },
     "content_type": { "const": "vineyard:pluginpack" },
@@ -75,7 +75,7 @@
       "required": ["identifier", "content_type", "name", "version", "description", "platforms", "io", "scopes"],
       "description": "A plugin bundled in a pack. Same as a standalone vineyard:plugin but WITHOUT its own distribution (it inherits the pack's); entry is typically 'inline'.",
       "properties": {
-        "identifier": { "type": "string", "pattern": "^run\\.vineyard\\.plugins\\.[a-z0-9_]+$", "description": "Reverse-DNS plugin id; globally unique, independent of the pack." },
+        "identifier": { "type": "string", "pattern": "^(?:[a-z0-9]+(?:-[a-z0-9]+)*\\.){2,}plugins\\.[a-z0-9_]+$", "description": "Reverse-DNS plugin id; globally unique, independent of the pack." },
         "content_type": { "const": "vineyard:plugin" },
         "name": { "type": "string", "minLength": 1, "maxLength": 128 },
         "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+].+)?$" },

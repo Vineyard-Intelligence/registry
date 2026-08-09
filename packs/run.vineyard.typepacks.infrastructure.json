@@ -1,0 +1,18 @@
+{
+  "identifier": "run.vineyard.typepacks.infrastructure",
+  "content_type": "vineyard:typepack",
+  "name": "Infrastructure",
+  "author": "vineyard-run",
+  "description": "Network-infrastructure and web OSINT entities (IP addresses, domains, URLs, hosts, ASNs, netblocks, DNS/WHOIS records, TLS certificates, technologies, and web fingerprints: header, favicon, DOM hashes) and their relationships.",
+  "repo": "Vineyard-Intelligence/typepack-basic",
+  "ref": "a78c53defbec417eeb8b9f50029c376926cb8c6d",
+  "path": "typepacks/infrastructure.json",
+  "version": "2.2.0",
+  "categories": [
+    "infrastructure",
+    "web"
+  ],
+  "type_count": 13,
+  "edge_count": 11,
+  "verified": true
+}

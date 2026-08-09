@@ -81,26 +81,27 @@ def main():
     for cat in CATALOGS:
         for entry in load(cat):
             ident = entry.get("identifier", "<no id>")
+            src = f"packs/{ident}.json"  # annotate what the author wrote, not the build output
             ref, repo, path = entry.get("ref", ""), entry.get("repo", ""), entry.get("path", "")
             if not is_sha(ref):
-                print(f"::error file={cat}::{ident}: ref '{ref}' is not an immutable commit SHA (tags/branches are mutable)")
+                print(f"::error file={src}::{ident}: ref '{ref}' is not an immutable commit SHA (tags/branches are mutable)")
                 bad += 1
                 continue
             url = f"https://cdn.jsdelivr.net/gh/{repo}@{ref}/{path}"
             try:
                 doc = fetch(url)
             except (urllib.error.URLError, urllib.error.HTTPError, ValueError, TimeoutError) as e:
-                print(f"::error file={cat}::{ident}: cannot fetch pinned doc {url}: {e}")
+                print(f"::error file={src}::{ident}: cannot fetch pinned doc {url}: {e}")
                 bad += 1
                 continue
             if doc.get("identifier") != ident:
-                print(f"::error file={cat}::{ident}: pinned doc identifier '{doc.get('identifier')}' != entry identifier")
+                print(f"::error file={src}::{ident}: pinned doc identifier '{doc.get('identifier')}' != entry identifier")
                 bad += 1
             elif doc.get("content_type") != entry.get("content_type"):
-                print(f"::error file={cat}::{ident}: pinned doc content_type '{doc.get('content_type')}' != entry '{entry.get('content_type')}'")
+                print(f"::error file={src}::{ident}: pinned doc content_type '{doc.get('content_type')}' != entry '{entry.get('content_type')}'")
                 bad += 1
             elif claim_mismatch(doc, entry):
-                print(f"::error file={cat}::{ident}: {claim_mismatch(doc, entry)} — re-pin `ref` to a commit holding what the entry advertises")
+                print(f"::error file={src}::{ident}: {claim_mismatch(doc, entry)} — re-pin `ref` to a commit holding what the entry advertises")
                 bad += 1
             else:
                 ok += 1

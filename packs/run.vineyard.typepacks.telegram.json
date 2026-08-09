@@ -1,0 +1,17 @@
+{
+  "identifier": "run.vineyard.typepacks.telegram",
+  "content_type": "vineyard:typepack",
+  "name": "Telegram",
+  "author": "vineyard-run",
+  "description": "Telegram entities collected without joining: accounts (people and bots), broadcast channels, supergroups, and their posts. Pairs with the Telegram plugin pack and its tgpeek gateway.",
+  "repo": "Vineyard-Intelligence/typepack-telegram",
+  "ref": "6e6864e63a80fa4d23a6a1da9a1e7b36b4325517",
+  "path": "typepacks/telegram.json",
+  "version": "1.1.0",
+  "categories": [
+    "telegram"
+  ],
+  "type_count": 4,
+  "edge_count": 7,
+  "verified": true
+}
