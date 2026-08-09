@@ -115,6 +115,7 @@ All blocking — a pull request cannot merge until every one passes.
 | Filename equals `identifier`; `content_type` is known | `build_registry.py` |
 | Entry validates against its registry-entry schema | `validate.py` |
 | A namespace is used only by the author who owns it, an author name is worn only inside its own namespaces, and `verified` is backed by `verified-authors.json` | `validate.py` |
+| Every declared dependency — a Skill Pack's `requires`, a Plugin Pack's `typepacks` — names a pack that is in this catalog | `validate.py` |
 | Identifier patterns still reject malformed shapes | `check_identifiers.py` |
 | `ref` is an immutable commit SHA | `verify_pinned.py` |
 | Pinned document is reachable, and its `identifier` / `content_type` / `version` match the entry | `verify_pinned.py` |

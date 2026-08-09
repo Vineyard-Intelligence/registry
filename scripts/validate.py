@@ -83,20 +83,56 @@ def authorship_error(entry, owners):
     return None
 
 
+DEPENDENCY_FIELDS = {
+    # field -> what the install flow does with it, for the error message
+    "requires": "a Skill Pack's steps call these Plugin Packs; install offers them alongside",
+    "typepacks": "a Plugin Pack writes these types; install offers the Type Packs alongside",
+}
+
+
+def dependency_error(entry, known):
+    """A declared dependency that is not in this catalog, or None.
+
+    Both fields feed the same place — `marketplace/registry.ts` builds the co-install offer from
+    them — so an identifier that resolves to nothing is not a cosmetic error: the analyst installs
+    the pack, the dependency is silently not offered, and the pack runs against types or plugins
+    that were never installed. Nothing checked this, in either field.
+
+    Existence is the whole check. The KIND is already pinned by the entry schemas' patterns
+    (`typepacks` items must match `…typepacks\\.…`, `requires` items `…plugins|pluginpacks…`) and
+    identifiers are globally unique, so an id of the right shape can only have been registered by
+    an entry of the right kind. Catalog-only, for the same reason as typeRefs: the install flow can
+    offer nothing it cannot resolve.
+    """
+    for field, why in DEPENDENCY_FIELDS.items():
+        for dep in entry.get(field) or []:
+            if dep not in known:
+                return (
+                    f"`{field}` lists '{dep}', which is not in this catalog — {why}, so it would "
+                    f"install without one. Publish that pack first, or drop the dependency."
+                )
+    return None
+
+
 def main():
-    bad = total = 0
+    bad = total = deps = 0
     owners = load("verified-authors.json").get("authors", {})
-    for catalog, entries in sorted(load_packs().items()):
+    grouped = load_packs()
+    # Every identifier in the catalog, gathered before validating, so a dependency may point at a
+    # pack listed in the same pull request rather than forcing two round trips to publish a pair.
+    known = {e["identifier"] for entries in grouped.values() for e in entries}
+    for catalog, entries in sorted(grouped.items()):
         validator = Draft202012Validator(load(SCHEMA_FOR[catalog]))
         for entry in entries:
             total += 1
+            deps += len(entry.get("requires") or []) + len(entry.get("typepacks") or [])
             ident = entry.get("identifier", "<no identifier>")
             errors = sorted(validator.iter_errors(entry), key=lambda e: list(e.path))
             if errors:
                 bad += 1
                 print(f"::error file=packs/{ident}.json::{ident}: {errors[0].message}")
                 continue
-            problem = authorship_error(entry, owners)
+            problem = authorship_error(entry, owners) or dependency_error(entry, known)
             if problem:
                 bad += 1
                 print(f"::error file=packs/{ident}.json::{ident}: {problem}")
@@ -104,7 +140,10 @@ def main():
     if bad:
         print(f"\n{bad} invalid entr{'y' if bad==1 else 'ies'} of {total}")
         sys.exit(1)
-    print(f"\nall {total} entries valid, and every verified badge is backed by verified-authors.json")
+    print(
+        f"\nall {total} entries valid: every verified badge is backed by verified-authors.json, "
+        f"and all {deps} declared dependencies resolve inside the catalog"
+    )
 
 
 if __name__ == "__main__":
