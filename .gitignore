@@ -10,3 +10,7 @@ __pycache__/
 # does today; the author-facing version of the rest is documentation/docs/develop/.
 SPEC_INTERNAL.md
 .DS_Store
+
+# Local tool venv (validate.py needs jsonschema). Never publish — this is a Pages site,
+# and the venv's absolute symlinks are what makes the artifact upload fail.
+.venv/
