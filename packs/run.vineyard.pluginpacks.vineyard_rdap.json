@@ -1,0 +1,30 @@
+{
+  "identifier": "run.vineyard.pluginpacks.vineyard_rdap",
+  "content_type": "vineyard:pluginpack",
+  "name": "Vineyard IP RDAP",
+  "author": "vineyard-run",
+  "description": "IP allocation lookup through Vineyard's cached, normalized RDAP service: one shape across every RIR, KRNIC/JPNIC whois fallback where RDAP is not served, and a cache shared between analysts.",
+  "repo": "Vineyard-Intelligence/pluginpack-vineyard-rdap",
+  "ref": "177f0e05a105f145a8c013a04866d90d3470e9bf",
+  "path": "plugins/vineyard-rdap.manifest.json",
+  "version": "1.0.0",
+  "platforms": [
+    "web"
+  ],
+  "scopes_summary": {
+    "network": false,
+    "graph_write": true,
+    "secret_config": false
+  },
+  "services": [
+    "rdap"
+  ],
+  "plugin_count": 1,
+  "compat": {
+    "min_app_version": "1.0.0"
+  },
+  "verified": true,
+  "typepacks": [
+    "run.vineyard.typepacks.infrastructure"
+  ]
+}
