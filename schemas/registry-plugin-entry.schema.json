@@ -126,6 +126,30 @@
       "type": "boolean",
       "default": false,
       "description": "Mirror of verified-authors.json membership; set by CI, not self-asserted."
+    },
+    "status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "reason", "since"],
+      "properties": {
+        "state": {
+          "enum": ["deprecated", "withdrawn"],
+          "description": "`deprecated`: still safe, still loads, no longer recommended — the analyst is told and may keep using it. `withdrawn`: must not run — clients refuse to load it even where it is already installed, and it can no longer be installed. Withdrawal is for a pack that turned out to be harmful or whose content is gone; it is not a way to retire something."
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 300,
+          "description": "Shown verbatim to an analyst who has this pack installed. Write it for them, not for the registry: what happened and what to do."
+        },
+        "since": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$", "description": "Date of the delisting, YYYY-MM-DD." },
+        "replacement": {
+          "type": "string",
+          "pattern": "^(?:[a-z0-9]+(?:-[a-z0-9]+)*\\.){2,}(?:plugins|pluginpacks)\\.[a-z0-9_]+$",
+          "description": "Where users should go instead. Must be a live pack of the same kind in this catalog."
+        }
+      },
+      "description": "Present only on a DELISTED entry. The row stays in the catalog on purpose — deleting it takes the pack off the browse page but tells an already-installed client nothing, which is the one audience that needs to hear. See SPEC.md §7."
     }
   }
 }

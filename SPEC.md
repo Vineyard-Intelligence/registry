@@ -50,6 +50,7 @@ Every entry, of every kind, carries these:
 | `path` | Path to the pack document within `repo` at `ref`. |
 | `version` | Human-readable mirror of the pinned document's `version`. |
 | `verified` | Operator-set. Backed by `verified-authors.json`; a submission that asserts it is rejected. |
+| `status` | Present only on a delisted pack. See §7. |
 
 The remaining fields are **derived projections** of the full document, present so the browse page
 can render without fetching every manifest. CI recomputes each of them from the pinned document
@@ -121,6 +122,8 @@ All blocking — a pull request cannot merge until every one passes.
 | Pinned document is reachable, and its `identifier` / `content_type` / `version` match the entry | `verify_pinned.py` |
 | Every summary field the entry carries — `scopes_summary`, `platforms`, `plugin_count`, `section_count`, `type_count`, `edge_count` — equals what the pinned document implies | `verify_pinned.py` |
 | Every `io` type reference resolves to a type a **published** Type Pack defines, names its real owner, and that Type Pack is listed in the entry's `typepacks` | `check_typerefs.py` |
+| A live pack declares no dependency on a delisted one, and a `status.replacement` names a live pack of the same kind | `validate.py` |
+| The delisting rules still hold, checked against cases the live catalog does not contain | `test_delisting.py` |
 
 Every check above is an EQUALITY or a RESOLUTION: what the entry says must equal what the pinned
 document holds, and every identifier it names must resolve inside the catalog. None of them is a
@@ -140,7 +143,46 @@ keys, an unbuildable `native`/`subprocess` runtime, and namespace ownership — 
 whether you control `com.acme`, so a submission under a namespace you do not own is refused at
 review.
 
-## 7. Not in scope
+## 7. Delisting a pack
+
+**Deleting the entry is not how a pack is taken down.** A client installs a pack by storing a
+pointer to `repo@ref/path` — an absolute, immutable CDN url. Nothing in its load path asks the
+catalog for permission afterwards, so removing the row takes the pack off the browse page and
+changes nothing for the projects that already have it. They are the audience that needs to hear.
+
+So the row **stays**, and gains a `status`:
+
+```json
+"status": {
+  "state": "withdrawn",
+  "reason": "Sent case data to an endpoint outside its declared allowlist.",
+  "since": "2026-08-09",
+  "replacement": "com.acme.pluginpacks.recon"
+}
+```
+
+| State | Catalog | Already installed | Use it for |
+|---|---|---|---|
+| `deprecated` | Browsable, installable, badged | Loads normally; the analyst is told once per project open | A pack that is superseded, unmaintained, or being retired |
+| `withdrawn` | Hidden from browse unless the project has it; install refused | **Not loaded**, and the reason is shown | A pack that turned out to be harmful, or whose content is gone |
+
+`reason` is shown to analysts verbatim, so write it for them. `replacement` must name a live pack of
+the same kind. Withdrawal is the heavier act and is the operator's, not an author's: it disables a
+pack in projects that are working today.
+
+Two consequences worth knowing before you delist:
+
+- **A live pack may not depend on a delisted one.** `requires` and `typepacks` drive the co-install
+  offer, so leaving the edge in place would hand the analyst the very pack that was just taken back.
+  CI names the dependants; fix them first, or delist them in the same pull request.
+- **A withdrawn entry is not pin-verified.** Its content is allowed to be gone — that is often *why*
+  it was withdrawn — so `verify_pinned.py` skips it rather than going red at the moment the
+  delisting has to merge. A deprecated pack still loads for its users, so it is still held to its pin.
+
+Removing the row entirely is reserved for an entry that was never usable in the first place (a
+mistaken submission, a duplicate). Anything a client may have installed gets a `status`.
+
+## 8. Not in scope
 
 The registry carries no chain of custody, no provenance stamping, and no evidentiary integrity —
 Vineyard is an OSINT tool, not a DFIR one. Commit pinning is supply-chain hygiene: it guarantees a

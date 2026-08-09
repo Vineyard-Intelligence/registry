@@ -25,6 +25,11 @@ jobs:
       # malformed shapes rather than trusted because the catalog validated.
       - name: Identifier pattern self-test
         run: python scripts/check_identifiers.py
+      # Same reason, for delisting: no live entry is deprecated or withdrawn, so validating the real
+      # catalog exercises none of those rules. Without this they would first be tested by an actual
+      # withdrawal — the one merge that has to be right the first time.
+      - name: Delisting rules self-test
+        run: python scripts/test_delisting.py
       - name: Verify pinned commits (immutable SHA + document match)
         run: python scripts/verify_pinned.py
       # After the pins are proven, because this fetches the same documents and would otherwise
