@@ -17,6 +17,7 @@ there is nothing for a client to build or resolve: the JSON you see is what ship
 | `registry/community-pluginpacks.json` | Published index of Plugin Packs (**generated**) |
 | `registry/community-skillpacks.json` | Published index of Skill Packs (**generated**) |
 | `schemas/*.schema.json` | JSON Schemas for packs and registry entries |
+| `verified-authors.json` | Who may show the verified badge, and the namespaces each owns. **Operator-owned** — never edited by a submission |
 | `scripts/build_registry.py` | Builds the three catalogs from `packs/` |
 | `scripts/validate.py` | Validates each submission against the schemas (runs in CI) |
 | [`SPEC.md`](SPEC.md) | The registry contract — entry format, pinning rule, what CI enforces |

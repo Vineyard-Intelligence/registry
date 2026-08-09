@@ -1,0 +1,26 @@
+{
+  "_comment": [
+    "Who may show the verified badge, and which identifier namespaces each of them owns.",
+    "",
+    "The entry schema has always described `verified` as a 'Mirror of verified-authors.json",
+    "membership; set by CI, not self-asserted' — but this file did not exist and no script read",
+    "it, so the badge was exactly what the submitter typed. 21 of 25 entries carried it. With the",
+    "catalog open to third parties, that is a stranger shipping a verified first-party lookalike",
+    "on their first pull request.",
+    "",
+    "`namespaces` is what makes the check hold in BOTH directions (scripts/validate.py):",
+    "an entry under `run.vineyard.*` must be authored by vineyard-run, and an entry claiming to be",
+    "authored by vineyard-run must be under one of vineyard-run's namespaces. Without the second",
+    "half, `author` is a free string and anyone can wear the name.",
+    "",
+    "Whether an author really controls the DOMAIN behind a namespace is deliberately NOT settled",
+    "here — that is a review question. This file is the operator's own record of who was accepted.",
+    "",
+    "Submitters never edit this file. A PR that touches it is a governance change, not a listing."
+  ],
+  "authors": {
+    "vineyard-run": {
+      "namespaces": ["run.vineyard"]
+    }
+  }
+}
