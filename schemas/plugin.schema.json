@@ -106,6 +106,12 @@
           "items": { "$ref": "#/$defs/networkScope" },
           "description": "External XHR targets. WEB: exactly ONE entry == platforms.web.proxy_endpoint (no fan-out). Desktop: more allowed, user's responsibility."
         },
+        "services": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "enum": ["rdap", "telegram"] },
+          "description": "Vineyard-operated services this plugin calls by NAME through ctx.service — never by URL. An ENUM rather than a free string on purpose: a name is a published contract, so a typo must fail at review rather than at the analyst's first run, and a scope the install gate shows must be one that can actually work. Different in kind from `network`: the destination is fixed by the host, and the analyst's identity is attached to the call, so a service scope is not covered by scopes_summary.network."
+        },
         "config": {
           "type": "array",
           "items": { "$ref": "#/$defs/configValue" },

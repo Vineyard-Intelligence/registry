@@ -81,7 +81,7 @@
       "properties": {
         "network": {
           "type": "boolean",
-          "description": "true if scopes.network is non-empty."
+          "description": "true if scopes.network is non-empty OR the plugin declares web_probe - the probe reaches an arbitrary host, so it is the broader egress, not a lesser one. NOT set by scopes.services, which is its own field: a service call goes to a destination the host fixes, carrying the analyst's identity."
         },
         "graph_write": {
           "type": "boolean",
@@ -103,6 +103,12 @@
         }
       },
       "description": "Oldest Vineyard runtime this entry's ref supports (versions.json analog)."
+    },
+    "services": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "enum": ["rdap", "telegram"] },
+      "description": "DERIVED: the union of every member's `scopes.services`. Its own field rather than a flag folded into scopes_summary.network, because it is a different statement: the destination is a Vineyard service the host addresses (a pack cannot name one), and the analyst's own identity travels with the call. A card that showed only 'Network' would understate the second half and overstate the first."
     },
     "plugin_count": {
       "type": "integer",

@@ -30,6 +30,11 @@ jobs:
       # withdrawal — the one merge that has to be right the first time.
       - name: Delisting rules self-test
         run: python scripts/test_delisting.py
+      # And the same for the summary-field definitions. Validating the live catalog only exercises
+      # the fields the live catalog happens to use — no published pack declares `scopes.services`,
+      # so deleting that line from derived() would silently stop verifying the claim.
+      - name: Derived summary field self-test
+        run: python scripts/test_derived.py
       - name: Verify pinned commits (immutable SHA + document match)
         run: python scripts/verify_pinned.py
       # After the pins are proven, because this fetches the same documents and would otherwise
