@@ -74,7 +74,7 @@
     "author": "VINEYARD",
     "description": "Network-infrastructure and web OSINT entities (IP addresses, domains, URLs, hosts, ASNs, netblocks, DNS/WHOIS records, TLS certificates, technologies, and web fingerprints: header, favicon, DOM hashes) and their relationships.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "c1dec7054c51a7e1b2e0f9721b4e7890ac22a682",
+    "ref": "1611db689225f86252c4c2685ff1e731d3e7c736",
     "path": "typepacks/infrastructure.json",
     "version": "2.2.0",
     "categories": [
@@ -92,7 +92,7 @@
     "author": "VINEYARD",
     "description": "Platform-agnostic social media entities - accounts, posts, hashtags, groups, and media - with a platform discriminator on every entity. Attribution to a person or organization stays in the Identity pack.",
     "repo": "Vineyard-Intelligence/typepack-social",
-    "ref": "7d06ee235e1c12bb5805bc95569c2934848df9b0",
+    "ref": "d5305c7f644eaaa27c83b87cd9791cf4a009be85",
     "path": "typepacks/social.json",
     "version": "1.1.0",
     "categories": [
@@ -126,7 +126,7 @@
     "author": "VINEYARD",
     "description": "Threat-intelligence entities (malware, campaigns, operations, vulnerabilities, threat actors, indicators, attack patterns, tools, detection signatures) and their relationships, aligned with STIX 2.1.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "7dcb004c1c4107422195a2089a3d10d8d3f91767",
+    "ref": "1611db689225f86252c4c2685ff1e731d3e7c736",
     "path": "typepacks/threat.json",
     "version": "1.2.0",
     "categories": [
