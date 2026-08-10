@@ -2,7 +2,7 @@
   "identifier": "run.vineyard.pluginpacks.vineyard_rdap",
   "content_type": "vineyard:pluginpack",
   "name": "Vineyard RDAP IP",
-  "author": "vineyard-run",
+  "author": "VINEYARD",
   "description": "IP allocation lookup through Vineyard's cached RDAP service.",
   "repo": "Vineyard-Intelligence/pluginpack-vineyard-rdap",
   "ref": "02bd424473212ce4d4c0fade4d2e5e4736e9a13a",

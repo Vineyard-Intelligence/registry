@@ -2,7 +2,7 @@
   "identifier": "run.vineyard.pluginpacks.whatsmyname",
   "content_type": "vineyard:pluginpack",
   "name": "WhatsMyName",
-  "author": "vineyard-run",
+  "author": "VINEYARD",
   "description": "Checks whether a handle, username, social account, or email local part exists across roughly 700 sites using the WhatsMyName dataset, adding a Handle node plus one User Account per site found. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-whatsmyname",
   "ref": "6049decb51122b9a14092a1e67988241d4e7998a",

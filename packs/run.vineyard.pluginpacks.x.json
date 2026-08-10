@@ -2,7 +2,7 @@
   "identifier": "run.vineyard.pluginpacks.x",
   "content_type": "vineyard:pluginpack",
   "name": "X (Twitter)",
-  "author": "vineyard-run",
+  "author": "VINEYARD",
   "description": "Anonymous X (Twitter) collection - no API key, no login. X Profile identifies an account and is reliable; X Posts collects its timeline but returns nothing for some accounts, for reasons X does not document. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-x",
   "ref": "d7d56adbb804553905bda910a049cf5799d7063b",

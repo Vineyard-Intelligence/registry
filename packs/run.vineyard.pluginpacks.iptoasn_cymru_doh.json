@@ -2,7 +2,7 @@
   "identifier": "run.vineyard.pluginpacks.iptoasn_cymru_doh",
   "content_type": "vineyard:pluginpack",
   "name": "IP to ASN (Team Cymru - DoH Based)",
-  "author": "vineyard-run",
+  "author": "VINEYARD",
   "description": "Enriches IP Address nodes with their announcing AS (number + name) and country, via Team Cymru over DNS-over-HTTPS. No server required.",
   "repo": "Vineyard-Intelligence/pluginpack-iptoasn-cymru-doh",
   "ref": "2bb9d070d8001fcb4ca044e9df237299c6e9fc6a",
