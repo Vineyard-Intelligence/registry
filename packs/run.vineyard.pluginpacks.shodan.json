@@ -3,21 +3,27 @@
   "content_type": "vineyard:pluginpack",
   "name": "Shodan",
   "author": "VINEYARD",
-  "description": "Shodan's paid REST API: free-text host search, passive subdomain/DNS discovery, and a key/credit status check. Needs your own api.shodan.io key.",
+  "description": "One plugin per Shodan endpoint: single-IP host lookup, query search, a free result count with facets, three DNS lookups (passive, forward, reverse) and a credit check. Only search spends a credit. Needs your own api.shodan.io key.",
   "repo": "Vineyard-Intelligence/pluginpack-shodan",
-  "ref": "ee91d0dfdea42f220467877ead6f4f14715b42f0",
+  "ref": "087aa6c4718c0d59d5dbcef6ee176a1a6b5d5773",
   "path": "plugins/shodan.manifest.json",
-  "version": "1.0.0",
-  "platforms": ["web"],
+  "version": "2.0.0",
+  "platforms": [
+    "web"
+  ],
   "scopes_summary": {
     "network": true,
     "graph_write": true,
     "secret_config": true
   },
-  "plugin_count": 3,
+  "plugin_count": 7,
   "compat": {
     "min_app_version": "0.1.0"
   },
   "verified": true,
-  "typepacks": ["run.vineyard.typepacks.geo", "run.vineyard.typepacks.infrastructure", "run.vineyard.typepacks.threat"]
+  "typepacks": [
+    "run.vineyard.typepacks.geo",
+    "run.vineyard.typepacks.infrastructure",
+    "run.vineyard.typepacks.threat"
+  ]
 }
