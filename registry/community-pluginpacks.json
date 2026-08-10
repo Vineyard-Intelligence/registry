@@ -6,7 +6,7 @@
     "author": "VINEYARD",
     "description": "Matches IPs against known CDN/WAF edge ranges offline and domains against CDN CNAME patterns via DNS-over-HTTPS, using ProjectDiscovery's cdncheck dataset.",
     "repo": "Vineyard-Intelligence/pluginpack-cdn-detect",
-    "ref": "5bec36a8db278e1fbe7f8374bc578ec5108eb2f6",
+    "ref": "41826fc29ae63ad1a81b7ca3c4b31179738785b6",
     "path": "plugins/cdn-detect.manifest.json",
     "version": "1.0.0",
     "platforms": [
@@ -58,7 +58,7 @@
     "author": "VINEYARD",
     "description": "Infrastructure attribution for CTI: cluster nodes by shared registrar / nameserver / ASN / TLS certificate and link them, revealing which entities likely belong to the same operator. Pure graph analysis — no network, no keys.",
     "repo": "Vineyard-Intelligence/pluginpack-cti-pivot",
-    "ref": "dc46bfc7c39b8cc2ce0dcf48d0c55ccb1986b941",
+    "ref": "a442a35805b3cd31d15acce8c8db67f3b065ccd4",
     "path": "plugins/cti-pivot.manifest.json",
     "version": "1.0.0",
     "platforms": [
@@ -83,7 +83,7 @@
     "author": "VINEYARD",
     "description": "Checks whether the selected email address belongs to a known disposable-email domain (74k+ domain blocklist, subdomain-aware), and sets the node's is_disposable flag to true or false.",
     "repo": "Vineyard-Intelligence/pluginpack-disposable-email",
-    "ref": "59bc8c2dfbb35a37a5e049e22d8a60026ea41e7d",
+    "ref": "d0c7fc9b8aa1dc5306d6c5831ee251bf592fe4aa",
     "path": "plugins/disposable-email.manifest.json",
     "version": "1.0.0",
     "platforms": [
@@ -111,7 +111,7 @@
     "author": "VINEYARD",
     "description": "Passive, keyless domain enrichment: per-record DNS lookups over DoH (A, AAAA, CNAME, MX, NS, TXT, CAA), RDAP registration data, and Certificate Transparency subdomain discovery. No API keys, no server.",
     "repo": "Vineyard-Intelligence/pluginpack-domain-recon",
-    "ref": "575adbd6f027b5d960af2cb77a87973ea6600c73",
+    "ref": "4224eb05575d79fac0ad8c64721433d4a736e921",
     "path": "plugins/domain-recon.manifest.json",
     "version": "2.0.0",
     "platforms": [
@@ -138,7 +138,7 @@
     "author": "VINEYARD",
     "description": "Browser-only image tools: reverse-image-search lead generation (Google Lens / Yandex / Bing / TinEye) and local EXIF/GPS extraction. No API keys, no server, and images never leave your machine.",
     "repo": "Vineyard-Intelligence/pluginpack-image-osint",
-    "ref": "56b22c12a67cc978cbc0b8a20f1e84a6a136c705",
+    "ref": "a4d353e7ec422b89c044eb422449e42e56f95b8a",
     "path": "plugins/image-osint.manifest.json",
     "version": "1.3.0",
     "platforms": [
@@ -167,7 +167,7 @@
     "author": "VINEYARD",
     "description": "Passive, keyless IP enrichment: RDAP allocation/ownership, Shodan InternetDB exposure (open ports, CVEs, hostnames), and approximate geolocation. Runs entirely in the browser — no API keys, no server.",
     "repo": "Vineyard-Intelligence/pluginpack-ip-recon",
-    "ref": "d02c7d9922c011ccbf4260ab49fc72043679a4c1",
+    "ref": "300045f70aee0c279b44344f8023d6b392e67b8f",
     "path": "plugins/ip-recon.manifest.json",
     "version": "1.0.0",
     "platforms": [
@@ -223,7 +223,7 @@
     "author": "VINEYARD",
     "description": "Looks up OpenPGP public keys published for each selected email address across four public key directories and adds PGP Key nodes linked back to the address. Exact by-email lookups only, never enumeration.",
     "repo": "Vineyard-Intelligence/pluginpack-pgp-lookup",
-    "ref": "8ea3e033efd65e1ab13f5b3bf20d0f1ceec8dd94",
+    "ref": "92d51f216523f829d5c6a2c56c55f0c0b1ec5a8e",
     "path": "plugins/pgp-lookup.manifest.json",
     "version": "1.0.0",
     "platforms": [
@@ -251,7 +251,7 @@
     "author": "VINEYARD",
     "description": "Telegram read-only reconnaissance through Vineyard's tgpeek service, without joining: keyword search, handle resolution, invite-link analysis, granular post or participant collection, and phone-number lookup.",
     "repo": "Vineyard-Intelligence/pluginpack-telegram",
-    "ref": "6488ea7edbdd89058a8de987a3ba37851408ffe5",
+    "ref": "ca0fb2eab86aadf6eccb56d0f8886014cf6879e9",
     "path": "plugins/telegram.manifest.json",
     "version": "2.2.0",
     "platforms": [
@@ -280,7 +280,7 @@
     "author": "VINEYARD",
     "description": "IP allocation lookup through Vineyard's cached RDAP service.",
     "repo": "Vineyard-Intelligence/pluginpack-vineyard-rdap",
-    "ref": "024d8f0040fd16c4e8a83dd038b6415855207230",
+    "ref": "26ea57ee6fe14e0eebd435d3dcb690e9980c26f6",
     "path": "plugins/vineyard-rdap.manifest.json",
     "version": "1.4.0",
     "platforms": [
@@ -311,7 +311,7 @@
     "author": "VINEYARD",
     "description": "Queries the Internet Archive Wayback Machine for the selected domain or URL: capture history via the CDX API, and a closest-snapshot check via the Availability API. Desktop only — the archive sends no CORS headers.",
     "repo": "Vineyard-Intelligence/pluginpack-wayback-machine",
-    "ref": "8bc95bf3f50768bfd973a8850332db747b4a5a20",
+    "ref": "196afbc886d8becaab22aca90c8280f9a0451a58",
     "path": "plugins/wayback-machine.manifest.json",
     "version": "1.1.0",
     "platforms": [
@@ -339,7 +339,7 @@
     "author": "VINEYARD",
     "description": "Web page fingerprinting for Vineyard: favicon hash (MMH3), HTTP header hash (HHHash), and DOM structure hash (dom-hash) — reusable pivot primitives for clustering related infrastructure. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-web-recon",
-    "ref": "c67fff3cc39726b383bebf3645c41994d359a7bf",
+    "ref": "2743dace644d834665d2be1fd3d7b356b7dedbd7",
     "path": "plugins/web-recon.manifest.json",
     "version": "1.0.0",
     "platforms": [
@@ -367,7 +367,7 @@
     "author": "VINEYARD",
     "description": "Checks whether a handle, username, social account, or email local part exists across roughly 700 sites using the WhatsMyName dataset, adding a Handle node plus one User Account per site found. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-whatsmyname",
-    "ref": "82c20cfc2c7823b9db6c665dd74233f225e48020",
+    "ref": "d1cc1bacf852a9a5df612e920a01b8673bc051ed",
     "path": "plugins/whatsmyname.manifest.json",
     "version": "2.0.0",
     "platforms": [
@@ -396,7 +396,7 @@
     "author": "VINEYARD",
     "description": "Anonymous X (Twitter) collection - no API key, no login. X Profile identifies an account and is reliable; X Posts collects its timeline but returns nothing for some accounts, for reasons X does not document. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-x",
-    "ref": "44e74ac8016fd11f8ac44a53a3cb2ca1accd6404",
+    "ref": "eaa4f25a56b48dc331dfdde18ab84702dd6b1528",
     "path": "plugins/x.manifest.json",
     "version": "0.5.2",
     "platforms": [

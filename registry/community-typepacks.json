@@ -6,7 +6,7 @@
     "author": "VINEYARD",
     "description": "Host and endpoint forensic artifacts (files, processes, registry keys, services, mutexes, scheduled tasks) for DFIR and malware-behavior mapping.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "5f62e4dc4446a1512bca030ea2e4d6b8374dbf5f",
+    "ref": "7dcb004c1c4107422195a2089a3d10d8d3f91767",
     "path": "typepacks/endpoint.json",
     "version": "1.0.0",
     "categories": [
@@ -23,7 +23,7 @@
     "author": "VINEYARD",
     "description": "Follow-the-money entities: cryptocurrency addresses and transactions, exchanges, and bank accounts. Public identifiers only — no keys, PANs, or credentials.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "5f62e4dc4446a1512bca030ea2e4d6b8374dbf5f",
+    "ref": "7dcb004c1c4107422195a2089a3d10d8d3f91767",
     "path": "typepacks/financial.json",
     "version": "1.0.0",
     "categories": [
@@ -40,7 +40,7 @@
     "author": "VINEYARD",
     "description": "Places and physical context — locations with coordinates, postal addresses, and facilities — to anchor the 'where' of an investigation.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "5f62e4dc4446a1512bca030ea2e4d6b8374dbf5f",
+    "ref": "7dcb004c1c4107422195a2089a3d10d8d3f91767",
     "path": "typepacks/geo.json",
     "version": "1.0.0",
     "categories": [
@@ -57,7 +57,7 @@
     "author": "VINEYARD",
     "description": "People, organizations, and the identities that connect them - personas, email addresses, phone numbers, PGP keys, and the accounts they hold on websites.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "5f62e4dc4446a1512bca030ea2e4d6b8374dbf5f",
+    "ref": "7dcb004c1c4107422195a2089a3d10d8d3f91767",
     "path": "typepacks/identity.json",
     "version": "2.1.0",
     "categories": [
@@ -74,7 +74,7 @@
     "author": "VINEYARD",
     "description": "Network-infrastructure and web OSINT entities (IP addresses, domains, URLs, hosts, ASNs, netblocks, DNS/WHOIS records, TLS certificates, technologies, and web fingerprints: header, favicon, DOM hashes) and their relationships.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "5f62e4dc4446a1512bca030ea2e4d6b8374dbf5f",
+    "ref": "7dcb004c1c4107422195a2089a3d10d8d3f91767",
     "path": "typepacks/infrastructure.json",
     "version": "2.2.0",
     "categories": [
@@ -92,7 +92,7 @@
     "author": "VINEYARD",
     "description": "Platform-agnostic social media entities - accounts, posts, hashtags, groups, and media - with a platform discriminator on every entity. Attribution to a person or organization stays in the Identity pack.",
     "repo": "Vineyard-Intelligence/typepack-social",
-    "ref": "f7b9780fd80469b6adb67ba86972543a1748b303",
+    "ref": "7d06ee235e1c12bb5805bc95569c2934848df9b0",
     "path": "typepacks/social.json",
     "version": "1.1.0",
     "categories": [
@@ -109,7 +109,7 @@
     "author": "VINEYARD",
     "description": "Telegram entities collected without joining: accounts (people and bots), broadcast channels, supergroups, and their posts. Pairs with the Telegram plugin pack and its tgpeek gateway.",
     "repo": "Vineyard-Intelligence/typepack-telegram",
-    "ref": "2f53b27392216a549221ae3c6d9f0da7dc837d97",
+    "ref": "e98238ab5480ff03ef4c5dd2c1d62a7658b701cb",
     "path": "typepacks/telegram.json",
     "version": "1.5.0",
     "categories": [
@@ -126,7 +126,7 @@
     "author": "VINEYARD",
     "description": "Threat-intelligence entities (malware, campaigns, operations, vulnerabilities, threat actors, indicators, attack patterns, tools, detection signatures) and their relationships, aligned with STIX 2.1.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "5f62e4dc4446a1512bca030ea2e4d6b8374dbf5f",
+    "ref": "7dcb004c1c4107422195a2089a3d10d8d3f91767",
     "path": "typepacks/threat.json",
     "version": "1.2.0",
     "categories": [
