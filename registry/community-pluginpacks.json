@@ -6,7 +6,7 @@
     "author": "VINEYARD",
     "description": "Matches IPs against known CDN/WAF edge ranges offline and domains against CDN CNAME patterns via DNS-over-HTTPS, using ProjectDiscovery's cdncheck dataset.",
     "repo": "Vineyard-Intelligence/pluginpack-cdn-detect",
-    "ref": "e83926060ca1da14ff1378e0f9af2cc663eddfea",
+    "ref": "5bec36a8db278e1fbe7f8374bc578ec5108eb2f6",
     "path": "plugins/cdn-detect.manifest.json",
     "version": "1.0.0",
     "platforms": [
@@ -33,7 +33,7 @@
     "author": "VINEYARD",
     "description": "A bundle of 6 graph-manipulation plugins for demo/validation: Korean Roulette, Russian Roulette, Thanos Snap, Black Hole, Dumb AI Optimizer, Schrödinger's Node. Installing once adds all 6 together.",
     "repo": "Vineyard-Intelligence/pluginpack-chaos",
-    "ref": "ae82142a0a464acf8b783a6890ebea6466110580",
+    "ref": "b7e60de109ae40831644e0b8234aab62015c3099",
     "path": "plugins/chaos-pack.manifest.json",
     "version": "1.0.0",
     "platforms": [
@@ -58,7 +58,7 @@
     "author": "VINEYARD",
     "description": "Infrastructure attribution for CTI: cluster nodes by shared registrar / nameserver / ASN / TLS certificate and link them, revealing which entities likely belong to the same operator. Pure graph analysis — no network, no keys.",
     "repo": "Vineyard-Intelligence/pluginpack-cti-pivot",
-    "ref": "47ea18b8d8bba48888274fae6c3e7260c89e9791",
+    "ref": "dc46bfc7c39b8cc2ce0dcf48d0c55ccb1986b941",
     "path": "plugins/cti-pivot.manifest.json",
     "version": "1.0.0",
     "platforms": [
@@ -111,7 +111,7 @@
     "author": "VINEYARD",
     "description": "Passive, keyless domain enrichment: per-record DNS lookups over DoH (A, AAAA, CNAME, MX, NS, TXT, CAA), RDAP registration data, and Certificate Transparency subdomain discovery. No API keys, no server.",
     "repo": "Vineyard-Intelligence/pluginpack-domain-recon",
-    "ref": "00ad32846a28802aaae77ca9efbf8c18eb14f426",
+    "ref": "575adbd6f027b5d960af2cb77a87973ea6600c73",
     "path": "plugins/domain-recon.manifest.json",
     "version": "2.0.0",
     "platforms": [
@@ -138,7 +138,7 @@
     "author": "VINEYARD",
     "description": "Browser-only image tools: reverse-image-search lead generation (Google Lens / Yandex / Bing / TinEye) and local EXIF/GPS extraction. No API keys, no server, and images never leave your machine.",
     "repo": "Vineyard-Intelligence/pluginpack-image-osint",
-    "ref": "6158e36ffb2d1489be5664161c79038f450fce44",
+    "ref": "56b22c12a67cc978cbc0b8a20f1e84a6a136c705",
     "path": "plugins/image-osint.manifest.json",
     "version": "1.3.0",
     "platforms": [
@@ -167,7 +167,7 @@
     "author": "VINEYARD",
     "description": "Passive, keyless IP enrichment: RDAP allocation/ownership, Shodan InternetDB exposure (open ports, CVEs, hostnames), and approximate geolocation. Runs entirely in the browser — no API keys, no server.",
     "repo": "Vineyard-Intelligence/pluginpack-ip-recon",
-    "ref": "c373a791d0747a854b4dc6bf1ccd69ace6bff277",
+    "ref": "d02c7d9922c011ccbf4260ab49fc72043679a4c1",
     "path": "plugins/ip-recon.manifest.json",
     "version": "1.0.0",
     "platforms": [
@@ -196,7 +196,7 @@
     "author": "VINEYARD",
     "description": "Enriches IP Address nodes with their announcing AS (number + name) and country, via Team Cymru over DNS-over-HTTPS. No server required.",
     "repo": "Vineyard-Intelligence/pluginpack-iptoasn-cymru-doh",
-    "ref": "d5e7c5a15b429931d56226fae599c9207c404110",
+    "ref": "0d2f22ea40392733f836c79b8127721dc734a894",
     "path": "plugins/iptoasn-cymru-doh.manifest.json",
     "version": "1.0.0",
     "platforms": [
@@ -223,7 +223,7 @@
     "author": "VINEYARD",
     "description": "Looks up OpenPGP public keys published for each selected email address across four public key directories and adds PGP Key nodes linked back to the address. Exact by-email lookups only, never enumeration.",
     "repo": "Vineyard-Intelligence/pluginpack-pgp-lookup",
-    "ref": "ad71a5fa13d28c5ebb33b56404308cab072703ee",
+    "ref": "8ea3e033efd65e1ab13f5b3bf20d0f1ceec8dd94",
     "path": "plugins/pgp-lookup.manifest.json",
     "version": "1.0.0",
     "platforms": [
@@ -251,7 +251,7 @@
     "author": "VINEYARD",
     "description": "Telegram read-only reconnaissance through Vineyard's tgpeek service, without joining: keyword search, handle resolution, invite-link analysis, granular post or participant collection, and phone-number lookup.",
     "repo": "Vineyard-Intelligence/pluginpack-telegram",
-    "ref": "822e1427ba665070ef3708e9ae64646ec9c3d147",
+    "ref": "6488ea7edbdd89058a8de987a3ba37851408ffe5",
     "path": "plugins/telegram.manifest.json",
     "version": "2.2.0",
     "platforms": [
@@ -280,7 +280,7 @@
     "author": "VINEYARD",
     "description": "IP allocation lookup through Vineyard's cached RDAP service.",
     "repo": "Vineyard-Intelligence/pluginpack-vineyard-rdap",
-    "ref": "01d83f497d0eb447d724f3bbb8053615950d2461",
+    "ref": "024d8f0040fd16c4e8a83dd038b6415855207230",
     "path": "plugins/vineyard-rdap.manifest.json",
     "version": "1.4.0",
     "platforms": [
@@ -367,7 +367,7 @@
     "author": "VINEYARD",
     "description": "Checks whether a handle, username, social account, or email local part exists across roughly 700 sites using the WhatsMyName dataset, adding a Handle node plus one User Account per site found. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-whatsmyname",
-    "ref": "eaf7863982473e449db29f82f522256911a3943f",
+    "ref": "82c20cfc2c7823b9db6c665dd74233f225e48020",
     "path": "plugins/whatsmyname.manifest.json",
     "version": "2.0.0",
     "platforms": [
@@ -396,7 +396,7 @@
     "author": "VINEYARD",
     "description": "Anonymous X (Twitter) collection - no API key, no login. X Profile identifies an account and is reliable; X Posts collects its timeline but returns nothing for some accounts, for reasons X does not document. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-x",
-    "ref": "7ea7fcde6679c4abb88dc550cb2037d0f2ea1850",
+    "ref": "44e74ac8016fd11f8ac44a53a3cb2ca1accd6404",
     "path": "plugins/x.manifest.json",
     "version": "0.5.2",
     "platforms": [
@@ -425,7 +425,7 @@
     "author": "VINEYARD",
     "description": "Reads the public metadata of link-shared Google Drive documents: owner name, email, account id, timestamps and sharing role. A GPL-3.0 port of xeuledoc by Malfrats Industries. Desktop only — the request must carry no Origin header.",
     "repo": "Vineyard-Intelligence/pluginpack-xeuledoc",
-    "ref": "e59cc65886f723c688e19edb43d5de8cef263bf4",
+    "ref": "f287c312a60eb2408d926340043830717c869ae5",
     "path": "plugins/xeuledoc.manifest.json",
     "version": "2.0.0",
     "platforms": [

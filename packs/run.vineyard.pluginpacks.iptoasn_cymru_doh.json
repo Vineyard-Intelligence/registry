@@ -5,7 +5,7 @@
   "author": "VINEYARD",
   "description": "Enriches IP Address nodes with their announcing AS (number + name) and country, via Team Cymru over DNS-over-HTTPS. No server required.",
   "repo": "Vineyard-Intelligence/pluginpack-iptoasn-cymru-doh",
-  "ref": "d5e7c5a15b429931d56226fae599c9207c404110",
+  "ref": "0d2f22ea40392733f836c79b8127721dc734a894",
   "path": "plugins/iptoasn-cymru-doh.manifest.json",
   "version": "1.0.0",
   "platforms": [

@@ -5,7 +5,7 @@
   "author": "VINEYARD",
   "description": "IP allocation lookup through Vineyard's cached RDAP service.",
   "repo": "Vineyard-Intelligence/pluginpack-vineyard-rdap",
-  "ref": "01d83f497d0eb447d724f3bbb8053615950d2461",
+  "ref": "024d8f0040fd16c4e8a83dd038b6415855207230",
   "path": "plugins/vineyard-rdap.manifest.json",
   "version": "1.4.0",
   "platforms": [
