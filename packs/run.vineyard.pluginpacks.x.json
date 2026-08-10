@@ -5,7 +5,7 @@
   "author": "VINEYARD",
   "description": "Anonymous X (Twitter) collection - no API key, no login. X Profile identifies an account and is reliable; X Posts collects its timeline but returns nothing for some accounts, for reasons X does not document. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-x",
-  "ref": "d7d56adbb804553905bda910a049cf5799d7063b",
+  "ref": "7ea7fcde6679c4abb88dc550cb2037d0f2ea1850",
   "path": "plugins/x.manifest.json",
   "version": "0.5.2",
   "platforms": [

@@ -5,7 +5,7 @@
   "author": "VINEYARD",
   "description": "Matches IPs against known CDN/WAF edge ranges offline and domains against CDN CNAME patterns via DNS-over-HTTPS, using ProjectDiscovery's cdncheck dataset.",
   "repo": "Vineyard-Intelligence/pluginpack-cdn-detect",
-  "ref": "c3ac9097207027c57f81c73ec4521f60a7e60b20",
+  "ref": "e83926060ca1da14ff1378e0f9af2cc663eddfea",
   "path": "plugins/cdn-detect.manifest.json",
   "version": "1.0.0",
   "platforms": [
