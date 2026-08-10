@@ -5,7 +5,7 @@
   "author": "VINEYARD",
   "description": "Looks up OpenPGP public keys published for each selected email address across four public key directories and adds PGP Key nodes linked back to the address. Exact by-email lookups only, never enumeration.",
   "repo": "Vineyard-Intelligence/pluginpack-pgp-lookup",
-  "ref": "8ea3e033efd65e1ab13f5b3bf20d0f1ceec8dd94",
+  "ref": "92d51f216523f829d5c6a2c56c55f0c0b1ec5a8e",
   "path": "plugins/pgp-lookup.manifest.json",
   "version": "1.0.0",
   "platforms": [
