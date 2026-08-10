@@ -9,8 +9,8 @@
     "on their first pull request.",
     "",
     "`namespaces` is what makes the check hold in BOTH directions (scripts/validate.py):",
-    "an entry under `run.vineyard.*` must be authored by vineyard-run, and an entry claiming to be",
-    "authored by vineyard-run must be under one of vineyard-run's namespaces. Without the second",
+    "an entry under `run.vineyard.*` must be authored by VINEYARD, and an entry claiming to be",
+    "authored by VINEYARD must be under one of VINEYARD's namespaces. Without the second",
     "half, `author` is a free string and anyone can wear the name.",
     "",
     "Whether an author really controls the DOMAIN behind a namespace is deliberately NOT settled",
@@ -19,7 +19,7 @@
     "Submitters never edit this file. A PR that touches it is a governance change, not a listing."
   ],
   "authors": {
-    "vineyard-run": {
+    "VINEYARD": {
       "namespaces": ["run.vineyard"]
     }
   }

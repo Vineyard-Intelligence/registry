@@ -2,7 +2,7 @@
   "identifier": "run.vineyard.typepacks.threat",
   "content_type": "vineyard:typepack",
   "name": "Threat",
-  "author": "vineyard-run",
+  "author": "VINEYARD",
   "description": "Threat-intelligence entities (malware, campaigns, operations, vulnerabilities, threat actors, indicators, attack patterns, tools, detection signatures) and their relationships, aligned with STIX 2.1.",
   "repo": "Vineyard-Intelligence/typepack-basic",
   "ref": "e1e48d0cb8c86ab763934e98fccf882f253c14a2",

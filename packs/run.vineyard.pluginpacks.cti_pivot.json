@@ -2,7 +2,7 @@
   "identifier": "run.vineyard.pluginpacks.cti_pivot",
   "content_type": "vineyard:pluginpack",
   "name": "CTI Pivot",
-  "author": "vineyard-run",
+  "author": "VINEYARD",
   "description": "Infrastructure attribution for CTI: cluster nodes by shared registrar / nameserver / ASN / TLS certificate and link them, revealing which entities likely belong to the same operator. Pure graph analysis — no network, no keys.",
   "repo": "Vineyard-Intelligence/pluginpack-cti-pivot",
   "ref": "89668b3455a760a43990946ab9f43c0228d5d495",
