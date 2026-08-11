@@ -5,7 +5,7 @@
   "author": "VINEYARD",
   "description": "One plugin per Shodan endpoint: single-IP host lookup, query search, a free result count with facets, three DNS lookups (passive, forward, reverse) and a credit check. Only search spends a credit. Needs your own api.shodan.io key.",
   "repo": "Vineyard-Intelligence/pluginpack-shodan",
-  "ref": "087aa6c4718c0d59d5dbcef6ee176a1a6b5d5773",
+  "ref": "f364a79f550e7af9871d9db45b376ceaf241e807",
   "path": "plugins/shodan.manifest.json",
   "version": "2.0.0",
   "platforms": [
