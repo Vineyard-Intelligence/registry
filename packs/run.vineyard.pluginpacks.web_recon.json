@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "description": "Web page fingerprinting for Vineyard: favicon hash (MMH3), HTTP header hash (HHHash), and DOM structure hash (dom-hash) — reusable pivot primitives for clustering related infrastructure. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-web-recon",
-  "ref": "2743dace644d834665d2be1fd3d7b356b7dedbd7",
+  "ref": "92a40b1ef1350c395d4bba2bca5debd5c16a36d6",
   "path": "plugins/web-recon.manifest.json",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "platforms": [
     "desktop",
     "web"
