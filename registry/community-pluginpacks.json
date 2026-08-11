@@ -83,9 +83,9 @@
     "author": "VINEYARD",
     "description": "Checks whether the selected email address belongs to a known disposable-email domain (74k+ domain blocklist, subdomain-aware), and sets the node's is_disposable flag to true or false.",
     "repo": "Vineyard-Intelligence/pluginpack-disposable-email",
-    "ref": "d0c7fc9b8aa1dc5306d6c5831ee251bf592fe4aa",
+    "ref": "a77e39c1614cbd1a75cd766e30b3ca207dc431ca",
     "path": "plugins/disposable-email.manifest.json",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "platforms": [
       "web",
       "desktop"
@@ -340,9 +340,9 @@
     "author": "VINEYARD",
     "description": "Queries the Internet Archive Wayback Machine for the selected domain or URL: capture history via the CDX API, and a closest-snapshot check via the Availability API. Desktop only — the archive sends no CORS headers.",
     "repo": "Vineyard-Intelligence/pluginpack-wayback-machine",
-    "ref": "196afbc886d8becaab22aca90c8280f9a0451a58",
+    "ref": "7a968eee815a147346b1b5ef9940c767e2b3e97c",
     "path": "plugins/wayback-machine.manifest.json",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "platforms": [
       "desktop",
       "web"
@@ -368,9 +368,9 @@
     "author": "VINEYARD",
     "description": "Web page fingerprinting for Vineyard: favicon hash (MMH3), HTTP header hash (HHHash), and DOM structure hash (dom-hash) — reusable pivot primitives for clustering related infrastructure. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-web-recon",
-    "ref": "2743dace644d834665d2be1fd3d7b356b7dedbd7",
+    "ref": "92a40b1ef1350c395d4bba2bca5debd5c16a36d6",
     "path": "plugins/web-recon.manifest.json",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "platforms": [
       "desktop",
       "web"
@@ -396,9 +396,9 @@
     "author": "VINEYARD",
     "description": "Checks whether a handle, username, social account, or email local part exists across roughly 700 sites using the WhatsMyName dataset, adding a Handle node plus one User Account per site found. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-whatsmyname",
-    "ref": "d1cc1bacf852a9a5df612e920a01b8673bc051ed",
+    "ref": "4fab48b0b35d67eb8aee84d0c758688fa7570366",
     "path": "plugins/whatsmyname.manifest.json",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "platforms": [
       "desktop",
       "web"
@@ -425,9 +425,9 @@
     "author": "VINEYARD",
     "description": "Anonymous X (Twitter) collection - no API key, no login. X Profile identifies an account and is reliable; X Posts collects its timeline but returns nothing for some accounts, for reasons X does not document. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-x",
-    "ref": "eaa4f25a56b48dc331dfdde18ab84702dd6b1528",
+    "ref": "39750fc85fe2137845af1599aa70bb3270a5d320",
     "path": "plugins/x.manifest.json",
-    "version": "0.5.2",
+    "version": "0.6.0",
     "platforms": [
       "desktop",
       "web"
