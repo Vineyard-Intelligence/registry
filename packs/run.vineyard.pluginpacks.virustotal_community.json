@@ -5,7 +5,7 @@
   "author": "VINEYARD",
   "description": "Free-tier VirusTotal v3 enrichment and pivots with the analyst's own API key: IP/domain/URL reputation, file-hash reports, and resolution/subdomain relationship fan-out. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
-  "ref": "0000000000000000000000000000000000000000",
+  "ref": "5a04ebef7e53b4cbab5a982f4db3375a2a2ee0a2",
   "path": "plugins/virustotal-community.manifest.json",
   "version": "1.0.0",
   "platforms": [
