@@ -3,11 +3,11 @@
   "content_type": "vineyard:pluginpack",
   "name": "VirusTotal Community",
   "author": "VINEYARD",
-  "description": "VirusTotal v3 enrichment and pivots with the analyst's own API key, scoped to what a free community key can read: IP/domain/URL and file-hash reports, passive-DNS resolutions, subdomain fan-out. Paid-key-only relationships excluded. Desktop only.",
+  "description": "VirusTotal v3 enrichment with the analyst's own community key: detection counts AND the engines that flagged it, reputation, vendor categories, WHOIS/DNS/TLS certificate, plus passive-DNS and subdomain fan-out. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
-  "ref": "11714623c2b49eee6c82ff2ad2eaf2c707c32ef2",
+  "ref": "63b751bf2477ba37dbdf0ec32084121b02fc9270",
   "path": "plugins/virustotal-community.manifest.json",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "platforms": [
     "desktop",
     "web"
