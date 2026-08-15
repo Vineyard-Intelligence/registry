@@ -131,7 +131,7 @@
     "verified": {
       "type": "boolean",
       "default": false,
-      "description": "Mirror of verified-authors.json membership; set by CI, not self-asserted."
+      "description": "DERIVED: set by build_registry.py from verified-authors.json — true when the identifier's namespace is claimed by the handle in `author`. Never read from the submission; a value typed here is discarded."
     },
     "status": {
       "type": "object",

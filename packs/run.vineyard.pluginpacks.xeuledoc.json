@@ -3,7 +3,7 @@
   "content_type": "vineyard:pluginpack",
   "name": "Xeuledoc",
   "author": "VINEYARD",
-  "description": "Reads the public metadata of link-shared Google Drive documents: owner name, email, account id, timestamps and sharing role. A GPL-3.0 port of xeuledoc by Malfrats Industries. Desktop only — the request must carry no Origin header.",
+  "description": "Reads the public metadata of link-shared Google Drive documents: owner name, email, account id, timestamps and sharing role. Desktop only. A GPL-3.0 port of xeuledoc by Malfrats Industries (https://github.com/Malfrats/xeuledoc).",
   "repo": "Vineyard-Intelligence/pluginpack-xeuledoc",
   "ref": "f287c312a60eb2408d926340043830717c869ae5",
   "path": "plugins/xeuledoc.manifest.json",
@@ -21,7 +21,6 @@
   "compat": {
     "min_app_version": "0.1.0"
   },
-  "verified": true,
   "typepacks": [
     "run.vineyard.typepacks.identity",
     "run.vineyard.typepacks.infrastructure"

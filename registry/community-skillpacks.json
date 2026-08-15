@@ -18,7 +18,8 @@
     "section_count": 2,
     "requires": [
       "run.vineyard.pluginpacks.whatsmyname"
-    ]
+    ],
+    "verified": true
   },
   {
     "identifier": "run.vineyard.skillpacks.infra_pivot",
@@ -37,6 +38,7 @@
       "infrastructure.autonomous_system"
     ],
     "section_count": 4,
-    "requires": []
+    "requires": [],
+    "verified": true
   }
 ]
