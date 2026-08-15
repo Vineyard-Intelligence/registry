@@ -81,6 +81,41 @@ Resolve a tag or branch to its commit with:
 python scripts/resolve_ref.py owner/repo v1.2.0
 ```
 
+### The approved-ref lists
+
+Alongside each catalog the registry publishes every ref it has **ever** approved for that kind:
+
+```
+GET https://registry.vineyard.run/registry/approved-pluginpacks.json
+```
+
+```json
+[{ "identifier": "...", "repo": "org/repo", "ref": "<sha>", "path": "...",
+   "version": "1.0.0", "approved_at": "2026-08-10" }]
+```
+
+A client must check an installed pointer against **this** list, not against the catalog. The
+catalog holds only the current row, so checking against it would refuse every correctly-pinned
+older install the moment a pack is republished.
+
+Checking the *shape* of a pointer's url instead — right org, 40-hex ref — is **not** sufficient,
+and this is the trap the list exists for. GitHub keeps the head commit of every pull request in
+the base repository's object store (`refs/pull/N/head`) permanently, merged or not, and jsDelivr
+serves it under the base repo's path. Measured:
+
+```
+cdn.jsdelivr.net/gh/facebook/react@<a fork PR's head commit>/package.json  ->  200
+```
+
+So anyone who can open a pull request against a public pack repo — no write access, no review, no
+merge — can produce a url inside this org, with a real commit SHA, that passes any shape test.
+Only membership in the approved list rejects it.
+
+The list is generated from the history of `packs/` on the published branch, so a force-push to
+this repo rewrites it. Preventing that needs signatures or an external log, and is out of scope
+(§8). Withdrawal is separate: a withdrawn pack keeps its historical refs here and is stopped by
+`status` in the catalog.
+
 ## 5. Submitting a pack
 
 **Add one file. Do not edit the catalogs.**
@@ -120,6 +155,7 @@ All blocking — a pull request cannot merge until every one passes.
 | Every declared dependency — a Skill Pack's `requires`, a Plugin Pack's `typepacks` — names a pack that is in this catalog | `validate.py` |
 | Identifier patterns still reject malformed shapes | `check_identifiers.py` |
 | `ref` is an immutable commit SHA | `verify_pinned.py` |
+| Every current catalog row appears in its approved-ref list, and a commit that was never published does not | `build_approved.py`, proven by `test_approved.py` |
 | Pinned document is reachable, and its `identifier` / `content_type` / `version` match the entry | `verify_pinned.py` |
 | Every summary field the entry carries — `scopes_summary`, `platforms`, `plugin_count`, `section_count`, `type_count`, `edge_count` — equals what the pinned document implies | `verify_pinned.py` |
 | Every `io` type reference resolves to a type a **published** Type Pack defines, names its real owner, and that Type Pack is listed in the entry's `typepacks` | `check_typerefs.py` |

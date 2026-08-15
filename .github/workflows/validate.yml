@@ -8,7 +8,13 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
+      # fetch-depth: 0 is load-bearing, not hygiene. build_approved.py derives the approved
+      # ref lists from the history of packs/, and the default shallow clone has one commit —
+      # which would silently publish a list holding only what main points at today, i.e.
+      # exactly the older approvals every pinned install depends on would go missing.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
@@ -19,6 +25,11 @@ jobs:
       # would actually publish, not the one currently on main.
       - name: Build the catalogs from packs/
         run: python scripts/build_registry.py
+      # After the catalogs, because a client checks a pointer against the approved list and
+      # the catalog is only the CURRENT row of it. A pack republished today must not
+      # invalidate yesterday's correctly-pinned install.
+      - name: Build the approved-ref lists from git history
+        run: python scripts/build_approved.py
       - run: python scripts/validate.py
       # Identifier patterns accept any author's reverse-DNS namespace. Loosen one by a
       # character and every real entry still passes, so the patterns are proven against
@@ -40,6 +51,13 @@ jobs:
       # ever exercises the true branch — the impersonation cases exist nowhere but this file.
       - name: Verified badge derivation self-test
         run: python scripts/test_verified.py
+      # The one check that stops a commit which was never published from being loadable.
+      # Shape checks cannot: a pull request against a public pack repo puts an
+      # attacker-authored commit in the BASE repo's object store, where jsDelivr serves it
+      # under this org's path with a real 40-hex ref (measured). Only membership rejects it,
+      # so the list being complete and correct is a security property, not bookkeeping.
+      - name: Approved-ref list self-test
+        run: python scripts/test_approved.py
       - name: Verify pinned commits (immutable SHA + document match)
         run: python scripts/verify_pinned.py
       # After the pins are proven, because this fetches the same documents and would otherwise
@@ -63,11 +81,18 @@ jobs:
     permissions:
       contents: write
     steps:
+      # fetch-depth: 0 is load-bearing, not hygiene. build_approved.py derives the approved
+      # ref lists from the history of packs/, and the default shallow clone has one commit —
+      # which would silently publish a list holding only what main points at today, i.e.
+      # exactly the older approvals every pinned install depends on would go missing.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
       - run: python scripts/build_registry.py
+      - run: python scripts/build_approved.py
       - name: Commit the rebuilt catalogs
         run: |
           if git diff --quiet -- registry/; then
@@ -77,5 +102,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add registry/
-          git commit -m "Rebuild catalogs from packs/ [automated]"
+          git commit -m "Rebuild catalogs and approved-ref lists from packs/ [automated]"
           git push
