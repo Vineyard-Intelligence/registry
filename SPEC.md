@@ -91,8 +91,19 @@ GET https://registry.vineyard.run/registry/approved-pluginpacks.json
 
 ```json
 [{ "identifier": "...", "repo": "org/repo", "ref": "<sha>", "path": "...",
-   "version": "1.0.0", "approved_at": "2026-08-10" }]
+   "version": "1.0.0", "approved_at": "2026-08-10", "sha256": "<digest of the document>" }]
 ```
+
+`sha256` is the digest of the document's bytes, and it answers a different question than `ref`
+does. The commit pins what **GitHub holds**; it does not pin what a consumer **receives**, because
+every client fetches through a CDN and nothing on the client side checks that the bytes coming
+back are the bytes that commit contains. Verifying the digest takes the CDN out of the trusted
+set. It is computed once, when a ref first enters the list, and carried forward unchanged.
+
+A historical row may lack one — a repo since deleted or made private cannot be hashed, and
+refusing to publish the list over that would take every other pack down with it. Such a row is
+verified by membership alone. Every row the catalog points at **today** carries one, and CI fails
+if it does not.
 
 A client must check an installed pointer against **this** list, not against the catalog. The
 catalog holds only the current row, so checking against it would refuse every correctly-pinned

@@ -38,10 +38,12 @@ Usage:
     python scripts/build_approved.py            # write the lists
     python scripts/build_approved.py --check    # exit 1 if the committed lists are stale
 """
+import hashlib
 import json
 import os
 import subprocess
 import sys
+import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -56,6 +58,56 @@ OUTPUTS = sorted(set(APPROVED.values()))
 # Fields copied onto an approved record. `version` and `approved_at` are for the analyst — "you
 # are pinned to 1.0.0, approved on the 10th" — and play no part in the check itself.
 FIELDS = ("identifier", "repo", "ref", "path", "version")
+
+# The CDN this registry's content is served from. Only used to fetch a document for hashing; the
+# approved record stores repo/ref/path and the client rebuilds the url the same way it always has.
+CDN = "https://cdn.jsdelivr.net/gh/"
+
+
+def document_url(row):
+    return f"{CDN}{row['repo']}@{row['ref']}/{row['path']}"
+
+
+def sha256_of(url):
+    """SHA-256 of the pinned document's BYTES, or None if it cannot be fetched.
+
+    WHY A HASH WHEN THE URL ALREADY CARRIES A COMMIT
+
+    The commit pins what GitHub holds. It does not pin what a consumer RECEIVES: every client
+    fetches through jsDelivr, and nothing on the client side checks that the bytes coming back are
+    the bytes that commit contains. Recording the digest here takes the CDN out of the trusted set
+    — a consumer can verify what it got rather than trust who handed it over.
+
+    None is not a failure. A ref whose repo has since been deleted or made private cannot be
+    hashed, and refusing to publish the list over it would take every OTHER pack down with it.
+    A row without a digest is verified by membership alone, exactly as before this existed.
+    """
+    req = urllib.request.Request(url, headers={"User-Agent": "vineyard-registry-approved"})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            return hashlib.sha256(resp.read()).hexdigest()
+    except Exception as exc:  # noqa: BLE001 — every failure mode is "no digest", none is fatal
+        print(f"  no digest for {url}: {exc}")
+        return None
+
+
+def existing_digests():
+    """url -> sha256 already committed, so a build re-hashes only what is new.
+
+    Regenerating every digest on every build would mean ~80 CDN fetches per CI run and a build
+    that fails when the CDN has a bad minute. It would also make the digest a statement about
+    today rather than about the commit, which is the opposite of the point.
+    """
+    out = {}
+    for rel in OUTPUTS:
+        target = os.path.join(ROOT, rel)
+        if not os.path.exists(target):
+            continue
+        with open(target, "r", encoding="utf-8") as fh:
+            for row in json.load(fh):
+                if row.get("sha256") and row.get("repo") and row.get("ref") and row.get("path"):
+                    out[document_url(row)] = row["sha256"]
+    return out
 
 
 def git(*args):
@@ -127,6 +179,13 @@ def collect():
         if row is None:
             continue
         seen[out].setdefault((row["identifier"], row["repo"], row["ref"], row["path"]), row)
+    known = existing_digests()
+    for rows in seen.values():
+        for row in rows.values():
+            url = document_url(row)
+            digest = known.get(url) or sha256_of(url)
+            if digest:
+                row["sha256"] = digest
     return {
         out: sorted(rows.values(), key=lambda r: (r["identifier"], r["approved_at"], r["ref"]))
         for out, rows in seen.items()

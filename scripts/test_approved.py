@@ -51,6 +51,23 @@ for content_type, approved_rel in sorted(APPROVED.items()):
         key = (entry["identifier"], entry.get("repo"), entry.get("ref"), entry.get("path"))
         check(f"{entry['identifier']} @ {str(entry.get('ref'))[:8]}", key in approved)
 
+print("every current catalog row carries a document digest")
+# The digest is what takes the CDN out of the trusted set: the commit pins what GitHub holds, the
+# digest pins what a client RECEIVES. Historical rows may lack one (a repo since deleted cannot be
+# hashed, and refusing to publish over that would take every other pack down with it) — but a row
+# the catalog points at TODAY is fetchable by definition, so a missing digest there is a build
+# that silently skipped it.
+for content_type, approved_rel in sorted(APPROVED.items()):
+    catalog_rel = approved_rel.replace("approved-", "community-")
+    digests = {
+        (r["repo"], r["ref"], r["path"]): r.get("sha256") for r in load(approved_rel)
+    }
+    for entry in load(catalog_rel):
+        digest = digests.get((entry.get("repo"), entry.get("ref"), entry.get("path")))
+        check(f"{entry['identifier']} has a digest", bool(digest))
+        check(f"{entry['identifier']} digest is sha256-shaped",
+              bool(digest) and len(digest) == 64 and all(c in "0123456789abcdef" for c in digest))
+
 print("a commit that was never published is not approved")
 # Shaped exactly like the attack: this registry's org, a real pack repo, a well-formed 40-hex
 # ref. Only membership rejects it — the org prefix and the SHA pattern both pass.
