@@ -41,6 +41,29 @@ CATALOG = {
 }
 OUTPUTS = sorted(set(CATALOG.values()))
 
+# The segment that separates an author's reverse-DNS prefix from the pack's own name.
+KINDS = ("plugins", "pluginpacks", "typepacks", "skillpacks")
+
+
+def namespace(identifier):
+    """The author's reverse-DNS prefix — everything before the kind segment — or None.
+
+    Split at the FIRST kind segment, not the last: a typepack name may itself contain dots
+    (`typepacks\\.[a-z0-9]+(?:[._-][a-z0-9]+)*`), so the trailing part is not a fixed width.
+    """
+    parts = identifier.split(".")
+    for i, part in enumerate(parts):
+        if part in KINDS and i >= 2:
+            return ".".join(parts[:i])
+    return None
+
+
+def claimed_namespaces():
+    """namespace -> the handle that owns it, from verified-authors.json."""
+    with open(os.path.join(ROOT, "verified-authors.json"), "r", encoding="utf-8") as fh:
+        owners = json.load(fh).get("authors", {})
+    return {ns: handle for handle, spec in owners.items() for ns in spec.get("namespaces", [])}
+
 
 def render(entries):
     """The exact bytes a catalog file holds — one formatting, so `--check` means something."""
@@ -52,6 +75,7 @@ def load_packs():
     if not os.path.isdir(PACKS):
         raise SystemExit(f"no submissions directory at {PACKS}")
     grouped = {out: [] for out in OUTPUTS}
+    claimed = claimed_namespaces()
     for name in sorted(os.listdir(PACKS)):
         if not name.endswith(".json"):
             continue
@@ -75,6 +99,27 @@ def load_packs():
                 f"::error file=packs/{name}::unknown content_type "
                 f"{entry.get('content_type')!r} (expected one of {', '.join(sorted(CATALOG))})"
             )
+        # `verified` is DERIVED here, never read from the submission.
+        #
+        # All three entry schemas have always described it as "Mirror of verified-authors.json
+        # membership; set by CI, not self-asserted" — and nothing set it. It was whatever the
+        # submitter typed, which is how 24 packs said true, two identical ones said false, and two
+        # skillpacks omitted it entirely, all of them the same author under the same namespace. A
+        # badge that means "somebody typed true" is worse than no badge, because it reads as a
+        # check that ran.
+        #
+        # Derived from the NAMESPACE relation rather than `author in owners`, and that ordering
+        # matters: this runs BEFORE validate.py (workflow step order), so authorship has not been
+        # checked yet. Asking "is this author listed" would hand verified=true to a stranger
+        # publishing `com.evil.pluginpacks.x` as `author: VINEYARD` for as long as it took validate
+        # to reject them. Asking "does this identifier's namespace belong to whoever signed it"
+        # is correct standing alone.
+        #
+        # Both sides must be present: a missing `author` and an unclaimed namespace are both None,
+        # and None == None would badge a malformed entry.
+        ns = namespace(ident)
+        author = entry.get("author")
+        entry["verified"] = bool(ns and author) and claimed.get(ns) == author
         grouped[out].append(entry)
     for entries in grouped.values():
         entries.sort(key=lambda e: e["identifier"])

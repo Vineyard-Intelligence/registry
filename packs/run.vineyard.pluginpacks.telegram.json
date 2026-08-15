@@ -17,7 +17,6 @@
     "secret_config": false
   },
   "plugin_count": 6,
-  "verified": true,
   "typepacks": [
     "run.vineyard.typepacks.identity",
     "run.vineyard.typepacks.infrastructure",

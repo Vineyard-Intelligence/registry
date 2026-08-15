@@ -23,7 +23,6 @@
   "compat": {
     "min_app_version": "1.0.0"
   },
-  "verified": true,
   "typepacks": [
     "run.vineyard.typepacks.identity",
     "run.vineyard.typepacks.infrastructure"

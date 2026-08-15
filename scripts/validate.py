@@ -15,7 +15,7 @@ import sys
 from jsonschema import Draft202012Validator
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from build_registry import ROOT, load_packs  # noqa: E402
+from build_registry import ROOT, load_packs, namespace  # noqa: E402
 
 SCHEMA_FOR = {
     "registry/community-typepacks.json": "schemas/registry-typepack-entry.schema.json",
@@ -24,33 +24,16 @@ SCHEMA_FOR = {
 }
 
 
-KINDS = ("plugins", "pluginpacks", "typepacks", "skillpacks")
-
-
 def load(rel):
     with open(os.path.join(ROOT, rel), "r", encoding="utf-8") as fh:
         return json.load(fh)
 
 
-def namespace(identifier):
-    """The author's reverse-DNS prefix — everything before the kind segment — or None.
-
-    Split at the FIRST kind segment, not the last: a typepack name may itself contain dots
-    (`typepacks\\.[a-z0-9]+(?:[._-][a-z0-9]+)*`), so the trailing part is not a fixed width.
-    """
-    parts = identifier.split(".")
-    for i, part in enumerate(parts):
-        if part in KINDS and i >= 2:
-            return ".".join(parts[:i])
-    return None
-
-
 def authorship_error(entry, owners):
-    """How the entry misuses `verified` or `author`, or None.
+    """How the entry misuses `author`, or None.
 
-    `verified` and `author` are the two fields that make a pack look trustworthy, and both were
-    plain submitter input: the schema promised `verified` was "set by CI, not self-asserted", but
-    no file backed it and no code read it. The check runs in both directions on purpose —
+    `author` is the field that makes a pack look trustworthy, and it is plain submitter input. The
+    check runs in both directions on purpose —
 
       - a namespace someone owns may only be published under by that someone, so a stranger
         cannot list under `run.vineyard.*`;
@@ -58,6 +41,12 @@ def authorship_error(entry, owners):
         publish `com.evil.pluginpacks.x` as `author: vineyard-run`.
 
     One direction alone leaves the other half of the impersonation open.
+
+    `verified` used to be checked here too — a third branch rejecting a self-asserted `true` from
+    an unlisted author. It is gone because the field is no longer submitter input at all:
+    `build_registry.load_packs` derives it from exactly the relation these two branches enforce,
+    so the branch could never fire again. A check that cannot fail is worse than no check, because
+    the next reader takes it as evidence something is still guarded.
     """
     ident = entry.get("identifier", "")
     author = entry.get("author")
@@ -74,11 +63,6 @@ def authorship_error(entry, owners):
             f"author '{author}' is a listed author whose namespaces are "
             f"{owners[author].get('namespaces', [])}, but this entry is '{ns}'. "
             f"An entry may not claim a name it does not publish under."
-        )
-    if entry.get("verified") is True and author not in owners:
-        return (
-            f"verified=true but '{author}' is not in verified-authors.json. The badge is set by "
-            f"the operator, not by the submission — omit it."
         )
     return None
 

@@ -35,6 +35,11 @@ jobs:
       # so deleting that line from derived() would silently stop verifying the claim.
       - name: Derived summary field self-test
         run: python scripts/test_derived.py
+      # And the same for the verified badge, which is derived from verified-authors.json rather
+      # than submitted. Every live entry is the operator's own, so building the real catalog only
+      # ever exercises the true branch — the impersonation cases exist nowhere but this file.
+      - name: Verified badge derivation self-test
+        run: python scripts/test_verified.py
       - name: Verify pinned commits (immutable SHA + document match)
         run: python scripts/verify_pinned.py
       # After the pins are proven, because this fetches the same documents and would otherwise
