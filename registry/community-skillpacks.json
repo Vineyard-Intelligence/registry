@@ -6,9 +6,9 @@
     "author": "VINEYARD",
     "description": "Turn one account or handle into the person's other accounts, and know when a shared username is NOT the same person.",
     "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
-    "ref": "6500b3a3c19de974e6e85f4c0ec8bae6d11ab44e",
+    "ref": "b1d7ad2f17b43ab468f0069f2e4ff642e35ee2b3",
     "path": "skillpacks/account-pivot.skill.json",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "applies_to": [
       "identity.handle",
       "identity.account",
@@ -28,16 +28,16 @@
     "author": "VINEYARD",
     "description": "Expand one infrastructure indicator (IP/domain/cert) into its connected footprint, one hop at a time.",
     "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
-    "ref": "7b091b65d344d70bae2b0c531c6a264307849646",
+    "ref": "d1ef27a9f6afbae8d244897945feae836b8f40bc",
     "path": "skillpacks/infra-pivot.skill.json",
-    "version": "1.3.0",
+    "version": "1.5.0",
     "applies_to": [
       "infrastructure.ip_address",
       "infrastructure.domain",
       "infrastructure.certificate",
       "infrastructure.autonomous_system"
     ],
-    "section_count": 4,
+    "section_count": 8,
     "requires": [],
     "verified": true
   }
