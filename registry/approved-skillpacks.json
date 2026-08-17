@@ -56,6 +56,15 @@
   {
     "identifier": "run.vineyard.skillpacks.account_identity_pivot",
     "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
+    "ref": "6fb7fd0d9a87ed9e32cb1d5474888600d2523abc",
+    "path": "skillpacks/account-pivot.skill.json",
+    "version": "3.0.0",
+    "approved_at": "2026-08-17",
+    "sha256": "b1f178580631447b89c778bac4dc62a76e9f5023a6ea99181dd20eed288d3c80"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.account_identity_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
     "ref": "b1d7ad2f17b43ab468f0069f2e4ff642e35ee2b3",
     "path": "skillpacks/account-pivot.skill.json",
     "version": "2.3.0",
