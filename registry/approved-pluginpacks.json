@@ -180,6 +180,15 @@
     "sha256": "f9fa6e5a8b8399041226fab77f97d04ecc8534ee74a1afb8350581abd8fa1710"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.github",
+    "repo": "Vineyard-Intelligence/pluginpack-github",
+    "ref": "e56c6484d2ab5ded08a7ee9e886ba2ffd3b310e1",
+    "path": "plugins/github.manifest.json",
+    "version": "1.2.0",
+    "approved_at": "2026-08-18",
+    "sha256": "c6f7b8387f601ee502966383b73991734ef9f6287a4430a017ca0df809d20c36"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.image_osint",
     "repo": "Vineyard-Intelligence/pluginpack-image-osint",
     "ref": "1232618140df50920c0083a59c5c80ea5c4dbf79",
