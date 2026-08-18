@@ -1,0 +1,28 @@
+{
+  "identifier": "run.vineyard.pluginpacks.github",
+  "content_type": "vineyard:pluginpack",
+  "name": "GitHub",
+  "author": "VINEYARD",
+  "description": "Reads public GitHub commit metadata across every branch and tag — never the code — for the email addresses and former usernames contributors left in it. Email privacy is not retroactive. Also gists, org members, forks and Pages domains.",
+  "repo": "Vineyard-Intelligence/pluginpack-github",
+  "ref": "82ed3eccd6306efef5d5586dce5f9bd9cc7c75a9",
+  "path": "plugins/github.manifest.json",
+  "version": "1.0.0",
+  "platforms": [
+    "web",
+    "desktop"
+  ],
+  "scopes_summary": {
+    "network": true,
+    "graph_write": true,
+    "secret_config": true
+  },
+  "plugin_count": 7,
+  "compat": {
+    "min_app_version": "0.1.0"
+  },
+  "typepacks": [
+    "run.vineyard.typepacks.identity",
+    "run.vineyard.typepacks.infrastructure"
+  ]
+}
