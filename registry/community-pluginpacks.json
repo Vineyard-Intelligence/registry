@@ -138,9 +138,9 @@
     "author": "VINEYARD",
     "description": "Reads public GitHub commit metadata across every branch and tag — never the code — for the email addresses and former usernames contributors left in it. Email privacy is not retroactive. Also gists, org members, forks, Pages domains and code search.",
     "repo": "Vineyard-Intelligence/pluginpack-github",
-    "ref": "cbf83cc78be157e9a213105aa54ed07b8a279aeb",
+    "ref": "e56c6484d2ab5ded08a7ee9e886ba2ffd3b310e1",
     "path": "plugins/github.manifest.json",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "platforms": [
       "web",
       "desktop"
