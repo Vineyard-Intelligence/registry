@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "description": "Passive, keyless domain enrichment: per-record DNS lookups over DoH (A, AAAA, CNAME, MX, NS, TXT, CAA), RDAP registration data, and Certificate Transparency subdomain discovery from crt.sh (web) and crt.name (desktop-only). No API keys, no server.",
   "repo": "Vineyard-Intelligence/pluginpack-domain-recon",
-  "ref": "c57a40349babc903527df626288eec8fe05c7220",
+  "ref": "51559f2f75382eaa287d4e2a43ac5462a2288122",
   "path": "plugins/domain-recon.manifest.json",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "platforms": [
     "desktop",
     "web"
