@@ -162,6 +162,15 @@
     "sha256": "f307ce286e36b0590f848caf9cfa948347da9b7b885d9da1219280f023f8b53c"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.domain_recon",
+    "repo": "Vineyard-Intelligence/pluginpack-domain-recon",
+    "ref": "c57a40349babc903527df626288eec8fe05c7220",
+    "path": "plugins/domain-recon.manifest.json",
+    "version": "2.1.0",
+    "approved_at": "2026-08-21",
+    "sha256": "0c39a478dbbf39173ac086d319490e288df5e603016e20eaa4f7e2d08c218573"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.github",
     "repo": "Vineyard-Intelligence/pluginpack-github",
     "ref": "82ed3eccd6306efef5d5586dce5f9bd9cc7c75a9",
