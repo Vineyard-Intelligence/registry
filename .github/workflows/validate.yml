@@ -58,7 +58,12 @@ jobs:
       # so the list being complete and correct is a security property, not bookkeeping.
       - name: Approved-ref list self-test
         run: python scripts/test_approved.py
-      - name: Verify pinned commits (immutable SHA + document match)
+      # And the same for the bundle check. Both packs that drift today drift on `version`, so the
+      # licence half of the comparison is exercised by the live catalog exactly never — deleting
+      # it would leave CI green while a GPL port went on shipping an Apache notice.
+      - name: Bundle version/licence self-test
+        run: python scripts/test_bundle_claims.py
+      - name: Verify pinned commits (immutable SHA + document and bundle match)
         run: python scripts/verify_pinned.py
       # After the pins are proven, because this fetches the same documents and would otherwise
       # blame a typeRef for what is really a bad ref. Blocking, because the failure it prevents is
