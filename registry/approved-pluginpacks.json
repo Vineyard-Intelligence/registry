@@ -473,7 +473,7 @@
     "ref": "a7cab88c66a36c07fe42b172f7921ca7da78c9ab",
     "path": "plugins/telegram.manifest.json",
     "version": "2.4.0",
-    "approved_at": "2026-08-21",
+    "approved_at": "2026-08-26",
     "sha256": "a56f55566a9f8561089a2b228e7c10cf66e14865014f45eedd42731496dcab9a"
   },
   {
@@ -769,7 +769,7 @@
     "ref": "12f2b2b34a61a2a1f9f40b7512793b9b05b56136",
     "path": "plugins/xeuledoc.manifest.json",
     "version": "2.0.0",
-    "approved_at": "2026-08-21",
+    "approved_at": "2026-08-26",
     "sha256": "7946682d4637dd783258177ae1a01fc6446040e7be8a5f80e0419c5b619f5363"
   }
 ]
