@@ -62,6 +62,41 @@ def qualified(ref):
     return f"{ref.get('category')}.{ref.get('name')}"
 
 
+# Property types whose values are not scalars. `nodeIdentityKey` in the app voids the WHOLE key
+# when an identity field holds one of these (type-visuals.tsx), so naming one here does not make
+# the type de-dup badly — it makes it never de-dup at all, silently, forever.
+NON_SCALAR = {"array", "object", "json"}
+
+
+def check_identity(ident, key, t, errors):
+    """`identity_properties` must name real, scalar properties of this same type.
+
+    THE REGISTRY VALIDATES NO TYPE PACK DOCUMENT TODAY — validate.py only maps the catalog ENTRY
+    schemas, and typepack.schema.json is read once for an identifier regex. So a pack could ship
+    an identity that quietly does nothing and nobody would hear about it. Both failures are silent
+    in the app and neither raises:
+
+      * a NAME THAT DOES NOT EXIST contributes a permanently empty segment, so every node of the
+        type shares whatever the other fields say — or, if it is the only entry, they all collapse
+        onto one key;
+      * a NON-SCALAR name voids the key outright, and the type stops merging anything ever. A
+        collector then adds a fresh duplicate on every run.
+
+    Cheap to check here because build_palette already holds the document.
+    """
+    props = t.get("properties") or {}
+    for name in t.get("identity_properties") or []:
+        if name not in props:
+            errors.append((ident, f"type '{key}': identity_properties names '{name}', which is not a property of it"))
+        elif (props[name] or {}).get("type") in NON_SCALAR:
+            errors.append((
+                ident,
+                f"type '{key}': identity_properties names '{name}', which is a "
+                f"{(props[name] or {}).get('type')} — a non-scalar voids the whole key and the type "
+                f"would never de-dup",
+            ))
+
+
 def build_palette(entries, errors):
     """"category.name" -> the Type Pack identifier that defines it, across the whole catalog."""
     palette = {}
@@ -74,6 +109,7 @@ def build_palette(entries, errors):
             continue
         for t in doc.get("types") or []:
             key = f"{t.get('category')}.{t.get('name')}"
+            check_identity(ident, key, t, errors)
             if key in palette and palette[key] != ident:
                 # Two packs defining one type makes `Node.type` ambiguous — the app resolves by
                 # the qualified string alone, so whichever is activated last silently wins.

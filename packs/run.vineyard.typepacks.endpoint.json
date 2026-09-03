@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "description": "Host and endpoint forensic artifacts (files, processes, registry keys, services, mutexes, scheduled tasks) for DFIR and malware-behavior mapping.",
   "repo": "Vineyard-Intelligence/typepack-basic",
-  "ref": "90ffd0d38d8e415f954f0a22d7eee0b551f5fb89",
+  "ref": "4e5c3ca03ce56b535289898868ff825b23aaa357",
   "path": "typepacks/endpoint.json",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "categories": [
     "endpoint"
   ],
