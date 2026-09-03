@@ -6,9 +6,9 @@
     "author": "VINEYARD",
     "description": "Host and endpoint forensic artifacts (files, processes, registry keys, services, mutexes, scheduled tasks) for DFIR and malware-behavior mapping.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "90ffd0d38d8e415f954f0a22d7eee0b551f5fb89",
+    "ref": "4e5c3ca03ce56b535289898868ff825b23aaa357",
     "path": "typepacks/endpoint.json",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "categories": [
       "endpoint"
     ],
@@ -126,7 +126,7 @@
     "author": "VINEYARD",
     "description": "Threat-intelligence entities (malware, campaigns, operations, vulnerabilities, threat actors, indicators, attack patterns, tools, detection signatures) and their relationships, aligned with STIX 2.1.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "0e98f63a09e0fe6c57860aed3a5a25b847dbfdf4",
+    "ref": "4e5c3ca03ce56b535289898868ff825b23aaa357",
     "path": "typepacks/threat.json",
     "version": "1.3.0",
     "categories": [
