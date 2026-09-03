@@ -36,6 +36,15 @@
     "sha256": "ad4e6cdfe19a921da26f9693516930cc4252e21af37d23b54fef0fe66d4b10ff"
   },
   {
+    "identifier": "run.vineyard.typepacks.endpoint",
+    "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "4e5c3ca03ce56b535289898868ff825b23aaa357",
+    "path": "typepacks/endpoint.json",
+    "version": "1.1.0",
+    "approved_at": "2026-09-03",
+    "sha256": "3c0b40fba9735d85d6357f6743b4094195f1da57b1206b02462625acf1205782"
+  },
+  {
     "identifier": "run.vineyard.typepacks.financial",
     "repo": "Vineyard-Intelligence/typepack-basic",
     "ref": "e1e48d0cb8c86ab763934e98fccf882f253c14a2",
@@ -304,5 +313,14 @@
     "version": "1.3.0",
     "approved_at": "2026-08-13",
     "sha256": "1bd8e28f45b147108c854cb901b75981695cfd66a7cf8174a1374f977d2adc02"
+  },
+  {
+    "identifier": "run.vineyard.typepacks.threat",
+    "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "4e5c3ca03ce56b535289898868ff825b23aaa357",
+    "path": "typepacks/threat.json",
+    "version": "1.3.0",
+    "approved_at": "2026-09-03",
+    "sha256": "e45ec908c2f1f7d1484bab583787203f261159ac47de17da5474a742684a5093"
   }
 ]
