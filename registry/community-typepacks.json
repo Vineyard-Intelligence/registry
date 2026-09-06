@@ -57,9 +57,9 @@
     "author": "VINEYARD",
     "description": "People, organizations, and the identities that connect them - personas, email addresses, phone numbers, PGP keys, and the accounts they hold on websites.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "90ffd0d38d8e415f954f0a22d7eee0b551f5fb89",
+    "ref": "63ae36e33cbe64294c4ac18ffaac2d7599ccfb35",
     "path": "typepacks/identity.json",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "categories": [
       "identity"
     ],
@@ -126,9 +126,9 @@
     "author": "VINEYARD",
     "description": "Threat-intelligence entities (malware, campaigns, operations, vulnerabilities, threat actors, indicators, attack patterns, tools, detection signatures) and their relationships, aligned with STIX 2.1.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "4e5c3ca03ce56b535289898868ff825b23aaa357",
+    "ref": "63ae36e33cbe64294c4ac18ffaac2d7599ccfb35",
     "path": "typepacks/threat.json",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "categories": [
       "threat"
     ],
