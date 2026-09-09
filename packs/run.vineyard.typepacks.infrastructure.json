@@ -3,15 +3,15 @@
   "content_type": "vineyard:typepack",
   "name": "Infrastructure",
   "author": "VINEYARD",
-  "description": "Network-infrastructure and web OSINT entities (IP addresses, domains, URLs, hosts, ASNs, netblocks, DNS/WHOIS records, TLS certificates, technologies, and web fingerprints: header, favicon, DOM hashes) and their relationships.",
+  "description": "Network-infrastructure and web OSINT entities (IPs, domains, URLs, hosts, ASNs, netblocks, DNS/WHOIS records, TLS certificates, technologies, web fingerprints and tracking/ad-account identifiers) and their relationships.",
   "repo": "Vineyard-Intelligence/typepack-basic",
-  "ref": "90ffd0d38d8e415f954f0a22d7eee0b551f5fb89",
+  "ref": "10dcd8b5ddd3884137ac7cf3aed6cd250e4ac22c",
   "path": "typepacks/infrastructure.json",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "categories": [
     "infrastructure",
     "web"
   ],
-  "type_count": 13,
-  "edge_count": 11
+  "type_count": 14,
+  "edge_count": 12
 }
