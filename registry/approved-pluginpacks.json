@@ -297,6 +297,15 @@
     "sha256": "87141f4875b1ac8ae44a6ffb0a81eb1932ef30ff9b6fe1c43c92924fece5824e"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.ip_recon",
+    "repo": "Vineyard-Intelligence/pluginpack-ip-recon",
+    "ref": "5afe0abb3750d163576644b59e15aa40e91e59f7",
+    "path": "plugins/ip-recon.manifest.json",
+    "version": "1.1.0",
+    "approved_at": "2026-09-10",
+    "sha256": "f2dd5b842cb1c170692d21e5cb52355b514e5b059fdaba95fef846a9b2097e2d"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.iptoasn_cymru_doh",
     "repo": "Vineyard-Intelligence/pluginpack-iptoasn-cymru-doh",
     "ref": "2bb9d070d8001fcb4ca044e9df237299c6e9fc6a",
@@ -322,6 +331,15 @@
     "version": "1.0.0",
     "approved_at": "2026-08-10",
     "sha256": "eeeb5bd4c5c93884981bef4b14719dce6b4eb3edfe4b614b7cd18c0e1de5dbd2"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.otx",
+    "repo": "Vineyard-Intelligence/pluginpack-otx",
+    "ref": "95193c61d96feac1f34471a8aa320539b5aa9d98",
+    "path": "plugins/otx.manifest.json",
+    "version": "1.0.0",
+    "approved_at": "2026-09-10",
+    "sha256": "32fb09239cedb7f1cddfb01517ec32ca4a7e858d61e08957e45a724620224b77"
   },
   {
     "identifier": "run.vineyard.pluginpacks.pgp_lookup",

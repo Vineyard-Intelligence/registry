@@ -3,11 +3,11 @@
   "content_type": "vineyard:pluginpack",
   "name": "IP Recon",
   "author": "VINEYARD",
-  "description": "Passive, keyless IP enrichment: RDAP allocation/ownership, Shodan InternetDB exposure (open ports, CVEs, hostnames), and approximate geolocation. Runs entirely in the browser — no API keys, no server.",
+  "description": "Passive, keyless IP enrichment: RDAP allocation/ownership, Shodan InternetDB exposure (open ports, CVEs, hostnames), approximate geolocation, and a Tor exit-node check. Runs entirely in the browser — no API keys, no server.",
   "repo": "Vineyard-Intelligence/pluginpack-ip-recon",
-  "ref": "300045f70aee0c279b44344f8023d6b392e67b8f",
+  "ref": "5afe0abb3750d163576644b59e15aa40e91e59f7",
   "path": "plugins/ip-recon.manifest.json",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "platforms": [
     "web"
   ],
@@ -16,7 +16,7 @@
     "graph_write": true,
     "secret_config": false
   },
-  "plugin_count": 3,
+  "plugin_count": 4,
   "compat": {
     "min_app_version": "1.0.0"
   },

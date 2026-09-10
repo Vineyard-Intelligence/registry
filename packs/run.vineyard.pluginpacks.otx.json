@@ -1,0 +1,28 @@
+{
+  "identifier": "run.vineyard.pluginpacks.otx",
+  "content_type": "vineyard:pluginpack",
+  "name": "AlienVault OTX",
+  "author": "VINEYARD",
+  "description": "Pulls the OTX threat reports that name a selected IP, domain, URL, file hash or CVE, and stages the substantial ones as campaigns with their ATT&CK techniques, malware families and actor. Keyless, no server.",
+  "repo": "Vineyard-Intelligence/pluginpack-otx",
+  "ref": "95193c61d96feac1f34471a8aa320539b5aa9d98",
+  "path": "plugins/otx.manifest.json",
+  "version": "1.0.0",
+  "platforms": [
+    "web",
+    "desktop"
+  ],
+  "scopes_summary": {
+    "network": true,
+    "graph_write": true,
+    "secret_config": false
+  },
+  "plugin_count": 1,
+  "compat": {
+    "min_app_version": "0.1.0"
+  },
+  "typepacks": [
+    "run.vineyard.typepacks.infrastructure",
+    "run.vineyard.typepacks.threat"
+  ]
+}
