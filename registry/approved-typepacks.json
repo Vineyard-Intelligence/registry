@@ -218,6 +218,15 @@
   {
     "identifier": "run.vineyard.typepacks.infrastructure",
     "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "0ad28beb55ed354eb5fcdaa2f162d48e898d59ae",
+    "path": "typepacks/infrastructure.json",
+    "version": "2.4.0",
+    "approved_at": "2026-09-09",
+    "sha256": "51201aebaf5b9b706a1248aa84383359a13047f71bc541154184f18ba476fc45"
+  },
+  {
+    "identifier": "run.vineyard.typepacks.infrastructure",
+    "repo": "Vineyard-Intelligence/typepack-basic",
     "ref": "10dcd8b5ddd3884137ac7cf3aed6cd250e4ac22c",
     "path": "typepacks/infrastructure.json",
     "version": "2.3.0",
