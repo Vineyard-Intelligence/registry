@@ -335,6 +335,15 @@
   {
     "identifier": "run.vineyard.pluginpacks.otx",
     "repo": "Vineyard-Intelligence/pluginpack-otx",
+    "ref": "52df6860361ec97d69392ee103167a44d219db54",
+    "path": "plugins/otx.manifest.json",
+    "version": "1.0.0",
+    "approved_at": "2026-09-11",
+    "sha256": "d611453f3515cb9490f38de6b64497b8fb4b6c5f09ee501833c1f8aab56cd803"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.otx",
+    "repo": "Vineyard-Intelligence/pluginpack-otx",
     "ref": "545e9949b30b7670e19dd302f339a89289bafb85",
     "path": "plugins/otx.manifest.json",
     "version": "1.0.0",
