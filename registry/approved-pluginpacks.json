@@ -302,7 +302,7 @@
     "ref": "5afe0abb3750d163576644b59e15aa40e91e59f7",
     "path": "plugins/ip-recon.manifest.json",
     "version": "1.1.0",
-    "approved_at": "2026-09-10",
+    "approved_at": "2026-09-11",
     "sha256": "f2dd5b842cb1c170692d21e5cb52355b514e5b059fdaba95fef846a9b2097e2d"
   },
   {
@@ -338,7 +338,7 @@
     "ref": "95193c61d96feac1f34471a8aa320539b5aa9d98",
     "path": "plugins/otx.manifest.json",
     "version": "1.0.0",
-    "approved_at": "2026-09-10",
+    "approved_at": "2026-09-11",
     "sha256": "32fb09239cedb7f1cddfb01517ec32ca4a7e858d61e08957e45a724620224b77"
   },
   {
