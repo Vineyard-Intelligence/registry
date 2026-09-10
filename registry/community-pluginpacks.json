@@ -224,11 +224,11 @@
     "content_type": "vineyard:pluginpack",
     "name": "IP Recon",
     "author": "VINEYARD",
-    "description": "Passive, keyless IP enrichment: RDAP allocation/ownership, Shodan InternetDB exposure (open ports, CVEs, hostnames), and approximate geolocation. Runs entirely in the browser — no API keys, no server.",
+    "description": "Passive, keyless IP enrichment: RDAP allocation/ownership, Shodan InternetDB exposure (open ports, CVEs, hostnames), approximate geolocation, and a Tor exit-node check. Runs entirely in the browser — no API keys, no server.",
     "repo": "Vineyard-Intelligence/pluginpack-ip-recon",
-    "ref": "300045f70aee0c279b44344f8023d6b392e67b8f",
+    "ref": "5afe0abb3750d163576644b59e15aa40e91e59f7",
     "path": "plugins/ip-recon.manifest.json",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "platforms": [
       "web"
     ],
@@ -237,7 +237,7 @@
       "graph_write": true,
       "secret_config": false
     },
-    "plugin_count": 3,
+    "plugin_count": 4,
     "compat": {
       "min_app_version": "1.0.0"
     },
@@ -272,6 +272,35 @@
     },
     "typepacks": [
       "run.vineyard.typepacks.infrastructure"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.otx",
+    "content_type": "vineyard:pluginpack",
+    "name": "AlienVault OTX",
+    "author": "VINEYARD",
+    "description": "Pulls the OTX threat reports that name a selected IP, domain, URL, file hash or CVE, and stages the substantial ones as campaigns with their ATT&CK techniques, malware families and actor. Keyless, no server.",
+    "repo": "Vineyard-Intelligence/pluginpack-otx",
+    "ref": "95193c61d96feac1f34471a8aa320539b5aa9d98",
+    "path": "plugins/otx.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "web",
+      "desktop"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure",
+      "run.vineyard.typepacks.threat"
     ],
     "verified": true
   },
