@@ -1,5 +1,14 @@
 [
   {
+    "identifier": "run.vineyard.pluginpacks.ad_tags",
+    "repo": "Vineyard-Intelligence/pluginpack-ad-tags",
+    "ref": "bb18b68471fd37dbe0143019aac27ca2c01c1bc9",
+    "path": "plugins/ad-tags.manifest.json",
+    "version": "1.0.0",
+    "approved_at": "2026-09-10",
+    "sha256": "ab53af3db3cfb8b5219676cb318b94bfb05ec57709d36af3ecc331f57a347232"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.cdn_detect",
     "repo": "Vineyard-Intelligence/pluginpack-cdn-detect",
     "ref": "c3ac9097207027c57f81c73ec4521f60a7e60b20",
