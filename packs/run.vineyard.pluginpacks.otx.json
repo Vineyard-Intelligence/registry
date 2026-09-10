@@ -5,7 +5,7 @@
   "author": "VINEYARD",
   "description": "Pulls the OTX threat reports naming a selected IP, domain, URL, file hash or CVE and stages the substantial ones as campaigns, with their ATT&CK techniques, malware families and actor. No API key needed; an optional free key lifts the rate limit.",
   "repo": "Vineyard-Intelligence/pluginpack-otx",
-  "ref": "545e9949b30b7670e19dd302f339a89289bafb85",
+  "ref": "52df6860361ec97d69392ee103167a44d219db54",
   "path": "plugins/otx.manifest.json",
   "version": "1.0.0",
   "platforms": [
