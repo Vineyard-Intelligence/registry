@@ -369,6 +369,15 @@
     "sha256": "32fb09239cedb7f1cddfb01517ec32ca4a7e858d61e08957e45a724620224b77"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.otx",
+    "repo": "Vineyard-Intelligence/pluginpack-otx",
+    "ref": "b1ff57c899c7ecb9f5a0ccc97c487f4f6bcb8b4e",
+    "path": "plugins/otx.manifest.json",
+    "version": "1.2.0",
+    "approved_at": "2026-09-11",
+    "sha256": "6fedd342f2b62a3a85052f228649d9cacdd295a54b01ede5878831e19756b2b7"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.pgp_lookup",
     "repo": "Vineyard-Intelligence/pluginpack-pgp-lookup",
     "ref": "14fac46028fa6078787f3f058f57a4697897a506",
