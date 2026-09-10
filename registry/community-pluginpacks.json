@@ -1,5 +1,34 @@
 [
   {
+    "identifier": "run.vineyard.pluginpacks.ad_tags",
+    "content_type": "vineyard:pluginpack",
+    "name": "Ad Tags",
+    "author": "VINEYARD",
+    "description": "Extracts advertising, analytics, affiliate and payment account identifiers from a page and from ads.txt / .well-known. Two sites billed to one account stay linked after the domain, host and certificate have changed. Desktop only.",
+    "repo": "Vineyard-Intelligence/pluginpack-ad-tags",
+    "ref": "bb18b68471fd37dbe0143019aac27ca2c01c1bc9",
+    "path": "plugins/ad-tags.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 2,
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure",
+      "run.vineyard.typepacks.identity"
+    ],
+    "verified": true
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.cdn_detect",
     "content_type": "vineyard:pluginpack",
     "name": "CDN / WAF Detection (cdncheck)",
