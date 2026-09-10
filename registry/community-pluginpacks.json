@@ -280,7 +280,7 @@
     "content_type": "vineyard:pluginpack",
     "name": "AlienVault OTX",
     "author": "VINEYARD",
-    "description": "Pulls the OTX threat reports that name a selected IP, domain, URL, file hash or CVE, and stages the substantial ones as campaigns with their ATT&CK techniques, malware families and actor. Works without an API key; an optional free key removes the rate limit.",
+    "description": "Pulls the OTX threat reports naming a selected IP, domain, URL, file hash or CVE and stages the substantial ones as campaigns, with their ATT&CK techniques, malware families and actor. No API key needed; an optional free key lifts the rate limit.",
     "repo": "Vineyard-Intelligence/pluginpack-otx",
     "ref": "545e9949b30b7670e19dd302f339a89289bafb85",
     "path": "plugins/otx.manifest.json",
