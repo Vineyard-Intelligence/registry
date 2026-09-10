@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "description": "Two OTX plugins: the threat reports naming an indicator, staged as campaigns with their ATT&CK techniques and malware families; and passively-observed DNS history, including every hostname ever seen pointing at an IP. Needs a free OTX API key.",
   "repo": "Vineyard-Intelligence/pluginpack-otx",
-  "ref": "0f7237e0d44804aa4d851cd188795ba8ee8b471a",
+  "ref": "b1ff57c899c7ecb9f5a0ccc97c487f4f6bcb8b4e",
   "path": "plugins/otx.manifest.json",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "platforms": [
     "web",
     "desktop"
