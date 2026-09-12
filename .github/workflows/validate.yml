@@ -12,10 +12,10 @@ jobs:
       # ref lists from the history of packs/, and the default shallow clone has one commit —
       # which would silently publish a list holding only what main points at today, i.e.
       # exactly the older approvals every pinned install depends on would go missing.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.x"
       - run: pip install jsonschema
@@ -90,10 +90,10 @@ jobs:
       # ref lists from the history of packs/, and the default shallow clone has one commit —
       # which would silently publish a list holding only what main points at today, i.e.
       # exactly the older approvals every pinned install depends on would go missing.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.x"
       - run: python scripts/build_registry.py
