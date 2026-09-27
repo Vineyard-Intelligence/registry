@@ -133,5 +133,14 @@
     "version": "2.1.0",
     "approved_at": "2026-09-10",
     "sha256": "74136a4af9cd244970674092832e589ce8cf55c0fb09ad9804c4d3bae53475ce"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.infra_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
+    "ref": "03d81144f6c26839bf5868db50b8645f0c1be382",
+    "path": "skillpacks/infra-pivot.skill.json",
+    "version": "2.2.0",
+    "approved_at": "2026-09-13",
+    "sha256": "cedf77592a6c0481b14aa448f005ac648f39399d74cb29a7afda161256bb84c8"
   }
 ]
