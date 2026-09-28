@@ -77,7 +77,7 @@
     "ref": "0e5240752c33ec62ec8e597acf7089bfd802d972",
     "path": "plugins/chaos-pack.manifest.json",
     "version": "1.0.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "f79dd8a4404c0f0f396393b79d31112478c2354063dd65a5e15fcb3ffbff19c1"
   },
   {
@@ -203,7 +203,7 @@
     "ref": "209fbe955be64ec7695a5ab49bba83bc928d62ed",
     "path": "plugins/domain-recon.manifest.json",
     "version": "2.1.1",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "35d0726ab57951789213b85433a8da55dd9ca59b58e12b79f6e1e19c9a13beb4"
   },
   {
@@ -284,7 +284,7 @@
     "ref": "67dbd713cba7acdb28548038797384d655eb6d4c",
     "path": "plugins/image-osint.manifest.json",
     "version": "1.3.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "eb5535612155109251274cc8c2d5f6efdacc9f7e455d25556d1b327a1dde4515"
   },
   {
@@ -365,7 +365,7 @@
     "ref": "daf458644a8c7455dfcb70465db9b20f6fdd182d",
     "path": "plugins/iptoasn-cymru-doh.manifest.json",
     "version": "1.0.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "ea09c5b70254c0940daea966b11ff4c182b5d2ddd6d92270b3edfb09aa2772f5"
   },
   {
@@ -464,7 +464,7 @@
     "ref": "d1bf708a0b3783ceb825dded4d5ef634bec8db3f",
     "path": "plugins/pgp-lookup.manifest.json",
     "version": "1.0.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "a7d2926d2a49606ba3032c1e8f4f0218880e15fab063a0500dae25ca4d0b3721"
   },
   {
@@ -590,7 +590,7 @@
     "ref": "5ef2d5ca5f89ef183226441f5253ada4321c033a",
     "path": "plugins/telegram.manifest.json",
     "version": "2.4.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "a56f55566a9f8561089a2b228e7c10cf66e14865014f45eedd42731496dcab9a"
   },
   {
@@ -662,7 +662,7 @@
     "ref": "c96e4e00e9d62122e3a35653cc80b6852358330d",
     "path": "plugins/vineyard-rdap.manifest.json",
     "version": "1.4.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "c4f8b02669c8badc8fba4f5bb0814ff31aa473cca8569b5d1b1ad9336b85da09"
   },
   {
@@ -706,7 +706,7 @@
     "ref": "662882c6772387d64a77615b0498bf2c7c66dd14",
     "path": "plugins/virustotal-community.manifest.json",
     "version": "1.2.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "57d5fd5d40a9b5b0ea0ae7ec909f2691b4c5b99e246de14d1c62032cb3fbc310"
   },
   {
@@ -769,7 +769,7 @@
     "ref": "2172c7e15e624ba0fb511282195287ab23865706",
     "path": "plugins/web-recon.manifest.json",
     "version": "1.1.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "8caee152d7bfc79166c4d3427e485fb1c22c8a22f3aa04e5da6c8b919a41768b"
   },
   {
@@ -832,7 +832,7 @@
     "ref": "1cd4fe6ea3614af40423f4cbd8e49b2020904e8a",
     "path": "plugins/whatsmyname.manifest.json",
     "version": "2.2.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "da32a1918fdcc6eec3ec2527d525b57494158ad652c97405de7109472a31688a"
   },
   {
@@ -886,7 +886,7 @@
     "ref": "276df9ee8c703dd4ee8efff70662bc3d148e6ba5",
     "path": "plugins/x.manifest.json",
     "version": "0.6.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "509db9bf59009bfde992b79859435d1c00c3ac742fc6b413f7734a8ddf32f310"
   },
   {
@@ -940,7 +940,7 @@
     "ref": "1345a12318af3c43ff3494c1d2777b6eceb3c6d4",
     "path": "plugins/xeuledoc.manifest.json",
     "version": "2.0.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "7946682d4637dd783258177ae1a01fc6446040e7be8a5f80e0419c5b619f5363"
   }
 ]

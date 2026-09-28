@@ -50,7 +50,7 @@
     "ref": "9aaf78ced69636a24d7b461551661e9b18abae89",
     "path": "typepacks/endpoint.json",
     "version": "1.1.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "3c0b40fba9735d85d6357f6743b4094195f1da57b1206b02462625acf1205782"
   },
   {
@@ -95,7 +95,7 @@
     "ref": "d80c8badd50e9c74a84638d4113149216d7e2619",
     "path": "typepacks/financial.json",
     "version": "1.0.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "1f54802aa8858281f9236df52381c0e54dfc97ae70b318b810025b3e84641879"
   },
   {
@@ -140,7 +140,7 @@
     "ref": "d80c8badd50e9c74a84638d4113149216d7e2619",
     "path": "typepacks/geo.json",
     "version": "1.0.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "206d32ad3ae7d3e7f2f329789d8bb4d8fad9dc66aa24ab0d536c65b733b8bd15"
   },
   {
@@ -194,7 +194,7 @@
     "ref": "9a1bd524fc162b6d1d6e8bf0d543c761e8742969",
     "path": "typepacks/identity.json",
     "version": "2.2.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "78d27280980b1859c37317c6cbb37aebc0fb8d1f5402902364c26d4f1b944a4a"
   },
   {
@@ -275,7 +275,7 @@
     "ref": "72386e79468510dbe11aa30ff6b33a7d3caa7bbd",
     "path": "typepacks/infrastructure.json",
     "version": "2.4.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "51201aebaf5b9b706a1248aa84383359a13047f71bc541154184f18ba476fc45"
   },
   {
@@ -311,7 +311,7 @@
     "ref": "32287ccee6d162f08f35cfc25057e50680662f21",
     "path": "typepacks/social.json",
     "version": "1.1.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "756c3439f7f8c2b5eba49bd5a22e26dc96c10619eeae8527f1d37c802b7d29ac"
   },
   {
@@ -347,7 +347,7 @@
     "ref": "f05808b8320f45e958f8df7a43a182c756320d17",
     "path": "typepacks/telegram.json",
     "version": "1.5.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "4e2ed88111e6a721252684168e334da13023a3905589963368b4226505c9bd5b"
   },
   {
@@ -428,7 +428,7 @@
     "ref": "9a1bd524fc162b6d1d6e8bf0d543c761e8742969",
     "path": "typepacks/threat.json",
     "version": "1.4.0",
-    "approved_at": "2026-09-27",
+    "approved_at": "2026-09-28",
     "sha256": "d4b5e4b89d2c2bc796a9659cc047841d6e72c9edc54e10a5d6645a95d8657b82"
   }
 ]
