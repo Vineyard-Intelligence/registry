@@ -5,7 +5,7 @@
   "author": "VINEYARD",
   "description": "Reads the public metadata of link-shared Google Drive documents: owner name, email, account id, timestamps and sharing role. Desktop only. A GPL-3.0 port of xeuledoc by Malfrats Industries (https://github.com/Malfrats/xeuledoc).",
   "repo": "Vineyard-Intelligence/pluginpack-xeuledoc",
-  "ref": "12f2b2b34a61a2a1f9f40b7512793b9b05b56136",
+  "ref": "1345a12318af3c43ff3494c1d2777b6eceb3c6d4",
   "path": "plugins/xeuledoc.manifest.json",
   "version": "2.0.0",
   "platforms": [

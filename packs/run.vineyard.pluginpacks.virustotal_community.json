@@ -5,7 +5,7 @@
   "author": "VINEYARD",
   "description": "VirusTotal v3 enrichment with the analyst's own community key: detection counts AND the engines that flagged it, reputation, vendor categories, WHOIS/DNS/TLS certificate, plus passive-DNS and subdomain fan-out. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
-  "ref": "63b751bf2477ba37dbdf0ec32084121b02fc9270",
+  "ref": "662882c6772387d64a77615b0498bf2c7c66dd14",
   "path": "plugins/virustotal-community.manifest.json",
   "version": "1.2.0",
   "platforms": [
