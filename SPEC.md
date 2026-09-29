@@ -203,7 +203,7 @@ So the row **stays**, and gains a `status`:
 ```json
 "status": {
   "state": "withdrawn",
-  "reason": "Sent case data to an endpoint outside its declared allowlist.",
+  "reason": "Sent project data to an endpoint outside its declared allowlist.",
   "since": "2026-08-09",
   "replacement": "com.acme.pluginpacks.recon"
 }
