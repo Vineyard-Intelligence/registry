@@ -63,7 +63,3 @@ jsDelivr CDN, e.g. `https://cdn.jsdelivr.net/gh/{repo}@{ref}/{path}`. Nothing is
 > pack is what keeps concurrent submissions from conflicting, stops a diff from reaching another
 > author's pinned `ref`, and turns a duplicate identifier into a path collision instead of a check
 > somebody has to remember to run. See [`SPEC.md`](SPEC.md).
-
-## License
-
-MIT

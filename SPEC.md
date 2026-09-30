@@ -235,7 +235,3 @@ mistaken submission, a duplicate). Anything a client may have installed gets a `
 The registry carries no chain of custody, no provenance stamping, and no evidentiary integrity —
 Vineyard is an OSINT tool, not a DFIR one. Commit pinning is supply-chain hygiene: it guarantees a
 client runs the bytes that were reviewed, and nothing more.
-
-## License
-
-MIT
