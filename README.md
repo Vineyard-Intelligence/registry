@@ -44,22 +44,17 @@ jsDelivr CDN, e.g. `https://cdn.jsdelivr.net/gh/{repo}@{ref}/{path}`. Nothing is
 - **Add a pack to the catalog** → PR here, adding **one file** `packs/<identifier>.json` that
   points at the content repo (`repo`), the **immutable commit SHA** (`ref`) of the release you are
   submitting, and the in-repo `path`. Resolve the SHA with
-  `python scripts/resolve_ref.py owner/repo <tag-or-branch>` — **tags and branches are mutable
-  (re-pointable to other code) and are rejected**, so the catalog can never serve code other than
-  what was reviewed at that commit.
+  `python scripts/resolve_ref.py owner/repo <tag-or-branch>` — **tags and branches are rejected**.
   CI (`.github/workflows/validate.yml`) validates each entry against `schemas/registry-*-entry.schema.json`,
   re-fetches the pinned commit (`scripts/verify_pinned.py`) to confirm the document there matches
   the entry's identity, and resolves every type reference and declared dependency against the
   catalog (`scripts/check_typerefs.py`).
 
 - **Take a pack down** → PR here, adding a `status` block to its `packs/` file. The row **stays**:
-  an installed client holds an absolute pinned CDN url and never asks the catalog again, so deleting
-  the entry hides the pack from browse and changes nothing for the projects that already run it.
-  `deprecated` keeps loading and tells the analyst; `withdrawn` stops loading everywhere. See
+  deleting it only hides the pack from browse, and projects that already installed it keep running
+  it. `deprecated` keeps loading and tells the analyst; `withdrawn` stops loading everywhere. See
   [`SPEC.md` §7](SPEC.md).
 
 > **Do not edit `registry/community-*.json`.** They are built from `packs/` by
-> `scripts/build_registry.py` and rebuilt on merge, so a hand edit is overwritten. One file per
-> pack is what keeps concurrent submissions from conflicting, stops a diff from reaching another
-> author's pinned `ref`, and turns a duplicate identifier into a path collision instead of a check
-> somebody has to remember to run. See [`SPEC.md`](SPEC.md).
+> `scripts/build_registry.py` and rebuilt on merge, so a hand edit is overwritten. See
+> [`SPEC.md`](SPEC.md).
