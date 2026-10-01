@@ -62,9 +62,9 @@
     "author": "VINEYARD",
     "description": "Temporary, for the VINEYARD operator's thesis research (under testing; may be removed soon). Censys host lookup (TLS certificates and SSH host keys an IP presents) and search (by certificate/key, or CenQL). Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-censys",
-    "ref": "cb6b875352db5f6a669799875839a15f7a11aecd",
+    "ref": "e164a2d66cdae6754f1771f41a6112b986f167c5",
     "path": "plugins/censys.manifest.json",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "platforms": [
       "desktop",
       "web"

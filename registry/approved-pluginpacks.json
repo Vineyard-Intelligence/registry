@@ -56,6 +56,15 @@
   {
     "identifier": "run.vineyard.pluginpacks.censys",
     "repo": "Vineyard-Intelligence/pluginpack-censys",
+    "ref": "e164a2d66cdae6754f1771f41a6112b986f167c5",
+    "path": "plugins/censys.manifest.json",
+    "version": "0.2.1",
+    "approved_at": "2026-10-01",
+    "sha256": "60d9ac087cf72d45d3aa34b1c74a2ebcf35dc9843b0ed9ee3d5f8eb5c8ae9bd1"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.censys",
+    "repo": "Vineyard-Intelligence/pluginpack-censys",
     "ref": "e5f2eb42b33176743e3a6427fc02efa2bd06a907",
     "path": "plugins/censys.manifest.json",
     "version": "0.1.0",
