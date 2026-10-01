@@ -3,11 +3,11 @@
   "content_type": "vineyard:pluginpack",
   "name": "Vineyard RDAP IP",
   "author": "VINEYARD",
-  "description": "IP allocation lookup through Vineyard's cached RDAP service.",
+  "description": "IP address registration lookups through Vineyard's RDAP service: the covering netblock, a WHOIS record, and the holding organization with its contacts.",
   "repo": "Vineyard-Intelligence/pluginpack-vineyard-rdap",
-  "ref": "f03eafcee64155ef54aa6b604cda91b440d12a78",
+  "ref": "14a6264bc63ebf8fb9583e47188940ff0efdc7d6",
   "path": "plugins/vineyard-rdap.manifest.json",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "platforms": [
     "web"
   ],

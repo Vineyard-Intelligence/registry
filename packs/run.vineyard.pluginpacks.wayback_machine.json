@@ -3,11 +3,11 @@
   "content_type": "vineyard:pluginpack",
   "name": "Wayback Machine",
   "author": "VINEYARD",
-  "description": "Queries the Internet Archive Wayback Machine for the selected domain or URL: capture history via the CDX API, and a closest-snapshot check via the Availability API. Desktop only — the archive sends no CORS headers.",
+  "description": "Queries the Internet Archive Wayback Machine for the capture history and archive availability of selected domains and URLs. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-wayback-machine",
-  "ref": "7a968eee815a147346b1b5ef9940c767e2b3e97c",
+  "ref": "c558b6a1f9f46162acb443cba4b47abeceb0b261",
   "path": "plugins/wayback-machine.manifest.json",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "platforms": [
     "desktop",
     "web"

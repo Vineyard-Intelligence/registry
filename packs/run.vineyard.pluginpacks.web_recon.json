@@ -3,11 +3,11 @@
   "content_type": "vineyard:pluginpack",
   "name": "Web Recon",
   "author": "VINEYARD",
-  "description": "Web page fingerprinting for Vineyard: favicon hash (MMH3), HTTP header hash (HHHash), and DOM structure hash (dom-hash) — reusable pivot primitives for clustering related infrastructure. Desktop only.",
+  "description": "Fingerprints web pages by hashing their favicon (MMH3), response header names and HTML tag structure. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-web-recon",
-  "ref": "2172c7e15e624ba0fb511282195287ab23865706",
+  "ref": "3861de88aeb8590ef15ad36b9fd18de3cf999c97",
   "path": "plugins/web-recon.manifest.json",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "platforms": [
     "desktop",
     "web"

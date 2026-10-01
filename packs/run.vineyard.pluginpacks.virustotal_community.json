@@ -3,11 +3,11 @@
   "content_type": "vineyard:pluginpack",
   "name": "VirusTotal Community",
   "author": "VINEYARD",
-  "description": "VirusTotal v3 enrichment with the analyst's own community key: detection counts AND the engines that flagged it, reputation, vendor categories, WHOIS/DNS/TLS certificate, plus passive-DNS and subdomain fan-out. Desktop only.",
+  "description": "VirusTotal v3 reports (IP, domain, URL, file) and pivots (passive DNS, subdomains), limited to what a free community API key can read. Needs the analyst's own VirusTotal API key; a community key allows 240 requests/hour and 500/day. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
-  "ref": "f713ff6c95ee7c86676afbb6c9d8afdb8dcf0a6c",
+  "ref": "8718e35a73445d8c246c01f7cf04f5f71521519a",
   "path": "plugins/virustotal-community.manifest.json",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "platforms": [
     "desktop",
     "web"
