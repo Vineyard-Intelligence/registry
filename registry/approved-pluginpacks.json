@@ -1142,6 +1142,15 @@
     "sha256": "eac631127cbdb76a55b2ff771e53074689a589055ee1890b60a4b590f3df8ab6"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.web_recon",
+    "repo": "Vineyard-Intelligence/pluginpack-web-recon",
+    "ref": "f9d2f68b8af84ea56e76088e28df3bd4e782dd1e",
+    "path": "plugins/web-recon.manifest.json",
+    "version": "1.2.0",
+    "approved_at": "2026-10-01",
+    "sha256": "6a4965b9420b18a1c6a5263df78b812cd522ee50a9563be78046af37f4d59ab8"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.whatsmyname",
     "repo": "Vineyard-Intelligence/pluginpack-whatsmyname",
     "ref": "6049decb51122b9a14092a1e67988241d4e7998a",
