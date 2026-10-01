@@ -45,6 +45,15 @@
     "sha256": "32f6ae627213a30361f1f505a2acd831786a2b03aaaa8310de49080e81741d1c"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.censys",
+    "repo": "Vineyard-Intelligence/pluginpack-censys",
+    "ref": "e5f2eb42b33176743e3a6427fc02efa2bd06a907",
+    "path": "plugins/censys.manifest.json",
+    "version": "0.1.0",
+    "approved_at": "2026-09-30",
+    "sha256": "e69f6d5a5fc3d6d39b2f7e16b78942872178f2c2409afacaac541c24cd564d0e"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.chaos",
     "repo": "Vineyard-Intelligence/pluginpack-chaos",
     "ref": "7261823f654395204d9c79f7d597448d97d135f1",
