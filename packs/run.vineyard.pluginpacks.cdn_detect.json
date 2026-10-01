@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "description": "Detects CDN and WAF providers for IP addresses and domains using ProjectDiscovery's cdncheck dataset (MIT license).",
   "repo": "Vineyard-Intelligence/pluginpack-cdn-detect",
-  "ref": "3857c0a11c43ccbd7996fa15c256c30e58d5d3ff",
+  "ref": "1696913d0483118f6fcddfafb32f3987e6da44c3",
   "path": "plugins/cdn-detect.manifest.json",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "platforms": [
     "web"
   ],

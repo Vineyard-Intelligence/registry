@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "description": "Collects public X (Twitter) profiles and recent posts for account nodes. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-x",
-  "ref": "c24d85f1afc35634b80009e028b51c6f57e8b7cb",
+  "ref": "caf58874c90c5b89df9c91bdfabd79d0958a2c89",
   "path": "plugins/x.manifest.json",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "platforms": [
     "desktop",
     "web"

@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "description": "Collects public GitHub data: an account's repositories, the identities in commit metadata, gists, public organisation members, activity hours, worked-on forks, Pages domains and code search. Needs a GitHub personal access token.",
   "repo": "Vineyard-Intelligence/pluginpack-github",
-  "ref": "678541f748980b3d3488a7d0f78d2fd2553ca66d",
+  "ref": "d6aeb4de6465fb3806754e2b0b4ca42bab07e9d7",
   "path": "plugins/github.manifest.json",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "platforms": [
     "web",
     "desktop"
