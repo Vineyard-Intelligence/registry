@@ -54,8 +54,8 @@ Every entry, of every kind, carries these:
 
 The remaining fields are **derived projections** of the full document, present so the browse page
 can render without fetching every manifest. CI recomputes each of them from the pinned document
-and rejects any that disagrees. The fields are — `platforms` / `scopes_summary` / `plugin_count` for
-plugin packs, `categories` / `type_count` / `edge_count` for type packs, `applies_to` /
+and rejects any that disagrees. The fields are — `platforms` / `scopes_summary` / `plugin_count` /
+`desktop_only` / `icon` for plugin packs, `categories` / `type_count` / `edge_count` / `icon` for type packs, `applies_to` /
 `section_count` / `requires` for skill packs. The normative field list is the JSON Schema:
 
 - [`schemas/registry-plugin-entry.schema.json`](schemas/registry-plugin-entry.schema.json)
@@ -133,7 +133,7 @@ All blocking — a pull request cannot merge until every one passes.
 | `ref` is an immutable commit SHA | `verify_pinned.py` |
 | Every current catalog row appears in its approved-ref list, and a commit that was never published does not | `build_approved.py`, proven by `test_approved.py` |
 | Pinned document is reachable, and its `identifier` / `content_type` / `version` match the entry | `verify_pinned.py` |
-| Every summary field the entry carries — `scopes_summary`, `platforms`, `plugin_count`, `section_count`, `type_count`, `edge_count` — equals what the pinned document implies | `verify_pinned.py` |
+| Every summary field the entry carries — `scopes_summary`, `platforms`, `plugin_count`, `desktop_only`, `icon`, `section_count`, `type_count`, `edge_count` — equals what the pinned document implies | `verify_pinned.py` |
 | Every `io` type reference resolves to a type a **published** Type Pack defines, names its real owner, and that Type Pack is listed in the entry's `typepacks` | `check_typerefs.py` |
 | A live pack declares no dependency on a delisted one, and a `status.replacement` names a live pack of the same kind | `validate.py` |
 | The delisting rules still hold, checked against cases the live catalog does not contain | `test_delisting.py` |

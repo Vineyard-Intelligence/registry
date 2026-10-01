@@ -18,6 +18,8 @@
     "secret_config": true
   },
   "plugin_count": 8,
+  "icon": "github",
+  "desktop_only": "some",
   "compat": {
     "min_app_version": "0.1.0"
   },

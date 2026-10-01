@@ -10,8 +10,8 @@ document at the pinned ref via the jsDelivr CDN and asserts:
   - its `content_type` equals the entry's content_type,
   - its `version` equals the entry's version,
   - every SUMMARY field the entry carries is what the document actually implies:
-    `scopes_summary`, `platforms`, `plugin_count`, `section_count`, `type_count`,
-    `edge_count`. See derived() for the definition and for what it caught, and
+    `scopes_summary`, `platforms`, `plugin_count`, `desktop_only`, `icon`, `section_count`,
+    `type_count`, `edge_count`. See derived() for the definition and for what it caught, and
   - the CODE the manifest points at - `platforms.web.entry`, fetched at the same
     pinned ref - declares the same version and licence as the manifest does. See
     bundle_mismatch() for why that is this file's job and not the client's.
@@ -65,6 +65,12 @@ def fetch(url):
 
 
 WRITE_VERBS = (":create", ":update", ":delete")
+LUCIDE = re.compile(r"^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$")
+
+
+def lucide(name):
+    """`name` when it is a kebab-case lucide icon name, else None."""
+    return name if isinstance(name, str) and LUCIDE.match(name) else None
 
 
 def members(doc):
@@ -96,11 +102,20 @@ def derived(doc, content_type):
     meant. Whether a pack is desktop-ONLY is a different question, answered by
     `platforms.primary` and enforced in the app (`isDesktopOnly` / `blockedReason`); folding that
     into this list would make two different facts share one field.
+
+    `desktop_only` is that second fact, for the card: "all" when every member's
+    `platforms.primary` is desktop, "some" when only part of the pack is, None when no member is.
+    `icon` is the lucide name the card draws - the pack's own `icon`, or a type pack's first
+    type's - and None unless it is a kebab-case name, because a typepack icon may also be an image
+    URI or a glyph and the card renders only lucide names. None means the entry must omit it.
     """
     if content_type.endswith(("plugin", "pluginpack")):
         ms = members(doc)
         scopes = [m.get("scopes") or {} for m in ms]
+        desktop = sum((m.get("platforms") or {}).get("primary") == "desktop" for m in ms)
         return {
+            "icon": lucide(doc.get("icon")),
+            "desktop_only": "all" if desktop == len(ms) else "some" if desktop else None,
             "scopes_summary": {
                 "network": any(s.get("network") or s.get("web_probe") for s in scopes),
                 "graph_write": any(
@@ -120,7 +135,12 @@ def derived(doc, content_type):
     if content_type.endswith("skillpack"):
         return {"section_count": len(doc.get("sections") or [])}
     if content_type.endswith("typepack"):
-        return {"type_count": len(doc.get("types") or []), "edge_count": len(doc.get("edge_types") or [])}
+        types = doc.get("types") or []
+        return {
+            "icon": lucide(types[0].get("icon")) if types else None,
+            "type_count": len(types),
+            "edge_count": len(doc.get("edge_types") or []),
+        }
     return {}
 
 

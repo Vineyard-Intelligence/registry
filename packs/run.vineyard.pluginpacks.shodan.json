@@ -17,6 +17,7 @@
     "secret_config": true
   },
   "plugin_count": 7,
+  "icon": "radar",
   "compat": {
     "min_app_version": "0.1.0"
   },

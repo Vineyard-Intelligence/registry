@@ -18,6 +18,8 @@
     "secret_config": true
   },
   "plugin_count": 6,
+  "icon": "radar",
+  "desktop_only": "all",
   "compat": {
     "min_app_version": "0.1.0"
   },

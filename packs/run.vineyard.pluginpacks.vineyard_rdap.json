@@ -20,6 +20,7 @@
     "rdap"
   ],
   "plugin_count": 1,
+  "icon": "boxes",
   "compat": {
     "min_app_version": "1.0.0"
   },

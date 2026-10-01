@@ -18,6 +18,8 @@
     "secret_config": false
   },
   "plugin_count": 2,
+  "icon": "history",
+  "desktop_only": "all",
   "compat": {
     "min_app_version": "0.1.0"
   },

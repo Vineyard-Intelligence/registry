@@ -17,6 +17,7 @@
     "secret_config": false
   },
   "plugin_count": 4,
+  "icon": "network",
   "compat": {
     "min_app_version": "1.0.0"
   },

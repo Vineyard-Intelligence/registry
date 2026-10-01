@@ -17,6 +17,7 @@
     "secret_config": false
   },
   "plugin_count": 6,
+  "icon": "send",
   "typepacks": [
     "run.vineyard.typepacks.identity",
     "run.vineyard.typepacks.infrastructure",

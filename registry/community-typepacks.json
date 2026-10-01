@@ -13,6 +13,7 @@
       "endpoint"
     ],
     "type_count": 6,
+    "icon": "file-text",
     "edge_count": 7,
     "verified": true
   },
@@ -30,6 +31,7 @@
       "financial"
     ],
     "type_count": 4,
+    "icon": "wallet",
     "edge_count": 5,
     "verified": true
   },
@@ -47,6 +49,7 @@
       "geo"
     ],
     "type_count": 3,
+    "icon": "map-pin",
     "edge_count": 3,
     "verified": true
   },
@@ -64,6 +67,7 @@
       "identity"
     ],
     "type_count": 7,
+    "icon": "user",
     "edge_count": 7,
     "verified": true
   },
@@ -82,6 +86,7 @@
       "web"
     ],
     "type_count": 15,
+    "icon": "network",
     "edge_count": 14,
     "verified": true
   },
@@ -99,6 +104,7 @@
       "social"
     ],
     "type_count": 5,
+    "icon": "at-sign",
     "edge_count": 10,
     "verified": true
   },
@@ -116,6 +122,7 @@
       "telegram"
     ],
     "type_count": 4,
+    "icon": "user",
     "edge_count": 7,
     "verified": true
   },
@@ -133,6 +140,7 @@
       "threat"
     ],
     "type_count": 10,
+    "icon": "bug",
     "edge_count": 10,
     "verified": true
   }

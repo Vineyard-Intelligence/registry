@@ -18,6 +18,8 @@
     "secret_config": false
   },
   "plugin_count": 1,
+  "icon": "at-sign",
+  "desktop_only": "all",
   "compat": {
     "min_app_version": "0.1.0"
   },

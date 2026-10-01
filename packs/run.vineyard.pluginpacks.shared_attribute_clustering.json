@@ -17,6 +17,7 @@
     "secret_config": false
   },
   "plugin_count": 1,
+  "icon": "git-fork",
   "compat": {
     "min_app_version": "1.0.0"
   },

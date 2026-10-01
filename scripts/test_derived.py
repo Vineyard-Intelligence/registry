@@ -64,7 +64,24 @@ def main():
     )
     assert derived(doc, PACK)["platforms"] == ["desktop", "web"], "`primary` is not a platform key"
 
-    print("derived() ok: 15 cases")
+    # --- desktop_only and icon: what the card draws -----------------------------------------------
+    d, w = {"platforms": {"primary": "desktop"}}, {"platforms": {"primary": "web"}}
+    assert derived(pack(d, d), PACK)["desktop_only"] == "all"
+    assert derived(pack(d, w), PACK)["desktop_only"] == "some"
+    assert derived(pack(w, w), PACK)["desktop_only"] is None, "none desktop means omitted"
+    assert derived({**pack(w), "icon": "shield-check"}, PACK)["icon"] == "shield-check"
+    assert derived({**pack(w), "icon": "🛡"}, PACK)["icon"] is None, "a glyph is not a lucide name"
+    tp = "vineyard:typepack"
+    assert derived({"types": [{"icon": "map-pin"}, {"icon": "user"}]}, tp)["icon"] == "map-pin"
+    assert derived({"types": [{"icon": "https://x/i.png"}]}, tp)["icon"] is None
+    # A wrong value fails, an omitted one is not a claim, and claiming one the doc lacks fails.
+    base = {"content_type": PACK, "version": "1.0.0"}
+    assert claim_mismatch(pack(d, w), {**base, "desktop_only": "all"})
+    assert claim_mismatch(pack(w), {**base, "desktop_only": "some"})
+    assert claim_mismatch(pack(d, w), base) is None
+    assert claim_mismatch({**pack(w), "icon": "globe"}, {**base, "icon": "radar"})
+
+    print("derived() ok: 26 cases")
 
 
 if __name__ == "__main__":
