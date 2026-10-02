@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "description": "IP address registration lookups through Vineyard's RDAP service: the covering netblock, a WHOIS record, and the holding organization with its contacts.",
   "repo": "Vineyard-Intelligence/pluginpack-vineyard-rdap",
-  "ref": "14a6264bc63ebf8fb9583e47188940ff0efdc7d6",
+  "ref": "62c2a49913fdb242162463e7da81247b4f861f17",
   "path": "plugins/vineyard-rdap.manifest.json",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "platforms": [
     "web"
   ],
@@ -20,7 +20,7 @@
     "rdap"
   ],
   "plugin_count": 1,
-  "icon": "boxes",
+  "icon": "id-card",
   "compat": {
     "min_app_version": "1.0.0"
   },

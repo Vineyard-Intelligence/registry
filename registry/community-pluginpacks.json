@@ -416,9 +416,9 @@
     "author": "VINEYARD",
     "description": "Shodan REST API lookups: IP host details, host search and result counts, passive DNS, forward and reverse DNS, and API credit status. Needs your own Shodan API key; only Shodan Search spends query credits.",
     "repo": "Vineyard-Intelligence/pluginpack-shodan",
-    "ref": "9a6394fd427151d40ae58df376a4c194f2c55f18",
+    "ref": "ab7cd8b9ae00f6ca602157e4207122b4b9565682",
     "path": "plugins/shodan.manifest.json",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "platforms": [
       "web"
     ],
@@ -428,7 +428,7 @@
       "secret_config": true
     },
     "plugin_count": 7,
-    "icon": "radar",
+    "icon": "satellite-dish",
     "compat": {
       "min_app_version": "0.1.0"
     },
@@ -476,9 +476,9 @@
     "author": "VINEYARD",
     "description": "IP address registration lookups through Vineyard's RDAP service: the covering netblock, a WHOIS record, and the holding organization with its contacts.",
     "repo": "Vineyard-Intelligence/pluginpack-vineyard-rdap",
-    "ref": "14a6264bc63ebf8fb9583e47188940ff0efdc7d6",
+    "ref": "62c2a49913fdb242162463e7da81247b4f861f17",
     "path": "plugins/vineyard-rdap.manifest.json",
-    "version": "1.4.2",
+    "version": "1.4.3",
     "platforms": [
       "web"
     ],
@@ -491,7 +491,7 @@
       "rdap"
     ],
     "plugin_count": 1,
-    "icon": "boxes",
+    "icon": "id-card",
     "compat": {
       "min_app_version": "1.0.0"
     },
@@ -508,9 +508,9 @@
     "author": "VINEYARD",
     "description": "VirusTotal v3 reports (IP, domain, URL, file) and pivots (passive DNS, subdomains), limited to what a free community API key can read. Needs the analyst's own VirusTotal API key; a community key allows 240 requests/hour and 500/day. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
-    "ref": "6b89823679702f25653e0897c891cd663ae831be",
+    "ref": "2a70151096a991f9cc6384becc7b0be5b236f354",
     "path": "plugins/virustotal-community.manifest.json",
-    "version": "1.3.1",
+    "version": "1.3.2",
     "platforms": [
       "desktop",
       "web"
@@ -521,7 +521,7 @@
       "secret_config": true
     },
     "plugin_count": 6,
-    "icon": "radar",
+    "icon": "scan-eye",
     "desktop_only": "all",
     "compat": {
       "min_app_version": "0.1.0"
@@ -569,9 +569,9 @@
     "author": "VINEYARD",
     "description": "Fingerprints web pages: Shodan-style favicon hash, HHHash of the response header names, and a hash of the HTML tag structure. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-web-recon",
-    "ref": "f9d2f68b8af84ea56e76088e28df3bd4e782dd1e",
+    "ref": "74114878c8073773d2ed96d2c8191bacf53b8d51",
     "path": "plugins/web-recon.manifest.json",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "platforms": [
       "desktop",
       "web"
@@ -582,7 +582,7 @@
       "secret_config": false
     },
     "plugin_count": 3,
-    "icon": "radar",
+    "icon": "fingerprint",
     "desktop_only": "all",
     "compat": {
       "min_app_version": "0.1.0"

@@ -783,6 +783,15 @@
     "sha256": "1196ad4e53b28731ce8f81b0f8f787f3b30d1b79ff0183f765b55886bac084b3"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.shodan",
+    "repo": "Vineyard-Intelligence/pluginpack-shodan",
+    "ref": "ab7cd8b9ae00f6ca602157e4207122b4b9565682",
+    "path": "plugins/shodan.manifest.json",
+    "version": "2.0.3",
+    "approved_at": "2026-10-02",
+    "sha256": "f2352db36ec29a8b60b1678823d85f62720cdf0065311a7eaa6ccce3c694162e"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.telegram",
     "repo": "Vineyard-Intelligence/pluginpack-telegram",
     "ref": "304511c3d4c857d696af4a59d79d9302f0a0598c",
@@ -990,6 +999,15 @@
     "sha256": "1212003d6a2f1988aa4390c591df619e5394c3834b3b92cb5c78656f57972d13"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.vineyard_rdap",
+    "repo": "Vineyard-Intelligence/pluginpack-vineyard-rdap",
+    "ref": "62c2a49913fdb242162463e7da81247b4f861f17",
+    "path": "plugins/vineyard-rdap.manifest.json",
+    "version": "1.4.3",
+    "approved_at": "2026-10-02",
+    "sha256": "d10feb91a6ce2057cbc407652eece49f509210f56903c646e57d5e7681431d7c"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.virustotal_community",
     "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
     "ref": "0000000000000000000000000000000000000000",
@@ -1059,6 +1077,15 @@
     "version": "1.3.0",
     "approved_at": "2026-10-01",
     "sha256": "8bc82dfab944ec3d2d17f87fc70b1163bf0b36986082eceabde3abf9d4fc6b6c"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.virustotal_community",
+    "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
+    "ref": "2a70151096a991f9cc6384becc7b0be5b236f354",
+    "path": "plugins/virustotal-community.manifest.json",
+    "version": "1.3.2",
+    "approved_at": "2026-10-02",
+    "sha256": "59b017674306ec19a6ba279b03a4d2ab04b357ead10edafb11a970f24163ccdf"
   },
   {
     "identifier": "run.vineyard.pluginpacks.wayback_machine",
@@ -1158,6 +1185,15 @@
     "version": "1.2.0",
     "approved_at": "2026-10-01",
     "sha256": "6a4965b9420b18a1c6a5263df78b812cd522ee50a9563be78046af37f4d59ab8"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.web_recon",
+    "repo": "Vineyard-Intelligence/pluginpack-web-recon",
+    "ref": "74114878c8073773d2ed96d2c8191bacf53b8d51",
+    "path": "plugins/web-recon.manifest.json",
+    "version": "1.2.1",
+    "approved_at": "2026-10-02",
+    "sha256": "ccb5973400081ecd7837eb322bfc4ab0e34ca5250533f8dc7ce6823e39c6e0f6"
   },
   {
     "identifier": "run.vineyard.pluginpacks.whatsmyname",
