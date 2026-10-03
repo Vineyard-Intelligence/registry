@@ -27,6 +27,15 @@
     "sha256": "50c5726029c5e0e7c52ad947f3584fd48a3cca93b5b3e4d3c1077f0543a82dc6"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.ad_tags",
+    "repo": "Vineyard-Intelligence/pluginpack-ad-tags",
+    "ref": "38d30fc89d1098b946e9957aad2c50e3bdf65eb6",
+    "path": "plugins/ad-tags.manifest.json",
+    "version": "1.2.0",
+    "approved_at": "2026-10-02",
+    "sha256": "1ddfa9724471153c53ba91d208a6ea0a96dd8087fb450029f28703e0289f1580"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.cdn_detect",
     "repo": "Vineyard-Intelligence/pluginpack-cdn-detect",
     "ref": "c3ac9097207027c57f81c73ec4521f60a7e60b20",
