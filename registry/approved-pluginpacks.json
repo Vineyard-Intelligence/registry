@@ -918,6 +918,15 @@
     "sha256": "112022a94b413b942ceb610e02026fb6663bb1d11ecc8a2e33ddf3b952df0f51"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.telegram",
+    "repo": "Vineyard-Intelligence/pluginpack-telegram",
+    "ref": "e57ba319d8673969a9741000ffeb956bb3faff25",
+    "path": "plugins/telegram.manifest.json",
+    "version": "2.4.3",
+    "approved_at": "2026-10-03",
+    "sha256": "cf46c7e543264428c4e78f7f005525f4428a0b11203eef05fa699c7d2b16782e"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.vineyard_rdap",
     "repo": "Vineyard-Intelligence/pluginpack-vineyard-rdap",
     "ref": "02bd424473212ce4d4c0fade4d2e5e4736e9a13a",
@@ -1203,6 +1212,15 @@
     "version": "1.2.1",
     "approved_at": "2026-10-02",
     "sha256": "ccb5973400081ecd7837eb322bfc4ab0e34ca5250533f8dc7ce6823e39c6e0f6"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.web_recon",
+    "repo": "Vineyard-Intelligence/pluginpack-web-recon",
+    "ref": "9667eb65294c6387efa97f65ef01990dfdaee3b0",
+    "path": "plugins/web-recon.manifest.json",
+    "version": "1.2.2",
+    "approved_at": "2026-10-03",
+    "sha256": "4cf44f3a74ddc6adf9b50c707823818a98bc6a1b36dc0b4f4ff59b1401b2a749"
   },
   {
     "identifier": "run.vineyard.pluginpacks.whatsmyname",
