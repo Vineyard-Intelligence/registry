@@ -923,7 +923,7 @@
     "ref": "e57ba319d8673969a9741000ffeb956bb3faff25",
     "path": "plugins/telegram.manifest.json",
     "version": "2.4.3",
-    "approved_at": "2026-10-03",
+    "approved_at": "2026-10-04",
     "sha256": "cf46c7e543264428c4e78f7f005525f4428a0b11203eef05fa699c7d2b16782e"
   },
   {
@@ -1219,7 +1219,7 @@
     "ref": "9667eb65294c6387efa97f65ef01990dfdaee3b0",
     "path": "plugins/web-recon.manifest.json",
     "version": "1.2.2",
-    "approved_at": "2026-10-03",
+    "approved_at": "2026-10-04",
     "sha256": "4cf44f3a74ddc6adf9b50c707823818a98bc6a1b36dc0b4f4ff59b1401b2a749"
   },
   {
