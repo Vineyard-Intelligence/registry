@@ -86,6 +86,11 @@
     "typepacks": [
       "run.vineyard.typepacks.infrastructure"
     ],
+    "status": {
+      "state": "withdrawn",
+      "reason": "Taken down for now. This was a temporary pack for research use; it is no longer offered and does not load.",
+      "since": "2026-10-05"
+    },
     "verified": true
   },
   {
