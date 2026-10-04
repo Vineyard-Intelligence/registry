@@ -330,9 +330,9 @@
     "author": "VINEYARD",
     "description": "Looks up selected indicators in AlienVault OTX: the threat reports (\"pulses\") that name them, and passive DNS history. Requires a free OTX API key.",
     "repo": "Vineyard-Intelligence/pluginpack-otx",
-    "ref": "baf892dc6a5b68cef4eb2b1faa6a77a52952e97a",
+    "ref": "1e0cdc63e3b80417d8d12c500ed8cefc1d350403",
     "path": "plugins/otx.manifest.json",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "platforms": [
       "web",
       "desktop"
