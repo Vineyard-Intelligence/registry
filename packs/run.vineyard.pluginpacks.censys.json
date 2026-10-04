@@ -1,13 +1,13 @@
 {
   "identifier": "run.vineyard.pluginpacks.censys",
   "content_type": "vineyard:pluginpack",
-  "name": "Censys (under testing, for research purpose)",
+  "name": "Censys (under testing)",
   "author": "VINEYARD",
-  "description": "Censys lookups and searches with your own token: certificates, SSH host keys and services an IP presents; hosts sharing a certificate or key; CenQL queries. Desktop only. Temporary pack for the operator's thesis research; may be removed soon.",
+  "description": "Censys lookups and searches with your own token: certificates, SSH host keys and services an IP presents; hosts sharing a certificate or key; CenQL queries. Desktop only. Temporary pack under testing; it may change or be removed.",
   "repo": "Vineyard-Intelligence/pluginpack-censys",
-  "ref": "f5f24574f91a4c2d7bd96f6698efee172e6eb464",
+  "ref": "e52e0331f72e170119429e7728570cd05629295f",
   "path": "plugins/censys.manifest.json",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "platforms": [
     "desktop",
     "web"
@@ -25,10 +25,5 @@
   },
   "typepacks": [
     "run.vineyard.typepacks.infrastructure"
-  ],
-  "status": {
-    "state": "withdrawn",
-    "reason": "Taken down for now. This was a temporary pack for research use; it is no longer offered and does not load.",
-    "since": "2026-10-05"
-  }
+  ]
 }
