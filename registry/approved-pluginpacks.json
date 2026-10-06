@@ -137,20 +137,20 @@
   {
     "identifier": "run.vineyard.pluginpacks.censys",
     "repo": "Vineyard-Intelligence/pluginpack-censys",
-    "ref": "521703812ec836f30904d25f178b71420341e29a",
-    "path": "plugins/censys.manifest.json",
-    "version": "0.3.0",
-    "approved_at": "2026-10-05",
-    "sha256": "454f76e93a9e14fd2cf74a78b80f223970ae52f329b9910e8146b988bde481fd"
-  },
-  {
-    "identifier": "run.vineyard.pluginpacks.censys",
-    "repo": "Vineyard-Intelligence/pluginpack-censys",
     "ref": "e52e0331f72e170119429e7728570cd05629295f",
     "path": "plugins/censys.manifest.json",
     "version": "0.2.4",
     "approved_at": "2026-10-05",
     "sha256": "b3dec8f7c0483e65e306adb5bd640056a25d9bb43bcea76f37a559732eb02489"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.censys",
+    "repo": "Vineyard-Intelligence/pluginpack-censys",
+    "ref": "521703812ec836f30904d25f178b71420341e29a",
+    "path": "plugins/censys.manifest.json",
+    "version": "0.3.0",
+    "approved_at": "2026-10-06",
+    "sha256": "454f76e93a9e14fd2cf74a78b80f223970ae52f329b9910e8146b988bde481fd"
   },
   {
     "identifier": "run.vineyard.pluginpacks.chaos",
@@ -428,7 +428,7 @@
     "ref": "c37b8d015a5d03f380e2f86e32f11bac8e20282a",
     "path": "plugins/github.manifest.json",
     "version": "1.4.0",
-    "approved_at": "2026-10-05",
+    "approved_at": "2026-10-06",
     "sha256": "e75ccc58ef3adc89ffe25ec6c0a6bace6a7bf3e400e024ab9004cad838840e1a"
   },
   {
@@ -581,7 +581,7 @@
     "ref": "b685335905a6802b8b39e0ad921c0ec8e66d7963",
     "path": "plugins/ip-recon.manifest.json",
     "version": "1.2.0",
-    "approved_at": "2026-10-05",
+    "approved_at": "2026-10-06",
     "sha256": "cf49a601000a43aa134f3c40d244de6ee438d396e77037a5f22d96748357184b"
   },
   {
@@ -788,7 +788,7 @@
     "ref": "c849ab563653ea7300e60b63a50a024bdb7d7798",
     "path": "plugins/pgp-lookup.manifest.json",
     "version": "1.1.0",
-    "approved_at": "2026-10-05",
+    "approved_at": "2026-10-06",
     "sha256": "b9a9f0c39e768d20e8c48978ca30ed0ba08b993a9b7cb8cc211044981ad1100f"
   },
   {
@@ -860,7 +860,7 @@
     "ref": "e11af81ba0188b4aef25ab4c873f8069f2571589",
     "path": "plugins/shodan.manifest.json",
     "version": "2.1.0",
-    "approved_at": "2026-10-05",
+    "approved_at": "2026-10-06",
     "sha256": "a80629b5cc0ef2bc313c9b4aec202562240cb356bc8c6ae823de15805348e370"
   },
   {
@@ -1174,7 +1174,7 @@
     "ref": "cba6cdfc51bbe24ed6c3cd9e068f6ca9486da74a",
     "path": "plugins/virustotal-community.manifest.json",
     "version": "1.4.0",
-    "approved_at": "2026-10-05",
+    "approved_at": "2026-10-06",
     "sha256": "073eadb9d3b2bbc2e3096ecab4012c68c505f84cc707f75cdfaee77abcd982c5"
   },
   {

@@ -104,7 +104,7 @@
     "ref": "0ea57eaa9f00c0fe9c8a0393b158cdb85354c480",
     "path": "skillpacks/account-pivot.skill.json",
     "version": "3.1.2",
-    "approved_at": "2026-10-05",
+    "approved_at": "2026-10-06",
     "sha256": "ced681671fe09fbd8f356cd6b0541e10a709aacc6108b473e82456a8779eeda0"
   },
   {
@@ -194,7 +194,7 @@
     "ref": "06586692e61cf58dd9208febde58cceea4382f20",
     "path": "skillpacks/infra-pivot.skill.json",
     "version": "2.2.2",
-    "approved_at": "2026-10-05",
+    "approved_at": "2026-10-06",
     "sha256": "a0deb917aab2641ab294b9f0810c1c7a6d628a8b32a3f9f66fd4c159f52d2022"
   }
 ]
