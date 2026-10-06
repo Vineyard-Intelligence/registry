@@ -65,9 +65,9 @@
     "author": "VINEYARD",
     "description": "Censys lookups and searches with your own token: certificates, SSH host keys and services an IP presents; hosts sharing a certificate or key; CenQL queries. Desktop only. Temporary pack under testing; it may change or be removed.",
     "repo": "Vineyard-Intelligence/pluginpack-censys",
-    "ref": "e52e0331f72e170119429e7728570cd05629295f",
+    "ref": "521703812ec836f30904d25f178b71420341e29a",
     "path": "plugins/censys.manifest.json",
-    "version": "0.2.4",
+    "version": "0.3.0",
     "platforms": [
       "desktop",
       "web"
@@ -178,11 +178,11 @@
     "content_type": "vineyard:pluginpack",
     "name": "GitHub",
     "author": "VINEYARD",
-    "description": "Collects public GitHub data: repositories, commit identities, gists, public organisation members, activity hours, worked-on forks, Pages domains and code search. Token: fine-grained (Public repositories, no permissions) or classic with no scopes.",
+    "description": "Collects public GitHub data: repositories, commit identities, gists, organisation members, activity hours, worked-on forks, Pages domains, GPG keys and code search. Token: fine-grained (Public repositories, no permissions) or classic with no scopes.",
     "repo": "Vineyard-Intelligence/pluginpack-github",
-    "ref": "8b4c0471082efc63e72941c1345d568c319dea7c",
+    "ref": "c37b8d015a5d03f380e2f86e32f11bac8e20282a",
     "path": "plugins/github.manifest.json",
-    "version": "1.3.3",
+    "version": "1.4.0",
     "platforms": [
       "web",
       "desktop"
@@ -192,7 +192,7 @@
       "graph_write": true,
       "secret_config": true
     },
-    "plugin_count": 8,
+    "plugin_count": 9,
     "icon": "github",
     "desktop_only": "some",
     "compat": {
@@ -270,11 +270,11 @@
     "content_type": "vineyard:pluginpack",
     "name": "IP Recon",
     "author": "VINEYARD",
-    "description": "Enriches IP Address nodes with RDAP allocation, Shodan InternetDB open ports/CVEs/hostnames, geolocation, and a Tor exit-node check.",
+    "description": "Enriches IP Address nodes with RDAP allocation, Shodan InternetDB open ports/CVEs/hostnames/tags, geolocation, and a Tor exit-node check.",
     "repo": "Vineyard-Intelligence/pluginpack-ip-recon",
-    "ref": "9008e12f235572acaaa7c37e149500dcbd54f519",
+    "ref": "b685335905a6802b8b39e0ad921c0ec8e66d7963",
     "path": "plugins/ip-recon.manifest.json",
-    "version": "1.1.2",
+    "version": "1.2.0",
     "platforms": [
       "web"
     ],
@@ -358,11 +358,11 @@
     "content_type": "vineyard:pluginpack",
     "name": "PGP Key Lookup",
     "author": "VINEYARD",
-    "description": "Finds OpenPGP public keys published for email addresses on public key directories. Desktop only.",
+    "description": "Finds OpenPGP public keys on public key directories by email address or key fingerprint. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-pgp-lookup",
-    "ref": "89ee3f96346de47b61c3254d2acdd39ab152a34d",
+    "ref": "c849ab563653ea7300e60b63a50a024bdb7d7798",
     "path": "plugins/pgp-lookup.manifest.json",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "platforms": [
       "desktop",
       "web"
@@ -416,9 +416,9 @@
     "author": "VINEYARD",
     "description": "Shodan REST API lookups: IP host details, host search and result counts, passive DNS, forward and reverse DNS, and API credit status. Needs your own Shodan API key; only Shodan Search spends query credits.",
     "repo": "Vineyard-Intelligence/pluginpack-shodan",
-    "ref": "ab7cd8b9ae00f6ca602157e4207122b4b9565682",
+    "ref": "e11af81ba0188b4aef25ab4c873f8069f2571589",
     "path": "plugins/shodan.manifest.json",
-    "version": "2.0.3",
+    "version": "2.1.0",
     "platforms": [
       "web"
     ],
@@ -508,9 +508,9 @@
     "author": "VINEYARD",
     "description": "VirusTotal v3 reports (IP, domain, URL, file) and pivots (passive DNS, subdomains), limited to what a free community API key can read. Needs the analyst's own VirusTotal API key; a community key allows 240 requests/hour and 500/day. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
-    "ref": "2a70151096a991f9cc6384becc7b0be5b236f354",
+    "ref": "cba6cdfc51bbe24ed6c3cd9e068f6ca9486da74a",
     "path": "plugins/virustotal-community.manifest.json",
-    "version": "1.3.2",
+    "version": "1.4.0",
     "platforms": [
       "desktop",
       "web"
