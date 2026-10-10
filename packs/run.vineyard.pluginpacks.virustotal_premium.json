@@ -1,0 +1,30 @@
+{
+  "identifier": "run.vineyard.pluginpacks.virustotal_premium",
+  "content_type": "vineyard:pluginpack",
+  "name": "VirusTotal Premium",
+  "author": "VINEYARD",
+  "description": "VirusTotal Premium-API pivots: internet-scanning port data, Intelligence search to pivot a shared SSH host key, certificate or JARM to its siblings, port history, and historical certificates. Needs a VirusTotal Premium API key. Desktop only.",
+  "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
+  "ref": "197facf97c6f2169af331b48388b6663709a1afb",
+  "path": "plugins/virustotal-premium.manifest.json",
+  "version": "0.1.0",
+  "platforms": [
+    "desktop",
+    "web"
+  ],
+  "scopes_summary": {
+    "network": true,
+    "graph_write": true,
+    "secret_config": true
+  },
+  "plugin_count": 5,
+  "icon": "scan-search",
+  "desktop_only": "all",
+  "compat": {
+    "min_app_version": "0.1.0"
+  },
+  "typepacks": [
+    "run.vineyard.typepacks.infrastructure",
+    "run.vineyard.typepacks.threat"
+  ]
+}
