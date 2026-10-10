@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "description": "VirusTotal Premium-API pivots: internet-scanning port data, Intelligence search to pivot a shared SSH host key, certificate or JARM to its siblings, port history, and historical certificates. Needs a VirusTotal Premium API key. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
-  "ref": "197facf97c6f2169af331b48388b6663709a1afb",
+  "ref": "07f5fb96b4dabcc482ed219090e161a0d8ed2a2e",
   "path": "plugins/virustotal-premium.manifest.json",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "platforms": [
     "desktop",
     "web"
