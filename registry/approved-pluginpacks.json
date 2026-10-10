@@ -648,6 +648,15 @@
     "sha256": "34095f051de96c26392cb7d03cdc7bc07ae6a60969eff1b531eb5bbd104fbf46"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.iptoasn_cymru_doh",
+    "repo": "Vineyard-Intelligence/pluginpack-iptoasn-cymru-doh",
+    "ref": "9a6ac60e81984cb49e5ea2cf3e95755844d725e2",
+    "path": "plugins/iptoasn-cymru-doh.manifest.json",
+    "version": "1.1.0",
+    "approved_at": "2026-10-11",
+    "sha256": "3d203edbc040846b204e6e14770783ecc1ab811cef9e6553ea371c700f4f3ca0"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.otx",
     "repo": "Vineyard-Intelligence/pluginpack-otx",
     "ref": "0f7237e0d44804aa4d851cd188795ba8ee8b471a",
@@ -871,6 +880,15 @@
     "version": "2.1.0",
     "approved_at": "2026-10-06",
     "sha256": "a80629b5cc0ef2bc313c9b4aec202562240cb356bc8c6ae823de15805348e370"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.shodan",
+    "repo": "Vineyard-Intelligence/pluginpack-shodan",
+    "ref": "22de318aaf720c08b58fe4e23f8e9d09aa29c32e",
+    "path": "plugins/shodan.manifest.json",
+    "version": "2.2.0",
+    "approved_at": "2026-10-11",
+    "sha256": "e3bd6c6e13c26da4f3ca577705aebbb8fd424a20b1075f258919719771338bd5"
   },
   {
     "identifier": "run.vineyard.pluginpacks.telegram",
@@ -1098,6 +1116,15 @@
     "sha256": "d10feb91a6ce2057cbc407652eece49f509210f56903c646e57d5e7681431d7c"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.vineyard_rdap",
+    "repo": "Vineyard-Intelligence/pluginpack-vineyard-rdap",
+    "ref": "0791798889c392cb6ab3ba855b68205e40339f96",
+    "path": "plugins/vineyard-rdap.manifest.json",
+    "version": "1.5.0",
+    "approved_at": "2026-10-11",
+    "sha256": "32f058b2e266031edd46bc0440cb44113deff039f4da15dca4cb84ca26739961"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.virustotal_community",
     "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
     "ref": "0000000000000000000000000000000000000000",
@@ -1187,6 +1214,15 @@
     "sha256": "073eadb9d3b2bbc2e3096ecab4012c68c505f84cc707f75cdfaee77abcd982c5"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.virustotal_community",
+    "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
+    "ref": "9a81b90a0cf64dacdf909ef8b7a921f7b3115968",
+    "path": "plugins/virustotal-community.manifest.json",
+    "version": "1.5.0",
+    "approved_at": "2026-10-11",
+    "sha256": "0f8733bd83aeee7d4165fe25d37a3b08ed3de8ff427623b8993ac1c6afaa7f5a"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.virustotal_premium",
     "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
     "ref": "07f5fb96b4dabcc482ed219090e161a0d8ed2a2e",
@@ -1203,6 +1239,15 @@
     "version": "0.1.0",
     "approved_at": "2026-10-10",
     "sha256": "d4aecaaeb56a1caeae3ea606d93ba84a513f4b9e4ea3742a0db8a03fc6b005e0"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.virustotal_premium",
+    "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
+    "ref": "6c15700328f213736faf47ac7d204586cffb4e39",
+    "path": "plugins/virustotal-premium.manifest.json",
+    "version": "0.2.0",
+    "approved_at": "2026-10-11",
+    "sha256": "aedfa8acfdfe0a545071d40f6da22d33ab6a2e4ac12a8526941910153e215a7b"
   },
   {
     "identifier": "run.vineyard.pluginpacks.wayback_machine",

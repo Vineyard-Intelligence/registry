@@ -302,9 +302,9 @@
     "author": "VINEYARD",
     "description": "IP → ASN and IP → Country enrichment for IP Address nodes from Team Cymru's IP-to-ASN mapping.",
     "repo": "Vineyard-Intelligence/pluginpack-iptoasn-cymru-doh",
-    "ref": "e11f6caf0290340cf1508315f333dfc9af4d4619",
+    "ref": "9a6ac60e81984cb49e5ea2cf3e95755844d725e2",
     "path": "plugins/iptoasn-cymru-doh.manifest.json",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "platforms": [
       "web"
     ],
@@ -416,9 +416,9 @@
     "author": "VINEYARD",
     "description": "Shodan REST API lookups: IP host details, host search and result counts, passive DNS, forward and reverse DNS, and API credit status. Needs your own Shodan API key; only Shodan Search spends query credits.",
     "repo": "Vineyard-Intelligence/pluginpack-shodan",
-    "ref": "e11af81ba0188b4aef25ab4c873f8069f2571589",
+    "ref": "22de318aaf720c08b58fe4e23f8e9d09aa29c32e",
     "path": "plugins/shodan.manifest.json",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "platforms": [
       "web"
     ],
@@ -476,9 +476,9 @@
     "author": "VINEYARD",
     "description": "IP address registration lookups through Vineyard's RDAP service: the covering netblock, a WHOIS record, and the holding organization with its contacts.",
     "repo": "Vineyard-Intelligence/pluginpack-vineyard-rdap",
-    "ref": "62c2a49913fdb242162463e7da81247b4f861f17",
+    "ref": "0791798889c392cb6ab3ba855b68205e40339f96",
     "path": "plugins/vineyard-rdap.manifest.json",
-    "version": "1.4.3",
+    "version": "1.5.0",
     "platforms": [
       "web"
     ],
@@ -508,9 +508,9 @@
     "author": "VINEYARD",
     "description": "VirusTotal v3 reports (IP, domain, URL, file) and pivots (passive DNS, subdomains), limited to what a free community API key can read. Needs the analyst's own VirusTotal API key; a community key allows 240 requests/hour and 500/day. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
-    "ref": "cba6cdfc51bbe24ed6c3cd9e068f6ca9486da74a",
+    "ref": "9a81b90a0cf64dacdf909ef8b7a921f7b3115968",
     "path": "plugins/virustotal-community.manifest.json",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "platforms": [
       "desktop",
       "web"
@@ -537,11 +537,11 @@
     "content_type": "vineyard:pluginpack",
     "name": "VirusTotal Premium",
     "author": "VINEYARD",
-    "description": "VirusTotal Premium-API pivots: internet-scanning port data, Intelligence search to pivot a shared SSH host key, certificate or JARM to its siblings, port history, and historical certificates. Needs a VirusTotal Premium API key. Desktop only.",
+    "description": "VirusTotal Premium pivots: port data/history, historical certs, WHOIS history, host files/URLs, file IOCs, relatives and sandbox behaviour, and Intelligence search from keys, certs, WHOIS, strings or similar files. Needs a Premium key. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
-    "ref": "07f5fb96b4dabcc482ed219090e161a0d8ed2a2e",
+    "ref": "6c15700328f213736faf47ac7d204586cffb4e39",
     "path": "plugins/virustotal-premium.manifest.json",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "platforms": [
       "desktop",
       "web"
@@ -551,13 +551,14 @@
       "graph_write": true,
       "secret_config": true
     },
-    "plugin_count": 5,
+    "plugin_count": 11,
     "icon": "scan-search",
     "desktop_only": "all",
     "compat": {
       "min_app_version": "0.1.0"
     },
     "typepacks": [
+      "run.vineyard.typepacks.identity",
       "run.vineyard.typepacks.infrastructure",
       "run.vineyard.typepacks.threat"
     ],
