@@ -1187,6 +1187,24 @@
     "sha256": "073eadb9d3b2bbc2e3096ecab4012c68c505f84cc707f75cdfaee77abcd982c5"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.virustotal_premium",
+    "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
+    "ref": "07f5fb96b4dabcc482ed219090e161a0d8ed2a2e",
+    "path": "plugins/virustotal-premium.manifest.json",
+    "version": "0.1.1",
+    "approved_at": "2026-10-10",
+    "sha256": "8dad90cd2975ebf986176595a85632f4fbfb4295b00905e63933a00429d2c854"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.virustotal_premium",
+    "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
+    "ref": "197facf97c6f2169af331b48388b6663709a1afb",
+    "path": "plugins/virustotal-premium.manifest.json",
+    "version": "0.1.0",
+    "approved_at": "2026-10-10",
+    "sha256": "d4aecaaeb56a1caeae3ea606d93ba84a513f4b9e4ea3742a0db8a03fc6b005e0"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.wayback_machine",
     "repo": "Vineyard-Intelligence/pluginpack-wayback-machine",
     "ref": "8bc95bf3f50768bfd973a8850332db747b4a5a20",
