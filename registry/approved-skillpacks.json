@@ -1,0 +1,200 @@
+[
+  {
+    "identifier": "run.vineyard.skillpacks.account_identity_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
+    "ref": "8db0cc8805e31896003364e0d2f9ec5cdded5037",
+    "path": "skillpacks/account-pivot.skill.json",
+    "version": "2.2.0",
+    "approved_at": "2026-08-09",
+    "sha256": "f44a9f3509306f8a4d219adeb086d3e3ecbda476597afece2779490802f5eaab"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.account_identity_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
+    "ref": "f27b98ff719d250a017a98720853e879996c2802",
+    "path": "skillpacks/account-pivot.skill.json",
+    "version": "2.1.0",
+    "approved_at": "2026-08-09",
+    "sha256": "109d39ab827755e0089e65143c71ca97ad9acc795e8c8d622349c10c57441097"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.account_identity_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
+    "ref": "22a3d2be9957ebf0ca254f7520a8ebb3e7ef6242",
+    "path": "skillpacks/account-pivot.skill.json",
+    "version": "2.2.0",
+    "approved_at": "2026-08-10",
+    "sha256": "11060fff96303372989c5577468e8202daeec921af40720d99f12c759ee8f60a"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.account_identity_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
+    "ref": "6500b3a3c19de974e6e85f4c0ec8bae6d11ab44e",
+    "path": "skillpacks/account-pivot.skill.json",
+    "version": "2.2.0",
+    "approved_at": "2026-08-10",
+    "sha256": "a308e4794745943104f51dd0d6a8e2de4df036015ca1873ea54bd716b76591be"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.account_identity_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
+    "ref": "f15a54c880ea2e10c6c3a7ce03949350937b5ab9",
+    "path": "skillpacks/account-pivot.skill.json",
+    "version": "2.2.0",
+    "approved_at": "2026-08-10",
+    "sha256": "f159088ddaef53da836c7f0646fa1224b3419abb7ce45358cdd5c2b823e26130"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.account_identity_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
+    "ref": "f78741fcf2742690fa9d37dc79abb7827849c7cb",
+    "path": "skillpacks/account-pivot.skill.json",
+    "version": "2.2.0",
+    "approved_at": "2026-08-10",
+    "sha256": "a83b9ed9fecc3d4833231936ddd5ffc3f7c63075457484bfb4e486eb8a225397"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.account_identity_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
+    "ref": "6fb7fd0d9a87ed9e32cb1d5474888600d2523abc",
+    "path": "skillpacks/account-pivot.skill.json",
+    "version": "3.0.0",
+    "approved_at": "2026-08-17",
+    "sha256": "b1f178580631447b89c778bac4dc62a76e9f5023a6ea99181dd20eed288d3c80"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.account_identity_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
+    "ref": "b1d7ad2f17b43ab468f0069f2e4ff642e35ee2b3",
+    "path": "skillpacks/account-pivot.skill.json",
+    "version": "2.3.0",
+    "approved_at": "2026-08-17",
+    "sha256": "9f66c613a68ce6b60bb0227b9c8cc52e013edb71e7bb76482edc0e77e13b7221"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.account_identity_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
+    "ref": "4f96866b117b72c39e355b9697093633d1fffcd6",
+    "path": "skillpacks/account-pivot.skill.json",
+    "version": "3.1.0",
+    "approved_at": "2026-09-10",
+    "sha256": "516c9180dba0ee58f0ff84c87e67e018c8b61f4fbcd51de99b3bed70f3880da8"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.account_identity_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
+    "ref": "22647564a8390d375bee210aeed0a514f6a875fd",
+    "path": "skillpacks/account-pivot.skill.json",
+    "version": "3.1.0",
+    "approved_at": "2026-09-28",
+    "sha256": "516c9180dba0ee58f0ff84c87e67e018c8b61f4fbcd51de99b3bed70f3880da8"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.account_identity_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
+    "ref": "ccbee23253e9fa268a97611247cbe9e4ec8ce428",
+    "path": "skillpacks/account-pivot.skill.json",
+    "version": "3.1.1",
+    "approved_at": "2026-09-29",
+    "sha256": "63b0811f60e37e9a9a2ce8fff6be9c168cc783ff12b2c0f3fd9fcfbd09fdccfd"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.account_identity_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
+    "ref": "0ea57eaa9f00c0fe9c8a0393b158cdb85354c480",
+    "path": "skillpacks/account-pivot.skill.json",
+    "version": "3.1.2",
+    "approved_at": "2026-10-06",
+    "sha256": "ced681671fe09fbd8f356cd6b0541e10a709aacc6108b473e82456a8779eeda0"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.infra_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
+    "ref": "0a0bcadda8ed5b5029f45d07f722ec6a2734ef43",
+    "path": "skillpacks/infra-pivot.skill.json",
+    "version": "1.3.0",
+    "approved_at": "2026-08-09",
+    "sha256": "9fabf1550aaa92b9663afc5568a547406349ccb026fd35e3f2809f07b08171cb"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.infra_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
+    "ref": "5bfce260d763c22e72cae67deb5420186d45d50e",
+    "path": "skillpacks/infra-pivot.skill.json",
+    "version": "1.2.0",
+    "approved_at": "2026-08-09",
+    "sha256": "89c2c9cbed1fa74034d1b51367969b35199877490a45de484deac0a50612daae"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.infra_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
+    "ref": "7b091b65d344d70bae2b0c531c6a264307849646",
+    "path": "skillpacks/infra-pivot.skill.json",
+    "version": "1.3.0",
+    "approved_at": "2026-08-10",
+    "sha256": "7e566b8be14dd2311248a8028edbde3cdc75673f3a207d0870df71ee713d440a"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.infra_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
+    "ref": "d1ef27a9f6afbae8d244897945feae836b8f40bc",
+    "path": "skillpacks/infra-pivot.skill.json",
+    "version": "1.5.0",
+    "approved_at": "2026-08-17",
+    "sha256": "3690d32896d08e2cc0c8cb4010af2cdfec4fbdcbaebcd5c85ca56e86e67dc7eb"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.infra_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
+    "ref": "f48b84bc2093ca940f846b7b13024462ae4f915c",
+    "path": "skillpacks/infra-pivot.skill.json",
+    "version": "2.0.0",
+    "approved_at": "2026-08-17",
+    "sha256": "18fa92a56d81e726ac4c83a48fdf0db0f6f8fa0079283723645fb8bd7669309e"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.infra_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
+    "ref": "895205a673288db0fca702872fa82e468b6649d6",
+    "path": "skillpacks/infra-pivot.skill.json",
+    "version": "2.1.0",
+    "approved_at": "2026-09-10",
+    "sha256": "74136a4af9cd244970674092832e589ce8cf55c0fb09ad9804c4d3bae53475ce"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.infra_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
+    "ref": "03d81144f6c26839bf5868db50b8645f0c1be382",
+    "path": "skillpacks/infra-pivot.skill.json",
+    "version": "2.2.0",
+    "approved_at": "2026-09-28",
+    "sha256": "cedf77592a6c0481b14aa448f005ac648f39399d74cb29a7afda161256bb84c8"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.infra_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
+    "ref": "9e3545d3899f2100e1d7e6dc44b5f4bdf53811d2",
+    "path": "skillpacks/infra-pivot.skill.json",
+    "version": "2.2.0",
+    "approved_at": "2026-09-28",
+    "sha256": "cedf77592a6c0481b14aa448f005ac648f39399d74cb29a7afda161256bb84c8"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.infra_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
+    "ref": "b657968ba8321b9d1364b23c5ef4a90bf7ab53be",
+    "path": "skillpacks/infra-pivot.skill.json",
+    "version": "2.2.1",
+    "approved_at": "2026-09-29",
+    "sha256": "47882dc5cf4e710efd216087872000dca1e2eb4aba04412e66b6f858cfecdb2f"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.infra_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
+    "ref": "06586692e61cf58dd9208febde58cceea4382f20",
+    "path": "skillpacks/infra-pivot.skill.json",
+    "version": "2.2.2",
+    "approved_at": "2026-10-06",
+    "sha256": "a0deb917aab2641ab294b9f0810c1c7a6d628a8b32a3f9f66fd4c159f52d2022"
+  }
+]

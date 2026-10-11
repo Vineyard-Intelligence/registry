@@ -1,0 +1,29 @@
+{
+  "identifier": "run.vineyard.pluginpacks.image_osint",
+  "content_type": "vineyard:pluginpack",
+  "name": "Image OSINT",
+  "author": "VINEYARD",
+  "description": "Extracts EXIF metadata and GPS location from photos, parsed locally without uploading them.",
+  "repo": "Vineyard-Intelligence/pluginpack-image-osint",
+  "ref": "d9c0c818d270fab77f2d93659bb61666b8a14637",
+  "path": "plugins/image-osint.manifest.json",
+  "version": "1.4.1",
+  "platforms": [
+    "web"
+  ],
+  "scopes_summary": {
+    "network": false,
+    "graph_write": true,
+    "secret_config": false
+  },
+  "plugin_count": 1,
+  "icon": "image",
+  "compat": {
+    "min_app_version": "1.0.0"
+  },
+  "typepacks": [
+    "run.vineyard.typepacks.endpoint",
+    "run.vineyard.typepacks.geo",
+    "run.vineyard.typepacks.infrastructure"
+  ]
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "identifier": "run.vineyard.skillpacks.account_identity_pivot",
+    "content_type": "vineyard:skillpack",
+    "name": "Account & identity pivoting",
+    "author": "VINEYARD",
+    "description": "Turn one account or handle into the person's other accounts, and know when a shared username is NOT the same person.",
+    "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
+    "ref": "0ea57eaa9f00c0fe9c8a0393b158cdb85354c480",
+    "path": "skillpacks/account-pivot.skill.json",
+    "version": "3.1.2",
+    "applies_to": [
+      "identity.handle",
+      "identity.account",
+      "identity.email_address",
+      "identity.person"
+    ],
+    "section_count": 5,
+    "requires": [
+      "run.vineyard.pluginpacks.whatsmyname"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.infra_pivot",
+    "content_type": "vineyard:skillpack",
+    "name": "Infrastructure pivoting",
+    "author": "VINEYARD",
+    "description": "Expand one infrastructure indicator (IP/domain/cert) into its connected footprint, one hop at a time.",
+    "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
+    "ref": "06586692e61cf58dd9208febde58cceea4382f20",
+    "path": "skillpacks/infra-pivot.skill.json",
+    "version": "2.2.2",
+    "applies_to": [
+      "infrastructure.ip_address",
+      "infrastructure.domain",
+      "infrastructure.certificate",
+      "infrastructure.autonomous_system"
+    ],
+    "section_count": 9,
+    "requires": [],
+    "verified": true
+  }
+]

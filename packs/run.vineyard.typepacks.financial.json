@@ -1,0 +1,17 @@
+{
+  "identifier": "run.vineyard.typepacks.financial",
+  "content_type": "vineyard:typepack",
+  "name": "Financial",
+  "author": "VINEYARD",
+  "description": "Follow-the-money entities: cryptocurrency addresses and transactions, exchanges, and bank accounts. Public identifiers only — no keys, PANs, or credentials.",
+  "repo": "Vineyard-Intelligence/typepack-basic",
+  "ref": "d80c8badd50e9c74a84638d4113149216d7e2619",
+  "path": "typepacks/financial.json",
+  "version": "1.0.0",
+  "categories": [
+    "financial"
+  ],
+  "type_count": 4,
+  "icon": "wallet",
+  "edge_count": 5
+}

@@ -1,0 +1,31 @@
+{
+  "identifier": "run.vineyard.pluginpacks.virustotal_premium",
+  "content_type": "vineyard:pluginpack",
+  "name": "VirusTotal Premium",
+  "author": "VINEYARD",
+  "description": "VirusTotal Premium pivots: port data/history, historical certs, WHOIS history, host files/URLs, file IOCs, relatives and sandbox behaviour, and Intelligence search from keys, certs, WHOIS, strings or similar files. Needs a Premium key. Desktop only.",
+  "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
+  "ref": "6c15700328f213736faf47ac7d204586cffb4e39",
+  "path": "plugins/virustotal-premium.manifest.json",
+  "version": "0.2.0",
+  "platforms": [
+    "desktop",
+    "web"
+  ],
+  "scopes_summary": {
+    "network": true,
+    "graph_write": true,
+    "secret_config": true
+  },
+  "plugin_count": 11,
+  "icon": "scan-search",
+  "desktop_only": "all",
+  "compat": {
+    "min_app_version": "0.1.0"
+  },
+  "typepacks": [
+    "run.vineyard.typepacks.identity",
+    "run.vineyard.typepacks.infrastructure",
+    "run.vineyard.typepacks.threat"
+  ]
+}
