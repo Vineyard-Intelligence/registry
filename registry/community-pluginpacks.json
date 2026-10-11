@@ -1,0 +1,657 @@
+[
+  {
+    "identifier": "run.vineyard.pluginpacks.ad_tags",
+    "content_type": "vineyard:pluginpack",
+    "name": "Ad Tags",
+    "author": "VINEYARD",
+    "description": "Extracts advertising, analytics, affiliate and payment account identifiers from a site's markup and from its ads.txt and /.well-known/ files. Desktop only.",
+    "repo": "Vineyard-Intelligence/pluginpack-ad-tags",
+    "ref": "38d30fc89d1098b946e9957aad2c50e3bdf65eb6",
+    "path": "plugins/ad-tags.manifest.json",
+    "version": "1.2.0",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 2,
+    "icon": "megaphone",
+    "desktop_only": "all",
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure",
+      "run.vineyard.typepacks.identity"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.cdn_detect",
+    "content_type": "vineyard:pluginpack",
+    "name": "CDN / WAF Detection (cdncheck)",
+    "author": "VINEYARD",
+    "description": "Detects CDN and WAF providers for IP addresses and domains using ProjectDiscovery's cdncheck dataset (MIT license).",
+    "repo": "Vineyard-Intelligence/pluginpack-cdn-detect",
+    "ref": "d9fb1b0135b3e41aa84546a6cbdbaed4e65ea49e",
+    "path": "plugins/cdn-detect.manifest.json",
+    "version": "1.0.3",
+    "platforms": [
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 2,
+    "icon": "shield-check",
+    "compat": {
+      "min_app_version": "1.0.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.censys",
+    "content_type": "vineyard:pluginpack",
+    "name": "Censys (under testing)",
+    "author": "VINEYARD",
+    "description": "Censys lookups with your own token: certificates, SSH host keys and services an IP presents; hosts sharing a certificate or key; CenQL searches. Desktop only. Registered by the VINEYARD operator for academic research. It may be removed in the future.",
+    "repo": "Vineyard-Intelligence/pluginpack-censys",
+    "ref": "07b60a092974eb8d0a82973aed1dfff0d3364104",
+    "path": "plugins/censys.manifest.json",
+    "version": "0.3.2",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": true
+    },
+    "plugin_count": 2,
+    "icon": "scan-line",
+    "desktop_only": "all",
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.chaos",
+    "content_type": "vineyard:pluginpack",
+    "name": "Chaos Reference Pack",
+    "author": "VINEYARD",
+    "description": "Six graph-manipulation plugins for demos and validation.",
+    "repo": "Vineyard-Intelligence/pluginpack-chaos",
+    "ref": "1ec7b4cab527ef6aa4d683330dc6191e4c21dbd8",
+    "path": "plugins/chaos-pack.manifest.json",
+    "version": "1.0.3",
+    "platforms": [
+      "web"
+    ],
+    "scopes_summary": {
+      "network": false,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 6,
+    "icon": "boxes",
+    "compat": {
+      "min_app_version": "1.0.0"
+    },
+    "typepacks": [],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.disposable_email",
+    "content_type": "vineyard:pluginpack",
+    "name": "Disposable Email",
+    "author": "VINEYARD",
+    "description": "Checks email addresses against the disposable/disposable-email-domains blocklist (CC0).",
+    "repo": "Vineyard-Intelligence/pluginpack-disposable-email",
+    "ref": "2d41b6a67a18a6664df5bd76fde1fba62eb5b0c8",
+    "path": "plugins/disposable-email.manifest.json",
+    "version": "1.1.2",
+    "platforms": [
+      "web",
+      "desktop"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "icon": "mail-x",
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.identity"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.domain_recon",
+    "content_type": "vineyard:pluginpack",
+    "name": "Domain Recon",
+    "author": "VINEYARD",
+    "description": "Enriches Domain nodes with DNS records (A, AAAA, CNAME, MX, NS, TXT, CAA), RDAP registration data, and Certificate Transparency subdomains from crt.sh and crt.name (desktop only).",
+    "repo": "Vineyard-Intelligence/pluginpack-domain-recon",
+    "ref": "2b99d879f36768e2fabfb74c53ba07a7240736fd",
+    "path": "plugins/domain-recon.manifest.json",
+    "version": "2.1.3",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 10,
+    "icon": "globe",
+    "desktop_only": "some",
+    "compat": {
+      "min_app_version": "1.0.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.github",
+    "content_type": "vineyard:pluginpack",
+    "name": "GitHub",
+    "author": "VINEYARD",
+    "description": "Collects public GitHub data: repositories, commit identities, gists, organisation members, activity hours, worked-on forks, Pages domains, GPG keys and code search. Token: fine-grained (Public repositories, no permissions) or classic with no scopes.",
+    "repo": "Vineyard-Intelligence/pluginpack-github",
+    "ref": "c37b8d015a5d03f380e2f86e32f11bac8e20282a",
+    "path": "plugins/github.manifest.json",
+    "version": "1.4.0",
+    "platforms": [
+      "web",
+      "desktop"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": true
+    },
+    "plugin_count": 9,
+    "icon": "github",
+    "desktop_only": "some",
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.identity",
+      "run.vineyard.typepacks.infrastructure"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.google_docs_metadata",
+    "content_type": "vineyard:pluginpack",
+    "name": "Google Docs Metadata",
+    "author": "VINEYARD",
+    "description": "Reads the public metadata of link-shared Google Docs/Drive files: owner, email, timestamps and sharing role. Desktop only. A port of xeuledoc by Malfrats Industries (https://github.com/Malfrats/xeuledoc), licensed GPL-3.0.",
+    "repo": "Vineyard-Intelligence/pluginpack-google-docs-metadata",
+    "ref": "2813c1ed0fc1171e5913e228e4033e4870e01ae4",
+    "path": "plugins/google-docs-metadata.manifest.json",
+    "version": "2.1.1",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "icon": "file-search",
+    "desktop_only": "all",
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.identity",
+      "run.vineyard.typepacks.infrastructure"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.image_osint",
+    "content_type": "vineyard:pluginpack",
+    "name": "Image OSINT",
+    "author": "VINEYARD",
+    "description": "Extracts EXIF metadata and GPS location from photos, parsed locally without uploading them.",
+    "repo": "Vineyard-Intelligence/pluginpack-image-osint",
+    "ref": "d9c0c818d270fab77f2d93659bb61666b8a14637",
+    "path": "plugins/image-osint.manifest.json",
+    "version": "1.4.1",
+    "platforms": [
+      "web"
+    ],
+    "scopes_summary": {
+      "network": false,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "icon": "image",
+    "compat": {
+      "min_app_version": "1.0.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.endpoint",
+      "run.vineyard.typepacks.geo",
+      "run.vineyard.typepacks.infrastructure"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.ip_recon",
+    "content_type": "vineyard:pluginpack",
+    "name": "IP Recon",
+    "author": "VINEYARD",
+    "description": "Enriches IP Address nodes with RDAP allocation, Shodan InternetDB open ports/CVEs/hostnames/tags, geolocation, and a Tor exit-node check.",
+    "repo": "Vineyard-Intelligence/pluginpack-ip-recon",
+    "ref": "5bbd4c762a2910f97a4dc5d14b26a67d1ea4b667",
+    "path": "plugins/ip-recon.manifest.json",
+    "version": "1.3.1",
+    "platforms": [
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 4,
+    "icon": "network",
+    "compat": {
+      "min_app_version": "1.0.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.geo",
+      "run.vineyard.typepacks.infrastructure",
+      "run.vineyard.typepacks.threat"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.iptoasn_cymru_doh",
+    "content_type": "vineyard:pluginpack",
+    "name": "IP to ASN (Team Cymru - DoH Based)",
+    "author": "VINEYARD",
+    "description": "IP → ASN and IP → Country enrichment for IP Address nodes from Team Cymru's IP-to-ASN mapping.",
+    "repo": "Vineyard-Intelligence/pluginpack-iptoasn-cymru-doh",
+    "ref": "8ca0fac8b1db645a99f500a3f44a3970faf126c4",
+    "path": "plugins/iptoasn-cymru-doh.manifest.json",
+    "version": "1.1.1",
+    "platforms": [
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 2,
+    "icon": "waypoints",
+    "compat": {
+      "min_app_version": "1.0.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.otx",
+    "content_type": "vineyard:pluginpack",
+    "name": "AlienVault OTX",
+    "author": "VINEYARD",
+    "description": "Looks up selected indicators in AlienVault OTX: the threat reports (\"pulses\") that name them, and passive DNS history. Requires a free OTX API key.",
+    "repo": "Vineyard-Intelligence/pluginpack-otx",
+    "ref": "75988e1a692d9cefda0d72c75e17b8ac1a094b90",
+    "path": "plugins/otx.manifest.json",
+    "version": "1.2.4",
+    "platforms": [
+      "web",
+      "desktop"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": true
+    },
+    "plugin_count": 2,
+    "icon": "radar",
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure",
+      "run.vineyard.typepacks.threat"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.pgp_lookup",
+    "content_type": "vineyard:pluginpack",
+    "name": "PGP Key Lookup",
+    "author": "VINEYARD",
+    "description": "Finds OpenPGP public keys on public key directories by email address or key fingerprint. Desktop only.",
+    "repo": "Vineyard-Intelligence/pluginpack-pgp-lookup",
+    "ref": "c849ab563653ea7300e60b63a50a024bdb7d7798",
+    "path": "plugins/pgp-lookup.manifest.json",
+    "version": "1.1.0",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "icon": "key",
+    "desktop_only": "all",
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.identity"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.shared_attribute_clustering",
+    "content_type": "vineyard:pluginpack",
+    "name": "Shared-Attribute Clustering",
+    "author": "VINEYARD",
+    "description": "Links infrastructure nodes that share a registrar, nameserver, ASN or TLS certificate, using data already in the graph.",
+    "repo": "Vineyard-Intelligence/pluginpack-shared-attribute-clustering",
+    "ref": "28986bbb52e99e2ed8d5af1042201f928963654b",
+    "path": "plugins/shared-attribute-clustering.manifest.json",
+    "version": "1.1.0",
+    "platforms": [
+      "web"
+    ],
+    "scopes_summary": {
+      "network": false,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "icon": "git-fork",
+    "compat": {
+      "min_app_version": "1.0.0"
+    },
+    "typepacks": [],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.shodan",
+    "content_type": "vineyard:pluginpack",
+    "name": "Shodan",
+    "author": "VINEYARD",
+    "description": "Shodan REST API lookups: IP host details, host search and result counts, passive DNS, forward and reverse DNS, and API credit status. Needs your own Shodan API key; only Shodan Search spends query credits.",
+    "repo": "Vineyard-Intelligence/pluginpack-shodan",
+    "ref": "22de318aaf720c08b58fe4e23f8e9d09aa29c32e",
+    "path": "plugins/shodan.manifest.json",
+    "version": "2.2.0",
+    "platforms": [
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": true
+    },
+    "plugin_count": 7,
+    "icon": "satellite-dish",
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.geo",
+      "run.vineyard.typepacks.infrastructure",
+      "run.vineyard.typepacks.threat"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.telegram",
+    "content_type": "vineyard:pluginpack",
+    "name": "Telegram",
+    "author": "VINEYARD",
+    "description": "Read-only Telegram collection without joining: keyword search, handle resolution, invite-link analysis, posts, participants and phone-number lookup, written as telegram.* nodes. Runs through Vineyard's Telegram service.",
+    "repo": "Vineyard-Intelligence/pluginpack-telegram",
+    "ref": "e57ba319d8673969a9741000ffeb956bb3faff25",
+    "path": "plugins/telegram.manifest.json",
+    "version": "2.4.3",
+    "platforms": [
+      "web"
+    ],
+    "scopes_summary": {
+      "network": false,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 6,
+    "icon": "send",
+    "typepacks": [
+      "run.vineyard.typepacks.identity",
+      "run.vineyard.typepacks.infrastructure",
+      "run.vineyard.typepacks.telegram"
+    ],
+    "services": [
+      "telegram"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.virustotal_community",
+    "content_type": "vineyard:pluginpack",
+    "name": "VirusTotal Community",
+    "author": "VINEYARD",
+    "description": "VirusTotal v3 reports (IP, domain, URL, file) and pivots (passive DNS, subdomains), limited to what a free community API key can read. Needs the analyst's own VirusTotal API key; a community key allows 240 requests/hour and 500/day. Desktop only.",
+    "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
+    "ref": "9a81b90a0cf64dacdf909ef8b7a921f7b3115968",
+    "path": "plugins/virustotal-community.manifest.json",
+    "version": "1.5.0",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": true
+    },
+    "plugin_count": 6,
+    "icon": "scan-eye",
+    "desktop_only": "all",
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure",
+      "run.vineyard.typepacks.threat"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.virustotal_premium",
+    "content_type": "vineyard:pluginpack",
+    "name": "VirusTotal Premium",
+    "author": "VINEYARD",
+    "description": "VirusTotal Premium pivots: port data/history, historical certs, WHOIS history, host files/URLs, file IOCs, relatives and sandbox behaviour, and Intelligence search from keys, certs, WHOIS, strings or similar files. Needs a Premium key. Desktop only.",
+    "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
+    "ref": "6c15700328f213736faf47ac7d204586cffb4e39",
+    "path": "plugins/virustotal-premium.manifest.json",
+    "version": "0.2.0",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": true
+    },
+    "plugin_count": 11,
+    "icon": "scan-search",
+    "desktop_only": "all",
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.identity",
+      "run.vineyard.typepacks.infrastructure",
+      "run.vineyard.typepacks.threat"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.wayback_machine",
+    "content_type": "vineyard:pluginpack",
+    "name": "Wayback Machine",
+    "author": "VINEYARD",
+    "description": "Queries the Internet Archive Wayback Machine for the capture history and archive availability of selected domains and URLs. Desktop only.",
+    "repo": "Vineyard-Intelligence/pluginpack-wayback-machine",
+    "ref": "954083fffe70e6fce32eccedc147659af460b3a8",
+    "path": "plugins/wayback-machine.manifest.json",
+    "version": "1.2.2",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 2,
+    "icon": "history",
+    "desktop_only": "all",
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.web_recon",
+    "content_type": "vineyard:pluginpack",
+    "name": "Web Recon",
+    "author": "VINEYARD",
+    "description": "Fingerprints web pages: Shodan-style favicon hash, HHHash of the response header names, and a hash of the HTML tag structure. Desktop only.",
+    "repo": "Vineyard-Intelligence/pluginpack-web-recon",
+    "ref": "6e59f300d2b48b2b5d2d3dca7e0367de5ce2f974",
+    "path": "plugins/web-recon.manifest.json",
+    "version": "1.2.3",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 3,
+    "icon": "fingerprint",
+    "desktop_only": "all",
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.whatsmyname",
+    "content_type": "vineyard:pluginpack",
+    "name": "WhatsMyName",
+    "author": "VINEYARD",
+    "description": "Username enumeration across ~700 sites using the WhatsMyName dataset (https://github.com/WebBreacher/WhatsMyName, CC-BY-SA-4.0). Desktop only.",
+    "repo": "Vineyard-Intelligence/pluginpack-whatsmyname",
+    "ref": "a6b4eac57d9e97dbaa2ec89d6dd6abee3c377062",
+    "path": "plugins/whatsmyname.manifest.json",
+    "version": "2.2.2",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "icon": "at-sign",
+    "desktop_only": "all",
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.identity",
+      "run.vineyard.typepacks.social"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.x",
+    "content_type": "vineyard:pluginpack",
+    "name": "X (Twitter)",
+    "author": "VINEYARD",
+    "description": "Collects public X (Twitter) profiles and recent posts for account nodes. Desktop only.",
+    "repo": "Vineyard-Intelligence/pluginpack-x",
+    "ref": "caf58874c90c5b89df9c91bdfabd79d0958a2c89",
+    "path": "plugins/x.manifest.json",
+    "version": "0.6.2",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 2,
+    "icon": "bird",
+    "desktop_only": "all",
+    "compat": {
+      "min_app_version": "0.1.0"
+    },
+    "typepacks": [
+      "run.vineyard.typepacks.identity",
+      "run.vineyard.typepacks.social"
+    ],
+    "verified": true
+  }
+]

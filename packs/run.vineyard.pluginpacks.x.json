@@ -1,0 +1,30 @@
+{
+  "identifier": "run.vineyard.pluginpacks.x",
+  "content_type": "vineyard:pluginpack",
+  "name": "X (Twitter)",
+  "author": "VINEYARD",
+  "description": "Collects public X (Twitter) profiles and recent posts for account nodes. Desktop only.",
+  "repo": "Vineyard-Intelligence/pluginpack-x",
+  "ref": "caf58874c90c5b89df9c91bdfabd79d0958a2c89",
+  "path": "plugins/x.manifest.json",
+  "version": "0.6.2",
+  "platforms": [
+    "desktop",
+    "web"
+  ],
+  "scopes_summary": {
+    "network": true,
+    "graph_write": true,
+    "secret_config": false
+  },
+  "plugin_count": 2,
+  "icon": "bird",
+  "desktop_only": "all",
+  "compat": {
+    "min_app_version": "0.1.0"
+  },
+  "typepacks": [
+    "run.vineyard.typepacks.identity",
+    "run.vineyard.typepacks.social"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "identifier": "run.vineyard.pluginpacks.wayback_machine",
+  "content_type": "vineyard:pluginpack",
+  "name": "Wayback Machine",
+  "author": "VINEYARD",
+  "description": "Queries the Internet Archive Wayback Machine for the capture history and archive availability of selected domains and URLs. Desktop only.",
+  "repo": "Vineyard-Intelligence/pluginpack-wayback-machine",
+  "ref": "954083fffe70e6fce32eccedc147659af460b3a8",
+  "path": "plugins/wayback-machine.manifest.json",
+  "version": "1.2.2",
+  "platforms": [
+    "desktop",
+    "web"
+  ],
+  "scopes_summary": {
+    "network": true,
+    "graph_write": true,
+    "secret_config": false
+  },
+  "plugin_count": 2,
+  "icon": "history",
+  "desktop_only": "all",
+  "compat": {
+    "min_app_version": "0.1.0"
+  },
+  "typepacks": [
+    "run.vineyard.typepacks.infrastructure"
+  ]
+}

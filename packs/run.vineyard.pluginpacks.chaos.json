@@ -1,0 +1,25 @@
+{
+  "identifier": "run.vineyard.pluginpacks.chaos",
+  "content_type": "vineyard:pluginpack",
+  "name": "Chaos Reference Pack",
+  "author": "VINEYARD",
+  "description": "Six graph-manipulation plugins for demos and validation.",
+  "repo": "Vineyard-Intelligence/pluginpack-chaos",
+  "ref": "1ec7b4cab527ef6aa4d683330dc6191e4c21dbd8",
+  "path": "plugins/chaos-pack.manifest.json",
+  "version": "1.0.3",
+  "platforms": [
+    "web"
+  ],
+  "scopes_summary": {
+    "network": false,
+    "graph_write": true,
+    "secret_config": false
+  },
+  "plugin_count": 6,
+  "icon": "boxes",
+  "compat": {
+    "min_app_version": "1.0.0"
+  },
+  "typepacks": []
+}

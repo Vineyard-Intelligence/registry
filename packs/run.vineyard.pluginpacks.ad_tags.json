@@ -1,0 +1,30 @@
+{
+  "identifier": "run.vineyard.pluginpacks.ad_tags",
+  "content_type": "vineyard:pluginpack",
+  "name": "Ad Tags",
+  "author": "VINEYARD",
+  "description": "Extracts advertising, analytics, affiliate and payment account identifiers from a site's markup and from its ads.txt and /.well-known/ files. Desktop only.",
+  "repo": "Vineyard-Intelligence/pluginpack-ad-tags",
+  "ref": "38d30fc89d1098b946e9957aad2c50e3bdf65eb6",
+  "path": "plugins/ad-tags.manifest.json",
+  "version": "1.2.0",
+  "platforms": [
+    "desktop",
+    "web"
+  ],
+  "scopes_summary": {
+    "network": true,
+    "graph_write": true,
+    "secret_config": false
+  },
+  "plugin_count": 2,
+  "icon": "megaphone",
+  "desktop_only": "all",
+  "compat": {
+    "min_app_version": "0.1.0"
+  },
+  "typepacks": [
+    "run.vineyard.typepacks.infrastructure",
+    "run.vineyard.typepacks.identity"
+  ]
+}

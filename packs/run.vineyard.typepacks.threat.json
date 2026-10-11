@@ -1,0 +1,17 @@
+{
+  "identifier": "run.vineyard.typepacks.threat",
+  "content_type": "vineyard:typepack",
+  "name": "Threat",
+  "author": "VINEYARD",
+  "description": "Threat-intelligence entities (malware, campaigns, operations, vulnerabilities, threat actors, indicators, attack patterns, tools, detection signatures) and their relationships, aligned with STIX 2.1.",
+  "repo": "Vineyard-Intelligence/typepack-basic",
+  "ref": "9a1bd524fc162b6d1d6e8bf0d543c761e8742969",
+  "path": "typepacks/threat.json",
+  "version": "1.4.0",
+  "categories": [
+    "threat"
+  ],
+  "type_count": 10,
+  "icon": "bug",
+  "edge_count": 10
+}

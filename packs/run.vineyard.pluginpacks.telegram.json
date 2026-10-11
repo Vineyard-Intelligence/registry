@@ -1,0 +1,29 @@
+{
+  "identifier": "run.vineyard.pluginpacks.telegram",
+  "content_type": "vineyard:pluginpack",
+  "name": "Telegram",
+  "author": "VINEYARD",
+  "description": "Read-only Telegram collection without joining: keyword search, handle resolution, invite-link analysis, posts, participants and phone-number lookup, written as telegram.* nodes. Runs through Vineyard's Telegram service.",
+  "repo": "Vineyard-Intelligence/pluginpack-telegram",
+  "ref": "e57ba319d8673969a9741000ffeb956bb3faff25",
+  "path": "plugins/telegram.manifest.json",
+  "version": "2.4.3",
+  "platforms": [
+    "web"
+  ],
+  "scopes_summary": {
+    "network": false,
+    "graph_write": true,
+    "secret_config": false
+  },
+  "plugin_count": 6,
+  "icon": "send",
+  "typepacks": [
+    "run.vineyard.typepacks.identity",
+    "run.vineyard.typepacks.infrastructure",
+    "run.vineyard.typepacks.telegram"
+  ],
+  "services": [
+    "telegram"
+  ]
+}

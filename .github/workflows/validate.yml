@@ -1,0 +1,111 @@
+name: validate
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      # fetch-depth: 0 is load-bearing, not hygiene. build_approved.py derives the approved
+      # ref lists from the history of packs/, and the default shallow clone has one commit —
+      # which would silently publish a list holding only what main points at today, i.e.
+      # exactly the older approvals every pinned install depends on would go missing.
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+      - run: pip install jsonschema
+      # Build BEFORE validating. `packs/` is the source of truth and the catalogs under
+      # `registry/` are generated on merge, so on a pull request the committed catalogs are
+      # legitimately stale — every check below therefore runs against the catalog this PR
+      # would actually publish, not the one currently on main.
+      - name: Build the catalogs from packs/
+        run: python scripts/build_registry.py
+      # After the catalogs, because a client checks a pointer against the approved list and
+      # the catalog is only the CURRENT row of it. A pack republished today must not
+      # invalidate yesterday's correctly-pinned install.
+      - name: Build the approved-ref lists from git history
+        run: python scripts/build_approved.py
+      - run: python scripts/validate.py
+      # Identifier patterns accept any author's reverse-DNS namespace. Loosen one by a
+      # character and every real entry still passes, so the patterns are proven against
+      # malformed shapes rather than trusted because the catalog validated.
+      - name: Identifier pattern self-test
+        run: python scripts/check_identifiers.py
+      # Same reason, for delisting: no live entry is deprecated or withdrawn, so validating the real
+      # catalog exercises none of those rules. Without this they would first be tested by an actual
+      # withdrawal — the one merge that has to be right the first time.
+      - name: Delisting rules self-test
+        run: python scripts/test_delisting.py
+      # And the same for the summary-field definitions. Validating the live catalog only exercises
+      # the fields the live catalog happens to use — no published pack declares `scopes.services`,
+      # so deleting that line from derived() would silently stop verifying the claim.
+      - name: Derived summary field self-test
+        run: python scripts/test_derived.py
+      # And the same for the verified badge, which is derived from verified-authors.json rather
+      # than submitted. Every live entry is the operator's own, so building the real catalog only
+      # ever exercises the true branch — the impersonation cases exist nowhere but this file.
+      - name: Verified badge derivation self-test
+        run: python scripts/test_verified.py
+      # The one check that stops a commit which was never published from being loadable.
+      # Shape checks cannot: a pull request against a public pack repo puts an
+      # attacker-authored commit in the BASE repo's object store, where jsDelivr serves it
+      # under this org's path with a real 40-hex ref (measured). Only membership rejects it,
+      # so the list being complete and correct is a security property, not bookkeeping.
+      - name: Approved-ref list self-test
+        run: python scripts/test_approved.py
+      # And the same for the bundle check. Both packs that drift today drift on `version`, so the
+      # licence half of the comparison is exercised by the live catalog exactly never — deleting
+      # it would leave CI green while a GPL port went on shipping an Apache notice.
+      - name: Bundle version/licence self-test
+        run: python scripts/test_bundle_claims.py
+      - name: Verify pinned commits (immutable SHA + document and bundle match)
+        run: python scripts/verify_pinned.py
+      # After the pins are proven, because this fetches the same documents and would otherwise
+      # blame a typeRef for what is really a bad ref. Blocking, because the failure it prevents is
+      # invisible: a plugin whose `consumes` names an undefined type matches no node and vanishes
+      # from the run dialog with no error at all.
+      - name: Type references resolve to published Type Packs
+        run: python scripts/check_typerefs.py
+
+  # Regenerate the published catalogs on main and commit them back.
+  #
+  # This exists because GitHub Pages serves this repo's branch directly (`build_type: legacy`,
+  # source `main:/`), so the bytes a client fetches have to be committed — there is no deploy
+  # step to generate them into. Runs only after `validate` passes, and only on main, so what
+  # lands is exactly what CI approved. Pushes made with GITHUB_TOKEN do not trigger workflows,
+  # so this cannot re-trigger itself.
+  publish:
+    needs: validate
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      # fetch-depth: 0 is load-bearing, not hygiene. build_approved.py derives the approved
+      # ref lists from the history of packs/, and the default shallow clone has one commit —
+      # which would silently publish a list holding only what main points at today, i.e.
+      # exactly the older approvals every pinned install depends on would go missing.
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+      - run: python scripts/build_registry.py
+      - run: python scripts/build_approved.py
+      - name: Commit the rebuilt catalogs
+        run: |
+          if git diff --quiet -- registry/; then
+            echo "catalogs already up to date"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add registry/
+          git commit -m "Rebuild catalogs and approved-ref lists from packs/ [automated]"
+          git push

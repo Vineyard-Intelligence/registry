@@ -1,0 +1,30 @@
+{
+  "identifier": "run.vineyard.pluginpacks.whatsmyname",
+  "content_type": "vineyard:pluginpack",
+  "name": "WhatsMyName",
+  "author": "VINEYARD",
+  "description": "Username enumeration across ~700 sites using the WhatsMyName dataset (https://github.com/WebBreacher/WhatsMyName, CC-BY-SA-4.0). Desktop only.",
+  "repo": "Vineyard-Intelligence/pluginpack-whatsmyname",
+  "ref": "a6b4eac57d9e97dbaa2ec89d6dd6abee3c377062",
+  "path": "plugins/whatsmyname.manifest.json",
+  "version": "2.2.2",
+  "platforms": [
+    "desktop",
+    "web"
+  ],
+  "scopes_summary": {
+    "network": true,
+    "graph_write": true,
+    "secret_config": false
+  },
+  "plugin_count": 1,
+  "icon": "at-sign",
+  "desktop_only": "all",
+  "compat": {
+    "min_app_version": "0.1.0"
+  },
+  "typepacks": [
+    "run.vineyard.typepacks.identity",
+    "run.vineyard.typepacks.social"
+  ]
+}
