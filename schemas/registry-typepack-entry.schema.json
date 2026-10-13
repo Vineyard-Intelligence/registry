@@ -14,7 +14,7 @@
     "description": { "type": "string", "minLength": 1, "maxLength": 250 },
     "repo": { "type": "string", "pattern": "^[^/]+/[^/]+$" },
     "ref": { "type": "string", "pattern": "^([0-9a-f]{40}|[0-9a-f]{64})$", "description": "IMMUTABLE commit SHA (40-hex SHA-1 or 64-hex SHA-256) of the content repo, captured at PR time. Tags/branches are mutable and REJECTED - pin the exact reviewed commit. Human-readable release is in `version`." },
-    "path": { "type": "string", "description": "Path to the typepack JSON within repo@ref (= distribution.path)." },
+    "path": { "type": "string", "description": "Path to the typepack JSON within repo@ref." },
     "version": { "type": "string", "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$" },
     "categories": {
       "type": "array",
@@ -23,7 +23,6 @@
       "description": "DERIVED: distinct types[].category values; drives the category facet."
     },
     "type_count": { "type": "integer", "minimum": 1, "description": "DERIVED: types[].length." },
-    "edge_count": { "type": "integer", "minimum": 0, "description": "DERIVED: edge_types[].length." },
     "icon": { "type": "string", "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$", "description": "DERIVED: types[0].icon when it is a kebab-case lucide icon name. Omitted otherwise (an image URI or glyph is not carried)." },
     "thumbnail_url": { "type": "string", "format": "uri" },
     "verified": { "type": "boolean", "default": false, "description": "DERIVED: set by build_registry.py from verified-authors.json — true when the identifier's namespace is claimed by the handle in `author`. Never read from the submission; a value typed here is discarded." },

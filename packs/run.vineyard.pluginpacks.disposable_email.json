@@ -19,9 +19,6 @@
   },
   "plugin_count": 1,
   "icon": "mail-x",
-  "compat": {
-    "min_app_version": "0.1.0"
-  },
   "typepacks": [
     "run.vineyard.typepacks.identity"
   ]

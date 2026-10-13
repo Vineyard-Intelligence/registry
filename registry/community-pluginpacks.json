@@ -21,9 +21,6 @@
     "plugin_count": 2,
     "icon": "megaphone",
     "desktop_only": "all",
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.infrastructure",
       "run.vineyard.typepacks.identity"
@@ -50,9 +47,6 @@
     },
     "plugin_count": 2,
     "icon": "shield-check",
-    "compat": {
-      "min_app_version": "1.0.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.infrastructure"
     ],
@@ -80,9 +74,6 @@
     "plugin_count": 2,
     "icon": "scan-line",
     "desktop_only": "all",
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.infrastructure"
     ],
@@ -108,9 +99,6 @@
     },
     "plugin_count": 6,
     "icon": "boxes",
-    "compat": {
-      "min_app_version": "1.0.0"
-    },
     "typepacks": [],
     "verified": true
   },
@@ -135,9 +123,6 @@
     },
     "plugin_count": 1,
     "icon": "mail-x",
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.identity"
     ],
@@ -165,9 +150,6 @@
     "plugin_count": 10,
     "icon": "globe",
     "desktop_only": "some",
-    "compat": {
-      "min_app_version": "1.0.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.infrastructure"
     ],
@@ -195,9 +177,6 @@
     "plugin_count": 9,
     "icon": "github",
     "desktop_only": "some",
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.identity",
       "run.vineyard.typepacks.infrastructure"
@@ -226,9 +205,6 @@
     "plugin_count": 1,
     "icon": "file-search",
     "desktop_only": "all",
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.identity",
       "run.vineyard.typepacks.infrastructure"
@@ -255,9 +231,6 @@
     },
     "plugin_count": 1,
     "icon": "image",
-    "compat": {
-      "min_app_version": "1.0.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.endpoint",
       "run.vineyard.typepacks.geo",
@@ -285,9 +258,6 @@
     },
     "plugin_count": 4,
     "icon": "network",
-    "compat": {
-      "min_app_version": "1.0.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.geo",
       "run.vineyard.typepacks.infrastructure",
@@ -315,9 +285,6 @@
     },
     "plugin_count": 2,
     "icon": "waypoints",
-    "compat": {
-      "min_app_version": "1.0.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.infrastructure"
     ],
@@ -344,9 +311,6 @@
     },
     "plugin_count": 2,
     "icon": "radar",
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.infrastructure",
       "run.vineyard.typepacks.threat"
@@ -375,9 +339,6 @@
     "plugin_count": 1,
     "icon": "key",
     "desktop_only": "all",
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.identity"
     ],
@@ -403,9 +364,6 @@
     },
     "plugin_count": 1,
     "icon": "git-fork",
-    "compat": {
-      "min_app_version": "1.0.0"
-    },
     "typepacks": [],
     "verified": true
   },
@@ -429,9 +387,6 @@
     },
     "plugin_count": 7,
     "icon": "satellite-dish",
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.geo",
       "run.vineyard.typepacks.infrastructure",
@@ -491,9 +446,6 @@
     "plugin_count": 6,
     "icon": "scan-eye",
     "desktop_only": "all",
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.infrastructure",
       "run.vineyard.typepacks.threat"
@@ -522,9 +474,6 @@
     "plugin_count": 11,
     "icon": "scan-search",
     "desktop_only": "all",
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.identity",
       "run.vineyard.typepacks.infrastructure",
@@ -554,9 +503,6 @@
     "plugin_count": 2,
     "icon": "history",
     "desktop_only": "all",
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.infrastructure"
     ],
@@ -584,9 +530,6 @@
     "plugin_count": 3,
     "icon": "fingerprint",
     "desktop_only": "all",
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.infrastructure"
     ],
@@ -614,9 +557,6 @@
     "plugin_count": 1,
     "icon": "at-sign",
     "desktop_only": "all",
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.identity",
       "run.vineyard.typepacks.social"
@@ -645,9 +585,6 @@
     "plugin_count": 2,
     "icon": "bird",
     "desktop_only": "all",
-    "compat": {
-      "min_app_version": "0.1.0"
-    },
     "typepacks": [
       "run.vineyard.typepacks.identity",
       "run.vineyard.typepacks.social"

@@ -2,10 +2,10 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://vineyard.run/schemas/plugin.json",
   "title": "VINEYARD Plugin Manifest",
-  "description": "A vineyard:plugin document. Same naming family as vineyard:typepack. Source of truth for the plugin (the legacy Plugin table is removed).",
+  "description": "A vineyard:plugin document. Same naming family as vineyard:typepack. Source of truth for the plugin.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["identifier", "content_type", "name", "version", "description", "platforms", "io", "scopes", "lifecycle", "distribution"],
+  "required": ["identifier", "content_type", "name", "version", "description", "platforms", "io", "scopes", "lifecycle"],
   "properties": {
     "identifier": {
       "type": "string",
@@ -14,7 +14,7 @@
     },
     "content_type": { "const": "vineyard:plugin" },
     "name": { "type": "string", "minLength": 1, "maxLength": 128 },
-    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+].+)?$", "description": "SemVer string (not the legacy float)." },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+].+)?$", "description": "SemVer string." },
     "description": { "type": "string", "minLength": 1, "maxLength": 1024 },
     "author": {
       "type": "object",
@@ -44,7 +44,7 @@
           "required": ["runtime", "entry"],
           "properties": {
             "runtime": { "enum": ["sandbox-js", "web-proxy"], "description": "sandbox-js = author JS in the browser worker; web-proxy = thin client calling ONE author endpoint." },
-            "entry": { "type": "string" },
+            "entry": { "type": "string", "description": "The module the plugin worker imports: a path relative to the repo root (e.g. dist/pack.mjs) or an absolute URL." },
             "proxy_endpoint": { "type": "string", "format": "uri", "description": "REQUIRED when runtime=web-proxy. The ONE endpoint; MUST equal the single scopes.network entry." },
             "fallback": { "enum": ["desktop", "none"], "default": "none" }
           }
@@ -56,7 +56,6 @@
           "properties": {
             "runtime": { "enum": ["sandbox-js", "native", "subprocess"] },
             "entry": { "type": "string" },
-            "min_app_version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
             "fallback": { "enum": ["web", "none"], "default": "none" }
           }
         }
@@ -135,9 +134,7 @@
           "description": "Canonical 7-state machine. Retry mints a NEW task (not a state)."
         }
       }
-    },
-
-    "distribution": { "$ref": "#/$defs/distribution" }
+    }
   },
 
   "$defs": {
@@ -175,37 +172,6 @@
         "secret": { "type": "boolean", "default": false, "description": "BYOK-style. Web: discouraged -> guide to desktop. Never written to any record." },
         "scope": { "enum": ["plugin", "project", "user"], "default": "user" },
         "optional": { "type": "boolean", "default": false }
-      }
-    },
-    "distribution": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["kind"],
-      "description": "Shared distribution block (plugin + typepack). No server-side copy; the client caches the fetched bundle locally.",
-      "properties": {
-        "kind": { "enum": ["git", "zip", "inline"] },
-        "repository": { "type": "string", "format": "uri", "pattern": "^https://github\\.com/[^/]+/[^/]+$" },
-        "ref": { "type": "string", "description": "IMMUTABLE: 40-char commit SHA or annotated tag. Branches rejected by registry CI." },
-        "path": { "type": "string", "description": "Path to manifest.json within repo@ref (git kind)." },
-        "integrity": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["algo", "hash"],
-          "description": "OPTIONAL. Light supply-chain hygiene only (detect a force-push at install). Not evidentiary.",
-          "properties": {
-            "algo": { "enum": ["sha256", "sha512"] },
-            "hash": { "type": "string", "pattern": "^[a-f0-9]{64,128}$" }
-          }
-        },
-        "archive": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["url", "sha256"],
-          "properties": {
-            "url": { "type": "string", "format": "uri", "pattern": "^https://.*\\.zip$" },
-            "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
-          }
-        }
       }
     }
   }

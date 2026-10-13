@@ -18,9 +18,6 @@
   },
   "plugin_count": 1,
   "icon": "image",
-  "compat": {
-    "min_app_version": "1.0.0"
-  },
   "typepacks": [
     "run.vineyard.typepacks.endpoint",
     "run.vineyard.typepacks.geo",

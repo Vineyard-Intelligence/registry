@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://vineyard.run/schemas/pluginpack.json",
   "title": "VINEYARD Plugin Pack Manifest",
-  "description": "A vineyard:pluginpack document: ONE file / bundle that ships MANY plugins (like a vineyard:typepack ships many types). The pack carries the reverse-DNS identity and distribution; each contained plugin is a vineyard:plugin addressed by its own run.vineyard.plugins.<name> id. Use plugin.schema.json for a standalone single plugin.",
+  "description": "A vineyard:pluginpack document: ONE file / bundle that ships MANY plugins (like a vineyard:typepack ships many types). The pack carries the reverse-DNS identity and the bundle; each contained plugin is a vineyard:plugin addressed by its own run.vineyard.plugins.<name> id. Use plugin.schema.json for a standalone single plugin.",
   "type": "object",
   "additionalProperties": false,
   "required": ["identifier", "content_type", "name", "version", "description", "plugins"],
@@ -33,7 +33,7 @@
       "type": "object",
       "additionalProperties": false,
       "minProperties": 1,
-      "description": "How the pack BUNDLE is loaded (the single artifact that contains every member's code, e.g. dist/<pack>.js). Members run 'inline' from this bundle.",
+      "description": "How the pack BUNDLE is loaded (the single artifact that contains every member's code, e.g. dist/pack.mjs).",
       "properties": {
         "primary": { "enum": ["web", "desktop"] },
         "web": {
@@ -42,7 +42,7 @@
           "required": ["runtime", "entry"],
           "properties": {
             "runtime": { "enum": ["sandbox-js", "web-proxy"] },
-            "entry": { "type": "string", "description": "Path to the pack bundle (NOT 'inline'; members are 'inline' within it)." },
+            "entry": { "type": "string", "description": "Path to the pack bundle, relative to the repo root, or an absolute URL." },
             "proxy_endpoint": { "type": "string", "format": "uri" },
             "fallback": { "enum": ["desktop", "none"], "default": "none" }
           }
@@ -54,17 +54,15 @@
           "properties": {
             "runtime": { "enum": ["sandbox-js", "native", "subprocess"] },
             "entry": { "type": "string" },
-            "min_app_version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
             "fallback": { "enum": ["web", "none"], "default": "none" }
           }
         }
       }
     },
-    "distribution": { "$ref": "https://vineyard.run/schemas/plugin.json#/$defs/distribution" },
     "plugins": {
       "type": "array",
       "minItems": 1,
-      "description": "The contained plugins. Each is a vineyard:plugin with its own global run.vineyard.plugins.<name> id; members ship 'inline' inside the pack bundle and so omit their own distribution block.",
+      "description": "The contained plugins. Each is a vineyard:plugin with its own global run.vineyard.plugins.<name> id; members ship inside the pack bundle.",
       "items": { "$ref": "#/$defs/member" }
     }
   },
@@ -73,7 +71,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": ["identifier", "content_type", "name", "version", "description", "platforms", "io", "scopes"],
-      "description": "A plugin bundled in a pack. Same as a standalone vineyard:plugin but WITHOUT its own distribution (it inherits the pack's); entry is typically 'inline'.",
+      "description": "A plugin bundled in a pack. Same as a standalone vineyard:plugin; a member without its own platforms.web block inherits the pack's.",
       "properties": {
         "identifier": { "type": "string", "pattern": "^(?:[a-z0-9]+(?:-[a-z0-9]+)*\\.){2,}plugins\\.[a-z0-9_]+$", "description": "Reverse-DNS plugin id; globally unique, independent of the pack." },
         "content_type": { "const": "vineyard:plugin" },
@@ -85,7 +83,7 @@
         "platforms": {
           "type": "object",
           "minProperties": 1,
-          "description": "Per-platform execution. entry may be 'inline' (code lives in the pack bundle)."
+          "description": "Per-platform execution. entry names the pack bundle, the same as the pack-level platforms."
         },
         "io": { "$ref": "https://vineyard.run/schemas/plugin.json#/properties/io" },
         "params": { "type": "object" },

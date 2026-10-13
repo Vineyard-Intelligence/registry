@@ -20,9 +20,6 @@
   "plugin_count": 9,
   "icon": "github",
   "desktop_only": "some",
-  "compat": {
-    "min_app_version": "0.1.0"
-  },
   "typepacks": [
     "run.vineyard.typepacks.identity",
     "run.vineyard.typepacks.infrastructure"

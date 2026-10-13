@@ -18,9 +18,6 @@
   },
   "plugin_count": 4,
   "icon": "network",
-  "compat": {
-    "min_app_version": "1.0.0"
-  },
   "typepacks": [
     "run.vineyard.typepacks.geo",
     "run.vineyard.typepacks.infrastructure",
