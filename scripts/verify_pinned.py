@@ -11,7 +11,7 @@ document at the pinned ref via the jsDelivr CDN and asserts:
   - its `version` equals the entry's version,
   - every SUMMARY field the entry carries is what the document actually implies:
     `scopes_summary`, `platforms`, `plugin_count`, `desktop_only`, `icon`, `section_count`,
-    `type_count`, `edge_count`. See derived() for the definition and for what it caught, and
+    `type_count`. See derived() for the definition and for what it caught, and
   - the CODE the manifest points at - `platforms.web.entry`, fetched at the same
     pinned ref - declares the same version and licence as the manifest does. See
     bundle_mismatch() for why that is this file's job and not the client's.
@@ -139,7 +139,6 @@ def derived(doc, content_type):
         return {
             "icon": lucide(types[0].get("icon")) if types else None,
             "type_count": len(types),
-            "edge_count": len(doc.get("edge_types") or []),
         }
     return {}
 
@@ -236,11 +235,16 @@ def bundle_url(manifest, pack, root):
     resolves it exactly this way (frontend plugins/remote.ts), and getting it wrong yields
     plugins/dist/pack.mjs, which was a shipped 404. A member with no web block of its own
     inherits the pack's, which is the one-module-many-plugins case.
+
+    Raises ValueError for `inline`: it names no module, so the host has nothing to import and the
+    plugin never appears in the run dialog.
     """
     web = ((manifest.get("platforms") or {}).get("web")) or ((pack.get("platforms") or {}).get("web")) or {}
     entry = web.get("entry")
-    if not entry or entry == "inline":
+    if not entry:
         return None
+    if entry == "inline":
+        raise ValueError("platforms.web.entry 'inline' names no module — point it at the bundle (e.g. dist/pack.mjs)")
     return entry if entry.startswith("http") else root + entry.lstrip("/")
 
 
@@ -253,7 +257,11 @@ def bundle_mismatch(doc, entry, root, cache):
     if not (entry.get("content_type") or "").endswith(("plugin", "pluginpack")):
         return None
     for manifest in [doc] + (doc.get("plugins") or []):
-        url = bundle_url(manifest, doc, root)
+        try:
+            url = bundle_url(manifest, doc, root)
+        except ValueError as e:
+            who = "" if manifest is doc else f"member {manifest.get('identifier')}: "
+            return f"{who}{e}"
         if not url:
             continue
         if url not in cache:

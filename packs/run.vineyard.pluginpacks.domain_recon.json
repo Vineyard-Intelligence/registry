@@ -20,9 +20,6 @@
   "plugin_count": 10,
   "icon": "globe",
   "desktop_only": "some",
-  "compat": {
-    "min_app_version": "1.0.0"
-  },
   "typepacks": [
     "run.vineyard.typepacks.infrastructure"
   ]

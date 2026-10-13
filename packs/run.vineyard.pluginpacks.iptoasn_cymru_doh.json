@@ -18,9 +18,6 @@
   },
   "plugin_count": 2,
   "icon": "waypoints",
-  "compat": {
-    "min_app_version": "1.0.0"
-  },
   "typepacks": [
     "run.vineyard.typepacks.infrastructure"
   ]

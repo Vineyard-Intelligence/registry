@@ -14,7 +14,6 @@
     ],
     "type_count": 6,
     "icon": "file-text",
-    "edge_count": 7,
     "verified": true
   },
   {
@@ -32,7 +31,6 @@
     ],
     "type_count": 4,
     "icon": "wallet",
-    "edge_count": 5,
     "verified": true
   },
   {
@@ -50,7 +48,6 @@
     ],
     "type_count": 3,
     "icon": "map-pin",
-    "edge_count": 3,
     "verified": true
   },
   {
@@ -68,7 +65,6 @@
     ],
     "type_count": 7,
     "icon": "user",
-    "edge_count": 7,
     "verified": true
   },
   {
@@ -87,7 +83,6 @@
     ],
     "type_count": 15,
     "icon": "network",
-    "edge_count": 14,
     "verified": true
   },
   {
@@ -105,7 +100,6 @@
     ],
     "type_count": 5,
     "icon": "at-sign",
-    "edge_count": 10,
     "verified": true
   },
   {
@@ -123,7 +117,6 @@
     ],
     "type_count": 4,
     "icon": "user",
-    "edge_count": 7,
     "verified": true
   },
   {
@@ -141,7 +134,6 @@
     ],
     "type_count": 10,
     "icon": "bug",
-    "edge_count": 10,
     "verified": true
   }
 ]

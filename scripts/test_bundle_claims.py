@@ -23,8 +23,8 @@ MEMBER_ID = "run.vineyard.plugins.demo"
 # bare keys — the shape every published pack actually has.
 BUNDLE = (
     'var de={identifier:"%s",content_type:"vineyard:plugin",name:"Demo",version:"1.0.0",'
-    'license:"GPL-3.0",platforms:{primary:"desktop",web:{runtime:"sandbox-js",entry:"inline"},'
-    'desktop:{runtime:"sandbox-js",entry:"inline",min_app_version:"0.1.0"}}};'
+    'license:"GPL-3.0",platforms:{primary:"desktop",web:{runtime:"sandbox-js",entry:"dist/pack.mjs"},'
+    'desktop:{runtime:"sandbox-js",entry:"dist/pack.mjs",min_app_version:"0.1.0"}}};'
     'var pe={identifier:"%s",content_type:"vineyard:pluginpack",name:"Demo",version:"2.0.0",'
     'license:"Apache-2.0",plugins:[de]};export{pe as default};' % (MEMBER_ID, PACK_ID)
 )
@@ -72,9 +72,14 @@ def main():
     assert bundle_url(doc, doc, ROOT) == URL
     # A member with no web block of its own runs the pack's module — one file, many plugins.
     assert bundle_url(doc["plugins"][0], doc, ROOT) == URL
-    # 'inline' names no remote module: a builtin, nothing to fetch.
+    # 'inline' names no module, so the plugin cannot run: refused, not skipped.
     inline = {"platforms": {"web": {"entry": "inline"}}}
-    assert bundle_url(inline, inline, ROOT) is None
+    try:
+        bundle_url(inline, inline, ROOT)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("an 'inline' entry must be refused")
     assert bundle_url({}, {}, ROOT) is None
 
     # --- comparison: is it actually COMPARED, or merely computed? ---------------------------------
@@ -97,10 +102,16 @@ def main():
     err = bundle_mismatch(doc, entry, ROOT, cache)
     assert err and err.startswith(f"member {MEMBER_ID}: "), err
 
-    # A typepack has no code to check, and a pack whose members are all inline has none to fetch —
-    # neither may be turned into a fetch, or CI fails on packs that are correct.
+    # A typepack has no code to check, and may not be turned into a fetch, or CI fails on packs
+    # that are correct.
     assert bundle_mismatch({"version": "9"}, {"content_type": "vineyard:typepack"}, ROOT, {}) is None
-    assert bundle_mismatch({"platforms": {"web": {"entry": "inline"}}}, entry, ROOT, {}) is None
+    # A pack whose entry is 'inline' is refused before any fetch, naming the field to fix.
+    err = bundle_mismatch({"platforms": {"web": {"entry": "inline"}}}, entry, ROOT, {})
+    assert err and "'inline'" in err, err
+    doc = pack()
+    doc["plugins"][0]["platforms"] = {"web": {"runtime": "sandbox-js", "entry": "inline"}}
+    err = bundle_mismatch(doc, entry, ROOT, cache)
+    assert err and err.startswith(f"member {MEMBER_ID}: ") and "'inline'" in err, err
 
     print("bundle claim self-test: ok")
 

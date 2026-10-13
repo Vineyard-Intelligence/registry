@@ -160,9 +160,14 @@ def revisions_of(path):
 
 
 def record(entry, approved_at):
-    """One approved record, or None when the revision predates the pinning fields."""
-    if not all(entry.get(f) for f in FIELDS if f != "version"):
-        return None
+    """One approved record.
+
+    Raises ValueError when the revision lacks identifier, repo, ref or path: the entry schema
+    requires all four, so a revision without them cannot be a published approval.
+    """
+    missing = [f for f in FIELDS if f != "version" and not entry.get(f)]
+    if missing:
+        raise ValueError(f"{entry.get('identifier', '<no identifier>')}: missing {', '.join(missing)}")
     row = {f: entry.get(f) for f in FIELDS}
     row["approved_at"] = approved_at
     return row
@@ -190,9 +195,10 @@ def collect():
             out = APPROVED.get(entry.get("content_type"))
             if out is None:
                 continue
-            row = record(entry, date)
-            if row is None:
-                continue
+            try:
+                row = record(entry, date)
+            except ValueError as e:
+                raise SystemExit(f"::error file={path}::revision {sha[:12]}: {e}") from None
             # Keyed on what the client actually compares. The FIRST date wins: re-approving the
             # same commit later does not move when it was approved.
             key = (row["identifier"], row["repo"], row["ref"], row["path"])
@@ -206,9 +212,12 @@ def collect():
         with open(os.path.join(packs, name), "r", encoding="utf-8") as fh:
             entry = json.load(fh)
         out = APPROVED.get(entry.get("content_type"))
-        row = record(entry, git("log", "-1", "--format=%ad", "--date=short").strip()) if out else None
-        if row is None:
+        if out is None:
             continue
+        try:
+            row = record(entry, git("log", "-1", "--format=%ad", "--date=short").strip())
+        except ValueError as e:
+            raise SystemExit(f"::error file=packs/{name}::{e}") from None
         seen[out].setdefault((row["identifier"], row["repo"], row["ref"], row["path"]), row)
     known = existing_digests()
     for rows in seen.values():

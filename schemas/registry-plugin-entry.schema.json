@@ -93,17 +93,6 @@
         }
       }
     },
-    "compat": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "min_app_version": {
-          "type": "string",
-          "pattern": "^\\d+\\.\\d+\\.\\d+$"
-        }
-      },
-      "description": "Oldest Vineyard runtime this entry's ref supports (versions.json analog)."
-    },
     "services": {
       "type": "array",
       "uniqueItems": true,

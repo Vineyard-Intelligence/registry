@@ -84,9 +84,18 @@ base = {"identifier": "i", "repo": "o/r", "ref": "a" * 40, "path": "p.json", "ve
 row = record(dict(base), "2026-01-01")
 check("record carries repo, ref and path", all(row.get(f) for f in ("repo", "ref", "path")))
 check("record carries the approval date", row["approved_at"] == "2026-01-01")
-check("a revision with no ref yields no record", record({"identifier": "i", "repo": "o/r"}, "d") is None)
-check("a revision with no repo yields no record",
-      record({"identifier": "i", "ref": "a" * 40, "path": "p"}, "d") is None)
+
+
+def refused(entry):
+    try:
+        record(entry, "d")
+    except ValueError:
+        return True
+    return False
+
+
+check("a revision with no ref is refused", refused({"identifier": "i", "repo": "o/r", "path": "p"}))
+check("a revision with no repo is refused", refused({"identifier": "i", "ref": "a" * 40, "path": "p"}))
 check("version is optional — it is for the analyst, not the check",
       record({"identifier": "i", "repo": "o/r", "ref": "a" * 40, "path": "p"}, "d") is not None)
 

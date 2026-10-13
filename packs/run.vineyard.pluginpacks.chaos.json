@@ -18,8 +18,5 @@
   },
   "plugin_count": 6,
   "icon": "boxes",
-  "compat": {
-    "min_app_version": "1.0.0"
-  },
   "typepacks": []
 }

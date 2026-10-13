@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://vineyard.run/schemas/typepack.json",
   "title": "VINEYARD Typepack",
-  "description": "Meta-schema for a vineyard:typepack document. OSINT tool: integrity is light supply-chain hygiene only, not evidentiary.",
+  "description": "Meta-schema for a vineyard:typepack document.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -10,7 +10,6 @@
     "name",
     "content_type",
     "version",
-    "distribution",
     "types"
   ],
   "properties": {
@@ -63,9 +62,6 @@
       "type": "string",
       "description": "SPDX expression, e.g. MIT, Apache-2.0, CC-BY-4.0."
     },
-    "distribution": {
-      "$ref": "#/$defs/distribution"
-    },
     "marketing_url": {
       "type": "string",
       "format": "uri"
@@ -81,13 +77,6 @@
         "$ref": "#/$defs/entityType"
       },
       "description": "Node entity type definitions."
-    },
-    "edge_types": {
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/edgeType"
-      },
-      "description": "Optional relationship/edge type definitions. Absent => the pack contributes node types only."
     }
   },
   "$defs": {
@@ -96,78 +85,6 @@
       "pattern": "^[a-z][a-z0-9_]*$",
       "maxLength": 31,
       "description": "snake_case token (category / name / property key)."
-    },
-    "distribution": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "kind"
-      ],
-      "description": "Shared distribution block (plugin + typepack). git: repository+ref+path. zip: archive. inline: embedded.",
-      "properties": {
-        "kind": {
-          "enum": [
-            "git",
-            "zip",
-            "inline"
-          ]
-        },
-        "repository": {
-          "type": "string",
-          "format": "uri",
-          "pattern": "^https://github\\.com/[^/]+/[^/]+$",
-          "description": "HTTPS repo URL, no trailing .git or slash."
-        },
-        "ref": {
-          "type": "string",
-          "description": "IMMUTABLE ref: 40-char commit SHA or annotated tag. Branches are rejected by registry CI."
-        },
-        "path": {
-          "type": "string",
-          "description": "Path to the document within repo@ref, e.g. typepacks/infrastructure.json."
-        },
-        "integrity": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "algo",
-            "hash"
-          ],
-          "description": "OPTIONAL. Light supply-chain hygiene (detect a force-push at install). NOT evidentiary integrity.",
-          "properties": {
-            "algo": {
-              "enum": [
-                "sha256",
-                "sha512"
-              ]
-            },
-            "hash": {
-              "type": "string",
-              "pattern": "^[a-f0-9]{64,128}$"
-            }
-          }
-        },
-        "archive": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "url",
-            "sha256"
-          ],
-          "description": "Optional verifiable zip mirror (kind=zip).",
-          "properties": {
-            "url": {
-              "type": "string",
-              "format": "uri",
-              "pattern": "^https://.*\\.zip$"
-            },
-            "sha256": {
-              "type": "string",
-              "pattern": "^[a-f0-9]{64}$"
-            }
-          }
-        }
-      }
     },
     "entityType": {
       "type": "object",
@@ -230,64 +147,6 @@
         }
       }
     },
-    "edgeType": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "category",
-        "name",
-        "label",
-        "from",
-        "to"
-      ],
-      "description": "Directed relationship type. 'label' is stored verbatim in Edge.label (<=1024). from/to constrain endpoint node types.",
-      "properties": {
-        "category": {
-          "$ref": "#/$defs/identifierSegment"
-        },
-        "name": {
-          "$ref": "#/$defs/identifierSegment"
-        },
-        "label": {
-          "type": "string",
-          "maxLength": 1024
-        },
-        "display_name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "directed": {
-          "type": "boolean",
-          "default": true
-        },
-        "from": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Allowed source node-type refs '<category>.<name>'. '*' = any."
-        },
-        "to": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Allowed target node-type refs. '*' = any."
-        },
-        "properties": {
-          "type": "object",
-          "description": "Optional edge property schema (stored in Edge.data). Same grammar as node properties.",
-          "propertyNames": {
-            "$ref": "#/$defs/identifierSegment"
-          },
-          "additionalProperties": {
-            "$ref": "#/$defs/property"
-          }
-        }
-      }
-    },
     "property": {
       "type": "object",
       "additionalProperties": false,
@@ -335,7 +194,7 @@
         "validator": {
           "type": "object",
           "additionalProperties": false,
-          "description": "Structured validation (replaces the raw-regex-string precedent).",
+          "description": "Structured validation.",
           "properties": {
             "regex": {
               "type": "string",
