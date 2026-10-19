@@ -3,11 +3,11 @@
   "content_type": "vineyard:pluginpack",
   "name": "Web Recon",
   "author": "VINEYARD",
-  "description": "Fingerprints web pages: Shodan-style favicon hash, HHHash of the response header names, and a hash of the HTML tag structure. Desktop only.",
+  "description": "Fingerprints web pages: favicon hashes in the forms Shodan, Censys and other search services index, HHHash of the response header names, and a hash of the HTML tag structure. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-web-recon",
-  "ref": "6e59f300d2b48b2b5d2d3dca7e0367de5ce2f974",
+  "ref": "5c3d48cb5046a815969431621fade99dfd74bd05",
   "path": "plugins/web-recon.manifest.json",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "platforms": [
     "desktop",
     "web"
