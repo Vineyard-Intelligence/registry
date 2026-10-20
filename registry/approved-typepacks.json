@@ -405,6 +405,15 @@
     "sha256": "4e2ed88111e6a721252684168e334da13023a3905589963368b4226505c9bd5b"
   },
   {
+    "identifier": "run.vineyard.typepacks.telegram",
+    "repo": "Vineyard-Intelligence/typepack-telegram",
+    "ref": "4259b13e055e18e64b8171602731f9ca5c89474f",
+    "path": "typepacks/telegram.json",
+    "version": "1.5.1",
+    "approved_at": "2026-10-20",
+    "sha256": "595172f2e40f10a9c0113493a733683c8ade2e19b130533a1f7764c851553c6b"
+  },
+  {
     "identifier": "run.vineyard.typepacks.threat",
     "repo": "Vineyard-Intelligence/typepack-basic",
     "ref": "e1e48d0cb8c86ab763934e98fccf882f253c14a2",
