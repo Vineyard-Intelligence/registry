@@ -711,6 +711,15 @@
     "sha256": "3d203edbc040846b204e6e14770783ecc1ab811cef9e6553ea371c700f4f3ca0"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.lazarusday",
+    "repo": "Vineyard-Intelligence/pluginpack-lazarusday",
+    "ref": "198699bd7ccb2396e30d3e4393b10b29f5d6a44e",
+    "path": "plugins/lazarusday.manifest.json",
+    "version": "1.0.0",
+    "approved_at": "2026-10-22",
+    "sha256": "76e6ccd762400ed4205ea47233851487d0b95f455338456ae4be94163c74d019"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.otx",
     "repo": "Vineyard-Intelligence/pluginpack-otx",
     "ref": "0f7237e0d44804aa4d851cd188795ba8ee8b471a",
