@@ -293,13 +293,13 @@
   {
     "identifier": "run.vineyard.pluginpacks.lazarusday",
     "content_type": "vineyard:pluginpack",
-    "name": "Lazarus Day",
+    "name": "lazarus.day",
     "author": "VINEYARD",
-    "description": "Searches the lazarus.day DPRK indicator index by keyword and stages the matches as graph nodes, and looks selected indicators up as exact records to add the reports that name them. Desktop only.",
+    "description": "Queries https://lazarus.day's public DPRK indicator index: keyword search stages matches as graph nodes, and exact-record lookup adds the reports naming a selected indicator. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-lazarusday",
-    "ref": "198699bd7ccb2396e30d3e4393b10b29f5d6a44e",
+    "ref": "97fa1ff1b1782039163122a4cfb0f8cd4f68344b",
     "path": "plugins/lazarusday.manifest.json",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "platforms": [
       "desktop",
       "web"
