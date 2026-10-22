@@ -291,6 +291,36 @@
     "verified": true
   },
   {
+    "identifier": "run.vineyard.pluginpacks.lazarusday",
+    "content_type": "vineyard:pluginpack",
+    "name": "Lazarus Day",
+    "author": "VINEYARD",
+    "description": "Searches the lazarus.day DPRK indicator index by keyword and stages the matches as graph nodes, and looks selected indicators up as exact records to add the reports that name them. Desktop only.",
+    "repo": "Vineyard-Intelligence/pluginpack-lazarusday",
+    "ref": "198699bd7ccb2396e30d3e4393b10b29f5d6a44e",
+    "path": "plugins/lazarusday.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 2,
+    "icon": "radar",
+    "desktop_only": "all",
+    "typepacks": [
+      "run.vineyard.typepacks.financial",
+      "run.vineyard.typepacks.identity",
+      "run.vineyard.typepacks.infrastructure",
+      "run.vineyard.typepacks.threat"
+    ],
+    "verified": true
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.otx",
     "content_type": "vineyard:pluginpack",
     "name": "AlienVault OTX",
