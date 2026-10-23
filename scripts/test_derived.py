@@ -14,7 +14,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from verify_pinned import claim_mismatch, derived  # noqa: E402
+from verify_pinned import THUMB, claim_mismatch, derived  # noqa: E402
 
 PACK = "vineyard:pluginpack"
 
@@ -71,6 +71,25 @@ def main():
     assert derived(pack(w, w), PACK)["desktop_only"] is None, "none desktop means omitted"
     assert derived({**pack(w), "icon": "shield-check"}, PACK)["icon"] == "shield-check"
     assert derived({**pack(w), "icon": "🛡"}, PACK)["icon"] is None, "a glyph is not a lucide name"
+    # --- thumbnail_url: repo-relative and pinned, never an absolute URL --------------------------
+    # The field is resolved by the client as cdn.jsdelivr.net/gh/{repo}@{ref}/{path} (with a raw
+    # fallback at the same SHA). An absolute URL in the document or the entry is rejected by the
+    # schema; derived() also refuses to project one, so a stale entry cannot keep claiming it.
+    thumb_doc = {**pack(w), "thumbnail_url": "assets/thumbnail.png"}
+    assert derived(thumb_doc, PACK)["thumbnail_url"] == "assets/thumbnail.png"
+    for bad in ("https://evil.example/x.png", "//evil.example/x.png", "/abs/x.png", "../x.png", "a/../b.png", "a/./b.png"):
+        assert derived({**pack(w), "thumbnail_url": bad}, PACK)["thumbnail_url"] is None, bad
+    tb = {"content_type": PACK, "version": "1.0.0"}
+    assert claim_mismatch(thumb_doc, {**tb, "thumbnail_url": "assets/other.png"})
+    assert claim_mismatch(thumb_doc, tb) is None, "omitting the field makes no claim"
+    # The registry's copy and every schema's copy must be the same grammar.
+    here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    import json
+    for rel in ("schemas/pluginpack.schema.json", "schemas/plugin.schema.json", "schemas/registry-plugin-entry.schema.json"):
+        with open(os.path.join(here, rel), "r", encoding="utf-8") as fh:
+            schema = json.load(fh)
+        assert schema["properties"]["thumbnail_url"]["pattern"] == THUMB.pattern, rel
+
     tp = "vineyard:typepack"
     assert derived({"types": [{"icon": "map-pin"}, {"icon": "user"}]}, tp)["icon"] == "map-pin"
     assert derived({"types": [{"icon": "https://x/i.png"}]}, tp)["icon"] is None
