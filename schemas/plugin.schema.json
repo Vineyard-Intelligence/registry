@@ -27,7 +27,12 @@
     },
     "license": { "type": "string", "description": "SPDX id." },
     "icon": { "type": "string", "description": "Icon shown in the node right-click menu." },
-    "thumbnail_url": { "type": "string", "format": "uri" },
+    "thumbnail_url": {
+      "type": "string",
+      "maxLength": 512,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?(?:/|$))[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$",
+      "description": "Repo-relative path to a card thumbnail (e.g. assets/thumbnail.png). The app resolves it only against the pinned commit: https://cdn.jsdelivr.net/gh/{repo}@{ref}/{path} or https://raw.githubusercontent.com/{repo}/{ref}/{path}. Absolute URLs are rejected so the image slot cannot be used as a beacon."
+    },
     "marketing_url": { "type": "string", "format": "uri" },
     "latest_url": { "type": "string", "format": "uri", "description": "Per-author fallback pointer to the always-newest manifest (update check)." },
 

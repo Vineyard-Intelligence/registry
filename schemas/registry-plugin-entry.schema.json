@@ -124,7 +124,9 @@
     },
     "thumbnail_url": {
       "type": "string",
-      "format": "uri"
+      "maxLength": 512,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?(?:/|$))[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$",
+      "description": "Repo-relative path to a card thumbnail (e.g. assets/thumbnail.png). The app resolves it only against the pinned commit: https://cdn.jsdelivr.net/gh/{repo}@{ref}/{path} or https://raw.githubusercontent.com/{repo}/{ref}/{path}. Absolute URLs are rejected so the image slot cannot be used as a beacon."
     },
     "verified": {
       "type": "boolean",

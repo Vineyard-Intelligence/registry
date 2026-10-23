@@ -64,8 +64,48 @@ def fetch(url):
     return json.loads(fetch_text(url, "application/json"))
 
 
+def verify_thumbnail(entry):
+    """Fetch the card image at the PINNED commit; None when it is a usable image.
+
+    Only the two pinned forms are tried — raw.githubusercontent and the jsDelivr gh path — and
+    both carry the same 40-hex ref, so the bytes are the ones the entry pinned. An arbitrary URL
+    never reaches this function: the entry schema makes the field repo-relative.
+    """
+    path = entry.get("thumbnail_url")
+    if not path:
+        return None
+    repo, ref = entry.get("repo", ""), entry.get("ref", "")
+    failures = []
+    for url in (
+        f"https://raw.githubusercontent.com/{repo}/{ref}/{path}",
+        f"https://cdn.jsdelivr.net/gh/{repo}@{ref}/{path}",
+    ):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "vineyard-registry-verify"})
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                ctype = (resp.headers.get("content-type") or "").split(";")[0].strip().lower()
+                data = resp.read(MAX_THUMBNAIL_BYTES + 1)
+            if not ctype.startswith("image/"):
+                failures.append(f"{url}: content-type {ctype!r}")
+            elif not data:
+                failures.append(f"{url}: empty body")
+            elif len(data) > MAX_THUMBNAIL_BYTES:
+                failures.append(f"{url}: larger than {MAX_THUMBNAIL_BYTES} bytes")
+            else:
+                return None
+        except Exception as exc:  # noqa: BLE001 — every failure is "this URL did not answer"
+            failures.append(f"{url}: {exc}")
+    return "thumbnail is not retrievable as a pinned image (" + "; ".join(failures) + ")"
+
+
 WRITE_VERBS = (":create", ":update", ":delete")
 LUCIDE = re.compile(r"^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$")
+
+# Mirrors `thumbnail_url` in the plugin / pluginpack / registry-entry schemas: repo-relative, no
+# leading slash, no `.`/`..` segment. An absolute URL is refused by the schema; derived() also
+# returns None for one so an entry cannot keep claiming an image the document no longer carries.
+MAX_THUMBNAIL_BYTES = 256 * 1024
+THUMB = re.compile(r"^(?!/)(?!.*(?:^|/)\.\.?(?:/|$))[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$")
 
 
 def lucide(name):
@@ -76,6 +116,12 @@ def lucide(name):
 def members(doc):
     """The plugins a pack document ships. A lone plugin document is a pack of one."""
     return doc.get("plugins") or [doc]
+
+
+def thumbnail_rel(doc):
+    """The document's repo-relative thumbnail path, or None when absent/invalid."""
+    value = doc.get("thumbnail_url")
+    return value if isinstance(value, str) and THUMB.match(value) else None
 
 
 def derived(doc, content_type):
@@ -115,6 +161,7 @@ def derived(doc, content_type):
         desktop = sum((m.get("platforms") or {}).get("primary") == "desktop" for m in ms)
         return {
             "icon": lucide(doc.get("icon")),
+            "thumbnail_url": thumbnail_rel(doc),
             "desktop_only": "all" if desktop == len(ms) else "some" if desktop else None,
             "scopes_summary": {
                 "network": any(s.get("network") or s.get("web_probe") for s in scopes),
@@ -334,6 +381,9 @@ def main():
                 # A different fix again, and only one: the manifest is what was reviewed, so the
                 # bundle is what has to be rebuilt and re-pinned. Never "correct the manifest".
                 print(f"::error file={src}::{ident}: {bundle_err}")
+                bad += 1
+            elif thumb_err := verify_thumbnail(entry):
+                print(f"::error file={src}::{ident}: {thumb_err}")
                 bad += 1
             else:
                 ok += 1
