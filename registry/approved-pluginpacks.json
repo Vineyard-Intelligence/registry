@@ -569,6 +569,15 @@
   {
     "identifier": "run.vineyard.pluginpacks.ip_classification",
     "repo": "Vineyard-Intelligence/pluginpack-ip-classification",
+    "ref": "3f6d56d9da16909aa5935a6cae1c8dca3c1fef46",
+    "path": "plugins/ip-classification.manifest.json",
+    "version": "1.1.2",
+    "approved_at": "2026-10-24",
+    "sha256": "2f91d9fd64702e7df362a51c79a6f6dc5f942c3b4d0dceadb11bb0b2205f14f1"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.ip_classification",
+    "repo": "Vineyard-Intelligence/pluginpack-ip-classification",
     "ref": "8158dd4862c3a0bb3cb76c59822a3db88ddd0645",
     "path": "plugins/ip-classification.manifest.json",
     "version": "1.1.1",
