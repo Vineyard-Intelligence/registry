@@ -245,9 +245,9 @@
     "author": "VINEYARD",
     "description": "Classifies IP addresses as scanners, C2 and malware families, crawlers, anonymizers and non-routable space.",
     "repo": "Vineyard-Intelligence/pluginpack-ip-classification",
-    "ref": "e6fc1be9df810bcbe6c59b20573f8504a74ab9e2",
+    "ref": "8158dd4862c3a0bb3cb76c59822a3db88ddd0645",
     "path": "plugins/ip-classification.manifest.json",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "platforms": [
       "web"
     ],
