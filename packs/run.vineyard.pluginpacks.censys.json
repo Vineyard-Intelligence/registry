@@ -1,13 +1,13 @@
 {
   "identifier": "run.vineyard.pluginpacks.censys",
   "content_type": "vineyard:pluginpack",
-  "name": "Censys (under testing)",
+  "name": "Censys (under test)",
   "author": "VINEYARD",
   "description": "Censys lookups with your own token: certificates, SSH host keys and services an IP presents; hosts sharing a certificate or key; CenQL searches. Desktop only. Registered by the VINEYARD operator for academic research. It may be removed in the future.",
   "repo": "Vineyard-Intelligence/pluginpack-censys",
-  "ref": "07b60a092974eb8d0a82973aed1dfff0d3364104",
+  "ref": "3b4e867eac9971a8286736a39f4bd21b5146b933",
   "path": "plugins/censys.manifest.json",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "platforms": [
     "desktop",
     "web"
