@@ -1,0 +1,22 @@
+{
+  "identifier": "run.vineyard.pluginpacks.ip_classification",
+  "content_type": "vineyard:pluginpack",
+  "name": "IP Classification (under testing)",
+  "author": "VINEYARD",
+  "description": "Classifies IP addresses as scanners, C2 and malware families, crawlers, anonymizers and non-routable space.",
+  "repo": "Vineyard-Intelligence/pluginpack-ip-classification",
+  "ref": "1b1bb70b8b8020d4a46c20ab21d2338a4e39bde8",
+  "path": "plugins/ip-classification.manifest.json",
+  "version": "3.0.0",
+  "platforms": [
+    "web"
+  ],
+  "scopes_summary": {
+    "network": true,
+    "graph_write": true,
+    "secret_config": false
+  },
+  "plugin_count": 1,
+  "icon": "fingerprint",
+  "typepacks": []
+}
