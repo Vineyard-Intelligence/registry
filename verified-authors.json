@@ -1,26 +1,35 @@
 {
   "_comment": [
-    "Who may show the verified badge, and which identifier namespaces each of them owns.",
+    "Who may show the verified badge, which identifier namespaces each of them owns, and the",
+    "GitHub account the pack repository must belong to.",
     "",
-    "The entry schema has always described `verified` as a 'Mirror of verified-authors.json",
-    "membership; set by CI, not self-asserted' — but this file did not exist and no script read",
-    "it, so the badge was exactly what the submitter typed. 21 of 25 entries carried it. With the",
-    "catalog open to third parties, that is a stranger shipping a verified first-party lookalike",
-    "on their first pull request.",
+    "`github.id` is the ONLY identity key. It is the numeric account id returned by the GitHub",
+    "API; it survives renames and cannot be copied by a lookalike login. `github.handle` is",
+    "display text for the operator and reviewers — validate.py never compares it.",
     "",
-    "`namespaces` is what makes the check hold in BOTH directions (scripts/validate.py):",
-    "an entry under `run.vineyard.*` must be authored by VINEYARD, and an entry claiming to be",
-    "authored by VINEYARD must be under one of VINEYARD's namespaces. Without the second",
-    "half, `author` is a free string and anyone can wear the name.",
+    "`namespaces` makes the author/namespace relation hold in BOTH directions: an entry under",
+    "`run.vineyard.*` must be authored by VINEYARD, and an entry claiming VINEYARD must be",
+    "under one of VINEYARD's namespaces.",
     "",
-    "Whether an author really controls the DOMAIN behind a namespace is deliberately NOT settled",
-    "here — that is a review question. This file is the operator's own record of who was accepted.",
+    "validate.py additionally resolves each listed author's `repo` through the GitHub API and",
+    "requires repo.owner.id == github.id. Without that, a stranger could publish",
+    "`run.vineyard.pluginpacks.fake` with `author: VINEYARD` from their own repository and the",
+    "two strings above would still match.",
+    "",
+    "Whether an author really controls the DOMAIN behind a namespace is still a review",
+    "question; GitHub repository ownership is now checked automatically.",
     "",
     "Submitters never edit this file. A PR that touches it is a governance change, not a listing."
   ],
   "authors": {
     "VINEYARD": {
-      "namespaces": ["run.vineyard"]
+      "github": {
+        "id": 297755403,
+        "handle": "Vineyard-Intelligence"
+      },
+      "namespaces": [
+        "run.vineyard"
+      ]
     }
   }
 }
