@@ -549,69 +549,6 @@
     "sha256": "bf286a068aa9127046ea503928b766dbb354355698ecd817be13d2053157df6e"
   },
   {
-    "identifier": "run.vineyard.pluginpacks.ip_classification",
-    "repo": "Vineyard-Intelligence/pluginpack-ip-classification",
-    "ref": "1b1bb70b8b8020d4a46c20ab21d2338a4e39bde8",
-    "path": "plugins/ip-classification.manifest.json",
-    "version": "3.0.0",
-    "approved_at": "2026-10-24",
-    "sha256": "a23e5f0c73b2a2cfe4b15d8f15cfec1a548d81e37d213b4cd0af9790190cbb90"
-  },
-  {
-    "identifier": "run.vineyard.pluginpacks.ip_classification",
-    "repo": "Vineyard-Intelligence/pluginpack-ip-classification",
-    "ref": "1f084cfc46815cc191d0a3625d33e0e5b0f874cc",
-    "path": "plugins/ip-classification.manifest.json",
-    "version": "3.0.2",
-    "approved_at": "2026-10-24",
-    "sha256": "50cc52a925576a505acf60c17f39bd8e5f16cce8677997f27b764d9a4cea5981"
-  },
-  {
-    "identifier": "run.vineyard.pluginpacks.ip_classification",
-    "repo": "Vineyard-Intelligence/pluginpack-ip-classification",
-    "ref": "55e17ab37a7489e071e74b0004747888a02acd18",
-    "path": "plugins/ip-classification.manifest.json",
-    "version": "3.0.3",
-    "approved_at": "2026-10-24",
-    "sha256": "6cb817b9ddc80ed10c97997884a06839a896b987c1a5a5d54d9515c2f6044e7b"
-  },
-  {
-    "identifier": "run.vineyard.pluginpacks.ip_classification",
-    "repo": "Vineyard-Intelligence/pluginpack-ip-classification",
-    "ref": "817eec6293718dec3668634e6dc6439844d3ee2d",
-    "path": "plugins/ip-classification.manifest.json",
-    "version": "5.0.0",
-    "approved_at": "2026-10-24",
-    "sha256": "9548828722cb403e5b5afd9e102d807229c2b9bdfd81b52880035f3d8d482a3f"
-  },
-  {
-    "identifier": "run.vineyard.pluginpacks.ip_classification",
-    "repo": "Vineyard-Intelligence/pluginpack-ip-classification",
-    "ref": "86912831b3385bdc2e245eb1c9c5a1cef3a86ebf",
-    "path": "plugins/ip-classification.manifest.json",
-    "version": "6.0.0",
-    "approved_at": "2026-10-24",
-    "sha256": "14f49e458962aee14cda39b40d5b922941fa3d67dd6d7ce28815e53ac9092090"
-  },
-  {
-    "identifier": "run.vineyard.pluginpacks.ip_classification",
-    "repo": "Vineyard-Intelligence/pluginpack-ip-classification",
-    "ref": "987bfd0a87f8923b96bfad5aed1a38797ae18103",
-    "path": "plugins/ip-classification.manifest.json",
-    "version": "4.0.0",
-    "approved_at": "2026-10-24",
-    "sha256": "3b2c011e3e5257d47fb3c4ffd13b7ef10cd1ee1a8f6c37d96ccb5aa6b7a0f23e"
-  },
-  {
-    "identifier": "run.vineyard.pluginpacks.ip_classification",
-    "repo": "Vineyard-Intelligence/pluginpack-ip-classification",
-    "ref": "a7f1ff2b301320694350b2447a0b0f903540b482",
-    "path": "plugins/ip-classification.manifest.json",
-    "version": "3.0.1",
-    "approved_at": "2026-10-24",
-    "sha256": "0e5bd51dfe15adbc4d8fdf820fbd5540f9fe20c1207c3500794864dd9595cf40"
-  },
-  {
     "identifier": "run.vineyard.pluginpacks.ip_recon",
     "repo": "Vineyard-Intelligence/pluginpack-ip-recon",
     "ref": "d05f92462351a3cb6d0212ff36f2a28f888c826e",
