@@ -131,7 +131,7 @@
     "verified": {
       "type": "boolean",
       "default": false,
-      "description": "DERIVED: set by build_registry.py from verified-authors.json — true when the identifier's namespace is claimed by the handle in `author`. Never read from the submission; a value typed here is discarded."
+      "description": "DERIVED: set by build_registry.py from verified-authors.json — true when the identifier's namespace is claimed by the handle in `author`. validate.py also requires repo.owner.id to equal the author's numeric github.id. Never read from the submission; a value typed here is discarded."
     },
     "status": {
       "type": "object",

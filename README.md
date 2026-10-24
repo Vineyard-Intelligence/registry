@@ -19,7 +19,7 @@ there is nothing for a client to build or resolve: the JSON you see is what ship
 | `registry/approved-*.json` | Every pack ref ever approved, which the app checks installs against (**generated**) |
 | `approved-baseline.json` | The approvals up to 2026-10-11, frozen; the approved lists build on it |
 | `schemas/*.schema.json` | JSON Schemas for packs and registry entries |
-| `verified-authors.json` | Who may show the verified badge, and the namespaces each owns. **Operator-owned** — never edited by a submission |
+| `verified-authors.json` | Who may show the verified badge, the namespaces each owns, and the GitHub numeric account id their pack repository must belong to. **Operator-owned** — never edited by a submission |
 | `scripts/build_registry.py` | Builds the three catalogs from `packs/` |
 | `scripts/validate.py` | Validates each submission against the schemas, its authorship, its dependencies and its delisting (runs in CI) |
 | [`SPEC.md`](SPEC.md) | The registry contract — entry format, pinning rule, what CI enforces |

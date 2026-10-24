@@ -49,7 +49,7 @@ Every entry, of every kind, carries these:
 | `ref` | **Immutable commit SHA** (40-hex or 64-hex) of the release being listed. |
 | `path` | Path to the pack document within `repo` at `ref`. |
 | `version` | Human-readable mirror of the pinned document's `version`. |
-| `verified` | **Derived, not submitted.** `build_registry.py` sets it from `verified-authors.json`: true when the identifier's namespace is claimed by the handle in `author`. Omit it — a value written in `packs/` is overwritten, not read. |
+| `verified` | **Derived, not submitted.** `build_registry.py` sets it from `verified-authors.json`: true when the identifier's namespace is claimed by the handle in `author`; `validate.py` additionally requires the repository owner's numeric GitHub id to equal the author's `github.id`. Omit it — a value written in `packs/` is overwritten, not read. |
 | `status` | Present only on a delisted pack. See §7. |
 
 The remaining fields are **derived projections** of the full document, present so the browse page
@@ -128,7 +128,7 @@ All blocking — a pull request cannot merge until every one passes.
 | Filename equals `identifier`; `content_type` is known | `build_registry.py` |
 | Entry validates against its registry-entry schema | `validate.py` |
 | A namespace is used only by the author who owns it, and an author name is worn only inside its own namespaces | `validate.py` |
-| `verified` reflects `verified-authors.json` and nothing else, whatever the submission said | `build_registry.py`, proven by `test_verified.py` |
+| `verified` reflects `verified-authors.json` and the repository owner's numeric GitHub id, whatever the submission said | `build_registry.py` + `validate.py`, proven by `test_verified.py` |
 | Every declared dependency — a Skill Pack's `requires`, a Plugin Pack's `typepacks` — names a pack that is in this catalog | `validate.py` |
 | Identifier patterns still reject malformed shapes | `check_identifiers.py` |
 | `ref` is an immutable commit SHA | `verify_pinned.py` |

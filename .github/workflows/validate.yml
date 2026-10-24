@@ -30,7 +30,13 @@ jobs:
       # invalidate yesterday's correctly-pinned install.
       - name: Build the approved-ref lists from git history
         run: python scripts/build_approved.py
+      # validate.py resolves each verified author's repo owner through the GitHub API and compares
+      # the numeric account id. The token is read-only access to public repositories; without it
+      # the unauthenticated rate limit is shared by CI and can turn a valid PR into a rate-limit
+      # failure. On a fork pull_request GitHub supplies a read-only token.
       - run: python scripts/validate.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Identifier patterns accept any author's reverse-DNS namespace. Loosen one by a
       # character and every real entry still passes, so the patterns are proven against
       # malformed shapes rather than trusted because the catalog validated.

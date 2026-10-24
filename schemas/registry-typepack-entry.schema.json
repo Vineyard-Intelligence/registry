@@ -25,7 +25,7 @@
     "type_count": { "type": "integer", "minimum": 1, "description": "DERIVED: types[].length." },
     "icon": { "type": "string", "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$", "description": "DERIVED: types[0].icon when it is a kebab-case lucide icon name. Omitted otherwise (an image URI or glyph is not carried)." },
     "thumbnail_url": { "type": "string", "format": "uri" },
-    "verified": { "type": "boolean", "default": false, "description": "DERIVED: set by build_registry.py from verified-authors.json — true when the identifier's namespace is claimed by the handle in `author`. Never read from the submission; a value typed here is discarded." },
+    "verified": { "type": "boolean", "default": false, "description": "DERIVED: set by build_registry.py from verified-authors.json — true when the identifier's namespace is claimed by the handle in `author`. validate.py also requires repo.owner.id to equal the author's numeric github.id. Never read from the submission; a value typed here is discarded." },
     "status": {
       "type": "object",
       "additionalProperties": false,

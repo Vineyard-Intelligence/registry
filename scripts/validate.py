@@ -11,6 +11,8 @@ they are not supposed to edit. `build_registry.py` decides which schema applies,
 import json
 import os
 import sys
+import urllib.request
+from functools import lru_cache
 
 from jsonschema import Draft202012Validator
 
@@ -27,6 +29,47 @@ SCHEMA_FOR = {
 def load(rel):
     with open(os.path.join(ROOT, rel), "r", encoding="utf-8") as fh:
         return json.load(fh)
+
+
+@lru_cache(maxsize=None)
+def repo_owner_id(repo):
+    """The numeric GitHub owner id of `repo`, from the API. Cached per repository."""
+    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    headers = {"Accept": "application/vnd.github+json", "User-Agent": "vineyard-registry-validate"}
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    req = urllib.request.Request(f"https://api.github.com/repos/{repo}", headers=headers)
+    with urllib.request.urlopen(req, timeout=20) as resp:
+        return int(json.load(resp)["owner"]["id"])
+
+
+def repo_owner_error(entry, owners, owner_id):
+    """How the entry's repository owner contradicts the verified author, or None.
+
+    `handle` is display text. The only comparison is the numeric id: logins are renameable and
+    copyable; the account id is not. A listed author's pack must live in a repository owned by
+    that id, otherwise a stranger can publish `run.vineyard.*` as `author: VINEYARD` from their
+    own repository and both namespace/author strings would still match.
+    """
+    author = entry.get("author")
+    spec = owners.get(author)
+    if not spec:
+        return None
+    github = spec.get("github") or {}
+    expected = github.get("id")
+    if not isinstance(expected, int):
+        return f"verified author '{author}' has no numeric github.id"
+    repo = entry.get("repo", "")
+    try:
+        actual = owner_id(repo)
+    except Exception as exc:  # noqa: BLE001 — every failure means "not proven"
+        return f"could not verify the owner of repo '{repo}' for author '{author}': {exc}"
+    if actual != expected:
+        return (
+            f"repo '{repo}' is owned by GitHub id {actual}, but verified author '{author}' is "
+            f"GitHub id {expected} — publish from an account that id controls"
+        )
+    return None
 
 
 def authorship_error(entry, owners):
@@ -163,6 +206,7 @@ def main():
                 continue
             problem = (
                 authorship_error(entry, owners)
+                or repo_owner_error(entry, owners, repo_owner_id)
                 or status_error(entry, by_id)
                 or dependency_error(entry, by_id)
             )
@@ -175,8 +219,8 @@ def main():
         sys.exit(1)
     print(
         f"\nall {total} entries valid ({delisted} delisted): every verified badge is backed by "
-        f"verified-authors.json, and all {deps} declared dependencies resolve inside the catalog "
-        f"to a pack that is still live"
+        f"verified-authors.json and the repo owner's GitHub id, and all {deps} declared "
+        f"dependencies resolve inside the catalog to a pack that is still live"
     )
 
 

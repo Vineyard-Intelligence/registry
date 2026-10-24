@@ -17,6 +17,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_registry import claimed_namespaces, namespace  # noqa: E402
+from validate import repo_owner_error  # noqa: E402
 
 OWNERS = {"run.vineyard": "VINEYARD", "io.acme": "acme"}
 
@@ -74,7 +75,63 @@ def main():
     assert badge("run.vineyard.pluginpacks.shodan", "VINEYARD", live) is True
     assert badge("run.vineyard.pluginpacks.shodan", "somebody-else", live) is False
 
-    print("verified derivation ok: 17 cases")
+    # --- repository ownership: the numeric GitHub id is the only key ---------------------------
+    AUTH = {
+        "VINEYARD": {
+            "github": {"id": 297755403, "handle": "Vineyard-Intelligence"},
+            "namespaces": ["run.vineyard"],
+        }
+    }
+    OWNER = {
+        "Vineyard-Intelligence/pluginpack-lazarusday": 297755403,
+        "mallory/pluginpack-lazarusday": 999,
+    }
+    def owner_id(repo):
+        return OWNER[repo]
+
+    assert repo_owner_error(
+        {"author": "VINEYARD", "repo": "Vineyard-Intelligence/pluginpack-lazarusday"}, AUTH, owner_id
+    ) is None
+    assert repo_owner_error(
+        {"author": "VINEYARD", "repo": "mallory/pluginpack-lazarusday"}, AUTH, owner_id
+    ), "a repo owned by another account must fail even when author and namespace match"
+    assert repo_owner_error(
+        {"author": "mallory", "repo": "mallory/pluginpack-lazarusday"}, AUTH, owner_id
+    ) is None, "an unlisted author is not verified, so there is no owner claim to check"
+
+    # The handle is display text only: a different handle with the right id passes, and a copied
+    # handle with the wrong id fails.
+    renamed = {"VINEYARD": {"github": {"id": 297755403, "handle": "someone-else"}, "namespaces": ["run.vineyard"]}}
+    assert repo_owner_error(
+        {"author": "VINEYARD", "repo": "Vineyard-Intelligence/pluginpack-lazarusday"}, renamed, owner_id
+    ) is None
+    wrong = {"VINEYARD": {"github": {"id": 1, "handle": "Vineyard-Intelligence"}, "namespaces": ["run.vineyard"]}}
+    assert repo_owner_error(
+        {"author": "VINEYARD", "repo": "Vineyard-Intelligence/pluginpack-lazarusday"}, wrong, owner_id
+    )
+
+    # Fail closed: a missing id, or an API that cannot answer, is not proof.
+    assert repo_owner_error(
+        {"author": "VINEYARD", "repo": "Vineyard-Intelligence/pluginpack-lazarusday"},
+        {"VINEYARD": {"namespaces": ["run.vineyard"]}},
+        owner_id,
+    )
+    def unreachable(repo):
+        raise RuntimeError("404")
+    assert repo_owner_error(
+        {"author": "VINEYARD", "repo": "Vineyard-Intelligence/missing"}, AUTH, unreachable
+    )
+
+    # The live file carries both fields; a future edit that drops the id must fail here.
+    import json
+    here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    with open(os.path.join(here, "verified-authors.json"), "r", encoding="utf-8") as fh:
+        live_authors = json.load(fh)["authors"]
+    for author, spec in live_authors.items():
+        assert isinstance(spec["github"]["id"], int), author
+        assert isinstance(spec["github"]["handle"], str), author
+
+    print("verified derivation ok: 24 cases")
 
 
 if __name__ == "__main__":
