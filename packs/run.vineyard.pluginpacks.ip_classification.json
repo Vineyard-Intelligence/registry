@@ -18,5 +18,8 @@
   },
   "plugin_count": 1,
   "icon": "fingerprint",
-  "typepacks": []
+  "typepacks": [
+    "run.vineyard.typepacks.infrastructure",
+    "run.vineyard.typepacks.threat"
+  ]
 }
