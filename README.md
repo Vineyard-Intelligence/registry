@@ -21,7 +21,7 @@ there is nothing for a client to build or resolve: the JSON you see is what ship
 | `schemas/*.schema.json` | JSON Schemas for packs and registry entries |
 | `verified-authors.json` | Who may show the verified badge, the namespaces each owns, and the GitHub numeric account id their pack repository must belong to. **Operator-owned** — never edited by a submission |
 | `scripts/build_registry.py` | Builds the three catalogs from `packs/` |
-| `scripts/validate.py` | Validates each submission against the schemas, its authorship, its dependencies and its delisting (runs in CI) |
+| `scripts/validate.py` | Validates each submission against the schemas, its authorship, that its pinned commit is on a branch or tag of its `repo`, its dependencies and its delisting (runs in CI) |
 | [`SPEC.md`](SPEC.md) | The registry contract — entry format, pinning rule, what CI enforces |
 
 ## Endpoints
@@ -47,10 +47,13 @@ jsDelivr CDN, e.g. `https://cdn.jsdelivr.net/gh/{repo}@{ref}/{path}`. Nothing is
   points at the content repo (`repo`), the **immutable commit SHA** (`ref`) of the release you are
   submitting, and the in-repo `path`. Resolve the SHA with
   `python scripts/resolve_ref.py owner/repo <tag-or-branch>` — **tags and branches are rejected**.
+  The commit must be on a branch or tag of `repo` itself, and stay there while the entry is listed;
+  one that exists only in a fork is refused.
   CI (`.github/workflows/validate.yml`) validates each entry against `schemas/registry-*-entry.schema.json`,
-  re-fetches the pinned commit (`scripts/verify_pinned.py`) to confirm the document there matches
-  the entry's identity, and resolves every type reference and declared dependency against the
-  catalog (`scripts/check_typerefs.py`).
+  checks that the pinned commit belongs to `repo`, re-fetches the pinned commit
+  (`scripts/verify_pinned.py`) to confirm the document there matches the entry's identity, and
+  resolves every type reference and declared dependency against the catalog
+  (`scripts/check_typerefs.py`).
 
 - **Take a pack down** → PR here, adding a `status` block to its `packs/` file. The row **stays**:
   deleting it only hides the pack from browse, and projects that already installed it keep running

@@ -31,12 +31,23 @@ jobs:
       - name: Build the approved-ref lists from git history
         run: python scripts/build_approved.py
       # validate.py resolves each verified author's repo owner through the GitHub API and compares
-      # the numeric account id. The token is read-only access to public repositories; without it
-      # the unauthenticated rate limit is shared by CI and can turn a valid PR into a rate-limit
-      # failure. On a fork pull_request GitHub supplies a read-only token.
+      # the numeric account id, and asks the compare API whether each pinned commit is on a branch
+      # or tag of its own repo — one call per repository, plus one per pin asked about, more only
+      # for a commit off the default branch. The token is read-only access to public repositories;
+      # without it the unauthenticated limit (60/hour) is gone within a run or two, since the
+      # repository lookups alone are one per repository, and PRs would fail on the rate limit. On
+      # a fork pull_request GitHub supplies a read-only token.
+      #
+      # REGISTRY_BASE_SHA limits the pin question to the pins this event adds or moves: a pin is
+      # asked when it is approved, and asking again would turn every PR red the day an unrelated
+      # pack's history is rewritten. The PR's BASE, never `github.event.before` on a pull_request
+      # (that is the PR's own previous head) — and validate.py also ignores a base that origin/main
+      # does not contain; fetch-depth: 0 above is what puts origin/main in the clone. Unusable or
+      # empty, every pin is asked.
       - run: python scripts/validate.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REGISTRY_BASE_SHA: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
       # Identifier patterns accept any author's reverse-DNS namespace. Loosen one by a
       # character and every real entry still passes, so the patterns are proven against
       # malformed shapes rather than trusted because the catalog validated.
@@ -57,6 +68,15 @@ jobs:
       # ever exercises the true branch — the impersonation cases exist nowhere but this file.
       - name: Verified badge derivation self-test
         run: python scripts/test_verified.py
+      # And the same for "the pinned commit belongs to its repo". Every live pin is on its repo's
+      # default branch, and on a PR most of them are not asked at all, so the real catalog only
+      # ever takes the first compare and its accepting answer. A commit only on another branch or
+      # a tag, a commit only a fork holds, an orphan branch, an API that cannot answer, and a base
+      # that must not exempt anything exist nowhere but this file — offline, against a stubbed
+      # GitHub and a throwaway git repository, so it spends none of the rate limit validate.py
+      # needs.
+      - name: Pinned commit reachability self-test
+        run: python scripts/test_reachable.py
       # The one check that stops a commit which was never published from being loadable.
       # Shape checks cannot: a pull request against a public pack repo puts an
       # attacker-authored commit in the BASE repo's object store, where jsDelivr serves it
