@@ -720,6 +720,15 @@
     "sha256": "083358186a921a8f86a8ad0d6da45301268763cc3487493c8471277c6b2ca2fb"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.ip_recon",
+    "repo": "Vineyard-Intelligence/pluginpack-ip-recon",
+    "ref": "8f2d48f404729dddb12976a5542d2c340083c568",
+    "path": "plugins/ip-recon.manifest.json",
+    "version": "2.0.0",
+    "approved_at": "2026-10-27",
+    "sha256": "a108c46589238900a30b0777752b970db43eafa8e9d0eb5b887ddb3aa57216ac"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.iptoasn_cymru_doh",
     "repo": "Vineyard-Intelligence/pluginpack-iptoasn-cymru-doh",
     "ref": "2bb9d070d8001fcb4ca044e9df237299c6e9fc6a",
