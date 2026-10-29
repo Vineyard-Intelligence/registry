@@ -46,7 +46,7 @@ Every entry, of every kind, carries these:
 | `content_type` | One of the four above. |
 | `name`, `author`, `description` | What the card shows. |
 | `repo` | `owner/name` of the content repository holding the pack. |
-| `ref` | **Immutable commit SHA** (40-hex or 64-hex) of the release being listed. |
+| `ref` | **Immutable commit SHA** (40-hex or 64-hex) of the release being listed, on a branch or tag of `repo` (§4). |
 | `path` | Path to the pack document within `repo` at `ref`. |
 | `version` | Human-readable mirror of the pinned document's `version`. |
 | `verified` | **Derived, not submitted.** `build_registry.py` sets it from `verified-authors.json`: true when the identifier's namespace is claimed by the handle in `author`; `validate.py` additionally requires the repository owner's numeric GitHub id to equal the author's `github.id`. Omit it — a value written in `packs/` is overwritten, not read. |
@@ -77,6 +77,19 @@ Resolve a tag or branch to its commit with:
 ```
 python scripts/resolve_ref.py owner/repo v1.2.0
 ```
+
+The commit must also **belong to `repo`**: some branch or tag of that repository has to contain
+it. A commit that no branch or tag contains is refused — one that exists only in a fork, for
+example, or a pull request's own commit once that pull request was squash-merged (pin the commit
+the merge created instead). Push or merge it into `repo` first — or tag it there — and pin that;
+`resolve_ref.py` gives the commit a branch or tag points at. A commit on the default branch, or
+the commit a tag or branch points at, is found; one buried deep in a repository with many branches
+and tags may not be, and is refused with a message saying so.
+
+This is checked when a pull request adds an entry or changes its `repo` or `ref`. Keep the branch
+or tag that holds the pin for as long as the entry is listed — tagging each release is the
+simplest way — and do not rewrite that history: a commit nothing in `repo` holds any more is not
+guaranteed to stay available.
 
 ### The approved-ref lists
 
@@ -132,6 +145,7 @@ All blocking — a pull request cannot merge until every one passes.
 | Every declared dependency — a Skill Pack's `requires`, a Plugin Pack's `typepacks` — names a pack that is in this catalog | `validate.py` |
 | Identifier patterns still reject malformed shapes | `check_identifiers.py` |
 | `ref` is an immutable commit SHA | `verify_pinned.py` |
+| `ref` is on a branch or tag of `repo` itself — a commit no branch or tag contains, such as one that exists only in a fork, is refused. Checked for every entry whose `repo` or `ref` the pull request adds or changes | `validate.py`, proven by `test_reachable.py` |
 | Every current catalog row appears in its approved-ref list, and a commit that was never published does not | `build_approved.py`, proven by `test_approved.py` |
 | Pinned document is reachable, and its `identifier` / `content_type` / `version` match the entry | `verify_pinned.py` |
 | Every summary field the entry carries — `scopes_summary`, `platforms`, `plugin_count`, `desktop_only`, `icon`, `section_count`, `type_count` — equals what the pinned document implies | `verify_pinned.py` |
