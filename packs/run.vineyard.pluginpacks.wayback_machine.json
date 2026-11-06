@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "description": "Queries the Internet Archive Wayback Machine for the capture history and archive availability of selected domains and URLs. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-wayback-machine",
-  "ref": "954083fffe70e6fce32eccedc147659af460b3a8",
+  "ref": "3cf1af6198244d7e36b54982721c0d5e86c4db28",
   "path": "plugins/wayback-machine.manifest.json",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "platforms": [
     "desktop",
     "web"

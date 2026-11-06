@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "description": "Finds OpenPGP public keys on public key directories by email address or key fingerprint. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-pgp-lookup",
-  "ref": "c849ab563653ea7300e60b63a50a024bdb7d7798",
+  "ref": "42c6c8d2d9dd2d4245c59a67df18409b1a984001",
   "path": "plugins/pgp-lookup.manifest.json",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "platforms": [
     "desktop",
     "web"
