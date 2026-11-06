@@ -5,15 +5,15 @@
   "author": "VINEYARD",
   "description": "Expand one infrastructure indicator (IP/domain/cert) into its connected footprint, one hop at a time.",
   "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
-  "ref": "f639a573a550c30b74e50202aca7aaf27284f230",
+  "ref": "a1178bf48fc759ce28cd03a40a5e153aa7e1b3e6",
   "path": "skillpacks/infra-pivot.skill.json",
-  "version": "2.2.8",
+  "version": "2.4.0",
   "applies_to": [
     "infrastructure.ip_address",
     "infrastructure.domain",
     "infrastructure.certificate",
     "infrastructure.autonomous_system"
   ],
-  "section_count": 9,
+  "section_count": 10,
   "requires": []
 }
