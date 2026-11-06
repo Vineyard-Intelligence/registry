@@ -6,9 +6,9 @@
     "author": "VINEYARD",
     "description": "Extracts advertising, analytics, affiliate and payment account identifiers from a site's markup and from its ads.txt and /.well-known/ files. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-ad-tags",
-    "ref": "38d30fc89d1098b946e9957aad2c50e3bdf65eb6",
+    "ref": "205db5b664ac9bf043d15cefcc79f137dd58a528",
     "path": "plugins/ad-tags.manifest.json",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "platforms": [
       "desktop",
       "web"
@@ -59,9 +59,9 @@
     "author": "VINEYARD",
     "description": "Censys lookups with your own token: certificates, SSH host keys and services an IP presents; hosts sharing a certificate or key; CenQL searches. Desktop only. Registered by the VINEYARD operator for academic research. It may be removed in the future.",
     "repo": "Vineyard-Intelligence/pluginpack-censys",
-    "ref": "7baf3bfbdfb807d44929f85bcac10534614fe396",
+    "ref": "539f0374580b5fdb5e1148dab533143ec741bc2a",
     "path": "plugins/censys.manifest.json",
-    "version": "0.3.5",
+    "version": "0.3.6",
     "platforms": [
       "desktop",
       "web"
@@ -135,9 +135,9 @@
     "author": "VINEYARD",
     "description": "Enriches Domain nodes with DNS records (A, AAAA, CNAME, MX, NS, TXT, CAA), RDAP registration data, and Certificate Transparency subdomains from crt.sh and crt.name (desktop only).",
     "repo": "Vineyard-Intelligence/pluginpack-domain-recon",
-    "ref": "2b99d879f36768e2fabfb74c53ba07a7240736fd",
+    "ref": "e2ad4d04c0b7fe2311d6f29e88aae5581fd9ba48",
     "path": "plugins/domain-recon.manifest.json",
-    "version": "2.1.3",
+    "version": "2.1.4",
     "platforms": [
       "desktop",
       "web"
@@ -162,9 +162,9 @@
     "author": "VINEYARD",
     "description": "Collects public GitHub data: repositories, commit identities, gists, organisation members, activity hours, worked-on forks, Pages domains, GPG keys and code search. Token: fine-grained (Public repositories, no permissions) or classic with no scopes.",
     "repo": "Vineyard-Intelligence/pluginpack-github",
-    "ref": "c37b8d015a5d03f380e2f86e32f11bac8e20282a",
+    "ref": "08ff6d1456810429a9a9f64c901d38f20f953712",
     "path": "plugins/github.manifest.json",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "platforms": [
       "web",
       "desktop"
@@ -245,9 +245,9 @@
     "author": "VINEYARD",
     "description": "Classifies IP addresses as scanners, C2 and malware families, crawlers, anonymizers and non-routable space.",
     "repo": "Vineyard-Intelligence/pluginpack-ip-classification",
-    "ref": "3fd6ecd76967e53018dfcf12493dcd7b6b5b9877",
+    "ref": "7002717333bbbd0940ba18614c64f8604a4a623d",
     "path": "plugins/ip-classification.manifest.json",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "platforms": [
       "web"
     ],
@@ -323,9 +323,9 @@
     "author": "VINEYARD",
     "description": "Searches and reads lazarus.day (https://lazarus.day), the public DPRK indicator index by @lazarusholic (https://x.com/lazarusholic): keyword search stages matches as graph nodes, and exact-record lookup adds the reports naming them. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-lazarusday",
-    "ref": "cfaa9ed694546776e6544d4c3ab934cf4a87184d",
+    "ref": "042b0053df9d648f51d1898143b0eb30496fa370",
     "path": "plugins/lazarusday.manifest.json",
-    "version": "1.4.2",
+    "version": "1.4.3",
     "platforms": [
       "desktop",
       "web"
@@ -354,9 +354,9 @@
     "author": "VINEYARD",
     "description": "Looks up selected indicators in AlienVault OTX: the threat reports (\"pulses\") that name them, and passive DNS history. Requires a free OTX API key.",
     "repo": "Vineyard-Intelligence/pluginpack-otx",
-    "ref": "75988e1a692d9cefda0d72c75e17b8ac1a094b90",
+    "ref": "d536e5c9d657aebf31de532a8f0dcf2181227153",
     "path": "plugins/otx.manifest.json",
-    "version": "1.2.4",
+    "version": "1.2.5",
     "platforms": [
       "web",
       "desktop"
@@ -488,9 +488,9 @@
     "author": "VINEYARD",
     "description": "VirusTotal v3 reports (IP, domain, URL, file) and pivots (passive DNS, subdomains), limited to what a free community API key can read. Needs the analyst's own VirusTotal API key; a community key allows 240 requests/hour and 500/day. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
-    "ref": "9a81b90a0cf64dacdf909ef8b7a921f7b3115968",
+    "ref": "49a33cac29f59f2110f32f968d96bad0b8bd5b37",
     "path": "plugins/virustotal-community.manifest.json",
-    "version": "1.5.0",
+    "version": "1.5.1",
     "platforms": [
       "desktop",
       "web"
@@ -516,9 +516,9 @@
     "author": "VINEYARD",
     "description": "VirusTotal Premium pivots: port data/history, historical certs, WHOIS history, host files/URLs, file IOCs, relatives and sandbox behaviour, and Intelligence search from keys, certs, WHOIS, strings or similar files. Needs a Premium key. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
-    "ref": "6c15700328f213736faf47ac7d204586cffb4e39",
+    "ref": "72bed3eb0ab899b7fb59c3a98a16dc364c30d013",
     "path": "plugins/virustotal-premium.manifest.json",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "platforms": [
       "desktop",
       "web"
@@ -572,9 +572,9 @@
     "author": "VINEYARD",
     "description": "Fingerprints web pages: favicon hashes in the forms Shodan, Censys and other search services index, HHHash of the response header names, and a hash of the HTML tag structure. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-web-recon",
-    "ref": "5c3d48cb5046a815969431621fade99dfd74bd05",
+    "ref": "ba63fcece33cd4a6c7b8a81dc696bfeb03c6efb3",
     "path": "plugins/web-recon.manifest.json",
-    "version": "1.3.0",
+    "version": "1.3.1",
     "platforms": [
       "desktop",
       "web"
