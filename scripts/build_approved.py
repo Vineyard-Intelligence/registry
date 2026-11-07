@@ -32,6 +32,16 @@ refuses to run if the file changes — so a pull request cannot slip an approval
 than into the generated lists. New approvals still come only from the history of packs/ and the
 working tree.
 
+THE TWINS
+
+In November 2026 the history of the pack repositories was rewritten, which gave their commits new
+SHAs and left every tree as it was. The baseline holds a second row for each approved ref that
+moved: a twin that differs from the row before it only in `ref`, and keeps `approved_at` and
+`sha256`, because the content it names is the content that was approved. The old row stays. A
+project's pointer stores the absolute url and an update is offered on a version change alone, so
+removing the row would refuse the pack in every project installed from that commit, with no
+update to offer it.
+
 WHAT IT DOES NOT COVER
 
 The list is regenerated from the baseline and git history, so rewriting that history (a
@@ -75,7 +85,7 @@ CDN = "https://cdn.jsdelivr.net/gh/"
 
 BASELINE = os.path.join(ROOT, "approved-baseline.json")
 # Changing the baseline is a deliberate act: update the file and this digest in the same commit.
-BASELINE_SHA256 = "c2773ea32b8ca96d32d2b2447e7e87525bad69088b7406b006423b18a13ccccb"
+BASELINE_SHA256 = "7f0bd77a5d84ab5900b0530023aa5980f9e336af8eb3c0a6b6979776c229a30b"
 
 
 def baseline_rows():
