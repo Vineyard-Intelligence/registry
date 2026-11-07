@@ -5,7 +5,7 @@
   "author": "VINEYARD",
   "description": "Checks email addresses against the disposable/disposable-email-domains blocklist (CC0).",
   "repo": "Vineyard-Intelligence/pluginpack-disposable-email",
-  "ref": "4496750d8a6aa0d8542b17e9e8309f57fdbc2087",
+  "ref": "a0c02074d85b587bd27e75c8e0115c4e05ec4de5",
   "path": "plugins/disposable-email.manifest.json",
   "version": "1.1.3",
   "platforms": [

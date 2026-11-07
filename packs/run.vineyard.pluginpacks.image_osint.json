@@ -5,7 +5,7 @@
   "author": "VINEYARD",
   "description": "Extracts EXIF metadata and GPS location from photos, parsed locally without uploading them.",
   "repo": "Vineyard-Intelligence/pluginpack-image-osint",
-  "ref": "2813b388bcae69d47756cccd0be4353a2ab76d4e",
+  "ref": "58fbd12d4336703e6be570fcc78400dd63110795",
   "path": "plugins/image-osint.manifest.json",
   "version": "1.4.2",
   "platforms": [
