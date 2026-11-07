@@ -91,7 +91,10 @@ or tag that holds the pin for as long as the entry is listed — tagging each re
 simplest way — and do not rewrite that history: a commit nothing in `repo` holds any more is not
 guaranteed to stay available. The November 2026 rewrite of this org's pack repositories broke this
 rule on purpose: each moved ref has a twin row in `approved-baseline.json` with the same tree, and
-the old row stays approved.
+the old row stays approved. Five older `pluginpack-ip-classification` commits, still approved at
+versions 1.0.0 to 1.1.2, have no twin: force-pushes on 2026-10-24 took them off every branch before
+the rewrite and no branch holds their trees, so each commit stays readable as a whole only while
+GitHub keeps it.
 
 ### The approved-ref lists
 
