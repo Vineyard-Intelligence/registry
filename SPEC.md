@@ -89,9 +89,10 @@ and tags may not be, and is refused with a message saying so.
 This is checked when a pull request adds an entry or changes its `repo` or `ref`. Keep the branch
 or tag that holds the pin for as long as the entry is listed — tagging each release is the
 simplest way — and do not rewrite that history: a commit nothing in `repo` holds any more is not
-guaranteed to stay available. The November 2026 rewrite of this org's pack repositories broke this
-rule on purpose: each moved ref has a twin row in `approved-baseline.json` with the same tree, and
-the old row stays approved. Five older `pluginpack-ip-classification` commits, still approved at
+guaranteed to stay available. The November 2026 rewrites of this org's pack repositories broke this
+rule on purpose, once for machine hostnames in commit identities and once for Claude co-author
+trailers and Claude identities in commit metadata: each moved ref has a twin row in
+`approved-baseline.json` with the same tree, and the old row stays approved. Five older `pluginpack-ip-classification` commits, still approved at
 versions 1.0.0 to 1.1.2, have no twin: force-pushes on 2026-10-24 took them off every branch before
 the rewrite and no branch holds their trees, so each commit stays readable as a whole only while
 GitHub keeps it.
@@ -113,7 +114,7 @@ GET https://registry.vineyard.run/registry/approved-pluginpacks.json
 pointer is on this list and the fetched document matches the digest. Because the list keeps every
 ref ever approved, an older install stays valid after the pack is republished. The lists are
 generated from `approved-baseline.json` (the approvals up to 2026-10-11 and the re-pinned twins of
-the November 2026 history rewrite, frozen) and the history of `packs/`; you never edit them.
+the November 2026 history rewrites, frozen) and the history of `packs/`; you never edit them.
 
 ## 5. Submitting a pack
 

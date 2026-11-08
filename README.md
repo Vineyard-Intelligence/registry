@@ -17,7 +17,7 @@ there is nothing for a client to build or resolve: the JSON you see is what ship
 | `registry/community-pluginpacks.json` | Published index of Plugin Packs (**generated**) |
 | `registry/community-skillpacks.json` | Published index of Skill Packs (**generated**) |
 | `registry/approved-*.json` | Every pack ref ever approved, which the app checks installs against (**generated**) |
-| `approved-baseline.json` | The approvals up to 2026-10-11 and the re-pinned twins of the November 2026 history rewrite, frozen; the approved lists build on it |
+| `approved-baseline.json` | The approvals up to 2026-10-11 and the re-pinned twins of the November 2026 history rewrites, frozen; the approved lists build on it |
 | `schemas/*.schema.json` | JSON Schemas for packs and registry entries |
 | `verified-authors.json` | Who may show the verified badge, the namespaces each owns, and the GitHub numeric account id their pack repository must belong to. **Operator-owned** — never edited by a submission |
 | `scripts/build_registry.py` | Builds the three catalogs from `packs/` |

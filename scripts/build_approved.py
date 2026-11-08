@@ -34,8 +34,8 @@ working tree.
 
 THE TWINS
 
-In November 2026 the history of the pack repositories was rewritten, which gave their commits new
-SHAs and left every tree as it was. The baseline holds a second row for each approved ref that
+In November 2026 the history of the pack repositories was rewritten twice, which gave their commits
+new SHAs and left every tree as it was. The baseline holds a second row for each approved ref that
 moved: a twin that differs from the row before it only in `ref`, and keeps `approved_at` and
 `sha256`, because the content it names is the content that was approved. The old row stays. A
 project's pointer stores the absolute url and an update is offered on a version change alone, so
@@ -85,7 +85,7 @@ CDN = "https://cdn.jsdelivr.net/gh/"
 
 BASELINE = os.path.join(ROOT, "approved-baseline.json")
 # Changing the baseline is a deliberate act: update the file and this digest in the same commit.
-BASELINE_SHA256 = "7f0bd77a5d84ab5900b0530023aa5980f9e336af8eb3c0a6b6979776c229a30b"
+BASELINE_SHA256 = "02794e766e28a74314cdcee8599d4750600f66dfceb75a23a2021ea1b6733c51"
 
 
 def baseline_rows():

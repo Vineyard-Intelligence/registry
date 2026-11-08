@@ -5,7 +5,7 @@
   "author": "VINEYARD",
   "description": "Censys lookups with your own token: certificates, SSH host keys and services an IP presents; hosts sharing a certificate or key; CenQL searches. Desktop only. Registered by the VINEYARD operator for academic research. It may be removed in the future.",
   "repo": "Vineyard-Intelligence/pluginpack-censys",
-  "ref": "48a8e9ad61f07e1b2a27b8168cdc0a8360a8c7b0",
+  "ref": "e8642afb6227c739e82a08ddd4a8b6561e6cb6e0",
   "path": "plugins/censys.manifest.json",
   "version": "0.3.6",
   "platforms": [

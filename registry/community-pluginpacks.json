@@ -6,7 +6,7 @@
     "author": "VINEYARD",
     "description": "Extracts advertising, analytics, affiliate and payment account identifiers from a site's markup and from its ads.txt and /.well-known/ files. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-ad-tags",
-    "ref": "4d8284cd73a4772b51953da3ab925513ea0e95c9",
+    "ref": "29db16fe3bdd53fc1341654ce41ebf1bd72ff785",
     "path": "plugins/ad-tags.manifest.json",
     "version": "1.2.1",
     "platforms": [
@@ -34,7 +34,7 @@
     "author": "VINEYARD",
     "description": "Detects CDN and WAF providers for IP addresses and domains using ProjectDiscovery's cdncheck dataset (MIT license).",
     "repo": "Vineyard-Intelligence/pluginpack-cdn-detect",
-    "ref": "79a0e18813f487de04b2d357863d81cf9c856cc6",
+    "ref": "dcf6c431137329ada45d7d8d125ce882d63fd1dd",
     "path": "plugins/cdn-detect.manifest.json",
     "version": "1.0.4",
     "platforms": [
@@ -59,7 +59,7 @@
     "author": "VINEYARD",
     "description": "Censys lookups with your own token: certificates, SSH host keys and services an IP presents; hosts sharing a certificate or key; CenQL searches. Desktop only. Registered by the VINEYARD operator for academic research. It may be removed in the future.",
     "repo": "Vineyard-Intelligence/pluginpack-censys",
-    "ref": "48a8e9ad61f07e1b2a27b8168cdc0a8360a8c7b0",
+    "ref": "e8642afb6227c739e82a08ddd4a8b6561e6cb6e0",
     "path": "plugins/censys.manifest.json",
     "version": "0.3.6",
     "platforms": [
@@ -86,7 +86,7 @@
     "author": "VINEYARD",
     "description": "Six graph-manipulation plugins for demos and validation.",
     "repo": "Vineyard-Intelligence/pluginpack-chaos",
-    "ref": "c7eb38f2116d0c7693ee7d761702bf4f7241d935",
+    "ref": "de6d28bcce7ed2c027669b3ff2ae914ca614e057",
     "path": "plugins/chaos-pack.manifest.json",
     "version": "1.0.4",
     "platforms": [
@@ -109,7 +109,7 @@
     "author": "VINEYARD",
     "description": "Checks email addresses against the disposable/disposable-email-domains blocklist (CC0).",
     "repo": "Vineyard-Intelligence/pluginpack-disposable-email",
-    "ref": "a0c02074d85b587bd27e75c8e0115c4e05ec4de5",
+    "ref": "b2c8d533624ba6044dc684ae5466a9b560fd897f",
     "path": "plugins/disposable-email.manifest.json",
     "version": "1.1.3",
     "platforms": [
@@ -135,7 +135,7 @@
     "author": "VINEYARD",
     "description": "Enriches Domain nodes with DNS records (A, AAAA, CNAME, MX, NS, TXT, CAA), RDAP registration data, and Certificate Transparency subdomains from crt.sh and crt.name (desktop only).",
     "repo": "Vineyard-Intelligence/pluginpack-domain-recon",
-    "ref": "2cc1a4972ae44cec63fdbed95b9a25049ec2783a",
+    "ref": "82b44b1b52bf6b520688c465524717d027f200d9",
     "path": "plugins/domain-recon.manifest.json",
     "version": "2.1.4",
     "platforms": [
@@ -162,7 +162,7 @@
     "author": "VINEYARD",
     "description": "Collects public GitHub data: repositories, commit identities, gists, organisation members, activity hours, worked-on forks, Pages domains, GPG keys and code search. Token: fine-grained (Public repositories, no permissions) or classic with no scopes.",
     "repo": "Vineyard-Intelligence/pluginpack-github",
-    "ref": "db3cd213d7753a90ce5218fe218916ced97d45a2",
+    "ref": "b0dee86ced87eb9e19d16c8ec0c23f675718afbe",
     "path": "plugins/github.manifest.json",
     "version": "1.4.1",
     "platforms": [
@@ -190,7 +190,7 @@
     "author": "VINEYARD",
     "description": "Reads the public metadata of link-shared Google Docs/Drive files: owner, email, timestamps and sharing role. Desktop only. A port of xeuledoc by Malfrats Industries (https://github.com/Malfrats/xeuledoc), licensed GPL-3.0.",
     "repo": "Vineyard-Intelligence/pluginpack-google-docs-metadata",
-    "ref": "8a8c24b3a036a5da1dcdb78dd6ec244db16270ce",
+    "ref": "331bcca38edf6ccc944ecbedfa233bfad50008c1",
     "path": "plugins/google-docs-metadata.manifest.json",
     "version": "2.1.2",
     "platforms": [
@@ -218,7 +218,7 @@
     "author": "VINEYARD",
     "description": "Extracts EXIF metadata and GPS location from photos, parsed locally without uploading them.",
     "repo": "Vineyard-Intelligence/pluginpack-image-osint",
-    "ref": "58fbd12d4336703e6be570fcc78400dd63110795",
+    "ref": "d8ecbd8b012834a0632131d2c742699df4d92f1d",
     "path": "plugins/image-osint.manifest.json",
     "version": "1.4.2",
     "platforms": [
@@ -245,7 +245,7 @@
     "author": "VINEYARD",
     "description": "Classifies IP addresses as scanners, C2 and malware families, crawlers, anonymizers and non-routable space.",
     "repo": "Vineyard-Intelligence/pluginpack-ip-classification",
-    "ref": "a1395f20569fb959c5cf2a69b4aa2d46c468b4ea",
+    "ref": "1a7c34feb38c9fd3605a902c581bdfa9577017be",
     "path": "plugins/ip-classification.manifest.json",
     "version": "1.2.1",
     "platforms": [
@@ -271,7 +271,7 @@
     "author": "VINEYARD",
     "description": "Enriches IP Address nodes with RDAP allocation, Shodan InternetDB open ports/CVEs/hostnames/tags, and geolocation.",
     "repo": "Vineyard-Intelligence/pluginpack-ip-recon",
-    "ref": "ae1e24ebe4271d4e976036b4ec3cb7912ea64c13",
+    "ref": "d11ec22b3845707f90a3deda0f243141ee7200f2",
     "path": "plugins/ip-recon.manifest.json",
     "version": "2.0.1",
     "platforms": [
@@ -298,7 +298,7 @@
     "author": "VINEYARD",
     "description": "IP → ASN and IP → Country enrichment for IP Address nodes from Team Cymru's IP-to-ASN mapping.",
     "repo": "Vineyard-Intelligence/pluginpack-iptoasn-cymru-doh",
-    "ref": "9d0e6e60a5458136839797ff6952f571f62e8eea",
+    "ref": "636833bf89edef995e7a22f627b71aef6f6a9cda",
     "path": "plugins/iptoasn-cymru-doh.manifest.json",
     "version": "1.1.2",
     "platforms": [
@@ -323,7 +323,7 @@
     "author": "VINEYARD",
     "description": "Searches and reads lazarus.day (https://lazarus.day), the public DPRK indicator index by @lazarusholic (https://x.com/lazarusholic): keyword search stages matches as graph nodes, and exact-record lookup adds the reports naming them. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-lazarusday",
-    "ref": "e5c80e81e486fe2610552ef4771843f6150ac42e",
+    "ref": "a1f37074da18fa67aa0a4d9906b3a9f15a097e1d",
     "path": "plugins/lazarusday.manifest.json",
     "version": "1.4.3",
     "platforms": [
@@ -354,7 +354,7 @@
     "author": "VINEYARD",
     "description": "Looks up selected indicators in AlienVault OTX: the threat reports (\"pulses\") that name them, and passive DNS history. Requires a free OTX API key.",
     "repo": "Vineyard-Intelligence/pluginpack-otx",
-    "ref": "129c7e9c2bb2e0f96cc82caf4c2cc4f85b12dadc",
+    "ref": "156978e02bc116e65dec7f55e16810c7a918f0e2",
     "path": "plugins/otx.manifest.json",
     "version": "1.2.5",
     "platforms": [
@@ -381,7 +381,7 @@
     "author": "VINEYARD",
     "description": "Finds OpenPGP public keys on public key directories by email address or key fingerprint. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-pgp-lookup",
-    "ref": "37df9bd9ee1c86489521e98d7296a40b3b886215",
+    "ref": "5961b15307cc3388ef00a780cca226ee32d8e0b7",
     "path": "plugins/pgp-lookup.manifest.json",
     "version": "1.1.1",
     "platforms": [
@@ -408,7 +408,7 @@
     "author": "VINEYARD",
     "description": "Links infrastructure nodes that share a registrar, nameserver, ASN or TLS certificate, using data already in the graph.",
     "repo": "Vineyard-Intelligence/pluginpack-shared-attribute-clustering",
-    "ref": "f4435e9c6681f54dea0dff3d8c0456b4942eac9a",
+    "ref": "0e40e97d4807143085b35add65f5f84820ff06f9",
     "path": "plugins/shared-attribute-clustering.manifest.json",
     "version": "1.1.1",
     "platforms": [
@@ -431,7 +431,7 @@
     "author": "VINEYARD",
     "description": "Shodan REST API lookups: IP host details, host search and result counts, passive DNS, forward and reverse DNS, and API credit status. Needs your own Shodan API key; only Shodan Search spends query credits.",
     "repo": "Vineyard-Intelligence/pluginpack-shodan",
-    "ref": "6284442bd7eabd9287a9b7d4451c08a77a6ff317",
+    "ref": "5db2cf2b719458506312ed8257c2f02f5a0f3946",
     "path": "plugins/shodan.manifest.json",
     "version": "2.2.0",
     "platforms": [
@@ -488,7 +488,7 @@
     "author": "VINEYARD",
     "description": "VirusTotal v3 reports (IP, domain, URL, file) and pivots (passive DNS, subdomains), limited to what a free community API key can read. Needs the analyst's own VirusTotal API key; a community key allows 240 requests/hour and 500/day. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
-    "ref": "ccaf95fd419d8993289e4f05a8060131d0db15f3",
+    "ref": "fa2f60a2ff19b158598ac05c3b38fc2e72b5e21e",
     "path": "plugins/virustotal-community.manifest.json",
     "version": "1.5.1",
     "platforms": [
@@ -516,7 +516,7 @@
     "author": "VINEYARD",
     "description": "VirusTotal Premium pivots: port data/history, historical certs, WHOIS history, host files/URLs, file IOCs, relatives and sandbox behaviour, and Intelligence search from keys, certs, WHOIS, strings or similar files. Needs a Premium key. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
-    "ref": "7fc4f3774a44b8ef3ebbee1fac32cb56a0982654",
+    "ref": "14057dfd03bade2bf55ea0cb5b5509fcdd0087bf",
     "path": "plugins/virustotal-premium.manifest.json",
     "version": "0.2.1",
     "platforms": [
@@ -545,7 +545,7 @@
     "author": "VINEYARD",
     "description": "Queries the Internet Archive Wayback Machine for the capture history and archive availability of selected domains and URLs. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-wayback-machine",
-    "ref": "53713e4010619d68a0b80a36198705c4b961eaee",
+    "ref": "8df09fbb0c93f184203808dd4361beec14642420",
     "path": "plugins/wayback-machine.manifest.json",
     "version": "1.2.3",
     "platforms": [
@@ -572,7 +572,7 @@
     "author": "VINEYARD",
     "description": "Fingerprints web pages: favicon hashes in the forms Shodan, Censys and other search services index, HHHash of the response header names, and a hash of the HTML tag structure. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-web-recon",
-    "ref": "cb0d3d2e79c308f00922c5cdefe1d7e3781cbf0d",
+    "ref": "33724941309c3777051c2202343aca0ac96861bf",
     "path": "plugins/web-recon.manifest.json",
     "version": "1.3.1",
     "platforms": [
@@ -599,7 +599,7 @@
     "author": "VINEYARD",
     "description": "Username enumeration across ~700 sites using the WhatsMyName dataset (https://github.com/WebBreacher/WhatsMyName, CC-BY-SA-4.0). Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-whatsmyname",
-    "ref": "01332bf14210f1e5a7d6b90ba66e1a37d3c56222",
+    "ref": "4d08799d32477c3d04dd175dfb45b166ae271138",
     "path": "plugins/whatsmyname.manifest.json",
     "version": "2.2.3",
     "platforms": [
@@ -627,7 +627,7 @@
     "author": "VINEYARD",
     "description": "Collects public X (Twitter) profiles and recent posts for account nodes. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-x",
-    "ref": "b8c4d5feaf2b6cbd7280e360bd6e528f5f87aeee",
+    "ref": "fec603c8cd5a228173386dcd9c5462e80feb3825",
     "path": "plugins/x.manifest.json",
     "version": "0.6.3",
     "platforms": [

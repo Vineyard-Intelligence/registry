@@ -5,7 +5,7 @@
   "author": "VINEYARD",
   "description": "Fingerprints web pages: favicon hashes in the forms Shodan, Censys and other search services index, HHHash of the response header names, and a hash of the HTML tag structure. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-web-recon",
-  "ref": "cb0d3d2e79c308f00922c5cdefe1d7e3781cbf0d",
+  "ref": "33724941309c3777051c2202343aca0ac96861bf",
   "path": "plugins/web-recon.manifest.json",
   "version": "1.3.1",
   "platforms": [

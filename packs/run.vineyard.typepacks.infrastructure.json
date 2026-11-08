@@ -5,7 +5,7 @@
   "author": "VINEYARD",
   "description": "Network-infrastructure and web OSINT entities (IPs, domains, URLs, hosts, ASNs, netblocks, DNS/WHOIS records, TLS certificates, SSH host keys, technologies, web fingerprints and tracking/ad-account identifiers) and their relationships.",
   "repo": "Vineyard-Intelligence/typepack-basic",
-  "ref": "d7c00ac7a16491ab64fc0732c98ef3ca6454ee84",
+  "ref": "721e3fdab2bdcace019cd9329b47b1014d8acdbb",
   "path": "typepacks/infrastructure.json",
   "version": "4.0.0",
   "categories": [
