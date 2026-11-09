@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "summary": "Read-only Telegram collection without joining: keyword search, handle resolution, invite-link analysis, posts, participants and phone-number lookup, written as telegram.* nodes. Runs through Vineyard's Telegram service.",
   "repo": "Vineyard-Intelligence/pluginpack-telegram",
-  "ref": "3c222f4ab5be8cb833c00ed90500c66d81140fef",
+  "ref": "2a1992243217c2c8b06a5e4dc79278e7d87449ce",
   "path": "plugins/telegram.manifest.json",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "platforms": [
     "web"
   ],
