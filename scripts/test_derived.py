@@ -14,7 +14,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from verify_pinned import THUMB, claim_mismatch, derived  # noqa: E402
+from verify_pinned import THUMB, claim_mismatch, derived, pack_text_problem  # noqa: E402
 
 PACK = "vineyard:pluginpack"
 
@@ -100,7 +100,53 @@ def main():
     assert claim_mismatch(pack(d, w), base) is None
     assert claim_mismatch({**pack(w), "icon": "globe"}, {**base, "icon": "radar"})
 
-    print("derived() ok: 26 cases")
+    # --- the card line: the entry's `summary` is the document's, exactly -----------------------------
+    # Every kind that has a page. The entry's line must be the document's summary, and the page is
+    # never what it is compared with — a page of Markdown is not a card line.
+    line = "Looks things up."
+    page = "## What it does\n\nLooks things up, one hop at a time."
+    for kind, doc in (
+        (PACK, {**pack(w), "summary": line, "description": page}),
+        (tp, {"content_type": tp, "version": "1.0.0", "types": [], "summary": line, "description": page}),
+        ("vineyard:skillpack", {"content_type": "vineyard:skillpack", "version": "1.0.0", "summary": line}),
+    ):
+        entry = {"content_type": kind, "version": "1.0.0"}
+        assert derived(doc, kind)["summary"] == line, kind
+        assert "description" not in derived(doc, kind), f"{kind}: the page is never projected into the catalog"
+        assert claim_mismatch(doc, {**entry, "summary": line}) is None, kind
+        assert claim_mismatch(doc, {**entry, "summary": "A different line."}), kind
+        assert claim_mismatch(doc, {**entry, "summary": page}), f"{kind}: the page is not the card line"
+    # A document without `summary` has no line to compare with; pack_text_problem refuses it instead.
+    legacy = {**pack(w), "description": "A longer document line than the card shows."}
+    assert "summary" not in derived(legacy, PACK)
+
+    # --- the two texts themselves: both required, for every kind that is listed ---------------------
+    for kind in (PACK, tp, "vineyard:skillpack"):
+        assert pack_text_problem({"summary": line, "description": page}, kind) is None, kind
+        assert pack_text_problem(legacy, kind), f"{kind}: a document from before the page is not listed"
+        assert pack_text_problem({"summary": line}, kind), f"{kind}: the page is required"
+    assert pack_text_problem({"summary": line, "description": "가" * 16000}, PACK) is None
+    for bad in (
+        {"summary": ""},
+        {"summary": "two\nlines"},
+        {"summary": "extra  space"},
+        {"summary": "x" * 251},
+        {"summary": "😀" * 126},  # 252 UTF-16 units: the app counts what JS `.length` counts
+        {"summary": line, "description": "x" * 16001},
+        {"summary": line, "description": ""},
+        {"summary": line, "description": " \n\t"},
+        {"summary": line, "description": "a\rb"},
+        {"summary": line, "description": "bell\x07"},
+        {"summary": line, "description": ["not", "text"]},
+    ):
+        assert pack_text_problem(bad, PACK), bad
+    # A lone plugin's description is the plugin's own, so it cannot carry both: it is listed as a pack
+    # of one instead, with or without a summary.
+    assert pack_text_problem({"summary": line, "description": page}, "vineyard:plugin")
+    assert pack_text_problem({"description": "Looks one thing up."}, "vineyard:plugin")
+    assert "description" not in derived({"summary": line, "platforms": {}}, "vineyard:plugin")
+
+    print("derived() ok: 66 cases")
 
 
 if __name__ == "__main__":

@@ -3,7 +3,7 @@
   "content_type": "vineyard:pluginpack",
   "name": "GitHub",
   "author": "VINEYARD",
-  "description": "Collects public GitHub data: repositories, commit identities, gists, organisation members, activity hours, worked-on forks, Pages domains, GPG keys and code search. Token: fine-grained (Public repositories, no permissions) or classic with no scopes.",
+  "summary": "Collects public GitHub data: repositories, commit identities, gists, organisation members, activity hours, worked-on forks, Pages domains, GPG keys and code search. Token: fine-grained (Public repositories, no permissions) or classic with no scopes.",
   "repo": "Vineyard-Intelligence/pluginpack-github",
   "ref": "b0dee86ced87eb9e19d16c8ec0c23f675718afbe",
   "path": "plugins/github.manifest.json",

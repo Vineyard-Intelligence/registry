@@ -3,7 +3,7 @@
   "content_type": "vineyard:pluginpack",
   "name": "VirusTotal Premium",
   "author": "VINEYARD",
-  "description": "VirusTotal Premium pivots: port data/history, historical certs, WHOIS history, host files/URLs, file IOCs, relatives and sandbox behaviour, and Intelligence search from keys, certs, WHOIS, strings or similar files. Needs a Premium key. Desktop only.",
+  "summary": "VirusTotal Premium pivots: port data/history, historical certs, WHOIS history, host files/URLs, file IOCs, relatives and sandbox behaviour, and Intelligence search from keys, certs, WHOIS, strings or similar files. Needs a Premium key. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
   "ref": "14057dfd03bade2bf55ea0cb5b5509fcdd0087bf",
   "path": "plugins/virustotal-premium.manifest.json",

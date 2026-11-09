@@ -3,7 +3,7 @@
   "content_type": "vineyard:pluginpack",
   "name": "VirusTotal Community",
   "author": "VINEYARD",
-  "description": "VirusTotal v3 reports (IP, domain, URL, file) and pivots (passive DNS, subdomains), limited to what a free community API key can read. Needs the analyst's own VirusTotal API key; a community key allows 240 requests/hour and 500/day. Desktop only.",
+  "summary": "VirusTotal v3 reports (IP, domain, URL, file) and pivots (passive DNS, subdomains), limited to what a free community API key can read. Needs the analyst's own VirusTotal API key; a community key allows 240 requests/hour and 500/day. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
   "ref": "fa2f60a2ff19b158598ac05c3b38fc2e72b5e21e",
   "path": "plugins/virustotal-community.manifest.json",

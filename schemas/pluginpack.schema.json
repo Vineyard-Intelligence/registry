@@ -5,7 +5,7 @@
   "description": "A vineyard:pluginpack document: ONE file / bundle that ships MANY plugins (like a vineyard:typepack ships many types). The pack carries the reverse-DNS identity and the bundle; each contained plugin is a vineyard:plugin addressed by its own run.vineyard.plugins.<name> id. Use plugin.schema.json for a standalone single plugin.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["identifier", "content_type", "name", "version", "description", "plugins"],
+  "required": ["identifier", "content_type", "name", "version", "summary", "description", "plugins"],
   "properties": {
     "identifier": {
       "type": "string",
@@ -15,7 +15,8 @@
     "content_type": { "const": "vineyard:pluginpack" },
     "name": { "type": "string", "minLength": 1, "maxLength": 128 },
     "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+].+)?$", "description": "SemVer of the pack as a whole." },
-    "description": { "type": "string", "minLength": 1, "maxLength": 1024 },
+    "summary": { "type": "string", "minLength": 1, "maxLength": 250, "description": "The card's one line: what the pack does, standing on its own. Required, with `description` as the pack's page. The catalog entry's `description` must equal this." },
+    "description": { "type": "string", "minLength": 1, "maxLength": 16000, "description": "Required. The pack's page, in Markdown (no images are ever loaded, links are shown and not followed): what the pack is for, what each plugin adds, what it costs, needs and exposes. A document without `summary` predates the page — the app still reads one, with this as its one line — but the registry lists none. A member plugin's own `description` is unchanged by either." },
     "author": {
       "type": "object",
       "additionalProperties": false,

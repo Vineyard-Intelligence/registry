@@ -10,7 +10,7 @@
     "content_type",
     "name",
     "author",
-    "description",
+    "summary",
     "repo",
     "ref",
     "path"
@@ -37,11 +37,11 @@
       "minLength": 1,
       "description": "Author handle; matched against verified-authors.json."
     },
-    "description": {
+    "summary": {
       "type": "string",
       "minLength": 1,
       "maxLength": 250,
-      "description": "<=250 chars, sentence case, ends with a period, no emoji."
+      "description": "The card's one line, <=250 chars, sentence case, ends with a period, no emoji. It must equal the pinned document's `summary` (verify_pinned.py). The document's `description`, its page, is never copied into the catalog: the app reads it from the pinned document when the pack is opened."
     },
     "repo": {
       "type": "string",

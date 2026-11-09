@@ -3,7 +3,7 @@
   "content_type": "vineyard:typepack",
   "name": "Telegram",
   "author": "VINEYARD",
-  "description": "Telegram entities collected without joining: accounts (people and bots), broadcast channels, supergroups, and their posts. Pairs with the Telegram plugin pack.",
+  "summary": "Telegram entities collected without joining: accounts (people and bots), broadcast channels, supergroups, and their posts. Pairs with the Telegram plugin pack.",
   "repo": "Vineyard-Intelligence/typepack-telegram",
   "ref": "55a7e1370438d4198c954585d25e86c5b70fbe53",
   "path": "typepacks/telegram.json",

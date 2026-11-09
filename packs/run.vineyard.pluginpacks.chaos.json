@@ -3,7 +3,7 @@
   "content_type": "vineyard:pluginpack",
   "name": "Chaos Reference Pack",
   "author": "VINEYARD",
-  "description": "Six graph-manipulation plugins for demos and validation.",
+  "summary": "Six graph-manipulation plugins for demos and validation.",
   "repo": "Vineyard-Intelligence/pluginpack-chaos",
   "ref": "de6d28bcce7ed2c027669b3ff2ae914ca614e057",
   "path": "plugins/chaos-pack.manifest.json",

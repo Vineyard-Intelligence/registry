@@ -3,7 +3,7 @@
   "content_type": "vineyard:skillpack",
   "name": "Infrastructure pivoting",
   "author": "VINEYARD",
-  "description": "Expand one infrastructure indicator (IP/domain/cert) into its connected footprint, one hop at a time.",
+  "summary": "Expand one infrastructure indicator (IP/domain/cert) into its connected footprint, one hop at a time.",
   "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
   "ref": "67081526b2ab893b34baa6a88a4f68b4b8bca137",
   "path": "skillpacks/infra-pivot.skill.json",

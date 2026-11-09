@@ -3,7 +3,7 @@
   "content_type": "vineyard:pluginpack",
   "name": "IP to ASN (Team Cymru - DoH Based)",
   "author": "VINEYARD",
-  "description": "IP → ASN and IP → Country enrichment for IP Address nodes from Team Cymru's IP-to-ASN mapping.",
+  "summary": "IP → ASN and IP → Country enrichment for IP Address nodes from Team Cymru's IP-to-ASN mapping.",
   "repo": "Vineyard-Intelligence/pluginpack-iptoasn-cymru-doh",
   "ref": "636833bf89edef995e7a22f627b71aef6f6a9cda",
   "path": "plugins/iptoasn-cymru-doh.manifest.json",

@@ -228,7 +228,7 @@ LISTED = {
     "content_type": "vineyard:pluginpack",
     "name": "Example",
     "author": "VINEYARD",
-    "description": "A listed entry for the wiring case.",
+    "summary": "A listed entry for the wiring case.",
     "repo": REPO,
     "path": "plugins/example.manifest.json",
     "version": "1.0.0",

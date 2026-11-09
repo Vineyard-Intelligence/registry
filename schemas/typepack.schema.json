@@ -10,6 +10,8 @@
     "name",
     "content_type",
     "version",
+    "summary",
+    "description",
     "types"
   ],
   "properties": {
@@ -31,9 +33,17 @@
       "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$",
       "description": "SemVer of the pack content. MAJOR = breaking type change requiring node migration."
     },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 250,
+      "description": "The card's one line: what the pack does, standing on its own. Required, with `description` as the pack's page. The catalog entry's `description` must equal this."
+    },
     "description": {
       "type": "string",
-      "maxLength": 1024
+      "minLength": 1,
+      "maxLength": 16000,
+      "description": "Required. The pack's page, in Markdown (no images are ever loaded, links are shown and not followed): what the pack models, what each type is for, how its types relate. A document without `summary` predates the page — the app still reads one, with this as its one line — but the registry lists none."
     },
     "authors": {
       "type": "array",

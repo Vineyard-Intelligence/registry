@@ -12,6 +12,9 @@ document at the pinned ref via the jsDelivr CDN and asserts:
   - every SUMMARY field the entry carries is what the document actually implies:
     `scopes_summary`, `platforms`, `plugin_count`, `desktop_only`, `icon`, `section_count`,
     `type_count`. See derived() for the definition and for what it caught, and
+  - the document states both of the pack's texts - `summary`, the card line the entry's own
+    `summary` must equal, and `description`, the pack's page - within the caps the app reads them
+    under. See pack_text_problem(), and
   - the CODE the manifest points at - `platforms.web.entry`, fetched at the same
     pinned ref - declares the same version and licence as the manifest does. See
     bundle_mismatch() for why that is this file's job and not the client's.
@@ -155,6 +158,24 @@ def derived(doc, content_type):
     type's - and None unless it is a kebab-case name, because a typepack icon may also be an image
     URI or a glyph and the card renders only lucide names. None means the entry must omit it.
     """
+    return {**_derived_kind(doc, content_type), **card_line(doc, content_type)}
+
+
+def card_line(doc, content_type):
+    """The entry's `summary`: the document's `summary`, exactly.
+
+    The entry's card line is what the browse page shows, and it used to be typed twice — once in the
+    pack document, once in `packs/<id>.json` (then called `description`) — with nothing comparing
+    them: 25 of 35 matched, and the other ten were the entry's shortened copy of a longer document
+    line. The document states its card line itself now, so the entry only mirrors it. A document
+    without `summary` claims nothing here; pack_text_problem refuses it on its own terms.
+    """
+    if content_type in PAGE_KINDS and isinstance(doc.get("summary"), str):
+        return {"summary": doc["summary"]}
+    return {}
+
+
+def _derived_kind(doc, content_type):
     if content_type.endswith(("plugin", "pluginpack")):
         ms = members(doc)
         scopes = [m.get("scopes") or {} for m in ms]
@@ -188,6 +209,55 @@ def derived(doc, content_type):
             "type_count": len(types),
         }
     return {}
+
+
+# --- the pack's two texts: its card line and its page ----------------------------------------------
+#
+# Every listed pack states both: `summary`, the one line a card shows (a browser extension store's
+# listing line), and `description`, its page in Markdown (the store's "About" section). A document
+# without `summary` predates the page — there `description` is the one line — and the app still
+# reads one, because every pin made before this is immutable and projects keep loading them. The
+# registry lists none: a pack is re-pinned to a document with both. This also holds a published
+# document to the caps the app reads it under, so neither text is cut on the way in.
+#
+# A lone `vineyard:plugin` document cannot carry both. Its `description` is the PLUGIN's, the text the
+# agent chooses that plugin by, and making it a page would take that away. It is listed as a
+# `vineyard:pluginpack` of one instead, whose pack-level texts sit beside the member's own.
+PAGE_KINDS = ("vineyard:pluginpack", "vineyard:typepack", "vineyard:skillpack")
+SUMMARY_MAX = 250
+PAGE_MAX = 16000
+_CONTROL = re.compile("[\x00-\x1f\x7f-\x9f]")
+_CONTROL_IN_TEXT = re.compile("[\x00-\x08\x0b\x0c\x0d\x0e-\x1f\x7f-\x9f]")
+
+
+def units(s):
+    """Length in UTF-16 code units, what the app's caps count."""
+    return len(s.encode("utf-16-le", "surrogatepass")) // 2
+
+
+def pack_text_problem(doc, content_type):
+    """What is wrong with the document's summary and page, or None."""
+    if content_type not in PAGE_KINDS:
+        return (f"a {content_type} document cannot carry a summary and a page — its description is the "
+                "plugin's own; list it as a vineyard:pluginpack of one")
+    if "summary" not in doc:
+        return ("the document has no summary — add the card line as `summary` and the pack's page as "
+                "`description` (see SPEC.md §3)")
+    summary = doc["summary"]
+    if not isinstance(summary, str) or not summary.strip():
+        return "summary must be non-empty text"
+    if _CONTROL.search(summary) or summary != " ".join(summary.split()):
+        return "summary must be one line, with no control characters or extra spaces"
+    if units(summary) > SUMMARY_MAX:
+        return f"summary is {units(summary)} characters, over the {SUMMARY_MAX}-character card line"
+    page = doc.get("description")
+    if not isinstance(page, str) or not page.strip():
+        return "description (the pack's page) is required, as non-empty text"
+    if _CONTROL_IN_TEXT.search(page):
+        return "description (the page) may hold newlines and tabs, and no other control characters"
+    if units(page) > PAGE_MAX:
+        return f"description (the page) is {units(page)} characters, over the {PAGE_MAX}-character limit"
+    return None
 
 
 def claim_mismatch(doc, entry):
@@ -376,6 +446,9 @@ def main():
                     f"::error file={src}::{ident}: {claim_mismatch(doc, entry)}"
                     " — correct the entry, or re-pin `ref` to a commit that matches it"
                 )
+                bad += 1
+            elif text_err := pack_text_problem(doc, entry.get("content_type", "")):
+                print(f"::error file={src}::{ident}: {text_err} — fix the pack document and re-pin `ref`")
                 bad += 1
             elif bundle_err := bundle_mismatch(doc, entry, f"https://cdn.jsdelivr.net/gh/{repo}@{ref}/", bundles):
                 # A different fix again, and only one: the manifest is what was reviewed, so the

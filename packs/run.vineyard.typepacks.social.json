@@ -3,7 +3,7 @@
   "content_type": "vineyard:typepack",
   "name": "Social Media",
   "author": "VINEYARD",
-  "description": "Platform-agnostic social media entities - accounts, posts, hashtags, groups, and media - with a platform discriminator on every entity. Attribution to a person or organization stays in the Identity pack.",
+  "summary": "Platform-agnostic social media entities - accounts, posts, hashtags, groups, and media - with a platform discriminator on every entity. Attribution to a person or organization stays in the Identity pack.",
   "repo": "Vineyard-Intelligence/typepack-social",
   "ref": "32287ccee6d162f08f35cfc25057e50680662f21",
   "path": "typepacks/social.json",

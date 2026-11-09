@@ -3,7 +3,7 @@
   "content_type": "vineyard:pluginpack",
   "name": "AlienVault OTX",
   "author": "VINEYARD",
-  "description": "Looks up selected indicators in AlienVault OTX: the threat reports (\"pulses\") that name them, and passive DNS history. Requires a free OTX API key.",
+  "summary": "Looks up selected indicators in AlienVault OTX: the threat reports (\"pulses\") that name them, and passive DNS history. Requires a free OTX API key.",
   "repo": "Vineyard-Intelligence/pluginpack-otx",
   "ref": "156978e02bc116e65dec7f55e16810c7a918f0e2",
   "path": "plugins/otx.manifest.json",

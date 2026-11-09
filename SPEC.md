@@ -44,7 +44,7 @@ Every entry, of every kind, carries these:
 |---|---|
 | `identifier` | `<namespace>.<kind>.<name>` — the namespace is the author's OWN reverse-DNS prefix, two labels or more (`com.acme`, `io.github.someone`); `run.vineyard.*` is first-party. Globally unique across all three catalogs, and must equal the `identifier` in the pack document itself. |
 | `content_type` | One of the four above. |
-| `name`, `author`, `description` | What the card shows. |
+| `name`, `author`, `summary` | What the card shows. `summary` is the card's one line (≤250) and must equal the pinned document's `summary` — CI compares them (§6). Every listed pack document carries both `summary` (that line) and `description` (its page, Markdown, ≤16,000), like a browser extension store's line under the name and its About section. The page is never copied into the catalog: the app reads it from the pinned document when the pack is opened. A document without `summary` predates the page: the app still loads one from an existing pin, but none is listed. A lone `vineyard:plugin` cannot carry both and is listed as a `vineyard:pluginpack` of one. |
 | `repo` | `owner/name` of the content repository holding the pack. |
 | `ref` | **Immutable commit SHA** (40-hex or 64-hex) of the release being listed, on a branch or tag of `repo` (§4). |
 | `path` | Path to the pack document within `repo` at `ref`. |
@@ -155,6 +155,7 @@ All blocking — a pull request cannot merge until every one passes.
 | Every current catalog row appears in its approved-ref list, and a commit that was never published does not | `build_approved.py`, proven by `test_approved.py` |
 | Pinned document is reachable, and its `identifier` / `content_type` / `version` match the entry | `verify_pinned.py` |
 | Every summary field the entry carries — `scopes_summary`, `platforms`, `plugin_count`, `desktop_only`, `icon`, `section_count`, `type_count` — equals what the pinned document implies | `verify_pinned.py` |
+| The pinned document has both `summary` and a non-empty `description` (its page), and the entry's `summary` equals the document's; the `summary` is one line of at most 250 characters, the page at most 16,000 with no control characters but newlines and tabs; a lone `vineyard:plugin` document is refused | `verify_pinned.py`, proven by `test_derived.py` |
 | Every `io` type reference resolves to a type a **published** Type Pack defines, names its real owner, and that Type Pack is listed in the entry's `typepacks` | `check_typerefs.py` |
 | A live pack declares no dependency on a delisted one, and a `status.replacement` names a live pack of the same kind | `validate.py` |
 | The delisting rules still hold, checked against cases the live catalog does not contain | `test_delisting.py` |

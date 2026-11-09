@@ -3,7 +3,7 @@
   "content_type": "vineyard:pluginpack",
   "name": "Shared-Attribute Clustering",
   "author": "VINEYARD",
-  "description": "Links infrastructure nodes that share a registrar, nameserver, ASN or TLS certificate, using data already in the graph.",
+  "summary": "Links infrastructure nodes that share a registrar, nameserver, ASN or TLS certificate, using data already in the graph.",
   "repo": "Vineyard-Intelligence/pluginpack-shared-attribute-clustering",
   "ref": "0e40e97d4807143085b35add65f5f84820ff06f9",
   "path": "plugins/shared-attribute-clustering.manifest.json",

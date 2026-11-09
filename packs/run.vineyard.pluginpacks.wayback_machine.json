@@ -3,7 +3,7 @@
   "content_type": "vineyard:pluginpack",
   "name": "Wayback Machine",
   "author": "VINEYARD",
-  "description": "Queries the Internet Archive Wayback Machine for the capture history and archive availability of selected domains and URLs. Desktop only.",
+  "summary": "Queries the Internet Archive Wayback Machine for the capture history and archive availability of selected domains and URLs. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-wayback-machine",
   "ref": "8df09fbb0c93f184203808dd4361beec14642420",
   "path": "plugins/wayback-machine.manifest.json",
