@@ -153,6 +153,15 @@
     "sha256": "07a0e55d454c3a426ee822a7afe294be2609731bb94e4e35a908253cde183b99"
   },
   {
+    "identifier": "run.vineyard.skillpacks.account_identity_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-account-identity-pivoting",
+    "ref": "34807f895dd626268e12e737ca7edf9a9f142652",
+    "path": "skillpacks/account-pivot.skill.json",
+    "version": "3.3.0",
+    "approved_at": "2026-11-09",
+    "sha256": "a17be44cb67c68decd68b24619ce5fc12c743c5ee321690517f00b52a6395335"
+  },
+  {
     "identifier": "run.vineyard.skillpacks.infra_pivot",
     "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
     "ref": "0a0bcadda8ed5b5029f45d07f722ec6a2734ef43",
@@ -322,5 +331,14 @@
     "version": "2.4.0",
     "approved_at": "2026-11-06",
     "sha256": "c5941313a11fc5f3161f51647945602d8fb7f0eb0a224c7ae746d131f6e65c5c"
+  },
+  {
+    "identifier": "run.vineyard.skillpacks.infra_pivot",
+    "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
+    "ref": "02be6812ecb844cd06311f6c9e6a40e7964d73b2",
+    "path": "skillpacks/infra-pivot.skill.json",
+    "version": "2.5.0",
+    "approved_at": "2026-11-09",
+    "sha256": "c53f432bbaaed7fb445604e0a59690092934b2787001fa3b00b3ece77a71f971"
   }
 ]

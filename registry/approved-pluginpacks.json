@@ -90,6 +90,15 @@
     "sha256": "e30d3eb8a09763e605be8c9b6f6dd8868d4e4bc09780a5beaa60ed27110687ad"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.ad_tags",
+    "repo": "Vineyard-Intelligence/pluginpack-ad-tags",
+    "ref": "858820b181180a888ecf21ba9f66b53a5f8ed89a",
+    "path": "plugins/ad-tags.manifest.json",
+    "version": "1.3.0",
+    "approved_at": "2026-11-09",
+    "sha256": "af884728ed5293276154c2cedfaad553a5624398e235a24f06552ed52ff27815"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.cdn_detect",
     "repo": "Vineyard-Intelligence/pluginpack-cdn-detect",
     "ref": "c3ac9097207027c57f81c73ec4521f60a7e60b20",
@@ -214,6 +223,15 @@
     "version": "1.0.4",
     "approved_at": "2026-11-06",
     "sha256": "18d219760dd10f4941fc4c66f2dd1b66c0091197358aa11267d2a2bd9f2ebec6"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.cdn_detect",
+    "repo": "Vineyard-Intelligence/pluginpack-cdn-detect",
+    "ref": "435b9912766f4946925a95ac4ed7700506c752f0",
+    "path": "plugins/cdn-detect.manifest.json",
+    "version": "1.1.0",
+    "approved_at": "2026-11-09",
+    "sha256": "1b2eae32d67c28b29a2f74784ecc2ce9662158b25a46cec6c09a2fe9309082ad"
   },
   {
     "identifier": "run.vineyard.pluginpacks.censys",
@@ -504,6 +522,15 @@
     "sha256": "010f96d383fd98101d19219f4c4b45f6597b289cdf4afa3f65939ea6373be230"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.censys",
+    "repo": "Vineyard-Intelligence/pluginpack-censys",
+    "ref": "937196a58f870713d69ed5c2db0c228d2f31fdaa",
+    "path": "plugins/censys.manifest.json",
+    "version": "0.4.0",
+    "approved_at": "2026-11-09",
+    "sha256": "8036595d7bd1179945ec6ee8cf479267c504d873f08495c3b15b5e69348697d4"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.chaos",
     "repo": "Vineyard-Intelligence/pluginpack-chaos",
     "ref": "7261823f654395204d9c79f7d597448d97d135f1",
@@ -610,6 +637,15 @@
     "version": "1.0.4",
     "approved_at": "2026-11-06",
     "sha256": "6b07d7b64d0d22fd46c2f3da0d0633b992caa65aa7d34422a4524bd0ecfbdbd0"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.chaos",
+    "repo": "Vineyard-Intelligence/pluginpack-chaos",
+    "ref": "58f7543ed7056b55e59e752a167b31e6e7df88e9",
+    "path": "plugins/chaos-pack.manifest.json",
+    "version": "1.1.0",
+    "approved_at": "2026-11-09",
+    "sha256": "8ae2622a02717ca311e0fb5b92063d51dde8934712104a5c61068a285b196239"
   },
   {
     "identifier": "run.vineyard.pluginpacks.cti_pivot",
@@ -765,6 +801,15 @@
     "sha256": "24e322632b6f94b4a77544b4f0359fb545df1a37cf0a339ce80d88f44da89beb"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.disposable_email",
+    "repo": "Vineyard-Intelligence/pluginpack-disposable-email",
+    "ref": "169deac99f5868d8a1399db5a5523bddf22bc6c4",
+    "path": "plugins/disposable-email.manifest.json",
+    "version": "1.2.0",
+    "approved_at": "2026-11-09",
+    "sha256": "0096a0fc68a0ffb72829f3b54a3cb523db33aaf6f65219a9047974b04bb30b7c"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.domain_recon",
     "repo": "Vineyard-Intelligence/pluginpack-domain-recon",
     "ref": "78eec33688342be5da8a33e6c98240fe397b0d04",
@@ -898,6 +943,15 @@
     "version": "2.1.4",
     "approved_at": "2026-11-06",
     "sha256": "79233b57053286915917cba0f50f0f89915c1bed4ddda5005a2035a89269179f"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.domain_recon",
+    "repo": "Vineyard-Intelligence/pluginpack-domain-recon",
+    "ref": "0b2d2070f22cd468785d04fb6c436603ad4fe815",
+    "path": "plugins/domain-recon.manifest.json",
+    "version": "2.2.0",
+    "approved_at": "2026-11-09",
+    "sha256": "4a0fe1a27991ed5ae425558f0070906df918e50aff61a90d17436d7820171824"
   },
   {
     "identifier": "run.vineyard.pluginpacks.github",
@@ -1035,6 +1089,15 @@
     "sha256": "62bc8a7bbac98574e54eaf1bc7b8de1db60c9a76880aee0648435a8bd642233b"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.github",
+    "repo": "Vineyard-Intelligence/pluginpack-github",
+    "ref": "3cd3bd3b1f1348a6c0c9588494466f19cbcf73a8",
+    "path": "plugins/github.manifest.json",
+    "version": "1.5.0",
+    "approved_at": "2026-11-09",
+    "sha256": "73bc5d5a3d169147bd0355dd29fbc5fe1500583ece492b5205f3d2154e8361ec"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.google_docs_metadata",
     "repo": "Vineyard-Intelligence/pluginpack-google-docs-metadata",
     "ref": "2813c1ed0fc1171e5913e228e4033e4870e01ae4",
@@ -1096,6 +1159,15 @@
     "version": "2.1.2",
     "approved_at": "2026-11-06",
     "sha256": "bd99552041df71fc40222a5bf7913a7966ab3082d2b4d41281a71d93653f991e"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.google_docs_metadata",
+    "repo": "Vineyard-Intelligence/pluginpack-google-docs-metadata",
+    "ref": "feb6608d70cee3683249a97388060676a3784c7b",
+    "path": "plugins/google-docs-metadata.manifest.json",
+    "version": "2.2.0",
+    "approved_at": "2026-11-09",
+    "sha256": "a79037071a5f2b8395060dd3b79d5cfd50aacbc2d919ef5e5acf523d891544a3"
   },
   {
     "identifier": "run.vineyard.pluginpacks.image_osint",
@@ -1215,6 +1287,15 @@
     "sha256": "72e348ce8f5177a5673f9026f4e6eeb96d0b63c4c2a70288bf295d7ed16630a0"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.image_osint",
+    "repo": "Vineyard-Intelligence/pluginpack-image-osint",
+    "ref": "872820d582a5aec7ddff5f66fe0267e255cc092f",
+    "path": "plugins/image-osint.manifest.json",
+    "version": "1.5.0",
+    "approved_at": "2026-11-09",
+    "sha256": "a0aecd456555c9c33a0fe3fafef69fdfa7b27afa1e9883a202048034e21446dc"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.ip_classification",
     "repo": "Vineyard-Intelligence/pluginpack-ip-classification",
     "ref": "008bc6aa40b8e91ace8161e7e2be25e579eb084b",
@@ -1294,6 +1375,15 @@
     "version": "1.2.1",
     "approved_at": "2026-11-06",
     "sha256": "29107220f3f7aeaa7a18edf16483f9b99fbc68c2224e72d32232ce357ca8a123"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.ip_classification",
+    "repo": "Vineyard-Intelligence/pluginpack-ip-classification",
+    "ref": "295115e9fb8ab8e4591363ec9f8fb31ba8c47ae0",
+    "path": "plugins/ip-classification.manifest.json",
+    "version": "1.3.0",
+    "approved_at": "2026-11-09",
+    "sha256": "5fc0ed3f6e90919d944cecbd1fae3e04c76e526afea2540d832ed615626f8dfb"
   },
   {
     "identifier": "run.vineyard.pluginpacks.ip_recon",
@@ -1503,6 +1593,15 @@
     "sha256": "20775e19535e2b2ea1bc478924b12fc9436a81a71be677c4acabec4a827c7077"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.ip_recon",
+    "repo": "Vineyard-Intelligence/pluginpack-ip-recon",
+    "ref": "f23d7abb34248c066cd2e112758157bb618c5e20",
+    "path": "plugins/ip-recon.manifest.json",
+    "version": "2.1.0",
+    "approved_at": "2026-11-09",
+    "sha256": "14f0234c3337f29d11f350cf8edf451ae5a6e9688711e694706cb59a5c45bea5"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.iptoasn_cymru_doh",
     "repo": "Vineyard-Intelligence/pluginpack-iptoasn-cymru-doh",
     "ref": "2bb9d070d8001fcb4ca044e9df237299c6e9fc6a",
@@ -1654,6 +1753,15 @@
     "version": "1.1.2",
     "approved_at": "2026-11-06",
     "sha256": "f0e4a0f485b3b04666725b388cdeee62080e756867fe6b4d3c7432109bd0bfc6"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.iptoasn_cymru_doh",
+    "repo": "Vineyard-Intelligence/pluginpack-iptoasn-cymru-doh",
+    "ref": "5316a336dc73d8809239f56c005b7d24d41fd49d",
+    "path": "plugins/iptoasn-cymru-doh.manifest.json",
+    "version": "1.2.0",
+    "approved_at": "2026-11-09",
+    "sha256": "fda239ed06d04c49012490b398bd176aeff03412eda2d39712a6b6cba5ececef"
   },
   {
     "identifier": "run.vineyard.pluginpacks.lazarusday",
@@ -1899,6 +2007,15 @@
     "sha256": "9f5d1b8158046ef2fadba6538a7943cd97e4e2ad882a0c007413774302060f7d"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.lazarusday",
+    "repo": "Vineyard-Intelligence/pluginpack-lazarusday",
+    "ref": "21732fc878dc8c9afdee5a7e22d9f00f2fc27148",
+    "path": "plugins/lazarusday.manifest.json",
+    "version": "1.5.0",
+    "approved_at": "2026-11-09",
+    "sha256": "b1f6e9cc8d9ad6f8e9660aef0a322ba645695bd571ac21c0484b811b7b0d0269"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.otx",
     "repo": "Vineyard-Intelligence/pluginpack-otx",
     "ref": "0f7237e0d44804aa4d851cd188795ba8ee8b471a",
@@ -2052,6 +2169,15 @@
     "sha256": "eaee51675adae19dd2d2d107564a5e3accc897a8785d77dde13d8461590ab2b8"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.otx",
+    "repo": "Vineyard-Intelligence/pluginpack-otx",
+    "ref": "a6910e55856fe382e5da3725b177d454cf0d2897",
+    "path": "plugins/otx.manifest.json",
+    "version": "1.3.0",
+    "approved_at": "2026-11-09",
+    "sha256": "79b30fc8f87e2209a1498fd7a994a8a16fb4f1d57e4aa357cf0dda5de530322b"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.pgp_lookup",
     "repo": "Vineyard-Intelligence/pluginpack-pgp-lookup",
     "ref": "14fac46028fa6078787f3f058f57a4697897a506",
@@ -2187,6 +2313,15 @@
     "sha256": "e10c56a0bce48c9a36bca08b71907246b76bec94b044cd71485cda79996fde1d"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.pgp_lookup",
+    "repo": "Vineyard-Intelligence/pluginpack-pgp-lookup",
+    "ref": "0fade4375239cbfbcea28878874d162a18da52df",
+    "path": "plugins/pgp-lookup.manifest.json",
+    "version": "1.2.0",
+    "approved_at": "2026-11-09",
+    "sha256": "91d033001358688d9c9cdd83cb30b8355ec25918ee91d399807e23513adcf92b"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.shared_attribute_clustering",
     "repo": "Vineyard-Intelligence/pluginpack-shared-attribute-clustering",
     "ref": "0102ed0e73db66855c800ecdda3e8eb38a032bb3",
@@ -2230,6 +2365,15 @@
     "version": "1.1.1",
     "approved_at": "2026-11-06",
     "sha256": "ddfbac443fe11f0c841f65f86b11874c2fdca91b7060bf39b032e73b8f79f3d4"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.shared_attribute_clustering",
+    "repo": "Vineyard-Intelligence/pluginpack-shared-attribute-clustering",
+    "ref": "72e340e4debcd716ee086fc37a10be019ace5793",
+    "path": "plugins/shared-attribute-clustering.manifest.json",
+    "version": "1.2.0",
+    "approved_at": "2026-11-09",
+    "sha256": "e376cb8344a97ef28baf0eefb92ea88242a4606ef1e5055ee51e47ae07361924"
   },
   {
     "identifier": "run.vineyard.pluginpacks.shodan",
@@ -2356,6 +2500,15 @@
     "version": "2.2.0",
     "approved_at": "2026-10-11",
     "sha256": "e3bd6c6e13c26da4f3ca577705aebbb8fd424a20b1075f258919719771338bd5"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.shodan",
+    "repo": "Vineyard-Intelligence/pluginpack-shodan",
+    "ref": "a617d4617d38196472afe21289fbef7479ed41b3",
+    "path": "plugins/shodan.manifest.json",
+    "version": "2.3.0",
+    "approved_at": "2026-11-09",
+    "sha256": "58d18ca51994d574089857d28ea9f747338e1362a6f9b19ca10feea4e06e4f18"
   },
   {
     "identifier": "run.vineyard.pluginpacks.telegram",
@@ -2536,6 +2689,15 @@
     "version": "2.4.4",
     "approved_at": "2026-10-20",
     "sha256": "eda88cf22c99b93ce64d1732c846d5e169c28ea93edc077a4edb03ff104a2b42"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.telegram",
+    "repo": "Vineyard-Intelligence/pluginpack-telegram",
+    "ref": "3c222f4ab5be8cb833c00ed90500c66d81140fef",
+    "path": "plugins/telegram.manifest.json",
+    "version": "2.5.0",
+    "approved_at": "2026-11-09",
+    "sha256": "3fa62295ccfa9ad17f9316f4f6d0286a187a940f92dd7dc840e5aee031af8a04"
   },
   {
     "identifier": "run.vineyard.pluginpacks.virustotal_community",
@@ -2744,6 +2906,15 @@
     "sha256": "1970875f417b61b4016c4a0d5f80dbe51a36b78dfb3a20cb5b336e4fcfea8df0"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.virustotal_community",
+    "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
+    "ref": "52891a5d29a9979308392f131257ce606c6a91a5",
+    "path": "plugins/virustotal-community.manifest.json",
+    "version": "1.6.0",
+    "approved_at": "2026-11-09",
+    "sha256": "b920708d5ea9bf78d6e7b57952cf7f2b3724bde2983d43faa85106b8d9a1b856"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.virustotal_premium",
     "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
     "ref": "07f5fb96b4dabcc482ed219090e161a0d8ed2a2e",
@@ -2841,6 +3012,15 @@
     "version": "0.2.1",
     "approved_at": "2026-11-06",
     "sha256": "e75a732dce90ddf5d2fbca145e1bcbaa67d335260f92ab289cb9c72c23d643ed"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.virustotal_premium",
+    "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
+    "ref": "585e03a357dd0dfcd01b0849bd47c72a7c6f3f55",
+    "path": "plugins/virustotal-premium.manifest.json",
+    "version": "0.3.0",
+    "approved_at": "2026-11-09",
+    "sha256": "78f7756dfdb91826101b575523a6a59eab4fd10b9211a8b683db41d6aaa1f57d"
   },
   {
     "identifier": "run.vineyard.pluginpacks.wayback_machine",
@@ -2958,6 +3138,15 @@
     "version": "1.2.3",
     "approved_at": "2026-11-06",
     "sha256": "fd6a575aa46df700e7b2523f388b66148aef890540668ce55e4cdf9e2a239bda"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.wayback_machine",
+    "repo": "Vineyard-Intelligence/pluginpack-wayback-machine",
+    "ref": "6feaa5c61a346523bc7059a866f0bb0bc6fa4a33",
+    "path": "plugins/wayback-machine.manifest.json",
+    "version": "1.3.0",
+    "approved_at": "2026-11-09",
+    "sha256": "1108499330d03420679a42c762eb4c6daf7c29de53bb8a0039baa4df45489443"
   },
   {
     "identifier": "run.vineyard.pluginpacks.web_recon",
@@ -3158,6 +3347,15 @@
     "sha256": "55f073e9c050a42bb36d8d0c6cebb57efd522eff7d07f22449687be9ef4135c6"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.web_recon",
+    "repo": "Vineyard-Intelligence/pluginpack-web-recon",
+    "ref": "698cc21968c52aa6a0e916046629fa833b9d6bdb",
+    "path": "plugins/web-recon.manifest.json",
+    "version": "1.4.0",
+    "approved_at": "2026-11-09",
+    "sha256": "cdb114315e01a3f0cdbf5b54e20ca308e5ea93cae7822afe9ad6cbb747ba3b87"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.whatsmyname",
     "repo": "Vineyard-Intelligence/pluginpack-whatsmyname",
     "ref": "6049decb51122b9a14092a1e67988241d4e7998a",
@@ -3293,6 +3491,15 @@
     "sha256": "88d22cb54c4ab51518ac06cd0d2e675a1ad6686bef5c1ae8733f439032ef9a4c"
   },
   {
+    "identifier": "run.vineyard.pluginpacks.whatsmyname",
+    "repo": "Vineyard-Intelligence/pluginpack-whatsmyname",
+    "ref": "eeee38fc099f4be002cd462859658d1c23641d54",
+    "path": "plugins/whatsmyname.manifest.json",
+    "version": "2.3.0",
+    "approved_at": "2026-11-09",
+    "sha256": "297e9926af47b9d551e1253311afb58ed18cdb4758f37b1ea9baec1c0938c7f7"
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.x",
     "repo": "Vineyard-Intelligence/pluginpack-x",
     "ref": "d7d56adbb804553905bda910a049cf5799d7063b",
@@ -3417,6 +3624,15 @@
     "version": "0.6.3",
     "approved_at": "2026-11-06",
     "sha256": "e01bf111eaa9da4d5a19906c9364aae450b3767399df067d274ee83755e5d702"
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.x",
+    "repo": "Vineyard-Intelligence/pluginpack-x",
+    "ref": "3c86a539e8141a8d928766519a989c16452fed34",
+    "path": "plugins/x.manifest.json",
+    "version": "0.7.0",
+    "approved_at": "2026-11-09",
+    "sha256": "850151891d367fa214697c71499568f6a1710aae885910e0cd955babb8beaec5"
   },
   {
     "identifier": "run.vineyard.pluginpacks.xeuledoc",

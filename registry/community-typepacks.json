@@ -6,9 +6,9 @@
     "author": "VINEYARD",
     "summary": "Host and endpoint forensic artifacts (files, processes, registry keys, services, mutexes, scheduled tasks) for DFIR and malware-behavior mapping.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "8327242754af724ba7fd6c20257a2243a583c10f",
+    "ref": "89e4e2f28fee689598fc80cd6a68681e5409277b",
     "path": "typepacks/endpoint.json",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "categories": [
       "endpoint"
     ],
@@ -23,9 +23,9 @@
     "author": "VINEYARD",
     "summary": "Follow-the-money entities: cryptocurrency addresses and transactions, exchanges, and bank accounts. Public identifiers only — no keys, PANs, or credentials.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "09b0aba3d9d1d3a04b4f465186e72af83160ba97",
+    "ref": "89e4e2f28fee689598fc80cd6a68681e5409277b",
     "path": "typepacks/financial.json",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "categories": [
       "financial"
     ],
@@ -40,9 +40,9 @@
     "author": "VINEYARD",
     "summary": "Places and physical context — locations with coordinates, postal addresses, and facilities — to anchor the 'where' of an investigation.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "09b0aba3d9d1d3a04b4f465186e72af83160ba97",
+    "ref": "89e4e2f28fee689598fc80cd6a68681e5409277b",
     "path": "typepacks/geo.json",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "categories": [
       "geo"
     ],
@@ -57,9 +57,9 @@
     "author": "VINEYARD",
     "summary": "People, organizations, and the identities that connect them - personas, email addresses, phone numbers, PGP keys, and the accounts they hold on websites.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "cc3534216714661d37dc66acdc9dd2126312356e",
+    "ref": "89e4e2f28fee689598fc80cd6a68681e5409277b",
     "path": "typepacks/identity.json",
-    "version": "2.2.1",
+    "version": "2.3.0",
     "categories": [
       "identity"
     ],
@@ -74,9 +74,9 @@
     "author": "VINEYARD",
     "summary": "Network-infrastructure and web OSINT entities (IPs, domains, URLs, hosts, ASNs, netblocks, DNS/WHOIS records, TLS certificates, SSH host keys, technologies, web fingerprints and tracking/ad-account identifiers) and their relationships.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "721e3fdab2bdcace019cd9329b47b1014d8acdbb",
+    "ref": "89e4e2f28fee689598fc80cd6a68681e5409277b",
     "path": "typepacks/infrastructure.json",
-    "version": "4.0.0",
+    "version": "4.1.0",
     "categories": [
       "infrastructure",
       "web"
@@ -92,9 +92,9 @@
     "author": "VINEYARD",
     "summary": "Platform-agnostic social media entities - accounts, posts, hashtags, groups, and media - with a platform discriminator on every entity. Attribution to a person or organization stays in the Identity pack.",
     "repo": "Vineyard-Intelligence/typepack-social",
-    "ref": "32287ccee6d162f08f35cfc25057e50680662f21",
+    "ref": "07e7490d0eaa128e5b10e9155782b1491001434e",
     "path": "typepacks/social.json",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "categories": [
       "social"
     ],
@@ -109,9 +109,9 @@
     "author": "VINEYARD",
     "summary": "Telegram entities collected without joining: accounts (people and bots), broadcast channels, supergroups, and their posts. Pairs with the Telegram plugin pack.",
     "repo": "Vineyard-Intelligence/typepack-telegram",
-    "ref": "55a7e1370438d4198c954585d25e86c5b70fbe53",
+    "ref": "558c1bc650d0deea0bea8d8b09a3d514e6fac556",
     "path": "typepacks/telegram.json",
-    "version": "1.5.1",
+    "version": "1.6.0",
     "categories": [
       "telegram"
     ],
@@ -126,9 +126,9 @@
     "author": "VINEYARD",
     "summary": "Threat-intelligence entities (malware, campaigns, operations, vulnerabilities, threat actors, indicators, attack patterns, tools, detection signatures) and their relationships, aligned with STIX 2.1.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "1bcd4f13ad81db7edb643d26cd687175aa6f6ebd",
+    "ref": "89e4e2f28fee689598fc80cd6a68681e5409277b",
     "path": "typepacks/threat.json",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "categories": [
       "threat"
     ],
