@@ -540,6 +540,15 @@
     "sha256": "ba284788dd7df71a263b82b3ae650539986edf5c959ae56bf72a2a8972c65f07"
   },
   {
+    "identifier": "run.vineyard.typepacks.social",
+    "repo": "Vineyard-Intelligence/typepack-social",
+    "ref": "97885aa6143926633a7195b7398d15196c27705a",
+    "path": "typepacks/social.json",
+    "version": "1.2.1",
+    "approved_at": "2026-11-09",
+    "sha256": "fc00f946f2b38b385d61500679b7aa65ad2f4aa0574812a4fa0b6575f5d97de0"
+  },
+  {
     "identifier": "run.vineyard.typepacks.telegram",
     "repo": "Vineyard-Intelligence/typepack-telegram",
     "ref": "2f53b27392216a549221ae3c6d9f0da7dc837d97",

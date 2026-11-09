@@ -59,9 +59,9 @@
     "author": "VINEYARD",
     "summary": "Censys lookups with your own token: certificates, SSH host keys and services an IP presents; hosts sharing a certificate or key; CenQL searches. Desktop only. Registered by the VINEYARD operator for academic research. It may be removed in the future.",
     "repo": "Vineyard-Intelligence/pluginpack-censys",
-    "ref": "937196a58f870713d69ed5c2db0c228d2f31fdaa",
+    "ref": "4c522aef581630752262a4d965fec304c08858ad",
     "path": "plugins/censys.manifest.json",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "platforms": [
       "desktop",
       "web"
@@ -245,9 +245,9 @@
     "author": "VINEYARD",
     "summary": "Classifies IP addresses as scanners, C2 and malware families, crawlers, anonymizers and non-routable space.",
     "repo": "Vineyard-Intelligence/pluginpack-ip-classification",
-    "ref": "295115e9fb8ab8e4591363ec9f8fb31ba8c47ae0",
+    "ref": "a415ace9ebad1a8d365fdbaf9df22ececa461d27",
     "path": "plugins/ip-classification.manifest.json",
-    "version": "1.3.0",
+    "version": "1.3.1",
     "platforms": [
       "web"
     ],
@@ -458,9 +458,9 @@
     "author": "VINEYARD",
     "summary": "Read-only Telegram collection without joining: keyword search, handle resolution, invite-link analysis, posts, participants and phone-number lookup, written as telegram.* nodes. Runs through Vineyard's Telegram service.",
     "repo": "Vineyard-Intelligence/pluginpack-telegram",
-    "ref": "3c222f4ab5be8cb833c00ed90500c66d81140fef",
+    "ref": "2a1992243217c2c8b06a5e4dc79278e7d87449ce",
     "path": "plugins/telegram.manifest.json",
-    "version": "2.5.0",
+    "version": "2.5.1",
     "platforms": [
       "web"
     ],
