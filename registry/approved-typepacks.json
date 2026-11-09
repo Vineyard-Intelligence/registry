@@ -72,6 +72,15 @@
     "sha256": "9f2d860fc595f71a2513986ba4613cc83908bdaf0f8bad16eebff30ae5fe0a95"
   },
   {
+    "identifier": "run.vineyard.typepacks.endpoint",
+    "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "b1aac60243f2d33ce83160537ed3905dacd10479",
+    "path": "typepacks/endpoint.json",
+    "version": "1.2.1",
+    "approved_at": "2026-11-09",
+    "sha256": "61815853beb2f3ad868fee22d257e26983bfd81561b76edd0f084baf0c16cd46"
+  },
+  {
     "identifier": "run.vineyard.typepacks.financial",
     "repo": "Vineyard-Intelligence/typepack-basic",
     "ref": "e1e48d0cb8c86ab763934e98fccf882f253c14a2",
@@ -135,6 +144,15 @@
     "sha256": "2a7c711748175b4235caceeb604398c80487a166f92a88774d98ede4e799f24a"
   },
   {
+    "identifier": "run.vineyard.typepacks.financial",
+    "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "b1aac60243f2d33ce83160537ed3905dacd10479",
+    "path": "typepacks/financial.json",
+    "version": "1.1.1",
+    "approved_at": "2026-11-09",
+    "sha256": "91eab7451070c5d3762ce0c3197bcab5b636b7c415a8313d5b8e708048855b5a"
+  },
+  {
     "identifier": "run.vineyard.typepacks.geo",
     "repo": "Vineyard-Intelligence/typepack-basic",
     "ref": "e1e48d0cb8c86ab763934e98fccf882f253c14a2",
@@ -196,6 +214,15 @@
     "version": "1.1.0",
     "approved_at": "2026-11-09",
     "sha256": "e943c05f8e3056645191b546e107b67b7b4fed06e3bc80c6abcd7d16d20ab368"
+  },
+  {
+    "identifier": "run.vineyard.typepacks.geo",
+    "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "b1aac60243f2d33ce83160537ed3905dacd10479",
+    "path": "typepacks/geo.json",
+    "version": "1.1.1",
+    "approved_at": "2026-11-09",
+    "sha256": "8e950000c27dd26040e03937264564ad8ef4b560903f9f0ffbc8307c7f2ec1b7"
   },
   {
     "identifier": "run.vineyard.typepacks.identity",
@@ -286,6 +313,15 @@
     "version": "2.3.0",
     "approved_at": "2026-11-09",
     "sha256": "67bc3e17e7a16ee065105de047c0900dac8ce9bfaa913e1abec91ebf24bf5543"
+  },
+  {
+    "identifier": "run.vineyard.typepacks.identity",
+    "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "b1aac60243f2d33ce83160537ed3905dacd10479",
+    "path": "typepacks/identity.json",
+    "version": "2.3.1",
+    "approved_at": "2026-11-09",
+    "sha256": "1978974b59fe1a889d898ee573ddd3bec52e52a4e19eb7c9f809970fa8d6310a"
   },
   {
     "identifier": "run.vineyard.typepacks.infrastructure",
@@ -495,6 +531,15 @@
     "sha256": "3b39cf9fc3db96d196d83c9498723614ca7e28973faef465e1e912570b2263db"
   },
   {
+    "identifier": "run.vineyard.typepacks.infrastructure",
+    "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "b1aac60243f2d33ce83160537ed3905dacd10479",
+    "path": "typepacks/infrastructure.json",
+    "version": "4.1.1",
+    "approved_at": "2026-11-09",
+    "sha256": "165b3d363891f13e2ca1cca5b721a4412e63efce19f13474f459b572c7ae2bd8"
+  },
+  {
     "identifier": "run.vineyard.typepacks.social",
     "repo": "Vineyard-Intelligence/typepack-social",
     "ref": "f7b9780fd80469b6adb67ba86972543a1748b303",
@@ -538,6 +583,15 @@
     "version": "1.2.0",
     "approved_at": "2026-11-09",
     "sha256": "ba284788dd7df71a263b82b3ae650539986edf5c959ae56bf72a2a8972c65f07"
+  },
+  {
+    "identifier": "run.vineyard.typepacks.social",
+    "repo": "Vineyard-Intelligence/typepack-social",
+    "ref": "4540dab9283220aa9711ba89c82220a8483325d5",
+    "path": "typepacks/social.json",
+    "version": "1.2.2",
+    "approved_at": "2026-11-09",
+    "sha256": "554baed3f2decfafe88eea2d75d56ea7c884e4ae227e2e27c26405baee6e09b6"
   },
   {
     "identifier": "run.vineyard.typepacks.social",
@@ -619,6 +673,15 @@
     "version": "1.6.0",
     "approved_at": "2026-11-09",
     "sha256": "df3faf89b114b330be883e4bd308cb14c6dae93b56d76a5f0305635ec2206245"
+  },
+  {
+    "identifier": "run.vineyard.typepacks.telegram",
+    "repo": "Vineyard-Intelligence/typepack-telegram",
+    "ref": "71ef0682f6b37f6be633460c66c29885896442c5",
+    "path": "typepacks/telegram.json",
+    "version": "1.6.1",
+    "approved_at": "2026-11-09",
+    "sha256": "f1d4c2ca1336fb384ea83c1e6c0a5ec854591ea3ea2df74c98890161fe37fe96"
   },
   {
     "identifier": "run.vineyard.typepacks.threat",
@@ -718,5 +781,14 @@
     "version": "1.5.0",
     "approved_at": "2026-11-09",
     "sha256": "9dc1fe006e2823cb8a0da956861f6a5204b94e5f03ac27ad8da949669c364e40"
+  },
+  {
+    "identifier": "run.vineyard.typepacks.threat",
+    "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "b1aac60243f2d33ce83160537ed3905dacd10479",
+    "path": "typepacks/threat.json",
+    "version": "1.5.1",
+    "approved_at": "2026-11-09",
+    "sha256": "c255cc613cf26b329dbb213158cdc80b883c59611b4b911db84a95722b1a7c36"
   }
 ]
