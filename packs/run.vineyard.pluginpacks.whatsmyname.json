@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "summary": "Username enumeration across ~700 sites using the WhatsMyName dataset (https://github.com/WebBreacher/WhatsMyName, CC-BY-SA-4.0). Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-whatsmyname",
-  "ref": "4d08799d32477c3d04dd175dfb45b166ae271138",
+  "ref": "eeee38fc099f4be002cd462859658d1c23641d54",
   "path": "plugins/whatsmyname.manifest.json",
-  "version": "2.2.3",
+  "version": "2.3.0",
   "platforms": [
     "desktop",
     "web"

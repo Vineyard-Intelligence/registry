@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "summary": "Shodan REST API lookups: IP host details, host search and result counts, passive DNS, forward and reverse DNS, and API credit status. Needs your own Shodan API key; only Shodan Search spends query credits.",
   "repo": "Vineyard-Intelligence/pluginpack-shodan",
-  "ref": "5db2cf2b719458506312ed8257c2f02f5a0f3946",
+  "ref": "a617d4617d38196472afe21289fbef7479ed41b3",
   "path": "plugins/shodan.manifest.json",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "platforms": [
     "web"
   ],

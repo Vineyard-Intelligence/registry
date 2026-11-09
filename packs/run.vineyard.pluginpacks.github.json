@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "summary": "Collects public GitHub data: repositories, commit identities, gists, organisation members, activity hours, worked-on forks, Pages domains, GPG keys and code search. Token: fine-grained (Public repositories, no permissions) or classic with no scopes.",
   "repo": "Vineyard-Intelligence/pluginpack-github",
-  "ref": "b0dee86ced87eb9e19d16c8ec0c23f675718afbe",
+  "ref": "3cd3bd3b1f1348a6c0c9588494466f19cbcf73a8",
   "path": "plugins/github.manifest.json",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "platforms": [
     "web",
     "desktop"

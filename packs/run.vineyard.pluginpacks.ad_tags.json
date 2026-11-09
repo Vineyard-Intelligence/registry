@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "summary": "Extracts advertising, analytics, affiliate and payment account identifiers from a site's markup and from its ads.txt and /.well-known/ files. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-ad-tags",
-  "ref": "29db16fe3bdd53fc1341654ce41ebf1bd72ff785",
+  "ref": "858820b181180a888ecf21ba9f66b53a5f8ed89a",
   "path": "plugins/ad-tags.manifest.json",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "platforms": [
     "desktop",
     "web"
