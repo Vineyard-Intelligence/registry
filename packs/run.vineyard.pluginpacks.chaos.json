@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "summary": "Six graph-manipulation plugins for demos and validation.",
   "repo": "Vineyard-Intelligence/pluginpack-chaos",
-  "ref": "58f7543ed7056b55e59e752a167b31e6e7df88e9",
+  "ref": "599a1001a8a912589f1cb143826ff6d137a58cad",
   "path": "plugins/chaos-pack.manifest.json",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "platforms": [
     "web"
   ],

@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "summary": "Threat-intelligence entities (malware, campaigns, operations, vulnerabilities, threat actors, indicators, attack patterns, tools, detection signatures) and their relationships, aligned with STIX 2.1.",
   "repo": "Vineyard-Intelligence/typepack-basic",
-  "ref": "89e4e2f28fee689598fc80cd6a68681e5409277b",
+  "ref": "b1aac60243f2d33ce83160537ed3905dacd10479",
   "path": "typepacks/threat.json",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "categories": [
     "threat"
   ],

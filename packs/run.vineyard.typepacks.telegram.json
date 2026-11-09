@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "summary": "Telegram entities collected without joining: accounts (people and bots), broadcast channels, supergroups, and their posts. Pairs with the Telegram plugin pack.",
   "repo": "Vineyard-Intelligence/typepack-telegram",
-  "ref": "558c1bc650d0deea0bea8d8b09a3d514e6fac556",
+  "ref": "71ef0682f6b37f6be633460c66c29885896442c5",
   "path": "typepacks/telegram.json",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "categories": [
     "telegram"
   ],

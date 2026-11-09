@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "summary": "Searches and reads lazarus.day (https://lazarus.day), the public DPRK indicator index by @lazarusholic (https://x.com/lazarusholic): keyword search stages matches as graph nodes, and exact-record lookup adds the reports naming them. Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-lazarusday",
-  "ref": "21732fc878dc8c9afdee5a7e22d9f00f2fc27148",
+  "ref": "1c3f4386d3c9e4792d4651251eb213240875f50b",
   "path": "plugins/lazarusday.manifest.json",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "platforms": [
     "desktop",
     "web"

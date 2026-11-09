@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "summary": "Places and physical context — locations with coordinates, postal addresses, and facilities — to anchor the 'where' of an investigation.",
   "repo": "Vineyard-Intelligence/typepack-basic",
-  "ref": "89e4e2f28fee689598fc80cd6a68681e5409277b",
+  "ref": "b1aac60243f2d33ce83160537ed3905dacd10479",
   "path": "typepacks/geo.json",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "categories": [
     "geo"
   ],
