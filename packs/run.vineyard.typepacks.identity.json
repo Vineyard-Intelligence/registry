@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "summary": "People, organizations, and the identities that connect them - personas, email addresses, phone numbers, PGP keys, and the accounts they hold on websites.",
   "repo": "Vineyard-Intelligence/typepack-basic",
-  "ref": "b1aac60243f2d33ce83160537ed3905dacd10479",
+  "ref": "b34179e967cd8f14e6895c0bcc9d372cecd2f6ab",
   "path": "typepacks/identity.json",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "categories": [
     "identity"
   ],

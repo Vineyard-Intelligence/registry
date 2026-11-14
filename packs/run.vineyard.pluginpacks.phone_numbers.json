@@ -1,0 +1,25 @@
+{
+  "identifier": "run.vineyard.pluginpacks.phone_numbers",
+  "content_type": "vineyard:pluginpack",
+  "name": "Phone Numbers",
+  "author": "VINEYARD",
+  "summary": "Writes the E.164 form, country and line type (mobile, landline, VoIP, toll-free, UAN…) onto phone numbers from a bundled numbering plan, so differently written copies of one number can be matched. Works offline.",
+  "repo": "Vineyard-Intelligence/pluginpack-phone-numbers",
+  "ref": "436304ed1df2c63a92a411f240889451173e8e8a",
+  "path": "plugins/phone-numbers.manifest.json",
+  "version": "1.0.0",
+  "platforms": [
+    "web",
+    "desktop"
+  ],
+  "scopes_summary": {
+    "network": false,
+    "graph_write": true,
+    "secret_config": false
+  },
+  "plugin_count": 1,
+  "icon": "phone",
+  "typepacks": [
+    "run.vineyard.typepacks.identity"
+  ]
+}
