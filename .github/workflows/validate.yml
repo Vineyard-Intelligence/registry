@@ -28,8 +28,15 @@ jobs:
       # After the catalogs, because a client checks a pointer against the approved list and
       # the catalog is only the CURRENT row of it. A pack republished today must not
       # invalidate yesterday's correctly-pinned install.
+      #
+      # It hashes new documents and code modules as GitHub holds them at the pinned commit, and fails
+      # when jsDelivr serves other bytes, or when a current catalog row ends up without its digests.
+      # The token lifts the anonymous limit on raw.githubusercontent.com, which a first build of the
+      # code digests (close to a thousand files) would pass; it is sent to GitHub only.
       - name: Build the approved-ref lists from git history
         run: python scripts/build_approved.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # validate.py resolves each verified author's repo owner through the GitHub API and compares
       # the numeric account id, and asks the compare API whether each pinned commit is on a branch
       # or tag of its own repo — one call per repository, plus one per pin asked about, more only
@@ -84,6 +91,14 @@ jobs:
       # so the list being complete and correct is a security property, not bookkeeping.
       - name: Approved-ref list self-test
         run: python scripts/test_approved.py
+      # And the same for the code digests on plugin rows. Every live pack is one `dist/pack.mjs`
+      # that fetches, so the live catalog never takes the branches that matter: a module that cannot
+      # be fetched must leave the row with no map rather than a shorter one (the app refuses a pack
+      # whose map leaves a module out), a map may only be read out of the approved document, the
+      # bytes hashed are GitHub's and a CDN copy that differs fails the build, and a current row
+      # without its digests fails it too.
+      - name: Code digest self-test
+        run: python scripts/test_bundle_digests.py
       # And the same for the bundle check. Both packs that drift today drift on `version`, so the
       # licence half of the comparison is exercised by the live catalog exactly never — deleting
       # it would leave CI green while a GPL port went on shipping an Apache notice. Likewise every
@@ -130,7 +145,13 @@ jobs:
         with:
           python-version: "3.x"
       - run: python scripts/build_registry.py
+      # This build is not the one validate ran, and nothing tests its output before it is committed,
+      # so its own exit status is the gate: it fails, and nothing is committed, when a current row is
+      # left without its digests (a fetch that failed here and not there) or the CDN serves bytes
+      # other than GitHub's.
       - run: python scripts/build_approved.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Commit the rebuilt catalogs
         run: |
           if git diff --quiet -- registry/; then

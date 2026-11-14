@@ -68,6 +68,22 @@ for content_type, approved_rel in sorted(APPROVED.items()):
         check(f"{entry['identifier']} digest is sha256-shaped",
               bool(digest) and len(digest) == 64 and all(c in "0123456789abcdef" for c in digest))
 
+print("every current plugin row carries the digests of its code")
+# The same argument, for the modules: a pack the catalog points at today has a fetchable bundle,
+# so a row without `bundle_sha256` is a build that skipped it, and the app would run that pack's
+# code on membership alone (frontend plugins/bundle-pin.ts).
+bundles = {
+    (r["repo"], r["ref"], r["path"]): r.get("bundle_sha256") for r in load("registry/approved-pluginpacks.json")
+}
+for entry in load("registry/community-pluginpacks.json"):
+    got = bundles.get((entry.get("repo"), entry.get("ref"), entry.get("path")))
+    check(f"{entry['identifier']} has code digests", isinstance(got, dict) and bool(got))
+    check(
+        f"{entry['identifier']} code digests are sha256-shaped",
+        isinstance(got, dict)
+        and all(len(v) == 64 and all(c in "0123456789abcdef" for c in v) for v in got.values()),
+    )
+
 print("a commit that was never published is not approved")
 # Shaped exactly like the attack: this registry's org, a real pack repo, a well-formed 40-hex
 # ref. Only membership rejects it — the org prefix and the SHA pattern both pass.

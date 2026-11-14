@@ -28,8 +28,11 @@ not re-pin the ref, and the check said ok. A pin whose CLAIMS drift from its BYT
 worse than no pin, because the marketplace shows one thing and installs another.
 
 Fails closed: any mismatch or fetch error is an error. Because the ref is a commit
-SHA (also enforced by the entry schema), the bytes a consumer runs can never change
-under them - a later force-push/tag-move in the content repo cannot affect this pin.
+SHA (also enforced by the entry schema), what GitHub holds at the pin can never change -
+a later force-push/tag-move in the content repo cannot affect it. What a consumer
+RECEIVES comes through the CDN, which a commit does not pin; the approved-ref lists
+record the digests of the document and of its code, as GitHub holds them, for that
+(build_approved.py).
 """
 import json
 import os
@@ -308,11 +311,14 @@ def claim_mismatch(doc, entry):
 # rebuilt. That is a licence notice that is simply wrong about a GPL port, and a version the
 # update prompt cannot see.
 #
-# This is a PUBLISHING check, not a client one. The commit pin already guarantees the client gets
-# the bytes that live at that hash - an immutable ref cannot be substituted - so there is nothing
-# for the app to defend against here and no digest chain worth building for it. What is left is
-# whether the thing being published is internally consistent, which is exactly what the registry
-# is for.
+# This is a PUBLISHING check: whether the thing being published is internally consistent, which is
+# exactly what the registry is for. It is not what keeps the client running the reviewed bytes.
+# This comment used to say the commit pin did that and that no digest chain was worth building, and
+# that was wrong in the way the document digest had already been found wrong: the commit pins what
+# GitHub holds, and the client receives whatever the CDN serves. So build_approved.py records the
+# digest of each module a plugin row runs (`bundle_sha256`), hashed as GitHub holds it rather than
+# as this check or the client receives it, and the app refuses code whose bytes do not match it
+# (frontend plugins/bundle-pin.ts). bundle_url() below is what both use to find the module.
 _KEY = r'(?<![\w$])["\']?%s["\']?\s*:\s*'
 _STR = r'["\']([^"\']*)["\']'
 

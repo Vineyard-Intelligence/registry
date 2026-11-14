@@ -107,13 +107,30 @@ GET https://registry.vineyard.run/registry/approved-pluginpacks.json
 
 ```json
 [{ "identifier": "...", "repo": "org/repo", "ref": "<sha>", "path": "...",
-   "version": "1.0.0", "approved_at": "2026-08-10", "sha256": "<digest of the document>" }]
+   "version": "1.0.0", "approved_at": "2026-08-10", "sha256": "<digest of the document>",
+   "bundle_sha256": { "dist/pack.mjs": "<digest of the module>" } }]
 ```
 
-`sha256` is the digest of the pinned document's bytes. The app loads an installed pack only if its
-pointer is on this list and the fetched document matches the digest. Because the list keeps every
-ref ever approved, an older install stays valid after the pack is republished. The lists are
-generated from `approved-baseline.json` (the approvals up to 2026-10-11 and the re-pinned twins of
+`sha256` is the digest of the pinned document's bytes, as GitHub holds them at the pinned commit.
+The app loads an installed pack only if its pointer is on this list and the document it fetches
+through jsDelivr matches the digest.
+
+`bundle_sha256`, on Plugin Pack rows only, maps each code module the document runs (its
+`platforms.web.entry`, and each member's own) to the digest of that module's bytes, keyed by the
+module's path relative to the repo root. Before a plugin runs, the app fetches its module, refuses
+bytes that do not match, and hands the plugin worker only the bytes it checked. A pack whose row
+records `bundle_sha256` but leaves out a module the pack runs is not loaded at all. The map is
+written all or nothing: a row whose document or modules could not be fetched when the list was
+built has no `bundle_sha256`, and its code is verified by membership alone, as a row without
+`sha256` is for its document.
+
+Both digests are taken from `raw.githubusercontent.com` at the pinned commit, never from the CDN the
+app fetches through, and the build fails when jsDelivr serves other bytes for the same path. A ref
+GitHub no longer serves gets no new digest. The build also fails when a current catalog row has no
+`sha256`, or a current Plugin Pack row no `bundle_sha256`, so such a row is never published.
+
+Because the list keeps every ref ever approved, an older install stays valid after the pack is
+republished. The lists are generated from `approved-baseline.json` (the approvals up to 2026-10-11 and the re-pinned twins of
 the November 2026 history rewrites, frozen) and the history of `packs/`; you never edit them.
 
 ## 5. Submitting a pack
@@ -153,6 +170,8 @@ All blocking — a pull request cannot merge until every one passes.
 | `ref` is an immutable commit SHA | `verify_pinned.py` |
 | `ref` is on a branch or tag of `repo` itself — a commit no branch or tag contains, such as one that exists only in a fork, is refused. Checked for every entry whose `repo` or `ref` the pull request adds or changes | `validate.py`, proven by `test_reachable.py` |
 | Every current catalog row appears in its approved-ref list, and a commit that was never published does not | `build_approved.py`, proven by `test_approved.py` |
+| Every current Plugin Pack row records the digests of its code modules, read only out of the approved document, all or nothing | `build_approved.py`, proven by `test_approved.py` and `test_bundle_digests.py` |
+| A new digest is of the bytes GitHub holds at the pinned commit, and jsDelivr serves the same bytes; the publish job commits no list in which a current row lacks its digests | `build_approved.py`, proven by `test_bundle_digests.py` |
 | Pinned document is reachable, and its `identifier` / `content_type` / `version` match the entry | `verify_pinned.py` |
 | Every summary field the entry carries — `scopes_summary`, `platforms`, `plugin_count`, `desktop_only`, `icon`, `section_count`, `type_count` — equals what the pinned document implies | `verify_pinned.py` |
 | The plugin code module — `platforms.web.entry` of the pack and of each member — is a path inside the pinned commit, relative to the repo root: `/`-separated segments of ASCII letters, digits, `.`, `_` and `-`, none of them `.` or `..`, so no URL, leading `/`, backslash or `%`. The app refuses to run a pack whose entry does not resolve to such a path inside the pinned commit. The module there is reachable and declares the manifest's `version` and `license` for the pack and each member | `verify_pinned.py`, proven by `test_bundle_claims.py` |
