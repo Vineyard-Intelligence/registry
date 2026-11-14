@@ -167,7 +167,16 @@
       "if": {
         "required": [
           "normalize"
-        ]
+        ],
+        "properties": {
+          "normalize": {
+            "enum": [
+              "crypto_address",
+              "hex",
+              "url"
+            ]
+          }
+        }
       },
       "then": {
         "properties": {
@@ -208,14 +217,23 @@
         "case_insensitive": {
           "type": "boolean",
           "default": false,
-          "description": "Fold case when this property is used for DE-DUPLICATION. Display and storage keep whatever was written; only the identity key is folded. Opt-in, because getting it wrong in the two directions is not symmetric: a missing flag produces a duplicate node, which is visible and mergeable, while a wrong one merges two entities into one and destroys the distinction. Right for handles, domains, hostnames, emails and hex digests, where case carries no meaning. WRONG for Base58 crypto addresses, URL paths, and case-sensitive filesystem paths. A crypto address property mixes Base58 with hex and bech32, so it takes `normalize: crypto_address` instead; do not set both."
+          "description": "Fold case when this property is used for DE-DUPLICATION. Display and storage keep whatever was written; only the identity key is folded. Opt-in, because getting it wrong in the two directions is not symmetric: a missing flag produces a duplicate node, which is visible and mergeable, while a wrong one merges two entities into one and destroys the distinction. Right for handles, domains, hostnames, emails and hex digests, where case carries no meaning. WRONG for Base58 crypto addresses, URL paths, and case-sensitive filesystem paths. A crypto address property mixes Base58 with hex and bech32, so it takes `normalize: crypto_address` instead; do not set both. Beside `normalize: hostname`, `ip` or `cidr`, set it too: those rules only ever produce lower case, and an app that does not know the rule then still folds case."
         },
         "normalize": {
           "enum": [
             "crypto_address",
-            "hex"
+            "hex",
+            "hostname",
+            "ip",
+            "cidr",
+            "url"
           ],
-          "description": "A per-VALUE identity rule for DE-DUPLICATION, for a property whose values mix formats where case matters with formats where it does not. Like case_insensitive it applies to the identity key only; display and storage keep whatever was written. 'crypto_address' folds by the value's format, not its network: 0x + 40 hex (EVM, EIP-55 case is a checksum) to lower case; bech32/bech32m with hrp bc, tb, bcrt, ltc, tltc, btg, bnb, addr, addr_test, stake or stake_test, in one case and with a valid checksum, to lower case; CashAddr (a bitcoincash: prefix in any case, or none on a q/p/z/r value of 42 or 61 characters), in one case and checksumming under 'bitcoincash', to lower case without the prefix; TON raw <workchain>:<64 hex> to lower case; anything else, Base58 included, exactly as written. 'hex' folds a 64-hex value with or without 0x to lower case without the 0x, and compares anything else exactly. Neither re-encodes: a value that only matches after base58check or base64 conversion (TRON hex, Litecoin 3... aliases, TON user-friendly forms) must be written in its canonical form. An app that does not know the rule compares the value exactly. Do not combine with case_insensitive: true."
+          "description": "A named identity rule for DE-DUPLICATION, for what case_insensitive cannot describe. Like case_insensitive it applies to the identity key only; display and storage keep whatever was written. 'hostname' folds a DNS name: one trailing dot dropped, an internationalised name to its punycode (IDNA, UTS #46), lower case. 'ip' folds an IPv6 address to its RFC 5952 form (lower case, no leading zeros, the longest zero run as ::, an IPv4-mapped address with its last 32 bits dotted and never folded into that IPv4 address) and an IPv4 address written fixed-width (every octet three digits) to its plain form; any other leading zero is compared as written, since inet_aton and browsers read it as octal. 'cidr' folds the address as 'ip' does and the prefix length, without clearing host bits. 'url' folds an http, https, ftp, ws or wss URL as the WHATWG URL parser serialises it (scheme and host lower case, the host in punycode without its trailing dot, no default port, dot segments resolved, an empty path as /) with percent-encoding per RFC 3986 6.2.2 (hex digits upper case, unreserved characters decoded); its path, query and fragment keep their case. The others decide per VALUE, for a property whose values mix formats where case matters with formats where it does not. 'crypto_address' folds by the value's format, not its network: 0x + 40 hex (EVM, EIP-55 case is a checksum) to lower case; bech32/bech32m with hrp bc, tb, bcrt, ltc, tltc, btg, bnb, addr, addr_test, stake or stake_test, in one case and with a valid checksum, to lower case; CashAddr (a bitcoincash: prefix in any case, or none on a q/p/z/r value of 42 or 61 characters), in one case and checksumming under 'bitcoincash', to lower case without the prefix; TON raw <workchain>:<64 hex> to lower case; anything else, Base58 included, exactly as written. 'hex' folds a 64-hex value with or without 0x to lower case without the 0x, and compares anything else exactly. Neither re-encodes: a value that only matches after base58check or base64 conversion (TRON hex, Litecoin 3... aliases, TON user-friendly forms) must be written in its canonical form. An app that does not know the rule falls back to case_insensitive, which a pack sets beside 'hostname', 'ip' and 'cidr' and must not set beside 'crypto_address', 'hex' or 'url'."
+        },
+        "duplicate_key": {
+          "type": "boolean",
+          "default": false,
+          "description": "true marks a property that holds a canonical form of the node's identity, filled after the node was made: a phone number's E.164 form beside the number as written. Two nodes of the type with the same value here are reported as DUPLICATES of each other (the app's duplicate finder and merge), although their identity keys differ. Not part of the identity: de-duplication on write still compares the identity fields, so filling it never merges nodes by itself — the identity stays the form as written, because rewriting it could collide with a node already holding that spelling. Compared with the property's own case_insensitive or normalize. Scalar properties only, and not one already in the identity."
         },
         "default": {
           "description": "Default applied when the key is absent; type must match 'type'."

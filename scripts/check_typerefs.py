@@ -100,18 +100,25 @@ def check_identity(ident, key, t, errors):
 # The `normalize` rules the app implements (identity-normalize.ts in the frontend). The schema enum
 # says the same, but nothing here validates a Type Pack document against the schema (see
 # check_identity), so a typo would otherwise ship.
-NORMALIZE_RULES = {"crypto_address", "hex"}
+NORMALIZE_RULES = {"crypto_address", "hex", "hostname", "ip", "cidr", "url"}
+
+# The rules whose every result is lower case (CASE_FOLDING_RULES in identity-normalize.ts). Beside
+# one of these `case_insensitive: true` is the right fallback for an app that predates the rule —
+# the app falls back to the flag for a rule it does not know — so the pair is allowed. Beside the
+# others it is not: `crypto_address` and `hex` leave Base58 values as written and `url` its path,
+# and the flag would fold exactly what they keep.
+CASE_FOLDING_RULES = {"hostname", "ip", "cidr"}
 
 
 def check_normalize(ident, key, t, errors):
-    """A property's `normalize` must be a rule the app has, and must not be combined with
-    `case_insensitive: true`.
+    """A property's `normalize` must be a rule the app has, and may sit beside
+    `case_insensitive: true` only when the rule folds case for every value anyway.
 
-    Both failures are silent in the app. An UNKNOWN rule is compared exactly — the app treats it as
-    a rule from a newer schema it cannot apply — so a misspelt `crypto_adress` quietly turns every
-    checksummed-versus-lower-case pair back into two nodes. A rule ALONGSIDE `case_insensitive`
-    loses the flag (the rule wins), which is the outcome the author asked for only by accident;
-    folding every value as well would merge Base58 addresses that differ by case alone.
+    Both failures are silent in the app. An UNKNOWN rule falls back to the flag — the app treats it
+    as a rule from a newer schema it cannot apply — so a misspelt `crypto_adress` quietly turns every
+    checksummed-versus-lower-case pair back into two nodes. The flag beside a rule that keeps case
+    somewhere (`crypto_address`, `hex`, `url`) is what an app without the rule would then apply, and
+    it would merge Base58 addresses, or URL paths, that differ by case alone.
     """
     for name, prop in (t.get("properties") or {}).items():
         prop = prop or {}
@@ -122,19 +129,48 @@ def check_normalize(ident, key, t, errors):
             errors.append((
                 ident,
                 f"type '{key}': property '{name}' has normalize {rule!r}, which is not one of "
-                f"{', '.join(sorted(NORMALIZE_RULES))} — the app would compare it exactly",
+                f"{', '.join(sorted(NORMALIZE_RULES))} — the app would not apply it",
             ))
-        elif prop.get("case_insensitive") is True:
+        elif prop.get("case_insensitive") is True and rule not in CASE_FOLDING_RULES:
             errors.append((
                 ident,
-                f"type '{key}': property '{name}' sets both normalize and case_insensitive — "
-                f"normalize decides per value and replaces the flag; drop case_insensitive",
+                f"type '{key}': property '{name}' sets both normalize {rule!r} and case_insensitive — "
+                f"an app without the rule would fold every value by case; drop case_insensitive",
             ))
         elif prop.get("type") in NON_SCALAR:
             errors.append((
                 ident,
                 f"type '{key}': property '{name}' is a {prop.get('type')}, and normalize applies to "
                 f"a scalar value only",
+            ))
+
+
+def check_duplicate_key(ident, key, t, errors):
+    """`duplicate_key` is a boolean on a scalar property that is not already the identity.
+
+    The app groups duplicates by it with a scalar comparison, so on an array or object it would never
+    match anything; on an identity field it says nothing the identity does not, and only makes the
+    duplicate finder report the same group twice over. Neither raises in the app.
+    """
+    identity = set(t.get("identity_properties") or [t.get("label_property")])
+    for name, prop in (t.get("properties") or {}).items():
+        prop = prop or {}
+        if "duplicate_key" not in prop:
+            continue
+        flag = prop.get("duplicate_key")
+        if not isinstance(flag, bool):
+            errors.append((ident, f"type '{key}': property '{name}' has duplicate_key {flag!r}, not a boolean"))
+        elif flag and prop.get("type") in NON_SCALAR:
+            errors.append((
+                ident,
+                f"type '{key}': property '{name}' is a {prop.get('type')}, and duplicate_key applies to "
+                f"a scalar value only",
+            ))
+        elif flag and name in identity:
+            errors.append((
+                ident,
+                f"type '{key}': property '{name}' is part of the identity already; duplicate_key marks "
+                f"a canonical form kept BESIDE the identity",
             ))
 
 
@@ -152,6 +188,7 @@ def build_palette(entries, errors):
             key = f"{t.get('category')}.{t.get('name')}"
             check_identity(ident, key, t, errors)
             check_normalize(ident, key, t, errors)
+            check_duplicate_key(ident, key, t, errors)
             if key in palette and palette[key] != ident:
                 # Two packs defining one type makes `Node.type` ambiguous — the app resolves by
                 # the qualified string alone, so whichever is activated last silently wins.
