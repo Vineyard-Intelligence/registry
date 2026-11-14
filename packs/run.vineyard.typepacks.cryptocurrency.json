@@ -1,0 +1,16 @@
+{
+  "identifier": "run.vineyard.typepacks.cryptocurrency",
+  "content_type": "vineyard:typepack",
+  "name": "Cryptocurrency",
+  "author": "VINEYARD",
+  "summary": "Cryptocurrency addresses, transactions, tokens and non-custodial services on every chain, identified by network as well as value: the same string on Bitcoin and Bitcoin Cash, or on Ethereum and BSC, is two nodes. Public identifiers only.",
+  "repo": "Vineyard-Intelligence/typepack-cryptocurrency",
+  "ref": "146ba78c972a2410ddf2ddfaf4fb07a5f60f76d5",
+  "path": "typepacks/cryptocurrency.json",
+  "version": "1.0.0",
+  "categories": [
+    "cryptocurrency"
+  ],
+  "type_count": 4,
+  "icon": "wallet"
+}
