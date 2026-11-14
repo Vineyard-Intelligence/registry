@@ -164,6 +164,18 @@
         "type"
       ],
       "description": "Every property MUST declare an explicit type. NOTE: 'secret'/'credential' types are intentionally absent.",
+      "if": {
+        "required": [
+          "normalize"
+        ]
+      },
+      "then": {
+        "properties": {
+          "case_insensitive": {
+            "const": false
+          }
+        }
+      },
       "properties": {
         "type": {
           "enum": [
@@ -196,7 +208,14 @@
         "case_insensitive": {
           "type": "boolean",
           "default": false,
-          "description": "Fold case when this property is used for DE-DUPLICATION. Display and storage keep whatever was written; only the identity key is folded. Opt-in, because getting it wrong in the two directions is not symmetric: a missing flag produces a duplicate node, which is visible and mergeable, while a wrong one merges two entities into one and destroys the distinction. Right for handles, domains, hostnames, emails and hex digests, where case carries no meaning. WRONG for Base58/EIP-55 crypto addresses, URL paths, and case-sensitive filesystem paths."
+          "description": "Fold case when this property is used for DE-DUPLICATION. Display and storage keep whatever was written; only the identity key is folded. Opt-in, because getting it wrong in the two directions is not symmetric: a missing flag produces a duplicate node, which is visible and mergeable, while a wrong one merges two entities into one and destroys the distinction. Right for handles, domains, hostnames, emails and hex digests, where case carries no meaning. WRONG for Base58 crypto addresses, URL paths, and case-sensitive filesystem paths. A crypto address property mixes Base58 with hex and bech32, so it takes `normalize: crypto_address` instead; do not set both."
+        },
+        "normalize": {
+          "enum": [
+            "crypto_address",
+            "hex"
+          ],
+          "description": "A per-VALUE identity rule for DE-DUPLICATION, for a property whose values mix formats where case matters with formats where it does not. Like case_insensitive it applies to the identity key only; display and storage keep whatever was written. 'crypto_address' folds by the value's format, not its network: 0x + 40 hex (EVM, EIP-55 case is a checksum) to lower case; bech32/bech32m with hrp bc, tb, bcrt, ltc, tltc, btg, bnb, addr, addr_test, stake or stake_test, in one case and with a valid checksum, to lower case; CashAddr (a bitcoincash: prefix in any case, or none on a q/p/z/r value of 42 or 61 characters), in one case and checksumming under 'bitcoincash', to lower case without the prefix; TON raw <workchain>:<64 hex> to lower case; anything else, Base58 included, exactly as written. 'hex' folds a 64-hex value with or without 0x to lower case without the 0x, and compares anything else exactly. Neither re-encodes: a value that only matches after base58check or base64 conversion (TRON hex, Litecoin 3... aliases, TON user-friendly forms) must be written in its canonical form. An app that does not know the rule compares the value exactly. Do not combine with case_insensitive: true."
         },
         "default": {
           "description": "Default applied when the key is absent; type must match 'type'."

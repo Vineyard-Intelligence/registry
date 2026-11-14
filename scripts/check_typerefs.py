@@ -97,6 +97,47 @@ def check_identity(ident, key, t, errors):
             ))
 
 
+# The `normalize` rules the app implements (identity-normalize.ts in the frontend). The schema enum
+# says the same, but nothing here validates a Type Pack document against the schema (see
+# check_identity), so a typo would otherwise ship.
+NORMALIZE_RULES = {"crypto_address", "hex"}
+
+
+def check_normalize(ident, key, t, errors):
+    """A property's `normalize` must be a rule the app has, and must not be combined with
+    `case_insensitive: true`.
+
+    Both failures are silent in the app. An UNKNOWN rule is compared exactly — the app treats it as
+    a rule from a newer schema it cannot apply — so a misspelt `crypto_adress` quietly turns every
+    checksummed-versus-lower-case pair back into two nodes. A rule ALONGSIDE `case_insensitive`
+    loses the flag (the rule wins), which is the outcome the author asked for only by accident;
+    folding every value as well would merge Base58 addresses that differ by case alone.
+    """
+    for name, prop in (t.get("properties") or {}).items():
+        prop = prop or {}
+        if "normalize" not in prop:
+            continue
+        rule = prop.get("normalize")
+        if rule not in NORMALIZE_RULES:
+            errors.append((
+                ident,
+                f"type '{key}': property '{name}' has normalize {rule!r}, which is not one of "
+                f"{', '.join(sorted(NORMALIZE_RULES))} — the app would compare it exactly",
+            ))
+        elif prop.get("case_insensitive") is True:
+            errors.append((
+                ident,
+                f"type '{key}': property '{name}' sets both normalize and case_insensitive — "
+                f"normalize decides per value and replaces the flag; drop case_insensitive",
+            ))
+        elif prop.get("type") in NON_SCALAR:
+            errors.append((
+                ident,
+                f"type '{key}': property '{name}' is a {prop.get('type')}, and normalize applies to "
+                f"a scalar value only",
+            ))
+
+
 def build_palette(entries, errors):
     """"category.name" -> the Type Pack identifier that defines it, across the whole catalog."""
     palette = {}
@@ -110,6 +151,7 @@ def build_palette(entries, errors):
         for t in doc.get("types") or []:
             key = f"{t.get('category')}.{t.get('name')}"
             check_identity(ident, key, t, errors)
+            check_normalize(ident, key, t, errors)
             if key in palette and palette[key] != ident:
                 # Two packs defining one type makes `Node.type` ambiguous — the app resolves by
                 # the qualified string alone, so whichever is activated last silently wins.

@@ -91,6 +91,11 @@ jobs:
       # (an absolute URL, `../`, `/gh/…`, `%2e%2e`, a backslash) is refused rather than checked.
       - name: Bundle entry and version/licence self-test
         run: python scripts/test_bundle_claims.py
+      # And the same for the Type Pack document checks in check_typerefs.py. Every published pack
+      # passes them, so a misspelt `normalize` rule — which the app compares exactly, silently —
+      # or a non-scalar identity field is rejected by a branch the live catalog never takes.
+      - name: Type Pack document checks self-test
+        run: python scripts/test_typerefs.py
       - name: Verify pinned commits (immutable SHA + document and bundle match)
         run: python scripts/verify_pinned.py
       # After the pins are proven, because this fetches the same documents and would otherwise
