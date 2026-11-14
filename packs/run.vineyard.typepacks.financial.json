@@ -3,11 +3,11 @@
   "content_type": "vineyard:typepack",
   "name": "Financial",
   "author": "VINEYARD",
-  "summary": "Follow-the-money entities: cryptocurrency addresses and transactions, exchanges, and bank accounts. Public identifiers only — no keys, PANs, or credentials.",
+  "summary": "Follow-the-money entities: bank accounts with their fraud-report status, exchanges and other virtual-asset service providers, and the legacy cryptocurrency address and transaction types. Public identifiers only — no keys, PANs, or credentials.",
   "repo": "Vineyard-Intelligence/typepack-basic",
-  "ref": "b1aac60243f2d33ce83160537ed3905dacd10479",
+  "ref": "ce1779f271b838890d7539695279310dc732fcef",
   "path": "typepacks/financial.json",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "categories": [
     "financial"
   ],
