@@ -48,7 +48,7 @@
           "required": ["runtime", "entry"],
           "properties": {
             "runtime": { "enum": ["sandbox-js", "web-proxy"] },
-            "entry": { "type": "string", "description": "Path to the pack bundle, relative to the repo root, or an absolute URL." },
+            "entry": { "type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?(?:/|$))[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$", "description": "Path to the pack bundle inside the repository at the pinned commit, relative to the repo root (e.g. dist/pack.mjs). Not a URL, and no leading slash, `.`/`..` segment, backslash or percent-escape: the app runs code only from the commit the registry reviewed, and refuses a pack whose entry resolves anywhere else." },
             "proxy_endpoint": { "type": "string", "format": "uri" },
             "fallback": { "enum": ["desktop", "none"], "default": "none" }
           }
@@ -59,7 +59,7 @@
           "required": ["runtime", "entry"],
           "properties": {
             "runtime": { "enum": ["sandbox-js", "native", "subprocess"] },
-            "entry": { "type": "string" },
+            "entry": { "type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?(?:/|$))[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$", "description": "Reserved (the host does not read platforms.desktop). Held to the same rule as platforms.web.entry: a path inside the pinned commit." },
             "fallback": { "enum": ["web", "none"], "default": "none" }
           }
         }
@@ -89,7 +89,11 @@
         "platforms": {
           "type": "object",
           "minProperties": 1,
-          "description": "Per-platform execution. entry names the pack bundle, the same as the pack-level platforms."
+          "description": "Per-platform execution. entry names the pack bundle, the same as the pack-level platforms, and is held to the same rule: a path inside the pinned commit.",
+          "properties": {
+            "web": { "type": "object", "properties": { "entry": { "type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?(?:/|$))[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$", "description": "Same as the pack-level platforms.web.entry. Omit it to run the pack's bundle." } } },
+            "desktop": { "type": "object", "properties": { "entry": { "type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?(?:/|$))[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$", "description": "Reserved (the host does not read platforms.desktop). Held to the same rule as platforms.web.entry: a path inside the pinned commit." } } }
+          }
         },
         "io": { "$ref": "https://vineyard.run/schemas/plugin.json#/properties/io" },
         "params": { "type": "object" },

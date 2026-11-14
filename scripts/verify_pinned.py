@@ -15,9 +15,10 @@ document at the pinned ref via the jsDelivr CDN and asserts:
   - the document states both of the pack's texts - `summary`, the card line the entry's own
     `summary` must equal, and `description`, the pack's page - within the caps the app reads them
     under. See pack_text_problem(), and
-  - the CODE the manifest points at - `platforms.web.entry`, fetched at the same
-    pinned ref - declares the same version and licence as the manifest does. See
-    bundle_mismatch() for why that is this file's job and not the client's.
+  - the CODE the manifest points at - `platforms.web.entry`, a path inside the same
+    pinned commit and never a URL or a path out of it - declares the same version and
+    licence as the manifest does. See bundle_url() for the first half and
+    bundle_mismatch() for why the second is this file's job and not the client's.
 
 The version/count comparison is the reason this file exists in its current form. It
 used to check only identifier and content_type, and still printed "document matches",
@@ -35,6 +36,7 @@ import os
 import re
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -109,6 +111,11 @@ LUCIDE = re.compile(r"^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$")
 # returns None for one so an entry cannot keep claiming an image the document no longer carries.
 MAX_THUMBNAIL_BYTES = 256 * 1024
 THUMB = re.compile(r"^(?!/)(?!.*(?:^|/)\.\.?(?:/|$))[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$")
+
+# Mirrors `platforms.*.entry` in the plugin / pluginpack schemas, and is the same grammar as
+# THUMB for the same reason: a path inside the pinned commit, so that what CI fetches and what the
+# app imports are one file. See bundle_url().
+ENTRY = THUMB
 
 
 def lucide(name):
@@ -353,8 +360,21 @@ def bundle_url(manifest, pack, root):
     plugins/dist/pack.mjs, which was a shipped 404. A member with no web block of its own
     inherits the pack's, which is the one-module-many-plugins case.
 
+    And it has to name a file IN that commit. This used to pass an absolute `entry` through as it
+    was and strip a leading `/` from the rest, so the check fetched one file while the app ran
+    another: `https://cdn.jsdelivr.net/gh/someone/x@main/evil.mjs` was checked as written and
+    imported by the worker - a branch that can change after review - and `/gh/someone/x@main/…`
+    was checked as the file at that path inside the pin, which the author can make harmless, while
+    the browser resolved it against the CDN root, that is, to `@main` again. Python's urljoin and the browser's URL parser disagree about
+    backslashes and `%2e%2e`, so "resolve it the way the app does" cannot be done here by
+    resolving; it is done by admitting only paths both read the same way (ENTRY: no scheme, no
+    leading `/`, no `.`/`..` segment, no backslash or `%`), which every published manifest
+    already is (`dist/pack.mjs`). The app refuses the same escapes on its side
+    (frontend plugins/entry-pin.ts), for rows published before this rule and anything else that
+    reaches it without passing here.
+
     Raises ValueError for `inline`: it names no module, so the host has nothing to import and the
-    plugin never appears in the run dialog.
+    plugin never appears in the run dialog. Raises ValueError for any entry outside the pin.
     """
     web = ((manifest.get("platforms") or {}).get("web")) or ((pack.get("platforms") or {}).get("web")) or {}
     entry = web.get("entry")
@@ -362,7 +382,17 @@ def bundle_url(manifest, pack, root):
         return None
     if entry == "inline":
         raise ValueError("platforms.web.entry 'inline' names no module — point it at the bundle (e.g. dist/pack.mjs)")
-    return entry if entry.startswith("http") else root + entry.lstrip("/")
+    if not isinstance(entry, str) or not ENTRY.match(entry):
+        raise ValueError(
+            f"platforms.web.entry {json.dumps(entry)} is not a path inside the pinned commit — name the "
+            "bundle relative to the repo root (e.g. dist/pack.mjs): no URL, no leading '/', no '.' or "
+            "'..' segment, no backslash or '%'. The app refuses to run code from anywhere else"
+        )
+    url = urllib.parse.urljoin(root, entry)
+    # Cannot fail for a path ENTRY admits; stated here so the rule sits where the url is made.
+    if not url.startswith(root):
+        raise ValueError(f"platforms.web.entry {json.dumps(entry)} resolves outside the pinned commit: {url}")
+    return url
 
 
 def bundle_mismatch(doc, entry, root, cache):

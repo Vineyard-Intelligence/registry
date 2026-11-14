@@ -49,7 +49,7 @@
           "required": ["runtime", "entry"],
           "properties": {
             "runtime": { "enum": ["sandbox-js", "web-proxy"], "description": "sandbox-js = author JS in the browser worker; web-proxy = thin client calling ONE author endpoint." },
-            "entry": { "type": "string", "description": "The module the plugin worker imports: a path relative to the repo root (e.g. dist/pack.mjs) or an absolute URL." },
+            "entry": { "type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?(?:/|$))[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$", "description": "The module the plugin worker imports: a path inside the repository at the pinned commit, relative to the repo root (e.g. dist/pack.mjs). Not a URL, and no leading slash, `.`/`..` segment, backslash or percent-escape: the app runs code only from the commit the registry reviewed, and refuses a pack whose entry resolves anywhere else." },
             "proxy_endpoint": { "type": "string", "format": "uri", "description": "REQUIRED when runtime=web-proxy. The ONE endpoint; MUST equal the single scopes.network entry." },
             "fallback": { "enum": ["desktop", "none"], "default": "none" }
           }
@@ -60,7 +60,7 @@
           "required": ["runtime", "entry"],
           "properties": {
             "runtime": { "enum": ["sandbox-js", "native", "subprocess"] },
-            "entry": { "type": "string" },
+            "entry": { "type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?(?:/|$))[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$", "description": "Reserved (the host does not read platforms.desktop). Held to the same rule as platforms.web.entry: a path inside the pinned commit." },
             "fallback": { "enum": ["web", "none"], "default": "none" }
           }
         }

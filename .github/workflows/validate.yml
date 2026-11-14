@@ -86,8 +86,10 @@ jobs:
         run: python scripts/test_approved.py
       # And the same for the bundle check. Both packs that drift today drift on `version`, so the
       # licence half of the comparison is exercised by the live catalog exactly never — deleting
-      # it would leave CI green while a GPL port went on shipping an Apache notice.
-      - name: Bundle version/licence self-test
+      # it would leave CI green while a GPL port went on shipping an Apache notice. Likewise every
+      # live entry is `dist/pack.mjs`, so only this file proves an entry outside the pinned commit
+      # (an absolute URL, `../`, `/gh/…`, `%2e%2e`, a backslash) is refused rather than checked.
+      - name: Bundle entry and version/licence self-test
         run: python scripts/test_bundle_claims.py
       - name: Verify pinned commits (immutable SHA + document and bundle match)
         run: python scripts/verify_pinned.py

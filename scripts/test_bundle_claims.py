@@ -8,13 +8,21 @@ an Apache notice, which is the case that motivated the check. The same is true o
 that keep it from crying wolf — `min_app_version` must not read as `version`, and a member is
 allowed to carry a different licence from its pack.
 
+The entry half has the same problem in a sharper form. Every published manifest says
+`dist/pack.mjs`, so a bundle_url() that passed an absolute `entry` straight through (it did) is
+indistinguishable on the live catalog from one that refuses it — and the absolute case is the one
+where CI checks a file inside the pin while the app runs a branch somewhere else. The spellings
+below are each a real way out of the pin to a browser's URL parser.
+
 Offline: no network, no catalog. Run with: python scripts/test_bundle_claims.py
 """
+import json
 import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from verify_pinned import bundle_claims, bundle_mismatch, bundle_url  # noqa: E402
+import verify_pinned  # noqa: E402
+from verify_pinned import ENTRY, bundle_claims, bundle_mismatch, bundle_url  # noqa: E402
 
 PACK_ID = "run.vineyard.pluginpacks.demo"
 MEMBER_ID = "run.vineyard.plugins.demo"
@@ -81,6 +89,106 @@ def main():
     else:
         raise AssertionError("an 'inline' entry must be refused")
     assert bundle_url({}, {}, ROOT) is None
+
+    # --- entry containment: the code CI checks is the code the app runs ---------------------------
+    # Each of these resolves OUTSIDE `ROOT` in a browser (or, for %2F, at the CDN, which decodes it
+    # before routing), so the worker would import code the pin does not cover. Refused, naming the
+    # field, whether the pack or a member says it.
+    evil = "https://cdn.jsdelivr.net/gh/someone/x@main/evil.mjs"
+    escapes = [
+        evil,  # measured: kept as written by the app, imported by the worker
+        "HTTPS://cdn.jsdelivr.net/gh/someone/x@main/evil.mjs",
+        "http://cdn.jsdelivr.net/gh/someone/x@main/evil.mjs",
+        "//cdn.jsdelivr.net/gh/someone/x@main/evil.mjs",
+        "../../someone/x@main/evil.mjs",
+        "dist/../../../someone/x@main/evil.mjs",
+        "/gh/someone/x@main/evil.mjs",  # used to be stripped to gh/… and checked INSIDE the pin
+        "/dist/pack.mjs",  # likewise: the browser reads it from the CDN root, not the repo root
+        "%2e%2e/%2e%2e/someone/x@main/evil.mjs",
+        "%2E%2E/%2E%2E/someone/x@main/evil.mjs",
+        ".%2e/.%2e/someone/x@main/evil.mjs",
+        "..\\..\\someone\\x@main\\evil.mjs",
+        "\\\\cdn.jsdelivr.net\\gh\\someone\\x@main\\evil.mjs",
+        "dist%2F..%2F..%2F..%2Fsomeone%2Fx@main%2Fevil.mjs",
+        "dist%5Cpack.mjs",
+        ".\t./.\t./someone/x@main/evil.mjs",  # the parser strips the tab
+        "https:../../someone/x@main/evil.mjs",
+        "data:text/javascript,export default {}",
+        "javascript:1",
+        "./dist/pack.mjs",  # harmless, but not a spelling Python and the browser are sure to agree on
+        "dist/./pack.mjs",
+        "dist/pack.mjs?v=1",
+        "dist/pack.mjs#x",
+        " dist/pack.mjs",
+        "dist/pack.mjs ",
+        ROOT + "dist/pack.mjs",  # even the pin itself, spelled absolutely: a manifest cannot know its own SHA
+    ]
+    for bad in escapes:
+        doc = pack(platforms={"web": {"runtime": "sandbox-js", "entry": bad}})
+        try:
+            bundle_url(doc, doc, ROOT)
+        except ValueError as e:
+            assert "not a path inside the pinned commit" in str(e), (bad, e)
+        else:
+            raise AssertionError(f"entry {bad!r} must be refused")
+        member = {"identifier": MEMBER_ID, "platforms": {"web": {"runtime": "sandbox-js", "entry": bad}}}
+        try:
+            bundle_url(member, pack(), ROOT)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError(f"member entry {bad!r} must be refused")
+    for not_a_string in (1, ["dist/pack.mjs"], {"path": "dist/pack.mjs"}):
+        try:
+            bundle_url({"platforms": {"web": {"entry": not_a_string}}}, {}, ROOT)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError(f"entry {not_a_string!r} must be refused")
+    # What a real pack names still resolves to the file in the pin, exactly as the app builds it.
+    for good in ("dist/pack.mjs", "pack.mjs", "build/v2/pack-1.0.0.mjs"):
+        doc = pack(platforms={"web": {"runtime": "sandbox-js", "entry": good}})
+        assert bundle_url(doc, doc, ROOT) == ROOT + good, good
+
+    # Refused BEFORE anything is fetched: the point is that CI never looks at a stand-in file.
+    real_fetch = verify_pinned.fetch_text
+
+    def no_fetch(url, *a, **k):
+        raise AssertionError(f"fetched {url} for an entry that should have been refused")
+
+    verify_pinned.fetch_text = no_fetch
+    try:
+        err = bundle_mismatch(pack(platforms={"web": {"runtime": "sandbox-js", "entry": evil}}), {"content_type": "vineyard:pluginpack"}, ROOT, {})
+        assert err and "not a path inside the pinned commit" in err and "member" not in err, err
+        doc = pack()
+        doc["plugins"][0]["platforms"] = {"web": {"runtime": "sandbox-js", "entry": "../../someone/x@main/evil.mjs"}}
+        err = bundle_mismatch(doc, {"content_type": "vineyard:pluginpack"}, ROOT, {URL: BUNDLE})
+        assert err and err.startswith(f"member {MEMBER_ID}: ") and "not a path inside the pinned commit" in err, err
+    finally:
+        verify_pinned.fetch_text = real_fetch
+
+    # The schemas state the same grammar, wherever they describe an `entry` — never a copy that drifts.
+    here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    found = []
+
+    def entries(node, path):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                if k == "entry" and isinstance(v, dict) and v.get("type") == "string":
+                    found.append((path + [k], v))
+                entries(v, path + [k])
+        elif isinstance(node, list):
+            for i, v in enumerate(node):
+                entries(v, path + [str(i)])
+
+    for rel in ("schemas/plugin.schema.json", "schemas/pluginpack.schema.json"):
+        with open(os.path.join(here, rel), "r", encoding="utf-8") as fh:
+            entries(json.load(fh), [rel])
+    # plugin: web, desktop. pluginpack: pack web, pack desktop, member web, member desktop.
+    assert len(found) == 6, [".".join(p) for p, _ in found]
+    for path, node in found:
+        assert node.get("pattern") == ENTRY.pattern, ".".join(path)
+        assert "absolute URL" not in node.get("description", ""), ".".join(path)
 
     # --- comparison: is it actually COMPARED, or merely computed? ---------------------------------
     entry = {"content_type": "vineyard:pluginpack", "version": "2.0.0"}
