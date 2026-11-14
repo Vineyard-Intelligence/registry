@@ -114,7 +114,8 @@ THUMB = re.compile(r"^(?!/)(?!.*(?:^|/)\.\.?(?:/|$))[A-Za-z0-9._-]+(?:/[A-Za-z0-
 
 # Mirrors `platforms.*.entry` in the plugin / pluginpack schemas, and is the same grammar as
 # THUMB for the same reason: a path inside the pinned commit, so that what CI fetches and what the
-# app imports are one file. See bundle_url().
+# app imports are one file. An ALLOW-list: `/`-separated segments of ASCII letters, digits, `.`,
+# `_` and `-`, none of them `.` or `..`. See bundle_url().
 ENTRY = THUMB
 
 
@@ -367,11 +368,14 @@ def bundle_url(manifest, pack, root):
     was checked as the file at that path inside the pin, which the author can make harmless, while
     the browser resolved it against the CDN root, that is, to `@main` again. Python's urljoin and the browser's URL parser disagree about
     backslashes and `%2e%2e`, so "resolve it the way the app does" cannot be done here by
-    resolving; it is done by admitting only paths both read the same way (ENTRY: no scheme, no
-    leading `/`, no `.`/`..` segment, no backslash or `%`), which every published manifest
-    already is (`dist/pack.mjs`). The app refuses the same escapes on its side
-    (frontend plugins/entry-pin.ts), for rows published before this rule and anything else that
-    reaches it without passing here.
+    resolving; it is done by admitting only paths both read the same way (ENTRY: `/`-separated
+    segments of ASCII letters, digits, `.`, `_` and `-`, none of them `.` or `..`, which leaves
+    out every scheme, a leading `/`, backslashes and `%`), which every published manifest
+    already is (`dist/pack.mjs`). Matched with fullmatch, not match: Python's `$` also matches
+    before a trailing newline, which the browser strips, so `dist/pack.mjs` followed by a
+    newline would reach the fetch instead of being refused here. The app refuses the same
+    escapes on its side (frontend plugins/entry-pin.ts), for rows published before this rule and
+    anything else that reaches it without passing here.
 
     Raises ValueError for `inline`: it names no module, so the host has nothing to import and the
     plugin never appears in the run dialog. Raises ValueError for any entry outside the pin.
@@ -382,11 +386,12 @@ def bundle_url(manifest, pack, root):
         return None
     if entry == "inline":
         raise ValueError("platforms.web.entry 'inline' names no module — point it at the bundle (e.g. dist/pack.mjs)")
-    if not isinstance(entry, str) or not ENTRY.match(entry):
+    if not isinstance(entry, str) or not ENTRY.fullmatch(entry):
         raise ValueError(
             f"platforms.web.entry {json.dumps(entry)} is not a path inside the pinned commit — name the "
-            "bundle relative to the repo root (e.g. dist/pack.mjs): no URL, no leading '/', no '.' or "
-            "'..' segment, no backslash or '%'. The app refuses to run code from anywhere else"
+            "bundle relative to the repo root (e.g. dist/pack.mjs), as '/'-separated segments of ASCII "
+            "letters, digits, '.', '_' and '-', none of them '.' or '..' (so no URL, no leading '/', no "
+            "backslash or '%'). The app refuses to run code from anywhere else"
         )
     url = urllib.parse.urljoin(root, entry)
     # Cannot fail for a path ENTRY admits; stated here so the rule sits where the url is made.

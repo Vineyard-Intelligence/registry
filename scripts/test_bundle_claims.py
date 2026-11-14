@@ -121,6 +121,12 @@ def main():
         "dist/pack.mjs#x",
         " dist/pack.mjs",
         "dist/pack.mjs ",
+        "dist/pack.mjs\n",  # Python's `$` matches before it; the browser strips it
+        # Inside the pin, but outside the documented alphabet: the rule is an allow-list.
+        "dist/pack@1.2.0.mjs",
+        "dist/vt+community.mjs",
+        "dist/pack\u00e9.mjs",
+        "dist//pack.mjs",
         ROOT + "dist/pack.mjs",  # even the pin itself, spelled absolutely: a manifest cannot know its own SHA
     ]
     for bad in escapes:

@@ -48,7 +48,7 @@
           "required": ["runtime", "entry"],
           "properties": {
             "runtime": { "enum": ["sandbox-js", "web-proxy"] },
-            "entry": { "type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?(?:/|$))[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$", "description": "Path to the pack bundle inside the repository at the pinned commit, relative to the repo root (e.g. dist/pack.mjs). Not a URL, and no leading slash, `.`/`..` segment, backslash or percent-escape: the app runs code only from the commit the registry reviewed, and refuses a pack whose entry resolves anywhere else." },
+            "entry": { "type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?(?:/|$))[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$", "description": "Path to the pack bundle inside the repository at the pinned commit, relative to the repo root (e.g. dist/pack.mjs). `/`-separated segments of ASCII letters, digits, `.`, `_` and `-`, none of them `.` or `..` (so not a URL, and no leading slash, backslash or percent-escape): the app runs code only from the commit the registry reviewed, and refuses a pack whose entry does not resolve to such a path inside it." },
             "proxy_endpoint": { "type": "string", "format": "uri" },
             "fallback": { "enum": ["desktop", "none"], "default": "none" }
           }
