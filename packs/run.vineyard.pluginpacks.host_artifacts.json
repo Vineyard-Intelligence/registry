@@ -1,0 +1,26 @@
+{
+  "identifier": "run.vineyard.pluginpacks.host_artifacts",
+  "content_type": "vineyard:pluginpack",
+  "name": "Host Artifacts",
+  "author": "VINEYARD",
+  "summary": "Imports Sysmon and EDR process, network and DNS events from exports you pick, parsed locally, as processes linked to the addresses and domains they reached and the files they ran from.",
+  "repo": "Vineyard-Intelligence/pluginpack-host-artifacts",
+  "ref": "fd22e18e9b64e2b5de5169d0080e5c39ae55ed7f",
+  "path": "plugins/host-artifacts.manifest.json",
+  "version": "1.0.0",
+  "platforms": [
+    "desktop",
+    "web"
+  ],
+  "scopes_summary": {
+    "network": false,
+    "graph_write": true,
+    "secret_config": false
+  },
+  "plugin_count": 1,
+  "icon": "cpu",
+  "typepacks": [
+    "run.vineyard.typepacks.endpoint",
+    "run.vineyard.typepacks.infrastructure"
+  ]
+}
