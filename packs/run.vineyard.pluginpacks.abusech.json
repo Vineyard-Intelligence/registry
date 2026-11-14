@@ -1,0 +1,27 @@
+{
+  "identifier": "run.vineyard.pluginpacks.abusech",
+  "content_type": "vineyard:pluginpack",
+  "name": "abuse.ch",
+  "author": "VINEYARD",
+  "summary": "abuse.ch lookups: MalwareBazaar samples, ThreatFox indicators with confidence and reporter, URLhaus distribution URLs and payloads, and SSLBL-listed C2 certificates. Needs a free abuse.ch Auth-Key (SSLBL does not). Desktop only.",
+  "repo": "Vineyard-Intelligence/pluginpack-abusech",
+  "ref": "435aa6fdfdc40e2c3e4804a1231f65ce37868000",
+  "path": "plugins/abusech.manifest.json",
+  "version": "1.0.0",
+  "platforms": [
+    "desktop",
+    "web"
+  ],
+  "scopes_summary": {
+    "network": true,
+    "graph_write": true,
+    "secret_config": true
+  },
+  "plugin_count": 4,
+  "icon": "biohazard",
+  "desktop_only": "all",
+  "typepacks": [
+    "run.vineyard.typepacks.infrastructure",
+    "run.vineyard.typepacks.threat"
+  ]
+}
