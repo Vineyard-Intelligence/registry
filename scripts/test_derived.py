@@ -49,6 +49,9 @@ def main():
     # The probe reaches an ARBITRARY host, so it is the broader egress, not a lesser one.
     assert derived(pack(member(web_probe={"purpose": "x"})), PACK)["scopes_summary"]["network"] is True
     assert derived(pack(member(network=[{"endpoint": "https://h"}])), PACK)["scopes_summary"]["network"] is True
+    # An address the analyst sets is a destination the card cannot name, not the absence of one.
+    configurable = member(network_configurable=[{"config_key": "u", "methods": []}], config=[{"key": "u", "type": "url"}])
+    assert derived(pack(configurable), PACK)["scopes_summary"]["network"] is True
     assert derived(pack(member()), PACK)["scopes_summary"]["network"] is False
 
     # --- the other two summary flags ------------------------------------------------------------

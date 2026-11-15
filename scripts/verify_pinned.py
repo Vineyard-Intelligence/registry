@@ -14,7 +14,9 @@ document at the pinned ref via the jsDelivr CDN and asserts:
     `type_count`. See derived() for the definition and for what it caught, and
   - the document states both of the pack's texts - `summary`, the card line the entry's own
     `summary` must equal, and `description`, the pack's page - within the caps the app reads them
-    under. See pack_text_problem(), and
+    under. See pack_text_problem(),
+  - every `network_configurable` scope reads a URL setting its own plugin declares, which is
+    the only kind the app grants anything for. See scope_problem(), and
   - the CODE the manifest points at - `platforms.web.entry`, a path inside the same
     pinned commit and never a URL or a path out of it - declares the same version and
     licence as the manifest does. See bundle_url() for the first half and
@@ -156,7 +158,9 @@ def derived(doc, content_type):
     `web_probe` counts as network. It is a SECOND egress shape - an anonymous cross-origin probe
     from the desktop main process - and it is broader than `network`, not narrower: `network`
     pins declared endpoints, `web_probe` reaches an arbitrary host. A pack holding it and showing
-    no network badge is the exact inversion of what the badge is for.
+    no network badge is the exact inversion of what the badge is for. `network_configurable`
+    counts for the same reason: its host is the analyst's to set, which is a destination the card
+    cannot name, not the absence of one.
 
     `platforms` is the union of DECLARED platform keys, which is what 13 of 15 packs already
     meant. Whether a pack is desktop-ONLY is a different question, answered by
@@ -196,7 +200,9 @@ def _derived_kind(doc, content_type):
             "thumbnail_url": thumbnail_rel(doc),
             "desktop_only": "all" if desktop == len(ms) else "some" if desktop else None,
             "scopes_summary": {
-                "network": any(s.get("network") or s.get("web_probe") for s in scopes),
+                "network": any(
+                    s.get("network") or s.get("network_configurable") or s.get("web_probe") for s in scopes
+                ),
                 "graph_write": any(
                     any(v.endswith(WRITE_VERBS) for v in (s.get("graph") or [])) for s in scopes
                 ),
@@ -268,6 +274,80 @@ def pack_text_problem(doc, content_type):
         return "description (the page) may hold newlines and tabs, and no other control characters"
     if units(page) > PAGE_MAX:
         return f"description (the page) is {units(page)} characters, over the {PAGE_MAX}-character limit"
+    return None
+
+
+CONFIG_KEY = re.compile(r"^[a-z0-9_]+$")
+SCHEMES = ("https", "http")
+# The verbs plugin.schema.json's configurableNetworkScope allows, spelled as the app compares them:
+# the host upper-cases the request's method and looks for it in this list exactly, so "post" is a
+# declaration that refuses every POST.
+METHODS = ("GET", "POST", "PUT", "PATCH", "DELETE")
+CONFIGURABLE_FIELDS = {"config_key", "methods", "purpose", "schemes"}
+
+
+def scope_problem(doc):
+    """What is wrong with a plugin's `network_configurable` scopes, or None.
+
+    The registry does not validate pinned documents against plugin.schema.json, and the app grants
+    nothing for a configurable scope that does not read a URL setting of its own manifest — so a
+    broken one passes review, installs, shows the analyst a line at the install gate, and then
+    refuses every request. Refused here instead, where the author can fix it:
+
+      - `config_key` must name a `scopes.config` entry of `type: "url"` in the SAME member. Another
+        member's setting, a string, or a secret typed as a string is not an address the settings
+        form shows as one, so the analyst never chose it.
+      - `schemes`, when present, is a non-empty list of `https` and `http`.
+      - `methods` is a list of distinct verbs from METHODS, in upper case. The app compares the
+        upper-cased request method against it exactly, so `["post"]` or `["OPTIONS"]` installs and
+        then refuses every request.
+      - No field but config_key, methods, purpose and schemes, as the schema's
+        `additionalProperties: false` says. A stray `endpoint` is ignored by the app, so an author
+        who wrote one believing it pins the host would be wrong about what the pack can reach.
+    """
+    for m in members(doc):
+        ident = m.get("identifier") or "<no id>"
+        scopes = m.get("scopes") or {}
+        entries = scopes.get("network_configurable")
+        if entries is None:
+            continue
+        if not isinstance(entries, list):
+            return f"{ident}: scopes.network_configurable must be a list"
+        urls = {
+            c.get("key") for c in (scopes.get("config") or []) if isinstance(c, dict) and c.get("type") == "url"
+        }
+        for e in entries:
+            if not isinstance(e, dict):
+                return f"{ident}: each scopes.network_configurable entry must be an object"
+            key = e.get("config_key")
+            if not isinstance(key, str) or not CONFIG_KEY.match(key):
+                return f"{ident}: network_configurable config_key {key!r} is not a config key (^[a-z0-9_]+$)"
+            if key not in urls:
+                return (
+                    f"{ident}: network_configurable reads '{key}', which this plugin's scopes.config does not "
+                    "declare with type \"url\" — the app would grant it nothing"
+                )
+            extra = sorted(set(e) - CONFIGURABLE_FIELDS)
+            if extra:
+                return (
+                    f"{ident}: network_configurable '{key}' has {', '.join(map(repr, extra))}, which the schema "
+                    "does not allow (config_key, methods, purpose, schemes)"
+                )
+            methods = e.get("methods")
+            if not isinstance(methods, list):
+                return f"{ident}: network_configurable '{key}' needs a methods list"
+            if any(not isinstance(v, str) or v not in METHODS for v in methods) or len(set(methods)) != len(methods):
+                return (
+                    f"{ident}: network_configurable '{key}' methods must be distinct verbs from "
+                    f"{', '.join(METHODS)}, in upper case — the app matches them exactly"
+                )
+            if "purpose" in e and not isinstance(e["purpose"], str):
+                return f"{ident}: network_configurable '{key}' purpose must be a string"
+            schemes = e.get("schemes")
+            if schemes is not None and (
+                not isinstance(schemes, list) or not schemes or any(s not in SCHEMES for s in schemes)
+            ):
+                return f"{ident}: network_configurable '{key}' schemes must be a non-empty list of https and http"
     return None
 
 
@@ -490,6 +570,9 @@ def main():
                 bad += 1
             elif text_err := pack_text_problem(doc, entry.get("content_type", "")):
                 print(f"::error file={src}::{ident}: {text_err} — fix the pack document and re-pin `ref`")
+                bad += 1
+            elif scope_err := scope_problem(doc):
+                print(f"::error file={src}::{ident}: {scope_err} — fix the pack document and re-pin `ref`")
                 bad += 1
             elif bundle_err := bundle_mismatch(doc, entry, f"https://cdn.jsdelivr.net/gh/{repo}@{ref}/", bundles):
                 # A different fix again, and only one: the manifest is what was reviewed, so the

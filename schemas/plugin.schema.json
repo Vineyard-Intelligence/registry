@@ -110,6 +110,11 @@
           "items": { "$ref": "#/$defs/networkScope" },
           "description": "External XHR targets. WEB: exactly ONE entry == platforms.web.proxy_endpoint (no fan-out). Desktop: more allowed, user's responsibility."
         },
+        "network_configurable": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/configurableNetworkScope" },
+          "description": "Endpoints whose address the ANALYST sets, for a server no manifest can name: a self-hosted MISP or OpenCTI, an organisation's own TIP. Each names a scopes.config key of type `url` in the same manifest (verify_pinned.py refuses one that does not); the value the analyst enters becomes an endpoint judged exactly like a `network` one, and until it is set the scope grants nothing. Backs ctx.net.fetch only: no credential of the analyst's is ever attached. Counts as network in scopes_summary."
+        },
         "services": {
           "type": "array",
           "uniqueItems": true,
@@ -163,6 +168,24 @@
         "endpoint": { "type": "string", "format": "uri", "description": "Exact origin/path prefix; no cross-host wildcards." },
         "methods": { "type": "array", "uniqueItems": true, "items": { "enum": ["GET", "POST", "PUT", "PATCH", "DELETE"] } },
         "purpose": { "type": "string", "description": "Shown at install time." }
+      }
+    },
+    "configurableNetworkScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["config_key", "methods"],
+      "properties": {
+        "config_key": { "type": "string", "pattern": "^[a-z0-9_]+$", "description": "A scopes.config key of type `url` in this manifest. Its value is the endpoint: origin plus an optional path prefix, with no user name, password, query or fragment." },
+        "methods": { "type": "array", "uniqueItems": true, "items": { "enum": ["GET", "POST", "PUT", "PATCH", "DELETE"] } },
+        "purpose": { "type": "string", "description": "Shown at install time." },
+        "schemes": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": { "enum": ["https", "http"] },
+          "default": ["https"],
+          "description": "Schemes the analyst's address may use. https only when omitted; list http too only for a server that cannot serve TLS, and the install gate says the traffic may be unencrypted."
+        }
       }
     },
     "configValue": {

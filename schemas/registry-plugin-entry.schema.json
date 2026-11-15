@@ -81,7 +81,7 @@
       "properties": {
         "network": {
           "type": "boolean",
-          "description": "true if scopes.network is non-empty OR the plugin declares web_probe - the probe reaches an arbitrary host, so it is the broader egress, not a lesser one. NOT set by scopes.services, which is its own field: a service call goes to a destination the host fixes, carrying the analyst's identity."
+          "description": "true if scopes.network or scopes.network_configurable is non-empty OR the plugin declares web_probe - the probe reaches an arbitrary host, so it is the broader egress, not a lesser one, and a configurable endpoint's host is the analyst's to set, a destination the card cannot name rather than the absence of one. NOT set by scopes.services, which is its own field: a service call goes to a destination the host fixes, carrying the analyst's identity."
         },
         "graph_write": {
           "type": "boolean",

@@ -175,6 +175,7 @@ All blocking — a pull request cannot merge until every one passes.
 | Pinned document is reachable, and its `identifier` / `content_type` / `version` match the entry | `verify_pinned.py` |
 | Every summary field the entry carries — `scopes_summary`, `platforms`, `plugin_count`, `desktop_only`, `icon`, `section_count`, `type_count` — equals what the pinned document implies | `verify_pinned.py` |
 | The plugin code module — `platforms.web.entry` of the pack and of each member — is a path inside the pinned commit, relative to the repo root: `/`-separated segments of ASCII letters, digits, `.`, `_` and `-`, none of them `.` or `..`, so no URL, leading `/`, backslash or `%`. The app refuses to run a pack whose entry does not resolve to such a path inside the pinned commit. The module there is reachable and declares the manifest's `version` and `license` for the pack and each member | `verify_pinned.py`, proven by `test_bundle_claims.py` |
+| Every `scopes.network_configurable` entry of the pack and of each member reads a `scopes.config` key of `type: "url"` declared by that same plugin, has a `methods` list of distinct upper-case verbs from `GET` `POST` `PUT` `PATCH` `DELETE`, lists only `https` and `http` in `schemes` when it has one, and has no field but `config_key`, `methods`, `purpose` and `schemes`. The app grants nothing for an entry that does not read such a setting, and matches methods exactly, so either would install and then refuse every request | `verify_pinned.py`, proven by `test_scopes.py` |
 | The pinned document has both `summary` and a non-empty `description` (its page), and the entry's `summary` equals the document's; the `summary` is one line of at most 250 characters, the page at most 16,000 with no control characters but newlines and tabs; a lone `vineyard:plugin` document is refused | `verify_pinned.py`, proven by `test_derived.py` |
 | Every `io` type reference resolves to a type a **published** Type Pack defines, names its real owner, and that Type Pack is listed in the entry's `typepacks` | `check_typerefs.py` |
 | A live pack declares no dependency on a delisted one, and a `status.replacement` names a live pack of the same kind | `validate.py` |
@@ -183,7 +184,10 @@ All blocking — a pull request cannot merge until every one passes.
 There is no automated static analysis of pack code. A reviewer reads the bundle and weighs: scope
 breadth against what the pack plausibly needs, `node:delete` usage, minified-only bundles,
 secret-looking `params` keys, an unbuildable `native`/`subprocess` runtime, and namespace
-ownership — a submission under a namespace you do not own is refused at review.
+ownership — a submission under a namespace you do not own is refused at review. A
+`network_configurable` scope reaches whatever server the analyst names, often one on their own
+network, so the reviewer also reads what the bundle sends there and whether anything it reads there
+leaves for a fixed `network` endpoint.
 
 ## 7. Delisting a pack
 

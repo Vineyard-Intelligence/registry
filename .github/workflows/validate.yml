@@ -111,6 +111,11 @@ jobs:
       # or a non-scalar identity field is rejected by a branch the live catalog never takes.
       - name: Type Pack document checks self-test
         run: python scripts/test_typerefs.py
+      # And the same for `network_configurable`. No published pack declares it yet, so the rule that
+      # its setting must be the plugin's own URL setting — the only kind the app grants anything for —
+      # is taken by no live entry, and dropping it from verify_pinned.py would leave CI green.
+      - name: Configurable network scope self-test
+        run: python scripts/test_scopes.py
       - name: Verify pinned commits (immutable SHA + document and bundle match)
         run: python scripts/verify_pinned.py
       # After the pins are proven, because this fetches the same documents and would otherwise
