@@ -1,0 +1,27 @@
+{
+  "identifier": "run.vineyard.pluginpacks.helius",
+  "content_type": "vineyard:pluginpack",
+  "name": "Helius",
+  "author": "VINEYARD",
+  "summary": "Solana through Helius: an address's SOL and SPL token transfers, token accounts included, the wallet that first funded it, and on paid plans Helius's identity labels. Needs a Helius API key; the free plan covers history and first funder.",
+  "repo": "Vineyard-Intelligence/pluginpack-helius",
+  "ref": "242278891a2eb17be99fac7590b1ad8053520578",
+  "path": "plugins/helius.manifest.json",
+  "version": "1.0.0",
+  "platforms": [
+    "desktop",
+    "web"
+  ],
+  "scopes_summary": {
+    "network": true,
+    "graph_write": true,
+    "secret_config": true
+  },
+  "plugin_count": 3,
+  "icon": "sun",
+  "typepacks": [
+    "run.vineyard.typepacks.cryptocurrency",
+    "run.vineyard.typepacks.financial",
+    "run.vineyard.typepacks.identity"
+  ]
+}
