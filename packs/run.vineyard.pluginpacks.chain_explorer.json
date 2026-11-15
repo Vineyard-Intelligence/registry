@@ -1,0 +1,25 @@
+{
+  "identifier": "run.vineyard.pluginpacks.chain_explorer",
+  "content_type": "vineyard:pluginpack",
+  "name": "Chain Explorer",
+  "author": "VINEYARD",
+  "summary": "Keyless blockchain lookups on fifteen networks: address history and counterparties, transactions, which network an address is on, TRON and XRP Ledger first funders, contracts and tokens, explorer labels and stablecoin freezes. No account or key.",
+  "repo": "Vineyard-Intelligence/pluginpack-chain-explorer",
+  "ref": "be62fe35fffdbb76bff93514b125b18dd4dbf0da",
+  "path": "plugins/chain-explorer.manifest.json",
+  "version": "1.0.0",
+  "platforms": [
+    "desktop",
+    "web"
+  ],
+  "scopes_summary": {
+    "network": true,
+    "graph_write": true,
+    "secret_config": false
+  },
+  "plugin_count": 7,
+  "icon": "waypoints",
+  "typepacks": [
+    "run.vineyard.typepacks.cryptocurrency"
+  ]
+}
