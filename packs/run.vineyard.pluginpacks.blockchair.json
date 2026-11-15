@@ -1,0 +1,25 @@
+{
+  "identifier": "run.vineyard.pluginpacks.blockchair",
+  "content_type": "vineyard:pluginpack",
+  "name": "Blockchair",
+  "author": "VINEYARD",
+  "summary": "Blockchair lookups for Bitcoin, Bitcoin Cash, Litecoin, Bitcoin SV, Dogecoin, Dash and Zcash: first and last use, balances, transactions with their inputs and outputs, and which chains an address was used on. Needs a Blockchair API key.",
+  "repo": "Vineyard-Intelligence/pluginpack-blockchair",
+  "ref": "daa99c4d3e8dd896402acb978b7ba6544c04eefb",
+  "path": "plugins/blockchair.manifest.json",
+  "version": "1.0.0",
+  "platforms": [
+    "desktop",
+    "web"
+  ],
+  "scopes_summary": {
+    "network": true,
+    "graph_write": true,
+    "secret_config": true
+  },
+  "plugin_count": 4,
+  "icon": "blocks",
+  "typepacks": [
+    "run.vineyard.typepacks.cryptocurrency"
+  ]
+}
