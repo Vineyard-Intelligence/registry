@@ -1,0 +1,26 @@
+{
+  "identifier": "run.vineyard.pluginpacks.blockscout_pro",
+  "content_type": "vineyard:pluginpack",
+  "name": "Blockscout PRO",
+  "author": "VINEYARD",
+  "summary": "EVM address history, details, first funders and transactions from the Blockscout PRO API: Ethereum, OP Mainnet, Arbitrum One and Ethereum Classic on the free plan, Base and Polygon PoS on a paid one. Desktop only.",
+  "repo": "Vineyard-Intelligence/pluginpack-blockscout-pro",
+  "ref": "2bfe466a82092eb71c600fb84b172ca82d72abb9",
+  "path": "plugins/blockscout-pro.manifest.json",
+  "version": "1.0.0",
+  "platforms": [
+    "desktop",
+    "web"
+  ],
+  "scopes_summary": {
+    "network": true,
+    "graph_write": true,
+    "secret_config": true
+  },
+  "plugin_count": 4,
+  "icon": "blocks",
+  "desktop_only": "all",
+  "typepacks": [
+    "run.vineyard.typepacks.cryptocurrency"
+  ]
+}
