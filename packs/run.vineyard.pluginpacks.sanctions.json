@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "summary": "Screens crypto addresses, people and organizations against OFAC's SDN list: exact address matches on each address's own network, and scored possible matches for names. The list is downloaded whole and matched on this device.",
   "repo": "Vineyard-Intelligence/pluginpack-sanctions",
-  "ref": "b461d69a5c7b7a6622bb4db4c2d8e474e51e34d1",
+  "ref": "e08cd7800dd061f8f5c65f6a2c4b701a9ba4c4ee",
   "path": "plugins/sanctions.manifest.json",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "platforms": [
     "desktop",
     "web"
@@ -21,7 +21,6 @@
   "icon": "shield-ban",
   "typepacks": [
     "run.vineyard.typepacks.cryptocurrency",
-    "run.vineyard.typepacks.financial",
     "run.vineyard.typepacks.identity"
   ]
 }
