@@ -22,6 +22,27 @@
     "verified": true
   },
   {
+    "identifier": "run.vineyard.skillpacks.crypto_flow_tracing",
+    "content_type": "vineyard:skillpack",
+    "name": "Crypto fund-flow tracing",
+    "author": "VINEYARD",
+    "summary": "Follow crypto funds from one address or transaction, hop by hop on the network it is really on, to the exchanges and issuers that can freeze them or name the account holder.",
+    "repo": "Vineyard-Intelligence/skillpack-crypto-flow-tracing",
+    "ref": "e78f72960d97b6111794f446acee20bf842254b2",
+    "path": "skillpacks/crypto-flow.skill.json",
+    "version": "1.0.0",
+    "applies_to": [
+      "cryptocurrency.crypto_address",
+      "cryptocurrency.crypto_transaction",
+      "financial.crypto_address"
+    ],
+    "section_count": 10,
+    "requires": [
+      "run.vineyard.pluginpacks.chain_explorer"
+    ],
+    "verified": true
+  },
+  {
     "identifier": "run.vineyard.skillpacks.infra_pivot",
     "content_type": "vineyard:skillpack",
     "name": "Infrastructure pivoting",

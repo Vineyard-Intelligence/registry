@@ -171,6 +171,15 @@
     "sha256": "c691ae93a7baba974a1932d89c85820b03bc81447c16fc84a5448e84b9f358f4"
   },
   {
+    "identifier": "run.vineyard.skillpacks.crypto_flow_tracing",
+    "repo": "Vineyard-Intelligence/skillpack-crypto-flow-tracing",
+    "ref": "e78f72960d97b6111794f446acee20bf842254b2",
+    "path": "skillpacks/crypto-flow.skill.json",
+    "version": "1.0.0",
+    "approved_at": "2026-11-16",
+    "sha256": "9ef046561a2803a0ab3c953e98c57d95d0bcc301e0df88808e6c1dc3e5870c9e"
+  },
+  {
     "identifier": "run.vineyard.skillpacks.infra_pivot",
     "repo": "Vineyard-Intelligence/skillpack-infrastructure-pivoting",
     "ref": "0a0bcadda8ed5b5029f45d07f722ec6a2734ef43",

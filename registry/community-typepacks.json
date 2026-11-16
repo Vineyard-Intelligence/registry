@@ -1,5 +1,22 @@
 [
   {
+    "identifier": "run.vineyard.typepacks.cryptocurrency",
+    "content_type": "vineyard:typepack",
+    "name": "Cryptocurrency",
+    "author": "VINEYARD",
+    "summary": "Cryptocurrency addresses, transactions, tokens and non-custodial services on every chain, identified by network as well as value: the same string on Bitcoin and Bitcoin Cash, or on Ethereum and BSC, is two nodes. Public identifiers only.",
+    "repo": "Vineyard-Intelligence/typepack-cryptocurrency",
+    "ref": "146ba78c972a2410ddf2ddfaf4fb07a5f60f76d5",
+    "path": "typepacks/cryptocurrency.json",
+    "version": "1.0.0",
+    "categories": [
+      "cryptocurrency"
+    ],
+    "type_count": 4,
+    "icon": "wallet",
+    "verified": true
+  },
+  {
     "identifier": "run.vineyard.typepacks.endpoint",
     "content_type": "vineyard:typepack",
     "name": "Endpoint",
@@ -21,11 +38,11 @@
     "content_type": "vineyard:typepack",
     "name": "Financial",
     "author": "VINEYARD",
-    "summary": "Follow-the-money entities: cryptocurrency addresses and transactions, exchanges, and bank accounts. Public identifiers only — no keys, PANs, or credentials.",
+    "summary": "Follow-the-money entities: bank accounts with their fraud-report status, exchanges and other virtual-asset service providers, and the legacy cryptocurrency address and transaction types. Public identifiers only — no keys, PANs, or credentials.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "b1aac60243f2d33ce83160537ed3905dacd10479",
+    "ref": "ce1779f271b838890d7539695279310dc732fcef",
     "path": "typepacks/financial.json",
-    "version": "1.1.1",
+    "version": "2.0.0",
     "categories": [
       "financial"
     ],
@@ -57,9 +74,9 @@
     "author": "VINEYARD",
     "summary": "People, organizations, and the identities that connect them - personas, email addresses, phone numbers, PGP keys, and the accounts they hold on websites.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "b1aac60243f2d33ce83160537ed3905dacd10479",
+    "ref": "6430f0265bfce491b08fef234a26da233204e171",
     "path": "typepacks/identity.json",
-    "version": "2.3.1",
+    "version": "2.5.0",
     "categories": [
       "identity"
     ],
@@ -74,9 +91,9 @@
     "author": "VINEYARD",
     "summary": "Network-infrastructure and web OSINT entities (IPs, domains, URLs, hosts, ASNs, netblocks, DNS/WHOIS records, TLS certificates, SSH host keys, technologies, web fingerprints and tracking/ad-account identifiers) and their relationships.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "b1aac60243f2d33ce83160537ed3905dacd10479",
+    "ref": "106566dd8b870d9a383cea0ebc10d92ba647d807",
     "path": "typepacks/infrastructure.json",
-    "version": "4.1.1",
+    "version": "4.3.1",
     "categories": [
       "infrastructure",
       "web"
@@ -126,9 +143,9 @@
     "author": "VINEYARD",
     "summary": "Threat-intelligence entities (malware, campaigns, operations, vulnerabilities, threat actors, indicators, attack patterns, tools, detection signatures) and their relationships, aligned with STIX 2.1.",
     "repo": "Vineyard-Intelligence/typepack-basic",
-    "ref": "b1aac60243f2d33ce83160537ed3905dacd10479",
+    "ref": "b80a59d9454c03b1093993b60edf4658a8594835",
     "path": "typepacks/threat.json",
-    "version": "1.5.1",
+    "version": "1.6.0",
     "categories": [
       "threat"
     ],

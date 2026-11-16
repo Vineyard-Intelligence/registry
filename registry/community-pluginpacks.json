@@ -1,14 +1,42 @@
 [
   {
+    "identifier": "run.vineyard.pluginpacks.abusech",
+    "content_type": "vineyard:pluginpack",
+    "name": "abuse.ch",
+    "author": "VINEYARD",
+    "summary": "abuse.ch lookups: MalwareBazaar samples, ThreatFox indicators with confidence and reporter, URLhaus distribution URLs and payloads, and SSLBL-listed C2 certificates. Needs a free abuse.ch Auth-Key (SSLBL does not). Desktop only.",
+    "repo": "Vineyard-Intelligence/pluginpack-abusech",
+    "ref": "435aa6fdfdc40e2c3e4804a1231f65ce37868000",
+    "path": "plugins/abusech.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": true
+    },
+    "plugin_count": 4,
+    "icon": "biohazard",
+    "desktop_only": "all",
+    "typepacks": [
+      "run.vineyard.typepacks.infrastructure",
+      "run.vineyard.typepacks.threat"
+    ],
+    "verified": true
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.ad_tags",
     "content_type": "vineyard:pluginpack",
     "name": "Ad Tags",
     "author": "VINEYARD",
     "summary": "Extracts advertising, analytics, affiliate and payment account identifiers from a site's markup and from its ads.txt and /.well-known/ files. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-ad-tags",
-    "ref": "1e4853580ba4201cb72d7ef8b24372be5e224db0",
+    "ref": "fe882d55773b435a16498dcb500e831b7ac9a768",
     "path": "plugins/ad-tags.manifest.json",
-    "version": "1.3.1",
+    "version": "1.4.0",
     "platforms": [
       "desktop",
       "web"
@@ -23,7 +51,61 @@
     "desktop_only": "all",
     "typepacks": [
       "run.vineyard.typepacks.infrastructure",
-      "run.vineyard.typepacks.identity"
+      "run.vineyard.typepacks.identity",
+      "run.vineyard.typepacks.cryptocurrency"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.blockchair",
+    "content_type": "vineyard:pluginpack",
+    "name": "Blockchair",
+    "author": "VINEYARD",
+    "summary": "Blockchair lookups for Bitcoin, Bitcoin Cash, Litecoin, Bitcoin SV, Dogecoin, Dash and Zcash: first and last use, balances, transactions with their inputs and outputs, and which chains an address was used on. Needs a Blockchair API key.",
+    "repo": "Vineyard-Intelligence/pluginpack-blockchair",
+    "ref": "daa99c4d3e8dd896402acb978b7ba6544c04eefb",
+    "path": "plugins/blockchair.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": true
+    },
+    "plugin_count": 4,
+    "icon": "blocks",
+    "typepacks": [
+      "run.vineyard.typepacks.cryptocurrency"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.blockscout_pro",
+    "content_type": "vineyard:pluginpack",
+    "name": "Blockscout PRO",
+    "author": "VINEYARD",
+    "summary": "EVM address history, details, first funders and transactions from the Blockscout PRO API: Ethereum, OP Mainnet, Arbitrum One and Ethereum Classic on the free plan, Base and Polygon PoS on a paid one. Desktop only.",
+    "repo": "Vineyard-Intelligence/pluginpack-blockscout-pro",
+    "ref": "2bfe466a82092eb71c600fb84b172ca82d72abb9",
+    "path": "plugins/blockscout-pro.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": true
+    },
+    "plugin_count": 4,
+    "icon": "blocks",
+    "desktop_only": "all",
+    "typepacks": [
+      "run.vineyard.typepacks.cryptocurrency"
     ],
     "verified": true
   },
@@ -59,9 +141,9 @@
     "author": "VINEYARD",
     "summary": "Censys lookups with your own token: certificates, SSH host keys and services an IP presents; hosts sharing a certificate or key; CenQL searches. Desktop only. Registered by the VINEYARD operator for academic research. It may be removed in the future.",
     "repo": "Vineyard-Intelligence/pluginpack-censys",
-    "ref": "88786a1a0235826bab8ef1dbfcb5c52ebffed4e4",
+    "ref": "01051061512f61421fe765a079198fa1561072f4",
     "path": "plugins/censys.manifest.json",
-    "version": "0.4.2",
+    "version": "0.5.0",
     "platforms": [
       "desktop",
       "web"
@@ -76,6 +158,32 @@
     "desktop_only": "all",
     "typepacks": [
       "run.vineyard.typepacks.infrastructure"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.chain_explorer",
+    "content_type": "vineyard:pluginpack",
+    "name": "Chain Explorer",
+    "author": "VINEYARD",
+    "summary": "Keyless blockchain lookups on fifteen networks: address history and counterparties, transactions, which network an address is on, TRON and XRP Ledger first funders, contracts and tokens, explorer labels and stablecoin freezes. No account or key.",
+    "repo": "Vineyard-Intelligence/pluginpack-chain-explorer",
+    "ref": "be62fe35fffdbb76bff93514b125b18dd4dbf0da",
+    "path": "plugins/chain-explorer.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 7,
+    "icon": "waypoints",
+    "typepacks": [
+      "run.vineyard.typepacks.cryptocurrency"
     ],
     "verified": true
   },
@@ -212,6 +320,61 @@
     "verified": true
   },
   {
+    "identifier": "run.vineyard.pluginpacks.helius",
+    "content_type": "vineyard:pluginpack",
+    "name": "Helius",
+    "author": "VINEYARD",
+    "summary": "Solana through Helius: an address's SOL and SPL token transfers, token accounts included, the wallet that first funded it, and on paid plans Helius's identity labels. Needs a Helius API key; the free plan covers history and first funder.",
+    "repo": "Vineyard-Intelligence/pluginpack-helius",
+    "ref": "242278891a2eb17be99fac7590b1ad8053520578",
+    "path": "plugins/helius.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": true
+    },
+    "plugin_count": 3,
+    "icon": "sun",
+    "typepacks": [
+      "run.vineyard.typepacks.cryptocurrency",
+      "run.vineyard.typepacks.financial",
+      "run.vineyard.typepacks.identity"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.host_artifacts",
+    "content_type": "vineyard:pluginpack",
+    "name": "Host Artifacts",
+    "author": "VINEYARD",
+    "summary": "Imports Sysmon and EDR process, network and DNS events from exports you pick, parsed locally, as processes linked to the addresses and domains they reached and the files they ran from.",
+    "repo": "Vineyard-Intelligence/pluginpack-host-artifacts",
+    "ref": "fd22e18e9b64e2b5de5169d0080e5c39ae55ed7f",
+    "path": "plugins/host-artifacts.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": false,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "icon": "cpu",
+    "typepacks": [
+      "run.vineyard.typepacks.endpoint",
+      "run.vineyard.typepacks.infrastructure"
+    ],
+    "verified": true
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.image_osint",
     "content_type": "vineyard:pluginpack",
     "name": "Image OSINT",
@@ -323,9 +486,9 @@
     "author": "VINEYARD",
     "summary": "Searches and reads lazarus.day (https://lazarus.day), the public DPRK indicator index by @lazarusholic (https://x.com/lazarusholic): keyword search stages matches as graph nodes, and exact-record lookup adds the reports naming them. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-lazarusday",
-    "ref": "1c3f4386d3c9e4792d4651251eb213240875f50b",
+    "ref": "a13590644879a821644f10b10714db8a5587cc44",
     "path": "plugins/lazarusday.manifest.json",
-    "version": "1.5.1",
+    "version": "1.6.0",
     "platforms": [
       "desktop",
       "web"
@@ -339,6 +502,7 @@
     "icon": "radar",
     "desktop_only": "all",
     "typepacks": [
+      "run.vineyard.typepacks.cryptocurrency",
       "run.vineyard.typepacks.financial",
       "run.vineyard.typepacks.identity",
       "run.vineyard.typepacks.infrastructure",
@@ -402,15 +566,69 @@
     "verified": true
   },
   {
+    "identifier": "run.vineyard.pluginpacks.phone_numbers",
+    "content_type": "vineyard:pluginpack",
+    "name": "Phone Numbers",
+    "author": "VINEYARD",
+    "summary": "Writes the E.164 form, country and line type (mobile, landline, VoIP, toll-free, UAN…) onto phone numbers from a bundled numbering plan, so differently written copies of one number can be matched. Works offline.",
+    "repo": "Vineyard-Intelligence/pluginpack-phone-numbers",
+    "ref": "436304ed1df2c63a92a411f240889451173e8e8a",
+    "path": "plugins/phone-numbers.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "web",
+      "desktop"
+    ],
+    "scopes_summary": {
+      "network": false,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "icon": "phone",
+    "typepacks": [
+      "run.vineyard.typepacks.identity"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.sanctions",
+    "content_type": "vineyard:pluginpack",
+    "name": "Sanctions Screening",
+    "author": "VINEYARD",
+    "summary": "Screens crypto addresses, people and organizations against OFAC's SDN list: exact address matches on each address's own network, and scored possible matches for names. The list is downloaded whole and matched on this device.",
+    "repo": "Vineyard-Intelligence/pluginpack-sanctions",
+    "ref": "b461d69a5c7b7a6622bb4db4c2d8e474e51e34d1",
+    "path": "plugins/sanctions.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "desktop",
+      "web"
+    ],
+    "scopes_summary": {
+      "network": true,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 2,
+    "icon": "shield-ban",
+    "typepacks": [
+      "run.vineyard.typepacks.cryptocurrency",
+      "run.vineyard.typepacks.financial",
+      "run.vineyard.typepacks.identity"
+    ],
+    "verified": true
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.shared_attribute_clustering",
     "content_type": "vineyard:pluginpack",
     "name": "Shared-Attribute Clustering",
     "author": "VINEYARD",
-    "summary": "Links infrastructure nodes that share a registrar, nameserver, ASN or TLS certificate, using data already in the graph.",
+    "summary": "Links infrastructure nodes that share a registrar, nameserver, ASN or TLS certificate, and favicons that look alike, using data already in the graph.",
     "repo": "Vineyard-Intelligence/pluginpack-shared-attribute-clustering",
-    "ref": "cbf0936c619409e1fa2ed151faa733e241f4ca23",
+    "ref": "d71119a6fd675d1e03376b7e7d380662ddc90ad2",
     "path": "plugins/shared-attribute-clustering.manifest.json",
-    "version": "1.2.1",
+    "version": "1.3.0",
     "platforms": [
       "web"
     ],
@@ -431,9 +649,9 @@
     "author": "VINEYARD",
     "summary": "Shodan REST API lookups: IP host details, host search and result counts, passive DNS, forward and reverse DNS, and API credit status. Needs your own Shodan API key; only Shodan Search spends query credits.",
     "repo": "Vineyard-Intelligence/pluginpack-shodan",
-    "ref": "e325d2fb595d69ddb13dd12e81f7a028be3eab04",
+    "ref": "3172d49a52265bf7b531c30320fd3797be58b33d",
     "path": "plugins/shodan.manifest.json",
-    "version": "2.3.1",
+    "version": "2.4.1",
     "platforms": [
       "web"
     ],
@@ -446,6 +664,36 @@
     "icon": "satellite-dish",
     "typepacks": [
       "run.vineyard.typepacks.geo",
+      "run.vineyard.typepacks.infrastructure",
+      "run.vineyard.typepacks.threat"
+    ],
+    "verified": true
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.stix_misp",
+    "content_type": "vineyard:pluginpack",
+    "name": "STIX & MISP Import",
+    "author": "VINEYARD",
+    "summary": "Imports STIX 2.1 bundles and MISP events from files, with their relationships and TLP. Parsed locally; nothing is uploaded.",
+    "repo": "Vineyard-Intelligence/pluginpack-stix-misp",
+    "ref": "46982b925926fdecae587d188180bd52abb27a21",
+    "path": "plugins/stix-misp.manifest.json",
+    "version": "1.0.0",
+    "platforms": [
+      "web"
+    ],
+    "scopes_summary": {
+      "network": false,
+      "graph_write": true,
+      "secret_config": false
+    },
+    "plugin_count": 1,
+    "icon": "file-json",
+    "typepacks": [
+      "run.vineyard.typepacks.cryptocurrency",
+      "run.vineyard.typepacks.endpoint",
+      "run.vineyard.typepacks.geo",
+      "run.vineyard.typepacks.identity",
       "run.vineyard.typepacks.infrastructure",
       "run.vineyard.typepacks.threat"
     ],
@@ -488,9 +736,9 @@
     "author": "VINEYARD",
     "summary": "VirusTotal v3 reports (IP, domain, URL, file) and pivots (passive DNS, subdomains), limited to what a free community API key can read. Needs the analyst's own VirusTotal API key; a community key allows 240 requests/hour and 500/day. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
-    "ref": "4da061a159fec6c09998a5ccfd8d4dafb07f8ee0",
+    "ref": "94490fc6f187307fe14aed186f14158287304c1d",
     "path": "plugins/virustotal-community.manifest.json",
-    "version": "1.6.1",
+    "version": "1.7.0",
     "platforms": [
       "desktop",
       "web"
@@ -516,9 +764,9 @@
     "author": "VINEYARD",
     "summary": "VirusTotal Premium pivots: port data/history, historical certs, WHOIS history, host files/URLs, file IOCs, relatives and sandbox behaviour, and Intelligence search from keys, certs, WHOIS, strings or similar files. Needs a Premium key. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
-    "ref": "2c0ca4c1bd8242e6baecffa78e711198de0f33d6",
+    "ref": "149fc54fce04b393c27897fd8d0dafba0c111a51",
     "path": "plugins/virustotal-premium.manifest.json",
-    "version": "0.3.1",
+    "version": "0.4.1",
     "platforms": [
       "desktop",
       "web"
