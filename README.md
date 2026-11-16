@@ -51,9 +51,10 @@ jsDelivr CDN, e.g. `https://cdn.jsdelivr.net/gh/{repo}@{ref}/{path}`. Nothing is
   one that exists only in a fork is refused.
   CI (`.github/workflows/validate.yml`) validates each entry against `schemas/registry-*-entry.schema.json`,
   checks that the pinned commit belongs to `repo`, re-fetches the pinned commit
-  (`scripts/verify_pinned.py`) to confirm the document there matches the entry's identity and
-  that the plugin code it names lives in the same commit, and resolves every type reference and
-  declared dependency against the catalog (`scripts/check_typerefs.py`).
+  (`scripts/verify_pinned.py`) to confirm the document there matches the entry's identity, that
+  every plugin in it carries a plugin identifier, and that the plugin code it names lives in the
+  same commit, and resolves every type reference and declared dependency against the catalog
+  (`scripts/check_typerefs.py`).
 
 - **Take a pack down** → PR here, adding a `status` block to its `packs/` file. The row **stays**:
   deleting it only hides the pack from browse, and projects that already installed it keep running

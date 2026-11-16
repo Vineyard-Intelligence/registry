@@ -8,6 +8,9 @@ document at the pinned ref via the jsDelivr CDN and asserts:
   - the document is reachable (HTTP 200) and valid JSON,
   - its `identifier` equals the entry's identifier,
   - its `content_type` equals the entry's content_type,
+  - every identifier a plugin or plugin pack document carries - the pack's own and each
+    member's - has the shape its schema gives it, and none is an id the app's own writers stage
+    under. See identifier_problem(),
   - its `version` equals the entry's version,
   - every SUMMARY field the entry carries is what the document actually implies:
     `scopes_summary`, `platforms`, `plugin_count`, `desktop_only`, `icon`, `section_count`,
@@ -351,6 +354,80 @@ def scope_problem(doc):
     return None
 
 
+# --- the identifiers a pack's plugins run under -----------------------------------------------------
+#
+# A plugin's identifier is the name the app stages its writes under, and the app tells its own writers
+# from a plugin by that id alone. A member that declared the AI agent's id was handed the agent's
+# bridge, merge staging with it, and one named after the value menu's writer had every link it drew
+# recorded as the analyst's, which keeps later collectors from relabelling it. The schemas forbid both
+# by shape (a plugin's id is `<reverse-DNS>.plugins.<name>`, a pack's `<reverse-DNS>.pluginpacks.<name>`),
+# but this registry validates its ENTRIES against the schemas and never the documents they pin. The
+# members are not in the entry at all, and the entry's own pattern admits either kind segment, so a
+# member's id was checked by nothing here, and a pack could be listed under a plugin's. The app now
+# refuses such a document whole (frontend plugins/plugin-id.ts); refused here too, where the author
+# can fix it before it is listed.
+#
+# The patterns are read out of the schemas, as check_identifiers.py reads them, so this cannot drift
+# from the rule it enforces. The writers' ids are refused by name as well: none has a `plugins` segment,
+# and they stay refused if a pattern is ever loosened.
+RESERVED_WRITER_IDS = {
+    "run.vineyard.agent": "the AI agent",
+    "run.vineyard.merge": "a merge",
+    "run.vineyard.retest": "a re-verification",
+    "run.vineyard.value": "the value menu's New node",
+}
+
+
+def schema_pattern(rel, *path):
+    """The compiled `pattern` at `path` inside schemas/`rel`."""
+    node = load(f"schemas/{rel}")
+    for key in path:
+        node = node[key]
+    return re.compile(node["pattern"])
+
+
+PLUGIN_ID = schema_pattern("plugin.schema.json", "properties", "identifier")
+MEMBER_ID = schema_pattern("pluginpack.schema.json", "$defs", "member", "properties", "identifier")
+PLUGINPACK_ID = schema_pattern("pluginpack.schema.json", "properties", "identifier")
+
+
+def _id_refusal(ident, pattern, noun, shape):
+    """Why `ident` may not be used as a `noun`'s identifier, or None."""
+    if isinstance(ident, str) and ident in RESERVED_WRITER_IDS:
+        return (f"{json.dumps(ident)} is the identifier one of the app's own writers stages under "
+                f"({RESERVED_WRITER_IDS[ident]}), not a {noun}'s")
+    # fullmatch, not match: Python's `$` also matches before a trailing newline, and the app's does not.
+    if not isinstance(ident, str) or not pattern.fullmatch(ident):
+        return f"{json.dumps(ident)} is not a {noun} identifier ({shape})"
+    return None
+
+
+def identifier_problem(doc, content_type):
+    """Why an identifier in a plugin or plugin pack document may not be used, or None.
+
+    What the app holds a loaded document to before it uses any of it: a pack's own identifier to the
+    pack pattern and each member's to the member pattern, a lone plugin document's to the plugin
+    pattern. Any other kind names no plugin and is not asked.
+    """
+    if content_type == "vineyard:plugin":
+        return _id_refusal(doc.get("identifier"), PLUGIN_ID, "plugin", "<reverse-DNS>.plugins.<name>")
+    if content_type != "vineyard:pluginpack":
+        return None
+    own = _id_refusal(doc.get("identifier"), PLUGINPACK_ID, "plugin pack", "<reverse-DNS>.pluginpacks.<name>")
+    if own:
+        return own
+    plugins = doc.get("plugins") or []
+    if not isinstance(plugins, list):
+        return "plugins must be a list of the pack's members"
+    for m in plugins:
+        why = _id_refusal(
+            m.get("identifier") if isinstance(m, dict) else None, MEMBER_ID, "plugin", "<reverse-DNS>.plugins.<name>"
+        )
+        if why:
+            return f"member {why}"
+    return None
+
+
 def claim_mismatch(doc, entry):
     """The first way the fetched document contradicts what the entry advertises, or None.
 
@@ -558,6 +635,12 @@ def main():
                 bad += 1
             elif doc.get("content_type") != entry.get("content_type"):
                 print(f"::error file={src}::{ident}: pinned doc content_type '{doc.get('content_type')}' != entry '{entry.get('content_type')}'")
+                bad += 1
+            elif id_err := identifier_problem(doc, entry.get("content_type", "")):
+                print(
+                    f"::error file={src}::{ident}: {id_err} — the app loads none of a pack that has one;"
+                    " fix the pack document and re-pin `ref`"
+                )
                 bad += 1
             elif claim_mismatch(doc, entry):
                 # Two different fixes, so do not prescribe one: a version/count mismatch usually

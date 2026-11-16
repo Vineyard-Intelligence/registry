@@ -116,6 +116,12 @@ jobs:
       # is taken by no live entry, and dropping it from verify_pinned.py would leave CI green.
       - name: Configurable network scope self-test
         run: python scripts/test_scopes.py
+      # And the same for plugin identifiers. Every published member is `run.vineyard.plugins.*` and
+      # every pack `*.pluginpacks.*`, so the live catalog never takes the refusing branch: a member
+      # named as one of the app's own writers, which the app would hand that writer's bridge or the
+      # analyst's stamp, or a pack listed under a plugin's id, exists nowhere but this file.
+      - name: Plugin identifier self-test
+        run: python scripts/test_plugin_ids.py
       - name: Verify pinned commits (immutable SHA + document and bundle match)
         run: python scripts/verify_pinned.py
       # After the pins are proven, because this fetches the same documents and would otherwise
