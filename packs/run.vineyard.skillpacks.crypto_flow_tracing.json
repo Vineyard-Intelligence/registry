@@ -18,5 +18,10 @@
   "section_count": 17,
   "requires": [
     "run.vineyard.pluginpacks.chain_explorer"
-  ]
+  ],
+  "status": {
+    "state": "withdrawn",
+    "reason": "Withdrawn at the operator's request while its content is reviewed. It will be re-listed when the review is complete.",
+    "since": "2026-11-19"
+  }
 }
