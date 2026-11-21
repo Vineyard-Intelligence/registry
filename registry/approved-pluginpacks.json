@@ -2976,6 +2976,18 @@
     }
   },
   {
+    "identifier": "run.vineyard.pluginpacks.lazarusday",
+    "repo": "Vineyard-Intelligence/pluginpack-lazarusday",
+    "ref": "205f7cda6505b6ff63217031aa62aff3e69be39e",
+    "path": "plugins/lazarusday.manifest.json",
+    "version": "1.7.0",
+    "approved_at": "2026-11-17",
+    "sha256": "079215e36844ef19d6e736cbe6131f0bae089be5bbc5a1a044f6de658592088c",
+    "bundle_sha256": {
+      "dist/pack.mjs": "99537c4c67c3334a19e11f6ece49cca2b3bb4a7dcd967d9b9a45ed833a4a4181"
+    }
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.otx",
     "repo": "Vineyard-Intelligence/pluginpack-otx",
     "ref": "0f7237e0d44804aa4d851cd188795ba8ee8b471a",
@@ -3429,6 +3441,18 @@
     "sha256": "7c42f72e14b51df5318bf8bf3869d39e8a9ba3d4e4410c62afe51969a7e0749d",
     "bundle_sha256": {
       "dist/pack.mjs": "23fae0e5907559f8897b57c1e5c300a756c81111e353ecd6d22831e314a0c881"
+    }
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.sanctions",
+    "repo": "Vineyard-Intelligence/pluginpack-sanctions",
+    "ref": "e08cd7800dd061f8f5c65f6a2c4b701a9ba4c4ee",
+    "path": "plugins/sanctions.manifest.json",
+    "version": "1.1.0",
+    "approved_at": "2026-11-17",
+    "sha256": "7b58f5603b486d26093fd0785e34cfaf796dbbd63eb1cc781ce4ed423ce93f2d",
+    "bundle_sha256": {
+      "dist/pack.mjs": "1d96fe1c78e75e76128e6473b1762e9cca0b75c64396b4c86b1fb633806b6f1c"
     }
   },
   {

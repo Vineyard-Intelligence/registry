@@ -171,6 +171,15 @@
     "sha256": "f39bfd3cd68f61f8385d8d98cdde60b902de77de5879adad3d7604aa43b6d45a"
   },
   {
+    "identifier": "run.vineyard.typepacks.financial",
+    "repo": "Vineyard-Intelligence/typepack-basic",
+    "ref": "7452c60238c5ca8b892a40b93d0d45b244d817c5",
+    "path": "typepacks/financial.json",
+    "version": "3.0.0",
+    "approved_at": "2026-11-17",
+    "sha256": "32685f2d61fdb9f95c815f7486cc4b14786b18a1b96d1bd9aa87d596b841b6f3"
+  },
+  {
     "identifier": "run.vineyard.typepacks.geo",
     "repo": "Vineyard-Intelligence/typepack-basic",
     "ref": "e1e48d0cb8c86ab763934e98fccf882f253c14a2",
