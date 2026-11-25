@@ -141,9 +141,9 @@
     "author": "VINEYARD",
     "summary": "Censys lookups with your own token: certificates, SSH host keys and services an IP presents; hosts sharing a certificate or key; CenQL searches. Desktop only. Registered by the VINEYARD operator for academic research. It may be removed in the future.",
     "repo": "Vineyard-Intelligence/pluginpack-censys",
-    "ref": "01051061512f61421fe765a079198fa1561072f4",
+    "ref": "83987a44defa88294118fdf47dbb5b2771131d1f",
     "path": "plugins/censys.manifest.json",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "platforms": [
       "desktop",
       "web"
@@ -647,9 +647,9 @@
     "author": "VINEYARD",
     "summary": "Shodan REST API lookups: IP host details, host search and result counts, passive DNS, forward and reverse DNS, and API credit status. Needs your own Shodan API key; only Shodan Search spends query credits.",
     "repo": "Vineyard-Intelligence/pluginpack-shodan",
-    "ref": "3172d49a52265bf7b531c30320fd3797be58b33d",
+    "ref": "91a85b04a9df95f8271ece08a168e41f8a5e193c",
     "path": "plugins/shodan.manifest.json",
-    "version": "2.4.1",
+    "version": "2.5.0",
     "platforms": [
       "web"
     ],

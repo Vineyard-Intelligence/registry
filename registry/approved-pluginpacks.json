@@ -816,6 +816,18 @@
     }
   },
   {
+    "identifier": "run.vineyard.pluginpacks.censys",
+    "repo": "Vineyard-Intelligence/pluginpack-censys",
+    "ref": "83987a44defa88294118fdf47dbb5b2771131d1f",
+    "path": "plugins/censys.manifest.json",
+    "version": "0.6.0",
+    "approved_at": "2026-11-25",
+    "sha256": "f41a14d79f999132db9733704dd6ee26d8710a082844bdc008bd7e3532402e3b",
+    "bundle_sha256": {
+      "dist/pack.mjs": "405bd51eba6e693fe091987f9ccd055575924438e28699abecad29b778d7dfab"
+    }
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.chain_explorer",
     "repo": "Vineyard-Intelligence/pluginpack-chain-explorer",
     "ref": "be62fe35fffdbb76bff93514b125b18dd4dbf0da",
@@ -3753,6 +3765,18 @@
     "sha256": "0a8bbda731c2c540f6356cb70478094cba48f52d566b8dea5c09f7ee9728a5f5",
     "bundle_sha256": {
       "dist/pack.mjs": "9d5f26169d90b6abc54f515c041eadeb6bef875f087d114b7e38c8758f89e60b"
+    }
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.shodan",
+    "repo": "Vineyard-Intelligence/pluginpack-shodan",
+    "ref": "91a85b04a9df95f8271ece08a168e41f8a5e193c",
+    "path": "plugins/shodan.manifest.json",
+    "version": "2.5.0",
+    "approved_at": "2026-11-25",
+    "sha256": "e2be20c8201818e00e19d8972dd5faf924194c9cefb241ecefa6304dac11493e",
+    "bundle_sha256": {
+      "dist/pack.mjs": "dca2e9780b804174f5f5fac4b2b189e7341dc1859fd0fdf4f1810b38df1f92b6"
     }
   },
   {
