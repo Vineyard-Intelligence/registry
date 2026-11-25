@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "summary": "abuse.ch lookups: MalwareBazaar samples, ThreatFox indicators with confidence and reporter, URLhaus distribution URLs and payloads, and SSLBL-listed C2 certificates. Needs a free abuse.ch Auth-Key (SSLBL does not). Desktop only.",
   "repo": "Vineyard-Intelligence/pluginpack-abusech",
-  "ref": "85cdbce5a77074c668bff6d0c3135cd1e5a7076c",
+  "ref": "2c5ab665399deb2705c697d0d12e4a39afaaa1a8",
   "path": "plugins/abusech.manifest.json",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "platforms": [
     "desktop",
     "web"

@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "summary": "Enriches Domain nodes with DNS records (A, AAAA, CNAME, MX, NS, TXT, CAA), RDAP registration data, and Certificate Transparency subdomains from crt.sh and crt.name (desktop only).",
   "repo": "Vineyard-Intelligence/pluginpack-domain-recon",
-  "ref": "c4f81bde08d9c08a7580a3cd075340f399d035d3",
+  "ref": "2778d9a1b8f364726566efc60c1019273c92f4cb",
   "path": "plugins/domain-recon.manifest.json",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "platforms": [
     "desktop",
     "web"

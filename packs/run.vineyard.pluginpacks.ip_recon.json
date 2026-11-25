@@ -5,9 +5,9 @@
   "author": "VINEYARD",
   "summary": "Enriches IP Address nodes with RDAP allocation, Shodan InternetDB open ports/CVEs/hostnames/tags, and geolocation.",
   "repo": "Vineyard-Intelligence/pluginpack-ip-recon",
-  "ref": "667414409deb06efcd8f08be343f2817b7356936",
+  "ref": "277fd4b30c129435cd02143cb5164ad759e5b291",
   "path": "plugins/ip-recon.manifest.json",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "platforms": [
     "web"
   ],
