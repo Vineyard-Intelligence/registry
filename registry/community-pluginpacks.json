@@ -6,9 +6,9 @@
     "author": "VINEYARD",
     "summary": "abuse.ch lookups: MalwareBazaar samples, ThreatFox indicators with confidence and reporter, URLhaus distribution URLs and payloads, and SSLBL-listed C2 certificates. Needs a free abuse.ch Auth-Key (SSLBL does not). Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-abusech",
-    "ref": "435aa6fdfdc40e2c3e4804a1231f65ce37868000",
+    "ref": "85cdbce5a77074c668bff6d0c3135cd1e5a7076c",
     "path": "plugins/abusech.manifest.json",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "platforms": [
       "desktop",
       "web"
@@ -243,9 +243,9 @@
     "author": "VINEYARD",
     "summary": "Enriches Domain nodes with DNS records (A, AAAA, CNAME, MX, NS, TXT, CAA), RDAP registration data, and Certificate Transparency subdomains from crt.sh and crt.name (desktop only).",
     "repo": "Vineyard-Intelligence/pluginpack-domain-recon",
-    "ref": "b0697a4ee4b8fa1bf86f9be827cf75c5238b4ac7",
+    "ref": "c4f81bde08d9c08a7580a3cd075340f399d035d3",
     "path": "plugins/domain-recon.manifest.json",
-    "version": "2.2.1",
+    "version": "2.3.0",
     "platforms": [
       "desktop",
       "web"
@@ -434,9 +434,9 @@
     "author": "VINEYARD",
     "summary": "Enriches IP Address nodes with RDAP allocation, Shodan InternetDB open ports/CVEs/hostnames/tags, and geolocation.",
     "repo": "Vineyard-Intelligence/pluginpack-ip-recon",
-    "ref": "c184102be050c77642be6c90994cf66b9517285e",
+    "ref": "667414409deb06efcd8f08be343f2817b7356936",
     "path": "plugins/ip-recon.manifest.json",
-    "version": "2.1.1",
+    "version": "2.2.0",
     "platforms": [
       "web"
     ],
@@ -517,9 +517,9 @@
     "author": "VINEYARD",
     "summary": "Looks up selected indicators in AlienVault OTX: the threat reports (\"pulses\") that name them, and passive DNS history. Requires a free OTX API key.",
     "repo": "Vineyard-Intelligence/pluginpack-otx",
-    "ref": "f6e7b4ef2414733332218d91c4e98790a6f8ab8c",
+    "ref": "0688f9415c0927232abd69223707adee29713dd3",
     "path": "plugins/otx.manifest.json",
-    "version": "1.3.1",
+    "version": "1.4.0",
     "platforms": [
       "web",
       "desktop"
@@ -734,9 +734,9 @@
     "author": "VINEYARD",
     "summary": "VirusTotal v3 reports (IP, domain, URL, file) and pivots (passive DNS, subdomains), limited to what a free community API key can read. Needs the analyst's own VirusTotal API key; a community key allows 240 requests/hour and 500/day. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
-    "ref": "94490fc6f187307fe14aed186f14158287304c1d",
+    "ref": "e8d97dc4a1e8f3d478a930c5036c17aed56ee24e",
     "path": "plugins/virustotal-community.manifest.json",
-    "version": "1.7.0",
+    "version": "1.8.0",
     "platforms": [
       "desktop",
       "web"
@@ -762,9 +762,9 @@
     "author": "VINEYARD",
     "summary": "VirusTotal Premium pivots: port data/history, historical certs, WHOIS history, host files/URLs, file IOCs, relatives and sandbox behaviour, and Intelligence search from keys, certs, WHOIS, strings or similar files. Needs a Premium key. Desktop only.",
     "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
-    "ref": "149fc54fce04b393c27897fd8d0dafba0c111a51",
+    "ref": "a4d2043f6a15b715f5a0dbd150f84f9193a7817b",
     "path": "plugins/virustotal-premium.manifest.json",
-    "version": "0.4.1",
+    "version": "0.5.0",
     "platforms": [
       "desktop",
       "web"

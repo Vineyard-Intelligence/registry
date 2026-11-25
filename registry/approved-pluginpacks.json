@@ -12,6 +12,18 @@
     }
   },
   {
+    "identifier": "run.vineyard.pluginpacks.abusech",
+    "repo": "Vineyard-Intelligence/pluginpack-abusech",
+    "ref": "85cdbce5a77074c668bff6d0c3135cd1e5a7076c",
+    "path": "plugins/abusech.manifest.json",
+    "version": "1.1.0",
+    "approved_at": "2026-11-25",
+    "sha256": "285b5430cdbf008121e2b6eb21357fdf37c574c4a8bafd0c1f0ae7e79355a7f2",
+    "bundle_sha256": {
+      "dist/pack.mjs": "339ae0f85596971947723d2f93af72c8bba4586e383730cce1d68efbbc94ca44"
+    }
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.ad_tags",
     "repo": "Vineyard-Intelligence/pluginpack-ad-tags",
     "ref": "bb18b68471fd37dbe0143019aac27ca2c01c1bc9",
@@ -1440,6 +1452,18 @@
     }
   },
   {
+    "identifier": "run.vineyard.pluginpacks.domain_recon",
+    "repo": "Vineyard-Intelligence/pluginpack-domain-recon",
+    "ref": "c4f81bde08d9c08a7580a3cd075340f399d035d3",
+    "path": "plugins/domain-recon.manifest.json",
+    "version": "2.3.0",
+    "approved_at": "2026-11-25",
+    "sha256": "61b8e5736ca4866a37364263e03d2462485fd20da874540d6b4a338c754c1f1c",
+    "bundle_sha256": {
+      "dist/pack.mjs": "fbab7e426d2a462da92cfcc6208e42474e832af171748f305cc957e64c78d6ef"
+    }
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.github",
     "repo": "Vineyard-Intelligence/pluginpack-github",
     "ref": "82ed3eccd6306efef5d5586dce5f9bd9cc7c75a9",
@@ -2400,6 +2424,18 @@
     }
   },
   {
+    "identifier": "run.vineyard.pluginpacks.ip_recon",
+    "repo": "Vineyard-Intelligence/pluginpack-ip-recon",
+    "ref": "667414409deb06efcd8f08be343f2817b7356936",
+    "path": "plugins/ip-recon.manifest.json",
+    "version": "2.2.0",
+    "approved_at": "2026-11-25",
+    "sha256": "4f6a4008d46385a29907e1defdeab6e095461f6ba69a9f0aa976616d68edbecd",
+    "bundle_sha256": {
+      "dist/pack.mjs": "5e54e992249c501b4106c959e7d6594a93178185c268acbfc6d628b4fd0febd2"
+    }
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.iptoasn_cymru_doh",
     "repo": "Vineyard-Intelligence/pluginpack-iptoasn-cymru-doh",
     "ref": "2bb9d070d8001fcb4ca044e9df237299c6e9fc6a",
@@ -3225,6 +3261,18 @@
     "sha256": "eb1f7ab821a14b7686ad57fa141e289dc8683e686a4ade297ec67b673674ffd1",
     "bundle_sha256": {
       "dist/pack.mjs": "36c4d96b5a4beb34326ee206bd742aa7234312b7e90229b1f3bcf81471babd07"
+    }
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.otx",
+    "repo": "Vineyard-Intelligence/pluginpack-otx",
+    "ref": "0688f9415c0927232abd69223707adee29713dd3",
+    "path": "plugins/otx.manifest.json",
+    "version": "1.4.0",
+    "approved_at": "2026-11-25",
+    "sha256": "3e99fd740422e4f94ea9211968fb5483102e842594b8fadcc0578c8adb2b244a",
+    "bundle_sha256": {
+      "dist/pack.mjs": "a04f1165d18569888bb2be7441209436b77b62d67d5dfdfd8022b04964a1ebac"
     }
   },
   {
@@ -4376,6 +4424,18 @@
     }
   },
   {
+    "identifier": "run.vineyard.pluginpacks.virustotal_community",
+    "repo": "Vineyard-Intelligence/pluginpack-virustotal-community",
+    "ref": "e8d97dc4a1e8f3d478a930c5036c17aed56ee24e",
+    "path": "plugins/virustotal-community.manifest.json",
+    "version": "1.8.0",
+    "approved_at": "2026-11-25",
+    "sha256": "6d7dea6e082c47d64eacc88d984cffe95bdf4890c71eca803a0e31afd7020e66",
+    "bundle_sha256": {
+      "dist/pack.mjs": "e8030574cfbaacd04c663d78022324523fecaabf6cddd972f8cf6b5530183834"
+    }
+  },
+  {
     "identifier": "run.vineyard.pluginpacks.virustotal_premium",
     "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
     "ref": "07f5fb96b4dabcc482ed219090e161a0d8ed2a2e",
@@ -4541,6 +4601,18 @@
     "sha256": "3eb1e6b884b09a3d7f317eafa21a00dd9333c296f6bd2f8a8f1ab151fbf596b9",
     "bundle_sha256": {
       "dist/pack.mjs": "80cfe690b5dc2a03ca59bdeb10aa0114f99133e5c10d16a67a324e0438d3e930"
+    }
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.virustotal_premium",
+    "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
+    "ref": "a4d2043f6a15b715f5a0dbd150f84f9193a7817b",
+    "path": "plugins/virustotal-premium.manifest.json",
+    "version": "0.5.0",
+    "approved_at": "2026-11-25",
+    "sha256": "af199561ce4e2eec85d6e91141e48148768463d885a571e472a181fc769b2d16",
+    "bundle_sha256": {
+      "dist/pack.mjs": "5be1054b61ee6b7152a120b772330f3f3118bfc56e7ddb8ca59dbcf832f0bf52"
     }
   },
   {
