@@ -830,6 +830,18 @@
   {
     "identifier": "run.vineyard.pluginpacks.censys",
     "repo": "Vineyard-Intelligence/pluginpack-censys",
+    "ref": "5e3fb25ab7bc0f7c317332b2c5f45c04f78ed0d6",
+    "path": "plugins/censys.manifest.json",
+    "version": "0.8.0",
+    "approved_at": "2026-11-25",
+    "sha256": "f69ceea0e2d8ab1d96b0f9c60f077865bb4272c5e4817eb8926f3787b2495097",
+    "bundle_sha256": {
+      "dist/pack.mjs": "4cf150c36b607e9a5457d89a849944161eca3d2833dbd39fe2d2abc2cf1dfcba"
+    }
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.censys",
+    "repo": "Vineyard-Intelligence/pluginpack-censys",
     "ref": "83987a44defa88294118fdf47dbb5b2771131d1f",
     "path": "plugins/censys.manifest.json",
     "version": "0.6.0",
@@ -3818,6 +3830,18 @@
   {
     "identifier": "run.vineyard.pluginpacks.shodan",
     "repo": "Vineyard-Intelligence/pluginpack-shodan",
+    "ref": "170562d2144ff1b98b437e6ea6be8ee218ec1845",
+    "path": "plugins/shodan.manifest.json",
+    "version": "2.7.0",
+    "approved_at": "2026-11-25",
+    "sha256": "e03e7e2c477fcfa00615e801b11d68b8fe04f3f40ebed7c6d0f4188677b4c60c",
+    "bundle_sha256": {
+      "dist/pack.mjs": "9b13907a8c90251ab34139c95472c5437b3d2e55f9994e355447c39646b36f67"
+    }
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.shodan",
+    "repo": "Vineyard-Intelligence/pluginpack-shodan",
     "ref": "91a85b04a9df95f8271ece08a168e41f8a5e193c",
     "path": "plugins/shodan.manifest.json",
     "version": "2.5.0",
@@ -4601,6 +4625,18 @@
     "sha256": "3eb1e6b884b09a3d7f317eafa21a00dd9333c296f6bd2f8a8f1ab151fbf596b9",
     "bundle_sha256": {
       "dist/pack.mjs": "80cfe690b5dc2a03ca59bdeb10aa0114f99133e5c10d16a67a324e0438d3e930"
+    }
+  },
+  {
+    "identifier": "run.vineyard.pluginpacks.virustotal_premium",
+    "repo": "Vineyard-Intelligence/pluginpack-virustotal-premium",
+    "ref": "8a0f865335fd88baf3d77b669b505db4ded3424d",
+    "path": "plugins/virustotal-premium.manifest.json",
+    "version": "0.6.0",
+    "approved_at": "2026-11-25",
+    "sha256": "be751ea24f2591f835409eff22ec9e621079fd41b38d82c7104e7c73270025c3",
+    "bundle_sha256": {
+      "dist/pack.mjs": "78c171e7be39db5509fbb708b9a1d63a9828a63304779236416c116d0f6135c6"
     }
   },
   {
